@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <nav className="bg-gray-800 p-4">
+    <nav className="bg-white p-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <span className="font-semibold text-xl">Logo</span>

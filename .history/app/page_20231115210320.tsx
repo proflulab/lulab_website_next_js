@@ -33,7 +33,7 @@ export default function Home() {
                 href="#"
                 className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
               >
-                Clubs
+                About
               </a>
             </li>
             <li>
@@ -41,7 +41,15 @@ export default function Home() {
                 href="#"
                 className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
               >
-                About
+                Services
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded"
+              >
+                Contact
               </a>
             </li>
           </ul>
