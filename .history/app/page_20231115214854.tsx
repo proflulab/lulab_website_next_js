@@ -5,7 +5,7 @@ export default function Home() {
     <nav className="bg-gray-800 p-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <div className="flex items-center">
+          <div className=" items-center">
             <Image src={logo} alt="Lu Lab" width={50} height={50} />
             <span className="ml-2 text-lg">Lu Lab</span>
           </div>

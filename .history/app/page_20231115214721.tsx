@@ -3,7 +3,7 @@ import logo from "public/logo.png";
 export default function Home() {
   return (
     <nav className="bg-gray-800 p-4">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className=" mx-auto flex items-center justify-between">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <div className="flex items-center">
             <Image src={logo} alt="Lu Lab" width={50} height={50} />

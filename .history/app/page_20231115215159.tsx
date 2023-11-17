@@ -11,7 +11,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex-grow text-center">
+        <div className=" text-center">
           <ul className="flex justify-center space-x-4">
             <li>
               <a
