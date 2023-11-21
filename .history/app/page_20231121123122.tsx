@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const DynamicSidebarWithNoSSR = dynamic(() => import("../components/Sidebar"), {
+  ssr: false,
+});
 
 const Navbar: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);

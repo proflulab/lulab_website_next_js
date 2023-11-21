@@ -1,9 +1,17 @@
 import Image from "next/image";
+import image2 from "public/image2.jpg";
+import LuXiangqian from "public/LuXiangqian.png";
+import title from "public/title.jpg";
+import logo from "public/logo.png";
 
 export default function About() {
   return (
     <div style={{ height: "1000px", width: "1700px", position: "relative" }}>
-      <Image src="/image2.jpg" alt="" width="1700" height="1000" />
+      <img
+        src="public/image2.jpg"
+        alt=""
+        style={{ width: "100%", height: "80%" }}
+      />
 
       <div
         style={{
@@ -76,13 +84,12 @@ export default function About() {
           }}
         >
           <Image
-            src="/LuXiangqian.png"
+            src={LuXiangqian}
             alt=""
-            width="260"
-            height="280" // Set dimensions of the image
+            style={{ height: "280px", width: "260px" }} // Set dimensions of the image
           />
 
-          <div
+          <p
             style={{
               color: "black",
               fontSize: "16px",
@@ -91,7 +98,7 @@ export default function About() {
               textAlign: "left",
             }}
           >
-            <div
+            <p
               style={{
                 color: "black",
                 fontSize: "18px",
@@ -101,7 +108,7 @@ export default function About() {
               }}
             >
               Thank you for your interest in Lu Lab!
-            </div>
+            </p>
             <br />
             So much has been accomplished since Lu Lab was founded in 1994. Our
             lab has grown in such tremendous ways, but I am so proud that our
@@ -112,10 +119,10 @@ export default function About() {
             experience so extraordinary. <br />
             <br />
             -Lewis X. Lu, Ph.D.
-          </div>
+          </p>
         </div>
         <div style={{ marginTop: "20px" }}>
-          <div
+          <p
             style={{
               fontWeight: "bold",
               fontSize: "45px",
@@ -125,7 +132,7 @@ export default function About() {
             }}
           >
             Lu Lab Tuition Standard
-          </div>
+          </p>
           <hr
             style={{
               border: "none",
@@ -136,7 +143,7 @@ export default function About() {
               marginTop: "40px",
             }}
           />
-          <div
+          <p
             style={{
               color: "black",
               fontSize: "20px",
@@ -146,10 +153,10 @@ export default function About() {
               textIndent: "-55px",
             }}
           >
-            TYPE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INDIVIDUAL
+            TYPE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INDIVIDUAL
             MEMBER(ADULT)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FAMILY
             MEMBER(MINOR)
-          </div>
+          </p>
           <hr
             style={{
               border: "none",
@@ -160,7 +167,7 @@ export default function About() {
               marginTop: "20px",
             }}
           />
-          <div
+          <p
             style={{
               color: "black",
               fontSize: "20px",
@@ -174,7 +181,7 @@ export default function About() {
             GRADE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             ¥38,000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             ¥76,000
-          </div>
+          </p>
           <hr
             style={{
               border: "none",
@@ -185,7 +192,7 @@ export default function About() {
               marginTop: "20px",
             }}
           />
-          <div
+          <p
             style={{
               color: "black",
               fontSize: "20px",
@@ -196,10 +203,10 @@ export default function About() {
             }}
           >
             METAVERSE
-            GRADE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            GRADE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             ¥19,000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             ¥38,000
-          </div>
+          </p>
           <hr
             style={{
               border: "none",
@@ -212,7 +219,11 @@ export default function About() {
             }}
           />
           <div style={{ position: "relative" }}>
-            <Image src="/title.jpg" alt="" height="230" width="1700" />
+            <Image
+              src={title}
+              alt=""
+              style={{ height: "230px", width: "1700px" }}
+            />
             <div
               style={{
                 position: "absolute",
@@ -222,7 +233,11 @@ export default function About() {
                 alignItems: "center",
               }}
             >
-              <Image src="/logo.png" alt="" height="50" width="50" />
+              <Image
+                src={logo}
+                alt=""
+                style={{ height: "50px", width: "50px" }}
+              />
               <p
                 style={{
                   color: "black",
@@ -242,7 +257,7 @@ export default function About() {
                 textAlign: "left",
               }}
             >
-              <div
+              <p
                 style={{
                   color: "grey",
                   fontSize: "20px",
@@ -250,8 +265,8 @@ export default function About() {
                 }}
               >
                 CONTACT INFO
-              </div>
-              <div
+              </p>
+              <p
                 style={{
                   color: "grey",
                   fontSize: "18px",
@@ -265,7 +280,7 @@ export default function About() {
                 <br />
                 <br />
                 East Brokaw Road 310-F San Jose, CA 95112 USA <br />
-              </div>
+              </p>
             </div>
           </div>
         </div>

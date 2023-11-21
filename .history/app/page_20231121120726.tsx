@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import logo from "public/logo.png";
 
 const Navbar: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -12,7 +13,7 @@ const Navbar: React.FC = () => {
 
   const handleClubClick = (clubPath: string) => {
     setShowDropdown(false);
-    window.location.href = clubPath;
+    window.location.href = clubPath; // 使用 window.location 进行局部跳转
   };
 
   return (
@@ -23,7 +24,7 @@ const Navbar: React.FC = () => {
             className="flex items-center"
             onClick={() => setShowDropdown(false)}
           >
-            <Image src="/logo.png" alt="Lu Lab" width="50" height="50" />
+            <Image src={logo} alt="Lu Lab" width={50} height={50} />
             <span className="ml-2 text-lg">Lu Lab</span>
           </div>
         </div>

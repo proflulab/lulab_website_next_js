@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
 
   const handleClubClick = (clubPath: string) => {
     setShowDropdown(false);
-    window.location.href = clubPath;
+    window.location.href = clubPath; // 使用 window.location 进行局部跳转
   };
 
   return (

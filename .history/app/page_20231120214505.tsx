@@ -1,7 +1,9 @@
+// Navbar.tsx
 "use client";
-
+// Navbar.tsx
 import { useState } from "react";
 import Image from "next/image";
+import logo from "public/logo.png";
 
 const Navbar: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -12,18 +14,23 @@ const Navbar: React.FC = () => {
 
   const handleClubClick = (clubPath: string) => {
     setShowDropdown(false);
-    window.location.href = clubPath;
+    window.location.href = clubPath; // 使用 window.location 进行局部跳转
   };
 
   return (
-    <nav className="bg-gray-800 p-4 fixed top-0 w-full z-10">
+    <nav
+      className="p-4 fixed top-0 w-full z-10"
+      style={{
+        backgroundImage: `url('public/title.jpg')`,
+      }}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <div
             className="flex items-center"
             onClick={() => setShowDropdown(false)}
           >
-            <Image src="/logo.png" alt="Lu Lab" width="50" height="50" />
+            <Image src={logo} alt="Lu Lab" width={50} height={50} />
             <span className="ml-2 text-lg">Lu Lab</span>
           </div>
         </div>
