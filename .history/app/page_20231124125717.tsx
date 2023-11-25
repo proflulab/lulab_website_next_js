@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
@@ -59,9 +58,9 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 href="/Home"
-                className="text-white text-xl px-5 py-2 rounded font-semibold"
+                className="text-white text-xl hover:bg-gray-700 px-5 py-2 rounded font-semibold"
               >
-                <span className="hover:text-black">Home</span>
+                Home
               </Link>
             </li>
 
@@ -69,70 +68,31 @@ const Navbar: React.FC = () => {
               <div className="relative" ref={dropdownRef}>
                 <a
                   href="#"
-                  className="text-white text-xl px-5 py-2 rounded font-semibold"
+                  className="text-white text-xl hover:bg-gray-700 px-5 py-2 rounded font-semibold"
                   onClick={toggleDropdown}
                 >
-                  <span className="hover:text-black">Clubs</span>
+                  Clubs
                 </a>
                 {showDropdown && (
-                  <div className="absolute top-full left-0 bg-gray-800 text-gray-300 py-2 rounded w-72">
+                  <div className="absolute top-14 left-0 bg-gray-800 text-gray-300 py-2 rounded w-72">
                     <a
                       className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Metaverse-Club")}
+                      onClick={() => handleClubClick("/Clubs/Club1")}
                     >
                       Metaverse Club
                     </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Digital-Literacy-Club")}
-                    >
-                      Digital Literacy Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() =>
-                        handleClubClick("/Digital-Microprojects-Club")
-                      }
-                    >
-                      Digital Microprojects Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() =>
-                        handleClubClick("/Advanced-Digital-Tech-Club")
-                      }
-                    >
-                      Advanced Digital Tech Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/AI-Club")}
-                    >
-                      AI Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Digital-Marketing-Club")}
-                    >
-                      Digital Marketing Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Leadership-Club")}
-                    >
-                      Leadership Club
-                    </a>
+                    {/* Add more club links as needed */}
                   </div>
                 )}
               </div>
             </li>
             <li>
-              <Link
+              <a
                 href="/About"
-                className="text-white text-xl px-5 py-2 rounded font-semibold"
+                className="text-white text-xl hover:bg-gray-700 px-3 py-2 rounded font-semibold"
               >
-                <span className="hover:text-black">About</span>
-              </Link>
+                About
+              </a>
             </li>
           </ul>
         </div>

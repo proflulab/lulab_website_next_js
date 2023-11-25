@@ -2,11 +2,15 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import router from "next/router";
 
 const Navbar: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
+  const handleLinkClick = (path: string) => {
+    setShowDropdown(false);
+    router.push(path); // Use router.push for client-side navigation
+  };
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -60,6 +64,7 @@ const Navbar: React.FC = () => {
               <Link
                 href="/Home"
                 className="text-white text-xl px-5 py-2 rounded font-semibold"
+                onClick={() => handleLinkClick("/Home")}
               >
                 <span className="hover:text-black">Home</span>
               </Link>

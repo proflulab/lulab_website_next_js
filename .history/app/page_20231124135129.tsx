@@ -3,9 +3,12 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
+import { useRouter } from "next/router";
+
 const Navbar: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -59,9 +62,11 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 href="/Home"
-                className="text-white text-xl px-5 py-2 rounded font-semibold"
+                className={`text-white text-xl px-5 py-2 rounded font-semibold ${
+                  router.pathname === "/Home" ? "hover:text-black" : ""
+                }`}
               >
-                <span className="hover:text-black">Home</span>
+                <span>Home</span>
               </Link>
             </li>
 
@@ -69,10 +74,12 @@ const Navbar: React.FC = () => {
               <div className="relative" ref={dropdownRef}>
                 <a
                   href="#"
-                  className="text-white text-xl px-5 py-2 rounded font-semibold"
+                  className={`text-white text-xl px-5 py-2 rounded font-semibold ${
+                    showDropdown ? "hover:text-black" : ""
+                  }`}
                   onClick={toggleDropdown}
                 >
-                  <span className="hover:text-black">Clubs</span>
+                  <span>Clubs</span>
                 </a>
                 {showDropdown && (
                   <div className="absolute top-full left-0 bg-gray-800 text-gray-300 py-2 rounded w-72">
@@ -82,46 +89,7 @@ const Navbar: React.FC = () => {
                     >
                       Metaverse Club
                     </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Digital-Literacy-Club")}
-                    >
-                      Digital Literacy Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() =>
-                        handleClubClick("/Digital-Microprojects-Club")
-                      }
-                    >
-                      Digital Microprojects Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() =>
-                        handleClubClick("/Advanced-Digital-Tech-Club")
-                      }
-                    >
-                      Advanced Digital Tech Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/AI-Club")}
-                    >
-                      AI Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Digital-Marketing-Club")}
-                    >
-                      Digital Marketing Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Leadership-Club")}
-                    >
-                      Leadership Club
-                    </a>
+                    {/* 其他链接 */}
                   </div>
                 )}
               </div>
@@ -129,9 +97,11 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 href="/About"
-                className="text-white text-xl px-5 py-2 rounded font-semibold"
+                className={`text-white text-xl px-5 py-2 rounded font-semibold ${
+                  router.pathname === "/About" ? "hover:text-black" : ""
+                }`}
               >
-                <span className="hover:text-black">About</span>
+                <span>About</span>
               </Link>
             </li>
           </ul>

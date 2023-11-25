@@ -127,12 +127,12 @@ const Navbar: React.FC = () => {
               </div>
             </li>
             <li>
-              <Link
+              <a
                 href="/About"
-                className="text-white text-xl px-5 py-2 rounded font-semibold"
+                className="text-white text-xl hover:text-black px-3 py-2 rounded font-semibold"
               >
-                <span className="hover:text-black">About</span>
-              </Link>
+                About
+              </a>
             </li>
           </ul>
         </div>

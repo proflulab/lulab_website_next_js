@@ -1,5 +1,5 @@
-"use client";
-import Link from "next/link";
+// Navbar.tsx
+
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
 
   const handleClubClick = (clubPath: string) => {
     setShowDropdown(false);
-    window.location.href = clubPath;
+    window.location.href = clubPath; // 使用 window.location.href 进行页面跳转
   };
 
   return (
@@ -57,12 +57,12 @@ const Navbar: React.FC = () => {
         <div className="flex-grow text-center">
           <ul className="flex justify-center space-x-4">
             <li>
-              <Link
+              <a
                 href="/Home"
                 className="text-white text-xl px-5 py-2 rounded font-semibold"
               >
                 <span className="hover:text-black">Home</span>
-              </Link>
+              </a>
             </li>
 
             <li>
@@ -82,57 +82,18 @@ const Navbar: React.FC = () => {
                     >
                       Metaverse Club
                     </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Digital-Literacy-Club")}
-                    >
-                      Digital Literacy Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() =>
-                        handleClubClick("/Digital-Microprojects-Club")
-                      }
-                    >
-                      Digital Microprojects Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() =>
-                        handleClubClick("/Advanced-Digital-Tech-Club")
-                      }
-                    >
-                      Advanced Digital Tech Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/AI-Club")}
-                    >
-                      AI Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Digital-Marketing-Club")}
-                    >
-                      Digital Marketing Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Leadership-Club")}
-                    >
-                      Leadership Club
-                    </a>
+                    {/* 其他选项 */}
                   </div>
                 )}
               </div>
             </li>
             <li>
-              <Link
+              <a
                 href="/About"
                 className="text-white text-xl px-5 py-2 rounded font-semibold"
               >
                 <span className="hover:text-black">About</span>
-              </Link>
+              </a>
             </li>
           </ul>
         </div>

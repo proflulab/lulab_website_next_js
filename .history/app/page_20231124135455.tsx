@@ -60,6 +60,7 @@ const Navbar: React.FC = () => {
               <Link
                 href="/Home"
                 className="text-white text-xl px-5 py-2 rounded font-semibold"
+                onClick={() => handleLinkClick("/Home")}
               >
                 <span className="hover:text-black">Home</span>
               </Link>

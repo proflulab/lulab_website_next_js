@@ -76,63 +76,18 @@ const Navbar: React.FC = () => {
                 </a>
                 {showDropdown && (
                   <div className="absolute top-full left-0 bg-gray-800 text-gray-300 py-2 rounded w-72">
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Metaverse-Club")}
-                    >
-                      Metaverse Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Digital-Literacy-Club")}
-                    >
-                      Digital Literacy Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() =>
-                        handleClubClick("/Digital-Microprojects-Club")
-                      }
-                    >
-                      Digital Microprojects Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() =>
-                        handleClubClick("/Advanced-Digital-Tech-Club")
-                      }
-                    >
-                      Advanced Digital Tech Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/AI-Club")}
-                    >
-                      AI Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Digital-Marketing-Club")}
-                    >
-                      Digital Marketing Club
-                    </a>
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Leadership-Club")}
-                    >
-                      Leadership Club
-                    </a>
+                    {/* Club Links */}
                   </div>
                 )}
               </div>
             </li>
             <li>
-              <Link
+              <a
                 href="/About"
-                className="text-white text-xl px-5 py-2 rounded font-semibold"
+                className="text-white text-xl hover:text-black px-3 py-2 rounded font-semibold"
               >
-                <span className="hover:text-black">About</span>
-              </Link>
+                About
+              </a>
             </li>
           </ul>
         </div>

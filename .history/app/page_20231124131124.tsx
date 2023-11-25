@@ -59,9 +59,9 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 href="/Home"
-                className="text-white text-xl px-5 py-2 rounded font-semibold"
+                className="text-white text-xl hover:bg-gray-700 px-5 py-2 rounded font-semibold"
               >
-                <span className="hover:text-black">Home</span>
+                Home
               </Link>
             </li>
 
@@ -69,15 +69,15 @@ const Navbar: React.FC = () => {
               <div className="relative" ref={dropdownRef}>
                 <a
                   href="#"
-                  className="text-white text-xl px-5 py-2 rounded font-semibold"
+                  className="text-white text-xl hover:bg-gray-700 px-5 py-2 rounded font-semibold"
                   onClick={toggleDropdown}
                 >
-                  <span className="hover:text-black">Clubs</span>
+                  Clubs
                 </a>
                 {showDropdown && (
-                  <div className="absolute top-full left-0 bg-gray-800 text-gray-300 py-2 rounded w-72">
+                  <div className="absolute top-full left-0 bg-green-100 text-gray-300 py-2 rounded w-72">
                     <a
-                      className="block px-4 py-2 hover:bg-gray-700"
+                      className="block px-4 py-2 hover:bg-green-700"
                       onClick={() => handleClubClick("/Metaverse-Club")}
                     >
                       Metaverse Club
@@ -127,12 +127,12 @@ const Navbar: React.FC = () => {
               </div>
             </li>
             <li>
-              <Link
+              <a
                 href="/About"
-                className="text-white text-xl px-5 py-2 rounded font-semibold"
+                className="text-white text-xl hover:bg-gray-700 px-3 py-2 rounded font-semibold"
               >
-                <span className="hover:text-black">About</span>
-              </Link>
+                About
+              </a>
             </li>
           </ul>
         </div>

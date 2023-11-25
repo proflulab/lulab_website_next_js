@@ -2,10 +2,12 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const Navbar: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -29,7 +31,7 @@ const Navbar: React.FC = () => {
 
   const handleClubClick = (clubPath: string) => {
     setShowDropdown(false);
-    window.location.href = clubPath;
+    router.push(clubPath);
   };
 
   return (
@@ -57,11 +59,13 @@ const Navbar: React.FC = () => {
         <div className="flex-grow text-center">
           <ul className="flex justify-center space-x-4">
             <li>
-              <Link
-                href="/Home"
-                className="text-white text-xl px-5 py-2 rounded font-semibold"
-              >
-                <span className="hover:text-black">Home</span>
+              <Link href="/Home">
+                <a
+                  className="text-white text-xl px-5 py-2 rounded font-semibold"
+                  onClick={() => setShowDropdown(false)}
+                >
+                  <span className="hover:text-black">Home</span>
+                </a>
               </Link>
             </li>
 
@@ -127,11 +131,13 @@ const Navbar: React.FC = () => {
               </div>
             </li>
             <li>
-              <Link
-                href="/About"
-                className="text-white text-xl px-5 py-2 rounded font-semibold"
-              >
-                <span className="hover:text-black">About</span>
+              <Link href="/About">
+                <a
+                  className="text-white text-xl hover:text-black px-3 py-2 rounded font-semibold"
+                  onClick={() => setShowDropdown(false)}
+                >
+                  About
+                </a>
               </Link>
             </li>
           </ul>
