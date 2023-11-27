@@ -42,6 +42,7 @@ const Home: React.FC = () => {
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
+      /* 你需要把黑色矩形和矩形里的文字放在以下的位置 */
       <div style={{ position: "relative" }}>
         {images.length > 0 && (
           // eslint-disable-next-line @next/next/no-img-element
@@ -84,20 +85,18 @@ const Home: React.FC = () => {
       <div
         style={{
           position: "absolute",
-          top: "670px",
+          top: "150px",
           left: "50%",
           transform: "translateX(-50%)",
-          backgroundColor: "#333333",
+          backgroundColor: "black",
           color: "#fff",
-          padding: "25px",
-          zIndex: 1,
+          padding: "10px",
+          borderRadius: "5px",
+          zIndex: 2,
         }}
       >
-        <p style={{ fontSize: "24px" }}>
-          Gathering the world&apos;s elite masters to play in a group.
-        </p>
+        <p>你的文字放在这里</p>
       </div>
-
       <div
         style={{
           fontWeight: "bold",

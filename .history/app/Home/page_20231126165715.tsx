@@ -51,6 +51,62 @@ const Home: React.FC = () => {
             style={{ width: "1720px", height: "750px" }}
           />
         )}
+
+        <div style={{ position: "relative" }}>
+          {images.length > 0 && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={images[currentImageIndex]}
+              alt={`Image ${currentImageIndex + 1}`}
+              style={{ width: "1720px", height: "750px" }}
+            />
+          )}
+          <div
+            style={{
+              position: "absolute",
+              top: "375px",
+              left: "0",
+              right: "0",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <button
+              onClick={showPreviousImage}
+              style={{ color: "green", fontWeight: "bold" }}
+            >
+              <FontAwesomeIcon
+                icon={faChevronLeft}
+                style={{ fontSize: "36px" }}
+              />
+            </button>
+            <button
+              onClick={showNextImage}
+              style={{ color: "green", fontWeight: "bold" }}
+            >
+              <FontAwesomeIcon
+                icon={faChevronRight}
+                style={{ fontSize: "36px" }}
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: "150px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            backgroundColor: "black",
+            color: "#fff",
+            padding: "10px",
+            borderRadius: "5px",
+            zIndex: 2,
+          }}
+        >
+          <p>你的文字放在这里</p>
+        </div>
+
         <div
           style={{
             position: "absolute",
@@ -81,23 +137,6 @@ const Home: React.FC = () => {
           </button>
         </div>
       </div>
-      <div
-        style={{
-          position: "absolute",
-          top: "670px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          backgroundColor: "#333333",
-          color: "#fff",
-          padding: "25px",
-          zIndex: 1,
-        }}
-      >
-        <p style={{ fontSize: "24px" }}>
-          Gathering the world&apos;s elite masters to play in a group.
-        </p>
-      </div>
-
       <div
         style={{
           fontWeight: "bold",

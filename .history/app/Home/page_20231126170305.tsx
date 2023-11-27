@@ -84,13 +84,13 @@ const Home: React.FC = () => {
       <div
         style={{
           position: "absolute",
-          top: "670px",
+          top: "650px",
           left: "50%",
           transform: "translateX(-50%)",
-          backgroundColor: "#333333",
+          backgroundColor: "black",
           color: "#fff",
           padding: "25px",
-          zIndex: 1,
+          zIndex: 2,
         }}
       >
         <p style={{ fontSize: "24px" }}>

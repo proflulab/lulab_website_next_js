@@ -84,20 +84,18 @@ const Home: React.FC = () => {
       <div
         style={{
           position: "absolute",
-          top: "670px",
+          top: "150px",
           left: "50%",
           transform: "translateX(-50%)",
-          backgroundColor: "#333333",
+          backgroundColor: "black",
           color: "#fff",
-          padding: "25px",
-          zIndex: 1,
+          padding: "10px",
+          borderRadius: "5px",
+          zIndex: 2,
         }}
       >
-        <p style={{ fontSize: "24px" }}>
-          Gathering the world&apos;s elite masters to play in a group.
-        </p>
+        <p>Gathering the world&apos;s elite masters to play in a group.</p>
       </div>
-
       <div
         style={{
           fontWeight: "bold",

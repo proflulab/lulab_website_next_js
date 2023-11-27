@@ -44,7 +44,6 @@ const Home: React.FC = () => {
     >
       <div style={{ position: "relative" }}>
         {images.length > 0 && (
-          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={images[currentImageIndex]}
             alt={`Image ${currentImageIndex + 1}`}
@@ -81,23 +80,6 @@ const Home: React.FC = () => {
           </button>
         </div>
       </div>
-      <div
-        style={{
-          position: "absolute",
-          top: "670px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          backgroundColor: "#333333",
-          color: "#fff",
-          padding: "25px",
-          zIndex: 1,
-        }}
-      >
-        <p style={{ fontSize: "24px" }}>
-          Gathering the world&apos;s elite masters to play in a group.
-        </p>
-      </div>
-
       <div
         style={{
           fontWeight: "bold",
@@ -191,6 +173,17 @@ const Home: React.FC = () => {
             <br /> the world&apos;s elite masters to play in a group.
           </p>
         </div>
+        <hr
+          style={{
+            border: "none",
+            borderBottom: "1px solid black",
+
+            width: "70%",
+            margin: "auto",
+            marginTop: "20px",
+            marginBottom: "50px",
+          }}
+        />
         <div style={{ marginRight: "20px" }}>
           <Image
             src="/Person.png"
@@ -227,11 +220,6 @@ const Home: React.FC = () => {
           </p>
         </div>
       </div>
-      <hr
-        style={{
-          marginBottom: "50px",
-        }}
-      />
       <div style={{ position: "relative" }}>
         <Image src="/title.jpg" alt="" height="230" width="1700" />
         <div

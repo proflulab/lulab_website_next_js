@@ -44,7 +44,6 @@ const Home: React.FC = () => {
     >
       <div style={{ position: "relative" }}>
         {images.length > 0 && (
-          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={images[currentImageIndex]}
             alt={`Image ${currentImageIndex + 1}`}
@@ -83,23 +82,6 @@ const Home: React.FC = () => {
       </div>
       <div
         style={{
-          position: "absolute",
-          top: "670px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          backgroundColor: "#333333",
-          color: "#fff",
-          padding: "25px",
-          zIndex: 1,
-        }}
-      >
-        <p style={{ fontSize: "24px" }}>
-          Gathering the world&apos;s elite masters to play in a group.
-        </p>
-      </div>
-
-      <div
-        style={{
           fontWeight: "bold",
           fontSize: "45px",
           color: "#000000",
@@ -128,25 +110,17 @@ const Home: React.FC = () => {
           <p
             style={{
               color: "black",
-              fontSize: "28px",
-              fontWeight: "600",
-              marginTop: "-50px",
-              marginLeft: "50px",
-              textAlign: "left",
-            }}
-          >
-            Overview
-          </p>
-          <p
-            style={{
-              color: "black",
               fontSize: "18px",
               fontWeight: "400",
               marginLeft: "50px",
-
               textAlign: "left",
+              marginTop: "0px", // Adjust the margin-top to remove space
             }}
           >
+            <strong>Title:</strong>
+            <br />
+            New line of text above
+            <br /> {/* New line above the existing content */}
             In 1994, Professor Lu Xiangqian
             <br /> established a laboratory to test
             <br />
@@ -154,6 +128,7 @@ const Home: React.FC = () => {
             <br /> the Internet would change the world. <br />
           </p>
         </div>
+
         <div style={{ marginRight: "20px" }}>
           <Image
             src="/Edu.png"
@@ -162,18 +137,7 @@ const Home: React.FC = () => {
             height={40}
             style={{ marginRight: "500px" }}
           />
-          <p
-            style={{
-              color: "black",
-              fontSize: "28px",
-              fontWeight: "600",
-              marginTop: "-50px",
-              marginLeft: "60px",
-              textAlign: "left",
-            }}
-          >
-            Educational concept
-          </p>
+
           <p
             style={{
               color: "black",
@@ -202,18 +166,6 @@ const Home: React.FC = () => {
           <p
             style={{
               color: "black",
-              fontSize: "28px",
-              fontWeight: "600",
-              marginTop: "-45px",
-              marginLeft: "60px",
-              textAlign: "left",
-            }}
-          >
-            Personalized learning
-          </p>
-          <p
-            style={{
-              color: "black",
               fontSize: "18px",
               fontWeight: "400",
               marginLeft: "60px",
@@ -225,68 +177,6 @@ const Home: React.FC = () => {
             <br /> Respect students&apos; hobbiesand provide
             <br /> development spacefor students&apos; growth.
           </p>
-        </div>
-      </div>
-      <hr
-        style={{
-          marginBottom: "50px",
-        }}
-      />
-      <div style={{ position: "relative" }}>
-        <Image src="/title.jpg" alt="" height="230" width="1700" />
-        <div
-          style={{
-            position: "absolute",
-            top: "20px",
-            left: "2%",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <Image src="/logo.png" alt="" height="50" width="50" />
-          <p
-            style={{
-              color: "black",
-              fontSize: "25px",
-              fontWeight: "600",
-              marginLeft: "20px",
-            }}
-          >
-            Lu Lab
-          </p>
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            top: "90px",
-            left: "2.5%",
-            textAlign: "left",
-          }}
-        >
-          <div
-            style={{
-              color: "grey",
-              fontSize: "20px",
-              fontWeight: "600",
-            }}
-          >
-            CONTACT INFO
-          </div>
-          <div
-            style={{
-              color: "grey",
-              fontSize: "18px",
-              fontWeight: "400",
-              marginLeft: "2px",
-              textAlign: "left",
-            }}
-          >
-            <br />
-            admin@lulabs.org
-            <br />
-            <br />
-            East Brokaw Road 310-F San Jose, CA 95112 USA <br />
-          </div>
         </div>
       </div>
     </div>
