@@ -1,8 +1,6 @@
-"use client";
 import Image from "next/image";
+import Navbar from "../page";
 
-import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 export default function About() {
   const Navbar: React.FC = () => {
     const [showDropdown, setShowDropdown] = useState(false);
@@ -60,7 +58,7 @@ export default function About() {
               <li>
                 <Link
                   className="text-white text-xl px-5 py-2 rounded font-semibold"
-                  href="/"
+                  href="/Home"
                 >
                   <span className="hover:text-black">Home</span>
                 </Link>

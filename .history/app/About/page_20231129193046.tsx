@@ -60,7 +60,7 @@ export default function About() {
               <li>
                 <Link
                   className="text-white text-xl px-5 py-2 rounded font-semibold"
-                  href="/"
+                  href="/Home"
                 >
                   <span className="hover:text-black">Home</span>
                 </Link>

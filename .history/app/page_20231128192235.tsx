@@ -1,13 +1,8 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
-
 import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import Home from "./Home/page";
 
 const Navbar: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -65,7 +60,7 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 className="text-white text-xl px-5 py-2 rounded font-semibold"
-                href="/"
+                href="/Home"
               >
                 <span className="hover:text-black">Home</span>
               </Link>
@@ -143,46 +138,6 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
       </div>
-    </nav>
-  );
-};
-
-// export default Navbar;
-
-const Home: React.FC = () => {
-  const [images, setImages] = useState<string[]>([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-
-  useEffect(() => {
-    const imageUrls = ["image3.jpg", "xueyuan.jpg", "image1.jpg"];
-    setImages(imageUrls);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [images]);
-
-  const showNextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const showPreviousImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  return (
-    <>
-      <Navbar />
       <div
         style={{
           display: "flex",
@@ -438,8 +393,8 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
+    </nav>
   );
 };
 
-export default Home;
+export default Navbar;
