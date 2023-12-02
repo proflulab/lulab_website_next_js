@@ -82,12 +82,12 @@ const Navbar: React.FC = () => {
                 </a>
                 {showDropdown && (
                   <div className="absolute top-full left-0 bg-gray-800 text-gray-300 py-2 rounded w-72">
-                    <a
-                      className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Metaverse")}
+                    <Link
+                      className="text-white text-xl px-5 py-2 rounded font-semibold"
+                      href="/"
                     >
-                      Metaverse Club
-                    </a>
+                      <span className="hover:text-black">Metaverse</span>
+                    </Link>
                     <a
                       className="block px-4 py-2 hover:bg-gray-700"
                       onClick={() => handleClubClick("/Digital-Literacy-Club")}

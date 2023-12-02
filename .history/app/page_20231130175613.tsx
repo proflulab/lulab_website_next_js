@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
                   <div className="absolute top-full left-0 bg-gray-800 text-gray-300 py-2 rounded w-72">
                     <a
                       className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Metaverse")}
+                      onClick={() => handleClubClick("/Metaverse-Club")}
                     >
                       Metaverse Club
                     </a>
@@ -190,7 +190,7 @@ const Home: React.FC = () => {
           alignItems: "center",
         }}
       >
-        <div style={{ position: "relative", width: "1690px", height: "700px" }}>
+        <div style={{ position: "relative", width: "1720px", height: "750px" }}>
           {images.length > 0 && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -198,8 +198,8 @@ const Home: React.FC = () => {
               alt={`Image ${currentImageIndex + 1}`}
               style={{
                 width: "100%",
-                height: "98%",
-                objectFit: "cover", //保持原始比例填充整个容器
+                height: "95%",
+                objectFit: "cover", // 这里使用 cover 选项，保持原始比例填充整个容器
               }}
             />
           )}
@@ -236,7 +236,7 @@ const Home: React.FC = () => {
         <div
           style={{
             position: "absolute",
-            top: "620px",
+            top: "670px",
             left: "50%",
             transform: "translateX(-50%)",
             backgroundColor: "#333333",

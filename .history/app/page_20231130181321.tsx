@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
                   <div className="absolute top-full left-0 bg-gray-800 text-gray-300 py-2 rounded w-72">
                     <a
                       className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Metaverse")}
+                      onClick={() => handleClubClick("/Metaverse-Club")}
                     >
                       Metaverse Club
                     </a>
@@ -205,7 +205,7 @@ const Home: React.FC = () => {
           )}
           <div
             style={{
-              position: "absolute",
+              // position: "absolute",
               top: "375px",
               left: "0",
               right: "0",

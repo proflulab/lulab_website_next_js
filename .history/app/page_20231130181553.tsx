@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
                   <div className="absolute top-full left-0 bg-gray-800 text-gray-300 py-2 rounded w-72">
                     <a
                       className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Metaverse")}
+                      onClick={() => handleClubClick("/Metaverse-Club")}
                     >
                       Metaverse Club
                     </a>
@@ -210,12 +210,16 @@ const Home: React.FC = () => {
               left: "0",
               right: "0",
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "center",
             }}
           >
             <button
               onClick={showPreviousImage}
-              style={{ color: "green", fontWeight: "bold" }}
+              style={{
+                color: "green",
+                fontWeight: "bold",
+                marginRight: "500px",
+              }}
             >
               <FontAwesomeIcon
                 icon={faChevronLeft}
@@ -224,7 +228,11 @@ const Home: React.FC = () => {
             </button>
             <button
               onClick={showNextImage}
-              style={{ color: "green", fontWeight: "bold" }}
+              style={{
+                color: "green",
+                fontWeight: "bold",
+                marginRight: "500px",
+              }}
             >
               <FontAwesomeIcon
                 icon={faChevronRight}

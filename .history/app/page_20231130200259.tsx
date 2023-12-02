@@ -8,6 +8,7 @@ import {
 import Image from "next/image";
 
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Navbar: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -33,9 +34,13 @@ const Navbar: React.FC = () => {
     setShowDropdown(!showDropdown);
   };
 
+  const router = useRouter();
+
+  // ...
+
   const handleClubClick = (clubPath: string) => {
     setShowDropdown(false);
-    window.location.href = clubPath;
+    router.push(clubPath); // 使用 router.push 进行页面跳转
   };
 
   return (
@@ -84,7 +89,7 @@ const Navbar: React.FC = () => {
                   <div className="absolute top-full left-0 bg-gray-800 text-gray-300 py-2 rounded w-72">
                     <a
                       className="block px-4 py-2 hover:bg-gray-700"
-                      onClick={() => handleClubClick("/Metaverse")}
+                      onClick={() => handleClubClick("Clubs/Metaverse")}
                     >
                       Metaverse Club
                     </a>
