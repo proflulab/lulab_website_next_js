@@ -58,7 +58,7 @@ const Home: React.FC = () => {
           style={{
             position: "relative",
             width: "100%",
-            height: "85vh",
+            height: "60vh",
             maxWidth: "100%",
             maxHeight: "85vh",
           }}
@@ -69,7 +69,7 @@ const Home: React.FC = () => {
               alt={`Image ${currentImageIndex + 1}`}
               style={{
                 width: "100%",
-                height: "95%",
+                height: "100%",
                 objectFit: "cover",
               }}
             />

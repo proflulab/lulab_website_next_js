@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { FaBars, FaChevronDown, FaTimes } from "react-icons/fa"; // 导入菜单图标
+import { FaBars, FaTimes } from "react-icons/fa"; // 导入菜单图标
 
 const Navbar: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -169,76 +169,15 @@ const Navbar: React.FC = () => {
                         </Link>
                       </li>
                       <li>
-                        <div className="relative" ref={dropdownRef}>
-                          <a
-                            href="#"
-                            className="text-white text-xl px-5 py-2 rounded font-semibold hover:text-black"
-                            onClick={toggleDropdown}
-                          >
-                            <span>Clubs</span>
-                          </a>
-                          {showDropdown && (
-                            <div className=" bg-opacity-75 text-white py-4">
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/MetaverseClub")
-                                }
-                              >
-                                Metaverse Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/DigitalLiteracyClub")
-                                }
-                              >
-                                Digital Literacy Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/DigitalMicroprojectsClub")
-                                }
-                              >
-                                Digital Microprojects Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/AdvancedDigitalTechClub")
-                                }
-                              >
-                                Advanced Digital Tech Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() => handleClubClick("/AIClub")}
-                              >
-                                AI Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/DigitalMarketingClub")
-                                }
-                              >
-                                Digital Marketing Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/LeadershipClub")
-                                }
-                              >
-                                Leadership Club
-                              </a>{" "}
-                              {/* Add other club options */}
-                            </div>
-                          )}
-                        </div>
+                        <Link
+                          href="/Clubs"
+                          className="text-xl font-semibold hover:text-gray-300"
+                          onClick={() => setShowMenu(false)}
+                        >
+                          Clubs
+                        </Link>
                       </li>
-
+                      {/* Add other menu items */}
                       <li>
                         <Link
                           href="/About"

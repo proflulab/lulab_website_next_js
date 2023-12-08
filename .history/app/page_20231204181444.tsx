@@ -1,17 +1,14 @@
 "use client";
-
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-
 import Navbar from "./title/page";
 import End from "./title/end";
-
-// export default Navbar;
+import styles from "./home.module.css"; // 导入CSS模块
 
 const Home: React.FC = () => {
   const [images, setImages] = useState<string[]>([]);
@@ -48,58 +45,56 @@ const Home: React.FC = () => {
     <>
       <Navbar />
       <div
+        className={styles.container}
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "85vh",
-            maxWidth: "100%",
-            maxHeight: "85vh",
-          }}
-        >
+        <div style={{ position: "relative", width: "1690px", height: "700px" }}>
           {images.length > 0 && (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={images[currentImageIndex]}
               alt={`Image ${currentImageIndex + 1}`}
               style={{
                 width: "100%",
-                height: "95%",
-                objectFit: "cover",
+                height: "98%",
+                objectFit: "cover", //保持原始比例填充整个容器
               }}
             />
           )}
           <div
             style={{
               position: "absolute",
-              top: "50%",
-              transform: "translateY(-50%)",
-              left: "5%",
-              right: "5%",
+              top: "375px",
+              left: "0",
+              right: "0",
               display: "flex",
               justifyContent: "space-between",
             }}
           >
             <button
               onClick={showPreviousImage}
-              style={{ color: "green", fontWeight: "bold", fontSize: "2vw" }}
+              style={{ color: "green", fontWeight: "bold" }}
             >
-              <FontAwesomeIcon icon={faChevronLeft} />
+              <FontAwesomeIcon
+                icon={faChevronLeft}
+                style={{ fontSize: "36px" }}
+              />
             </button>
             <button
               onClick={showNextImage}
-              style={{ color: "green", fontWeight: "bold", fontSize: "2vw" }}
+              style={{ color: "green", fontWeight: "bold" }}
             >
-              <FontAwesomeIcon icon={faChevronRight} />
+              <FontAwesomeIcon
+                icon={faChevronRight}
+                style={{ fontSize: "36px" }}
+              />
             </button>
           </div>
         </div>
-
         <div
           style={{
             position: "absolute",

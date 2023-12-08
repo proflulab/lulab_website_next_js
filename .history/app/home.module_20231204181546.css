@@ -1,0 +1,15 @@
+/* home.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 其他样式... */
+}
+
+/* 媒体查询 */
+@media screen and (max-width: 768px) {
+  .container {
+    /* 缩小容器宽度以适应小屏幕设备 */
+    width: 80%;
+  }
+}

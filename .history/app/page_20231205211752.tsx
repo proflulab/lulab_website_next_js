@@ -87,13 +87,13 @@ const Home: React.FC = () => {
           >
             <button
               onClick={showPreviousImage}
-              style={{ color: "green", fontWeight: "bold", fontSize: "2vw" }}
+              style={{ color: "green", fontWeight: "bold", fontSize: "5vw" }}
             >
               <FontAwesomeIcon icon={faChevronLeft} />
             </button>
             <button
               onClick={showNextImage}
-              style={{ color: "green", fontWeight: "bold", fontSize: "2vw" }}
+              style={{ color: "green", fontWeight: "bold", fontSize: "5vw" }}
             >
               <FontAwesomeIcon icon={faChevronRight} />
             </button>

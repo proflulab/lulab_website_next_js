@@ -169,16 +169,18 @@ const Navbar: React.FC = () => {
                         </Link>
                       </li>
                       <li>
-                        <div className="relative" ref={dropdownRef}>
-                          <a
-                            href="#"
-                            className="text-white text-xl px-5 py-2 rounded font-semibold hover:text-black"
-                            onClick={toggleDropdown}
-                          >
-                            <span>Clubs</span>
-                          </a>
-                          {showDropdown && (
-                            <div className=" bg-opacity-75 text-white py-4">
+                        {/* Expand button for Clubs */}
+                        <a
+                          href="#"
+                          className="text-white text-xl px-5 py-2 rounded font-semibold hover:text-black"
+                          onClick={toggleDropdown}
+                        >
+                          <span>Clubs</span>
+                        </a>
+                        {showDropdown && (
+                          <div className=" bg-opacity-75 text-white py-4">
+                            {/* Club options */}
+                            <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-gray-300 py-2 rounded w-72 text-center">
                               <a
                                 className="block px-4 py-2 hover:bg-gray-700"
                                 onClick={() =>
@@ -232,13 +234,13 @@ const Navbar: React.FC = () => {
                                 }
                               >
                                 Leadership Club
-                              </a>{" "}
-                              {/* Add other club options */}
+                              </a>
                             </div>
-                          )}
-                        </div>
+                            {/* Add other club options */}
+                          </div>
+                        )}
                       </li>
-
+                      {/* Add other menu items */}
                       <li>
                         <Link
                           href="/About"

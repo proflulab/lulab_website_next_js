@@ -69,7 +69,7 @@ const Home: React.FC = () => {
               alt={`Image ${currentImageIndex + 1}`}
               style={{
                 width: "100%",
-                height: "95%",
+                height: "100%",
                 objectFit: "cover",
               }}
             />

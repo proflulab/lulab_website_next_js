@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { FaBars, FaChevronDown, FaTimes } from "react-icons/fa"; // 导入菜单图标
+import { FaBars, FaTimes } from "react-icons/fa"; // 导入菜单图标
 
 const Navbar: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -152,13 +152,15 @@ const Navbar: React.FC = () => {
               {showMenu && (
                 <div className="fixed top-0 left-0 h-full w-full bg-gray-800 bg-opacity-75 text-white py-4">
                   <div className="max-w-7xl mx-auto relative">
+                    {/* Cancel button */}
+                    <button
+                      onClick={() => setShowMenu(false)}
+                      className="text-white text-xl px-5 py-2 rounded font-semibold hover:text-black absolute top-4 left-4"
+                    >
+                      <FaTimes />
+                    </button>
+                    {/* Menu items */}
                     <ul className="flex flex-col items-center space-y-4">
-                      <button
-                        onClick={() => setShowMenu(false)}
-                        className="text-white text-xl px-5 py-2 rounded font-semibold hover:text-black absolute top-4 left-4"
-                      >
-                        <FaTimes />
-                      </button>
                       <li>
                         <Link
                           href="/"
@@ -169,76 +171,15 @@ const Navbar: React.FC = () => {
                         </Link>
                       </li>
                       <li>
-                        <div className="relative" ref={dropdownRef}>
-                          <a
-                            href="#"
-                            className="text-white text-xl px-5 py-2 rounded font-semibold hover:text-black"
-                            onClick={toggleDropdown}
-                          >
-                            <span>Clubs</span>
-                          </a>
-                          {showDropdown && (
-                            <div className=" bg-opacity-75 text-white py-4">
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/MetaverseClub")
-                                }
-                              >
-                                Metaverse Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/DigitalLiteracyClub")
-                                }
-                              >
-                                Digital Literacy Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/DigitalMicroprojectsClub")
-                                }
-                              >
-                                Digital Microprojects Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/AdvancedDigitalTechClub")
-                                }
-                              >
-                                Advanced Digital Tech Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() => handleClubClick("/AIClub")}
-                              >
-                                AI Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/DigitalMarketingClub")
-                                }
-                              >
-                                Digital Marketing Club
-                              </a>
-                              <a
-                                className="block px-4 py-2 hover:bg-gray-700"
-                                onClick={() =>
-                                  handleClubClick("/LeadershipClub")
-                                }
-                              >
-                                Leadership Club
-                              </a>{" "}
-                              {/* Add other club options */}
-                            </div>
-                          )}
-                        </div>
+                        <Link
+                          href="/Clubs"
+                          className="text-xl font-semibold hover:text-gray-300"
+                          onClick={() => setShowMenu(false)}
+                        >
+                          Clubs
+                        </Link>
                       </li>
-
+                      {/* Add other menu items */}
                       <li>
                         <Link
                           href="/About"

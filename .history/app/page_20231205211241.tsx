@@ -54,22 +54,14 @@ const Home: React.FC = () => {
           alignItems: "center",
         }}
       >
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "85vh",
-            maxWidth: "100%",
-            maxHeight: "85vh",
-          }}
-        >
+        <div style={{ position: "relative", width: "100%", height: "70vh" }}>
           {images.length > 0 && (
             <img
               src={images[currentImageIndex]}
               alt={`Image ${currentImageIndex + 1}`}
               style={{
                 width: "100%",
-                height: "95%",
+                height: "98%",
                 objectFit: "cover",
               }}
             />
