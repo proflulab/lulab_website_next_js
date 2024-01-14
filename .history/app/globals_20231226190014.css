@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 对不同设备宽度应用样式 */
+/* 超小型设备（手机）*/
+@media (max-width: 575.98px) {
+  /* 样式规则 */
+}
+
+/* 小型设备（平板） */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* 样式规则 */
+}
+
+/* 中型设备（小型台式机） */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* 样式规则 */
+}
+
+/* 大型设备（大型台式机及以上） */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* 样式规则 */
+}
+
+/* 超大型设备（大型台式机及以上） */
+@media (min-width: 1200px) {
+  /* 样式规则 */
+}

@@ -1,0 +1,11 @@
+/* tailwind.config.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .dark {
+    @apply bg-gray-800 text-white;
+  }
+}

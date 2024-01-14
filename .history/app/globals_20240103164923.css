@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 下拉菜单的样式 */
+.dropdown-menu {
+  background-color: black;
+  color: white;
+  border: none; /* 去掉边框 */
+  padding: 0; /* 可选：去掉内边距 */
+  margin: 0; /* 可选：去掉外边距 */
+}
+
+/* 下拉菜单中的链接样式 */
+.dropdown-menu a {
+  color: white;
+  text-decoration: aliceblue; /* 可选：去掉下划线 */
+  display: block;
+  padding: 0px 0px; /* 可根据需要调整内边距 */
+}
+
+/* 悬停链接的样式 */
+.dropdown-menu a:hover {
+  background-color: black; /* 可选：悬停时的背景色 */
+}
