@@ -148,16 +148,14 @@ const Home: React.FC = () => {
             )}
           </div>
 
-          <div style={{ margin: "20px" }}>
+          <div>
             <Typography
               variant="h2"
-              sx={{
-                fontSize: { xs: "40px", md: "60px" },
-                color: "black",
+              style={{
+                fontWeight: "bold",
+                textAlign: "center",
                 marginTop: "40px",
                 marginBottom: "40px",
-                textAlign: "center",
-                fontWeight: "bold",
               }}
             >
               Welcome to Lu Lab
@@ -165,126 +163,51 @@ const Home: React.FC = () => {
 
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6} md={4}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <img
-                    src="/Overview.png"
-                    alt=""
-                    width={20}
-                    height={20}
-                    style={{
-                      marginRight: "15px",
-                      marginBottom: "60px",
-                      marginLeft: "10px",
-                    }}
-                  />
-                  <div>
-                    <Typography
-                      variant="h3"
-                      style={{
-                        fontWeight: "600",
-                        color: "black",
-                        fontSize: "28px",
-                      }}
-                    >
-                      Overview
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
-                    >
-                      In 1994, Professor Lu Xiangqian established a laboratory
-                      to test his teaching methods, convinced that the Internet
-                      would change the world.
-                    </Typography>
-                  </div>
+                <img src="/Overview.png" alt="" width={25} height={35} />
+                <div>
+                  <Typography variant="h3" style={{ fontWeight: "600" }}>
+                    Overview
+                  </Typography>
+                  <Typography variant="body1">
+                    In 1994, Professor Lu Xiangqian established a laboratory to
+                    test his teaching methods, convinced that the Internet would
+                    change the world.
+                  </Typography>
                 </div>
               </Grid>
 
               <Grid item xs={12} sm={6} md={4}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <img
-                    src="/Edu.png"
-                    alt=""
-                    width={30}
-                    height={30}
-                    style={{ marginRight: "15px", marginBottom: "110px" }}
-                  />
-                  <div>
-                    <Typography
-                      variant="h3"
-                      style={{
-                        fontWeight: "600",
-                        color: "black",
-                        fontSize: "28px",
-                      }}
-                    >
-                      Educational concept
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
-                    >
-                      It is better to learn theory than to learn cases; It is
-                      better to learn cases than to make cases; It is better to
-                      make a case than to play a case; One person is not as good
-                      as several; A few people to play is not as good as
-                      gathering the world&apos;s elite masters to play in a
-                      group.
-                    </Typography>
-                  </div>
+                <img src="/Edu.png" alt="" width={35} height={35} />
+                <div>
+                  <Typography variant="h3" style={{ fontWeight: "600" }}>
+                    Educational concept
+                  </Typography>
+                  <Typography variant="body1">
+                    It is better to learn theory than to learn cases; It is
+                    better to learn cases than to make cases; It is better to
+                    make a case than to play a case; One person is not as good
+                    as several; A few people to play is not as good as gathering
+                    the world&apos;s elite masters to play in a group.
+                  </Typography>
                 </div>
               </Grid>
 
               <Grid item xs={12} sm={6} md={4}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <img
-                    src="/Person.png"
-                    alt=""
-                    width={30}
-                    height={30}
-                    style={{ marginRight: "15px", marginBottom: "70px" }}
-                  />
-                  <div>
-                    <Typography
-                      variant="h3"
-                      style={{
-                        fontWeight: "600",
-                        color: "black",
-                        fontSize: "28px",
-                      }}
-                    >
-                      Personalized learning
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
-                    >
-                      Students are divided into different clubs according to
-                      their age and interests. Respect students&apos; hobbies
-                      and provide development space for students&apos; growth.
-                    </Typography>
-                  </div>
+                <img src="/Overview.png" alt="" width={25} height={35} />
+                <div>
+                  <Typography variant="h3" style={{ fontWeight: "600" }}>
+                    Personalized learning
+                  </Typography>
+                  <Typography variant="body1">
+                    Students are divided into different clubs according to their
+                    age and interests. Respect students&apos;hobbies and provide
+                    development space for students&apos;growth.
+                  </Typography>
                 </div>
               </Grid>
             </Grid>
+
+            <hr style={{ marginBottom: "50px" }} />
           </div>
         </div>
         <End />

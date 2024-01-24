@@ -114,8 +114,8 @@ const Home: React.FC = () => {
               style={{
                 position: "absolute",
                 top: "90%",
-                left: "50%",
-                transform: "translateX(-50%)",
+                left: "50%", // 将左侧设为50%
+                transform: "translateX(-50%)", // 使用负的50%宽度的偏移量，使其居中
                 backgroundColor: "#333333",
                 color: "#fff",
                 padding: "20px",
@@ -126,7 +126,7 @@ const Home: React.FC = () => {
               <p
                 style={{
                   fontSize: isMobile ? "15px" : "24px",
-                  textAlign: "center",
+                  textAlign: "center", // 居中对齐
                 }}
               >
                 Gathering the world&apos;s elite masters to play in a group.
@@ -148,141 +148,128 @@ const Home: React.FC = () => {
             )}
           </div>
 
-          <div style={{ margin: "20px" }}>
-            <Typography
-              variant="h2"
-              sx={{
-                fontSize: { xs: "40px", md: "60px" },
-                color: "black",
-                marginTop: "40px",
-                marginBottom: "40px",
-                textAlign: "center",
-                fontWeight: "bold",
-              }}
-            >
-              Welcome to Lu Lab
-            </Typography>
-
+          <div>
             <Grid container spacing={3}>
-              <Grid item xs={12} sm={6} md={4}>
-                <div
+              {/* Welcome Message */}
+              <Grid item xs={12}>
+                <Typography
+                  variant="h2"
+                  align="center"
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "10px",
+                    fontWeight: "bold",
+                    color: "#000000",
+                    margin: "40px 0",
                   }}
                 >
+                  Welcome to Lu Lab
+                </Typography>
+              </Grid>
+
+              {/* Overview Section */}
+              <Grid item xs={12} md={6}>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
                   <img
                     src="/Overview.png"
                     alt=""
-                    width={20}
-                    height={20}
-                    style={{
-                      marginRight: "15px",
-                      marginBottom: "60px",
-                      marginLeft: "10px",
-                    }}
+                    width={25}
+                    height={35}
+                    style={{ marginLeft: "-30px" }}
                   />
-                  <div>
+                  <div style={{ marginLeft: "15px" }}>
                     <Typography
-                      variant="h3"
-                      style={{
-                        fontWeight: "600",
-                        color: "black",
-                        fontSize: "28px",
-                      }}
+                      variant="h4"
+                      style={{ fontWeight: 600, margin: "5px 0" }}
                     >
                       Overview
                     </Typography>
                     <Typography
                       variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
+                      style={{ fontWeight: 400, lineHeight: "1.5" }}
                     >
-                      In 1994, Professor Lu Xiangqian established a laboratory
-                      to test his teaching methods, convinced that the Internet
-                      would change the world.
+                      In 1994, Professor Lu Xiangqian
+                      <br /> established a laboratory to test
+                      <br />
+                      his teaching methods, convinced that
+                      <br /> the Internet would change the world.
                     </Typography>
                   </div>
                 </div>
               </Grid>
 
-              <Grid item xs={12} sm={6} md={4}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
+              {/* Educational Concept Section */}
+              <Grid item xs={12} md={6}>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
                   <img
                     src="/Edu.png"
                     alt=""
-                    width={30}
-                    height={30}
-                    style={{ marginRight: "15px", marginBottom: "110px" }}
+                    width={35}
+                    height={35}
+                    style={{ marginLeft: "35px" }}
                   />
-                  <div>
+                  <div style={{ marginLeft: "15px" }}>
                     <Typography
-                      variant="h3"
-                      style={{
-                        fontWeight: "600",
-                        color: "black",
-                        fontSize: "28px",
-                      }}
+                      variant="h4"
+                      style={{ fontWeight: 600, margin: "5px 0" }}
                     >
-                      Educational concept
+                      Educational Concept
                     </Typography>
                     <Typography
                       variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
+                      style={{ fontWeight: 400, lineHeight: "1.5" }}
                     >
-                      It is better to learn theory than to learn cases; It is
-                      better to learn cases than to make cases; It is better to
-                      make a case than to play a case; One person is not as good
-                      as several; A few people to play is not as good as
-                      gathering the world&apos;s elite masters to play in a
-                      group.
+                      It is better to learn theory than to learn cases;
+                      <br />
+                      It is better to learn cases than to make cases;
+                      <br />
+                      It is better to make a case than to play a case;
+                      <br />
+                      One person is not as good as several;
+                      <br />
+                      A few people to play is not as good as gathering
+                      <br />
+                      the world&apos;s elite masters to play in a group.
                     </Typography>
                   </div>
                 </div>
               </Grid>
 
-              <Grid item xs={12} sm={6} md={4}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
+              {/* Personalized Learning Section */}
+              <Grid item xs={12} md={6}>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
                   <img
-                    src="/Person.png"
+                    src="/Overview.png"
                     alt=""
-                    width={30}
-                    height={30}
-                    style={{ marginRight: "15px", marginBottom: "70px" }}
+                    width={25}
+                    height={35}
+                    style={{ marginLeft: "-30px" }}
                   />
-                  <div>
+                  <div style={{ marginLeft: "15px" }}>
                     <Typography
-                      variant="h3"
-                      style={{
-                        fontWeight: "600",
-                        color: "black",
-                        fontSize: "28px",
-                      }}
+                      variant="h4"
+                      style={{ fontWeight: 600, margin: "5px 0" }}
                     >
-                      Personalized learning
+                      Personalized Learning
                     </Typography>
                     <Typography
                       variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
+                      style={{ fontWeight: 400, lineHeight: "1.5" }}
                     >
-                      Students are divided into different clubs according to
-                      their age and interests. Respect students&apos; hobbies
-                      and provide development space for students&apos; growth.
+                      Students are divided into different clubs
+                      <br />
+                      according to their age and interests.
+                      <br />
+                      Respect students&apos; hobbies and provide
+                      <br />
+                      development space for students&apos; growth.
                     </Typography>
                   </div>
                 </div>
+              </Grid>
+
+              {/* Other Sections (Add as needed) */}
+
+              <Grid item xs={12}>
+                <hr style={{ marginBottom: "50px" }} />
               </Grid>
             </Grid>
           </div>

@@ -260,7 +260,7 @@ const Home: React.FC = () => {
                     alt=""
                     width={30}
                     height={30}
-                    style={{ marginRight: "15px", marginBottom: "70px" }}
+                    style={{ marginRight: "15px", marginBottom: "60px" }}
                   />
                   <div>
                     <Typography

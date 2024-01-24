@@ -152,7 +152,7 @@ const Home: React.FC = () => {
             <Typography
               variant="h2"
               sx={{
-                fontSize: { xs: "40px", md: "60px" },
+                fontSize: { xs: "50px", md: "70px" },
                 color: "black",
                 marginTop: "40px",
                 marginBottom: "40px",
@@ -177,11 +177,7 @@ const Home: React.FC = () => {
                     alt=""
                     width={20}
                     height={20}
-                    style={{
-                      marginRight: "15px",
-                      marginBottom: "60px",
-                      marginLeft: "10px",
-                    }}
+                    style={{ marginRight: "15px", marginBottom: "-5px" }}
                   />
                   <div>
                     <Typography
@@ -196,7 +192,7 @@ const Home: React.FC = () => {
                     </Typography>
                     <Typography
                       variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
+                      style={{ fontWeight: "400", color: "#000000" }}
                     >
                       In 1994, Professor Lu Xiangqian established a laboratory
                       to test his teaching methods, convinced that the Internet
@@ -219,7 +215,7 @@ const Home: React.FC = () => {
                     alt=""
                     width={30}
                     height={30}
-                    style={{ marginRight: "15px", marginBottom: "110px" }}
+                    style={{ marginRight: "15px", marginBottom: "-5px" }}
                   />
                   <div>
                     <Typography
@@ -234,7 +230,7 @@ const Home: React.FC = () => {
                     </Typography>
                     <Typography
                       variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
+                      style={{ fontWeight: "400", color: "#000000" }}
                     >
                       It is better to learn theory than to learn cases; It is
                       better to learn cases than to make cases; It is better to
@@ -256,11 +252,11 @@ const Home: React.FC = () => {
                   }}
                 >
                   <img
-                    src="/Person.png"
+                    src="/Overview.png"
                     alt=""
-                    width={30}
-                    height={30}
-                    style={{ marginRight: "15px", marginBottom: "70px" }}
+                    width={20}
+                    height={20}
+                    style={{ marginRight: "15px", marginBottom: "-5px" }}
                   />
                   <div>
                     <Typography
@@ -275,7 +271,7 @@ const Home: React.FC = () => {
                     </Typography>
                     <Typography
                       variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
+                      style={{ fontWeight: "400", color: "#000000" }}
                     >
                       Students are divided into different clubs according to
                       their age and interests. Respect students&apos; hobbies

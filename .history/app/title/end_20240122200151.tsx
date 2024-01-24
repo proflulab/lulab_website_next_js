@@ -7,7 +7,7 @@ import React from "react";
 const End: React.FC = () => {
   return (
     <Grid>
-      <div style={{ backgroundColor: "black", height: "32vh" }}>
+      <div style={{ backgroundColor: "black", height: "35vh" }}>
         <div style={{ marginLeft: "30px", paddingTop: "20px" }}>
           <div
             style={{
