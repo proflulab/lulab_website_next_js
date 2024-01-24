@@ -122,7 +122,7 @@ const Home: React.FC = () => {
                 transform: "translateX(-50%)",
                 backgroundColor: "#333333",
                 color: "#fff",
-                padding: "15px",
+                padding: "20px",
                 zIndex: 1,
                 width: isMobile ? "90%" : "60%",
               }}

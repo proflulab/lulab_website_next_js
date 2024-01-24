@@ -7,14 +7,10 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+
 import App from "./title/page";
 import End from "./title/end";
 import { Grid, Typography } from "@mui/material";
-import {
-  Event as OverviewIcon,
-  School as EduIcon,
-  Person as PersonIcon,
-} from "@mui/icons-material";
 
 const Home: React.FC = () => {
   const [images, setImages] = useState<string[]>([]);
@@ -85,7 +81,7 @@ const Home: React.FC = () => {
               alignItems: "center",
               position: "relative",
               width: "100vw",
-              height: "40vw",
+              height: "50vw",
             }}
           >
             <div
@@ -122,7 +118,7 @@ const Home: React.FC = () => {
                 transform: "translateX(-50%)",
                 backgroundColor: "#333333",
                 color: "#fff",
-                padding: "15px",
+                padding: "20px",
                 zIndex: 1,
                 width: isMobile ? "90%" : "60%",
               }}
@@ -167,16 +163,26 @@ const Home: React.FC = () => {
               Welcome to Lu Lab
             </Typography>
 
-            <Grid container spacing={6}>
+            <Grid container spacing={3}>
               <Grid item xs={12} sm={6} md={4}>
                 <div
                   style={{
                     display: "flex",
-
+                    alignItems: "center",
                     marginBottom: "10px",
                   }}
                 >
-                  <OverviewIcon fontSize="large" style={{ color: "#4CAF50" }} />
+                  <img
+                    src="/Overview.png"
+                    alt=""
+                    width={20}
+                    height={20}
+                    style={{
+                      marginRight: "15px",
+                      marginBottom: "60px",
+                      marginLeft: "10px",
+                    }}
+                  />
                   <div>
                     <Typography
                       variant="h3"
@@ -204,11 +210,17 @@ const Home: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-
+                    alignItems: "center",
                     marginBottom: "10px",
                   }}
                 >
-                  <EduIcon fontSize="large" style={{ color: "#4CAF50" }} />
+                  <img
+                    src="/Edu.png"
+                    alt=""
+                    width={30}
+                    height={30}
+                    style={{ marginRight: "15px", marginBottom: "110px" }}
+                  />
                   <div>
                     <Typography
                       variant="h3"
@@ -239,11 +251,17 @@ const Home: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-
+                    alignItems: "center",
                     marginBottom: "10px",
                   }}
                 >
-                  <PersonIcon fontSize="large" style={{ color: "#4CAF50" }} />
+                  <img
+                    src="/Person.png"
+                    alt=""
+                    width={30}
+                    height={30}
+                    style={{ marginRight: "15px", marginBottom: "70px" }}
+                  />
                   <div>
                     <Typography
                       variant="h3"
