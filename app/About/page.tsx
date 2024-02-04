@@ -31,11 +31,7 @@ export default function About() {
           >
             <Typography
               variant="h1"
-              sx={{
-                fontSize: { xs: "25px", md: "70px" },
-                color: "white",
-                fontWeight: "bold",
-              }}
+              style={{ fontSize: "4.5vw", fontWeight: "bold" }}
             >
               The New Education
             </Typography>
@@ -51,10 +47,7 @@ export default function About() {
           >
             <Typography
               variant="h2"
-              sx={{
-                fontSize: { xs: "18px", md: "50px" },
-                color: "white",
-              }}
+              style={{ fontSize: "4vw", fontWeight: "normal" }}
             >
               in AI age
             </Typography>
@@ -70,10 +63,7 @@ export default function About() {
           >
             <Typography
               variant="h3"
-              sx={{
-                fontSize: { xs: "12px", md: "40px" },
-                color: "white",
-              }}
+              style={{ fontSize: "2.4vw", fontWeight: "normal" }}
             >
               All work and no play makes Jack a dull boy
             </Typography>
@@ -150,8 +140,8 @@ export default function About() {
           <Box
             sx={{
               margin: "0 auto",
-              padding: "10px",
-              width: { xs: "90%", md: "60%" }, // Adjust width based on screen size
+
+              width: { xs: "90%", md: "90%" }, // Adjust width based on screen size
             }}
           >
             <Typography
@@ -178,22 +168,19 @@ export default function About() {
               variant="body1"
               sx={{
                 color: "black",
-                fontSize: { xs: "8px", md: "20px" },
-                fontWeight: "500",
+                fontSize: { xs: "8px", sm: "12px", md: "18px" },
                 marginTop: "20px",
-                textAlign: "center",
-                textIndent: { xs: "0px", md: "-10px" },
+                textIndent: { xs: "0px", md: "0px" },
               }}
             >
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INDIVIDUAL
-              MEMBER(ADULT)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FAMILY
-              MEMBER(MINOR)
+              MEMBER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FAMILY
+              MEMBER
             </Typography>
             <Divider
               sx={{
                 border: "none",
                 borderBottom: "1px solid black",
-                margin: "auto",
                 marginTop: "20px",
               }}
             />
@@ -201,8 +188,7 @@ export default function About() {
               variant="body1"
               sx={{
                 color: "black",
-                fontSize: { xs: "10px", md: "20px" },
-                fontWeight: "500",
+                fontSize: { xs: "8px", sm: "12px", md: "18px" },
                 marginTop: "20px",
               }}
             >
@@ -215,7 +201,7 @@ export default function About() {
               sx={{
                 border: "none",
                 borderBottom: "1px solid black",
-                margin: "auto",
+
                 marginTop: "20px",
               }}
             />
@@ -223,8 +209,8 @@ export default function About() {
               variant="body1"
               sx={{
                 color: "black",
-                fontSize: { xs: "10px", md: "20px" },
-                fontWeight: "500",
+                fontSize: { xs: "8px", sm: "12px", md: "18px" },
+
                 marginTop: "20px",
               }}
             >
@@ -237,7 +223,7 @@ export default function About() {
               sx={{
                 border: "none",
                 borderBottom: "1px solid black",
-                margin: "auto",
+
                 marginTop: "20px",
                 marginBottom: "50px",
               }}
