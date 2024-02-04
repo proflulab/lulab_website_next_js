@@ -114,69 +114,64 @@ const App: React.FC = () => {
                     </NavbarItem>
                     <DropdownMenu className="dark text-foreground bg-background">
                       <DropdownItem
+                        as={Link}
+                        href="/MetaverseClub"
                         description="Dedicated to creating a virtual language environment..."
                         startContent={icons.scale}
                       >
-                        <Link href="/MetaverseClub">
-                          <a style={{ color: "white" }}>Metaverse Club</a>
-                        </Link>
+                        <a style={{ color: "white" }}>Metaverse Club</a>
                       </DropdownItem>
                       <DropdownItem
+                        as={Link}
+                        href="/DigitalLiteracyClub"
                         description="Strives to enhance children's computer skills..."
                         startContent={icons.activity}
                       >
-                        <Link href="/DigitalLiteracyClub">
-                          <a style={{ color: "white" }}>
-                            Digital Literacy Club
-                          </a>
-                        </Link>
+                        <a style={{ color: "white" }}>Digital Literacy Club</a>
                       </DropdownItem>
                       <DropdownItem
+                        as={Link}
+                        href="/DigitalMicroprojectsClub"
                         description="This is a cradle for a group of..."
                         startContent={icons.flash}
                       >
-                        <Link href="/DigitalMicroprojectsClub">
-                          <a style={{ color: "white" }}>
-                            Digital Microprojects Club
-                          </a>
-                        </Link>
+                        <a style={{ color: "white" }}>
+                          Digital Microprojects Club
+                        </a>
                       </DropdownItem>
                       <DropdownItem
+                        as={Link}
+                        href="/AdvancedDigitalTechClub"
                         description="Mastering advanced digital technology..."
                         startContent={icons.server}
                       >
-                        <Link href="/AdvancedDigitalTechClub">
-                          <a style={{ color: "white" }}>
-                            {" "}
-                            Advanced Digital Technology Club
-                          </a>
-                        </Link>
+                        <a style={{ color: "white" }}>
+                          Advanced Digital Technology Club
+                        </a>
                       </DropdownItem>
                       <DropdownItem
+                        as={Link}
+                        href="/AIClub"
                         description="Using the most advanced artificial intelligence..."
                         startContent={icons.user}
                       >
-                        <Link href="/AIClub">
-                          <a style={{ color: "white" }}>AI Club</a>
-                        </Link>
+                        <a style={{ color: "white" }}>AI Club</a>
                       </DropdownItem>
                       <DropdownItem
+                        as={Link}
+                        href="/DigitalMarketingClub"
                         description="Take you to master cutting-edge..."
                         startContent={icons.marketing}
                       >
-                        <Link href="/DigitalMarketingClub">
-                          <a style={{ color: "white" }}>
-                            Digital Marketing Club
-                          </a>
-                        </Link>
+                        <a style={{ color: "white" }}>Digital Marketing Club</a>
                       </DropdownItem>
                       <DropdownItem
+                        as={Link}
+                        href="/LeadershipClub"
                         description="The leadership club, originating from Tsinghua University..."
                         startContent={icons.leadership}
                       >
-                        <Link href="/LeadershipClub">
-                          <a style={{ color: "white" }}>Leadership Club</a>
-                        </Link>
+                        <a style={{ color: "white" }}>Leadership Club</a>
                       </DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
