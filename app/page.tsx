@@ -85,7 +85,7 @@ const Home: React.FC = () => {
               alignItems: "center",
               position: "relative",
               width: "100vw",
-              height: "40vw",
+              height: "48vw",
             }}
           >
             <div
@@ -156,7 +156,7 @@ const Home: React.FC = () => {
             <Typography
               variant="h2"
               sx={{
-                fontSize: { xs: "40px", md: "60px" },
+                fontSize: { xs: "35px", md: "60px" },
                 color: "black",
                 marginTop: "40px",
                 marginBottom: "40px",
