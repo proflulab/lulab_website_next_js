@@ -49,7 +49,7 @@ const App: React.FC = () => {
 
   const showMenuButton = windowWidth <= 640;
 
-  const menuItems = ["Home", "Clubs", "Course", "About"];
+  const menuItems = ["Home", "Clubs", "About"];
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
     scale: <Scale className="text-warning" fill="currentColor" size={30} />,
@@ -114,72 +114,72 @@ const App: React.FC = () => {
                     </NavbarItem>
                     <DropdownMenu className="dark text-foreground bg-background">
                       <DropdownItem
-                        as={Link}
-                        href="/MetaverseClub"
                         description="Dedicated to creating a virtual language environment..."
                         startContent={icons.scale}
                       >
-                        <a style={{ color: "white" }}>Metaverse Club</a>
+                        <Link href="/MetaverseClub">
+                          <a style={{ color: "white" }}>Metaverse Club</a>
+                        </Link>
                       </DropdownItem>
                       <DropdownItem
-                        as={Link}
-                        href="/DigitalLiteracyClub"
                         description="Strives to enhance children's computer skills..."
                         startContent={icons.activity}
                       >
-                        <a style={{ color: "white" }}>Digital Literacy Club</a>
+                        <Link href="/DigitalLiteracyClub">
+                          <a style={{ color: "white" }}>
+                            Digital Literacy Club
+                          </a>
+                        </Link>
                       </DropdownItem>
                       <DropdownItem
-                        as={Link}
-                        href="/DigitalMicroprojectsClub"
                         description="This is a cradle for a group of..."
                         startContent={icons.flash}
                       >
-                        <a style={{ color: "white" }}>
-                          Digital Microprojects Club
-                        </a>
+                        <Link href="/DigitalMicroprojectsClub">
+                          <a style={{ color: "white" }}>
+                            Digital Microprojects Club
+                          </a>
+                        </Link>
                       </DropdownItem>
                       <DropdownItem
-                        as={Link}
-                        href="/AdvancedDigitalTechClub"
                         description="Mastering advanced digital technology..."
                         startContent={icons.server}
                       >
-                        <a style={{ color: "white" }}>
-                          Advanced Digital Technology Club
-                        </a>
+                        <Link href="/AdvancedDigitalTechClub">
+                          <a style={{ color: "white" }}>
+                            {" "}
+                            Advanced Digital Technology Club
+                          </a>
+                        </Link>
                       </DropdownItem>
                       <DropdownItem
-                        as={Link}
-                        href="/AIClub"
                         description="Using the most advanced artificial intelligence..."
                         startContent={icons.user}
                       >
-                        <a style={{ color: "white" }}>AI Club</a>
+                        <Link href="/AIClub">
+                          <a style={{ color: "white" }}>AI Club</a>
+                        </Link>
                       </DropdownItem>
                       <DropdownItem
-                        as={Link}
-                        href="/DigitalMarketingClub"
                         description="Take you to master cutting-edge..."
                         startContent={icons.marketing}
                       >
-                        <a style={{ color: "white" }}>Digital Marketing Club</a>
+                        <Link href="/DigitalMarketingClub">
+                          <a style={{ color: "white" }}>
+                            Digital Marketing Club
+                          </a>
+                        </Link>
                       </DropdownItem>
                       <DropdownItem
-                        as={Link}
-                        href="/LeadershipClub"
                         description="The leadership club, originating from Tsinghua University..."
                         startContent={icons.leadership}
                       >
-                        <a style={{ color: "white" }}>Leadership Club</a>
+                        <Link href="/LeadershipClub">
+                          <a style={{ color: "white" }}>Leadership Club</a>
+                        </Link>
                       </DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
-                  <NavbarItem>
-                    <Link color="foreground" href="/Course">
-                      Course
-                    </Link>
-                  </NavbarItem>
                   <NavbarItem>
                     <Link color="foreground" href="/About">
                       About
@@ -208,8 +208,12 @@ const App: React.FC = () => {
                 style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
               >
                 {menuItems.map((item, index) => (
-                  <NavbarMenuItem key={`${item}-${index}`}>
-                    {item === "Clubs" ? (
+                 <NavbarMenuItem key={`${item}-${index}`}>
+                 <div
+                   onClick={() => handleLinkClick(item)}
+                   style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
+                 >
+                   {item === "Clubs" ? (
                       <>
                         <div className="flex items-center justify-between w-full ">
                           <Link className="w-full" color="foreground" size="lg">

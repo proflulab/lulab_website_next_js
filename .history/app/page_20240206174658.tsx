@@ -15,6 +15,10 @@ import {
   School as EduIcon,
   Person as PersonIcon,
 } from "@mui/icons-material";
+import { loadStripe } from "@stripe/stripe-js";
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
 const Home: React.FC = () => {
   const [images, setImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
@@ -267,6 +271,7 @@ const Home: React.FC = () => {
               </Grid>
             </Grid>
           </div>
+          <PreviewPage />
         </div>
         <End />
       </div>

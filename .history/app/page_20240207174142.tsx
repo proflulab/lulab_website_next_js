@@ -15,6 +15,8 @@ import {
   School as EduIcon,
   Person as PersonIcon,
 } from "@mui/icons-material";
+import PreviewPage from "../pages/pay";
+
 const Home: React.FC = () => {
   const [images, setImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
@@ -267,6 +269,12 @@ const Home: React.FC = () => {
               </Grid>
             </Grid>
           </div>
+          <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+          <stripe-buy-button
+            buy-button-id="buy_btn_1OhHzLEmgDIszJrIDVeG40d1"
+            publishable-key="pk_test_51OgaIMEmgDIszJrIVQpseWGGIsUJNLBa7o9pdwMxzzq3oS39E79hItBKN9GuUuSbBBxcwsxwPGUy7NBcbgqDCssZ005iAmw0YI"
+          ></stripe-buy-button>
         </div>
         <End />
       </div>

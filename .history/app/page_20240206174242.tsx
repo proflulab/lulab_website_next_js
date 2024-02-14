@@ -15,6 +15,7 @@ import {
   School as EduIcon,
   Person as PersonIcon,
 } from "@mui/icons-material";
+
 const Home: React.FC = () => {
   const [images, setImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);

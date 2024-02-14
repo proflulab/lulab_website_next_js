@@ -49,7 +49,7 @@ const App: React.FC = () => {
 
   const showMenuButton = windowWidth <= 640;
 
-  const menuItems = ["Home", "Clubs", "Course", "About"];
+  const menuItems = ["Home", "Clubs", "About"];
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
     scale: <Scale className="text-warning" fill="currentColor" size={30} />,
@@ -176,7 +176,7 @@ const App: React.FC = () => {
                     </DropdownMenu>
                   </Dropdown>
                   <NavbarItem>
-                    <Link color="foreground" href="/Course">
+                    <Link color="foreground" href="/">
                       Course
                     </Link>
                   </NavbarItem>
