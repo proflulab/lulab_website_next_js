@@ -34,7 +34,7 @@ const Course = () => {
         <div>
           {/* Stripe Buy Button code */}
           <stripe-buy-button
-            buy-button-id="buy_btn_1OjCnoEmgDIszJrI1w8Hs6zU"
+            buy-button-id="buy_btn_1OozXyEmgDIszJrI8kLB1UOZ"
             publishable-key="pk_test_51OgaIMEmgDIszJrIVQpseWGGIsUJNLBa7o9pdwMxzzq3oS39E79hItBKN9GuUuSbBBxcwsxwPGUy7NBcbgqDCssZ005iAmw0YI"
           ></stripe-buy-button>
         </div>

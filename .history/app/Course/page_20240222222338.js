@@ -38,16 +38,12 @@ const Course = () => {
             publishable-key="pk_test_51OgaIMEmgDIszJrIVQpseWGGIsUJNLBa7o9pdwMxzzq3oS39E79hItBKN9GuUuSbBBxcwsxwPGUy7NBcbgqDCssZ005iAmw0YI"
           ></stripe-buy-button>
         </div>
-        <div
-          style={{ marginLeft: "20px", color: "black", textAlign: "center" }}
-        >
+        <div style={{ marginLeft: "20px", color: black }}>
+          {/* Additional text */}
           <p>
             Tsinghua Professor Lu Xiangqian <br />
             Family Education & Career Development planning <br />
-            <span style={{ color: "green" }}>
-              Includes 1 to 1 consultation and Q&A
-            </span>
-            <br />
+            Includes 1 to 1 consultation and Q&A <br />
             Train children into <br />
             Stanford Berkeley <br />
             Instruct multiple participants to join <br />

@@ -24,8 +24,6 @@ const Course = () => {
       <App />
       <div
         style={{
-          backgroundColor: "white",
-          minHeight: "400px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -38,23 +36,20 @@ const Course = () => {
             publishable-key="pk_test_51OgaIMEmgDIszJrIVQpseWGGIsUJNLBa7o9pdwMxzzq3oS39E79hItBKN9GuUuSbBBxcwsxwPGUy7NBcbgqDCssZ005iAmw0YI"
           ></stripe-buy-button>
         </div>
-        <div
-          style={{ marginLeft: "20px", color: "black", textAlign: "center" }}
-        >
-          <p>
-            Tsinghua Professor Lu Xiangqian <br />
-            Family Education & Career Development planning <br />
-            <span style={{ color: "green" }}>
-              Includes 1 to 1 consultation and Q&A
-            </span>
-            <br />
-            Train children into <br />
-            Stanford Berkeley <br />
-            Instruct multiple participants to join <br />
-            Or start a unicorn company
-          </p>
+        <div style={{ marginLeft: "20px" }}>
+          {/* Additional text with custom rectangle */}
+          <div
+            style={{
+              backgroundColor: "#f7f7f7",
+              padding: "10px",
+              borderRadius: "5px",
+            }}
+          >
+            <p>Your additional text goes here.</p>
+          </div>
         </div>
       </div>
+
       <End />
     </>
   );

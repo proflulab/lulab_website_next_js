@@ -46,7 +46,7 @@ const Course = () => {
             Family Education & Career Development planning <br />
             <span style={{ color: "green" }}>
               Includes 1 to 1 consultation and Q&A
-            </span>
+            </span>{" "}
             <br />
             Train children into <br />
             Stanford Berkeley <br />
