@@ -43,7 +43,7 @@ const Course = () => {
             marginLeft: "20px",
             color: "black",
             textAlign: "center",
-            fontSize: "20px",
+            fontSize: "24px",
           }}
         >
           <p>
