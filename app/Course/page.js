@@ -6,30 +6,27 @@ import End from "../title/end";
 
 const Course = () => {
   useEffect(() => {
-    // 动态添加 Stripe Buy Button 脚本
     const script = document.createElement("script");
     script.src = "https://js.stripe.com/v3/buy-button.js";
     script.async = true;
     document.body.appendChild(script);
 
     return () => {
-      // 在组件卸载时移除脚本
       document.body.removeChild(script);
     };
-  }, []); // 依赖项为空数组表示只在组件加载时运行一次
+  }, []);
 
   const isSmallerScreen = useMediaQuery("(max-width: 600px)");
 
   return (
     <>
       <App />
-
       <Grid
         sx={{
           backgroundColor: "white",
           minHeight: "500px",
           display: "flex",
-          flexDirection: isSmallerScreen ? "column" : "row", // 移动端垂直布局，其他水平布局
+          flexDirection: isSmallerScreen ? "column" : "row",
           alignItems: "center",
           justifyContent: "center",
         }}
