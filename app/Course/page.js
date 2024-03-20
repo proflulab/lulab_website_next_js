@@ -23,7 +23,6 @@ const Course = () => {
   return (
     <>
       <App />
-
       <Grid
         sx={{
           backgroundColor: "white",
@@ -39,8 +38,8 @@ const Course = () => {
             <Grid item xs={12} md={4}>
               {/* Stripe Buy Button code */}
               <stripe-buy-button
-                buy-button-id="buy_btn_1OpiXQJAR8bDRsEH6knOQv8R"
-                publishable-key="pk_live_51OdmsRJAR8bDRsEHIoskHYvVlHrxSILRwkvbEGaHJkg5PQcpb22j3lC2XdWptqbl28hNLtaBJQYozW4uy9xGGeo500aE45XnDP"
+                buy-button-id="buy_btn_1OjCnoEmgDIszJrI1w8Hs6zU"
+                publishable-key="pk_test_51OgaIMEmgDIszJrIVQpseWGGIsUJNLBa7o9pdwMxzzq3oS39E79hItBKN9GuUuSbBBxcwsxwPGUy7NBcbgqDCssZ005iAmw0YI"
               ></stripe-buy-button>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -70,8 +69,8 @@ const Course = () => {
             <Grid item xs={12} md={4}>
               {/* Stripe Buy Button code */}
               <stripe-buy-button
-                buy-button-id="buy_btn_1OpiXQJAR8bDRsEH6knOQv8R"
-                publishable-key="pk_live_51OdmsRJAR8bDRsEHIoskHYvVlHrxSILRwkvbEGaHJkg5PQcpb22j3lC2XdWptqbl28hNLtaBJQYozW4uy9xGGeo500aE45XnDP"
+                buy-button-id="buy_btn_1OjCnoEmgDIszJrI1w8Hs6zU"
+                publishable-key="pk_test_51OgaIMEmgDIszJrIVQpseWGGIsUJNLBa7o9pdwMxzzq3oS39E79hItBKN9GuUuSbBBxcwsxwPGUy7NBcbgqDCssZ005iAmw0YI"
               ></stripe-buy-button>
             </Grid>
             <Grid item xs={12} md={6}>

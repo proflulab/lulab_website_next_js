@@ -188,20 +188,7 @@ const App: React.FC = () => {
                 </>
               )}
             </NavbarContent>
-            <NavbarContent justify="end">
-              {/* {!showMenuButton && (
-          <>
-            <NavbarItem className="hidden lg:flex">
-              <Link href="#">Login</Link>
-            </NavbarItem>
-            <NavbarItem className="hidden lg:flex">
-              <Button as={Link} color="primary" href="#" variant="flat">
-                Sign Up
-              </Button>
-            </NavbarItem>
-          </>
-        )} */}
-            </NavbarContent>
+            <NavbarContent justify="end"></NavbarContent>
             {showMenuButton && isMenuOpen && (
               <NavbarMenu
                 className="dark text-foreground "
@@ -215,7 +202,6 @@ const App: React.FC = () => {
                           <Link className="w-full" color="foreground" size="lg">
                             {item}
                           </Link>
-
                           <Dropdown className="dark text-foreground bg-background">
                             <DropdownTrigger>
                               <Button
@@ -338,6 +324,21 @@ const App: React.FC = () => {
                 ))}
               </NavbarMenu>
             )}
+
+            <NavbarItem className=" lg:flex">
+              <Button color="default" as={Link} variant="light" size="md">
+                Sign in
+              </Button>
+            </NavbarItem>
+            <Button
+              href="#"
+              as={Link}
+              color="default"
+              variant="bordered"
+              size="md"
+            >
+              Sign up
+            </Button>
           </Navbar>
         </main>
       </NextUIProvider>
