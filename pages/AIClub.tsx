@@ -5,7 +5,7 @@ import "../app/globals.css";
 import App from "../app/title/page";
 import End from "../app/title/end";
 
-const MetaverseClub: React.FC = () => {
+const AIClub: React.FC = () => {
   return (
     <>
       <App />
@@ -90,4 +90,4 @@ const MetaverseClub: React.FC = () => {
   );
 };
 
-export default MetaverseClub;
+export default AIClub;

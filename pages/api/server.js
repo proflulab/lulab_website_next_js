@@ -18,8 +18,7 @@ const express = require("express");
 const app = express();
 
 // This is your Stripe CLI webhook secret for testing your endpoint locally.
-const endpointSecret =
-  "whsec_6a09431497f7832fa1da85e34bd533e917801f407ace41dc239f21cfc1946b7b";
+const endpointSecret = "";
 
 app.post(
   "/webhook",

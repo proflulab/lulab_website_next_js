@@ -309,13 +309,16 @@ const App: React.FC = () => {
                     ) : (
                       <Link
                         className="w-full"
-                        color={
-                          index === menuItems.length - 0
-                            ? "danger"
-                            : "foreground"
+                        color="foreground"
+                        href={
+                          item === "Home"
+                            ? "/"
+                            : item === "Course"
+                            ? "/Course"
+                            : "/About"
                         }
-                        href={item === "Home" ? "/" : "/About"}
                         size="lg"
+                        key={item}
                       >
                         {item}
                       </Link>
@@ -325,8 +328,14 @@ const App: React.FC = () => {
               </NavbarMenu>
             )}
 
-            <NavbarItem className=" lg:flex">
-              <Button color="default" as={Link} variant="light" size="md">
+            <NavbarItem>
+              <Button
+                color="default"
+                as={Link}
+                variant="light"
+                size="md"
+                href="/Signin"
+              >
                 Sign in
               </Button>
             </NavbarItem>
