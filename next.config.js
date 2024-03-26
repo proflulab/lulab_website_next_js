@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  transpilePackages: ["mui-tel-input"],
+  // your config
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
