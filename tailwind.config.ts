@@ -35,7 +35,11 @@ module.exports = {
   ],
 
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customGreen: "#89d36f",
+      },
+    },
   },
   darkMode: "class",
   plugins: [require("@tailwindcss/forms"), nextui()],

@@ -1,16 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState } from "react";
-// import { Grid, Typography } from "@mui/material";
 import "../app/globals.css";
-import App from "../app/title/page";
-import End from "../app/title/end";
-import { Grid } from "@mui/material";
-// import CountryCodeSelector from "../app/components/CountryCodeSelector";
+import { Grid, Link } from "@mui/material";
 import { MuiTelInput } from "mui-tel-input";
 export default function Signin() {
   const [phone, setPhone] = React.useState("");
-
   const handleChange = (newPhone: React.SetStateAction<string>) => {
     setPhone(newPhone);
   };
@@ -25,7 +20,6 @@ export default function Signin() {
 
   return (
     <>
-      <App />
       <Grid
         sx={{
           backgroundColor: "white",
@@ -73,7 +67,7 @@ export default function Signin() {
                       type="email"
                       autoComplete="email"
                       required
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -86,14 +80,14 @@ export default function Signin() {
                     Phone number
                   </label>
                   <div className=" flex rounded-md shadow-sm">
-                    <MuiTelInput value={phone} onChange={handleChange} />
+                    <MuiTelInput onChange={handleChange} value={phone} />
                     <input
                       id="phone"
                       name="phone"
                       type="tel"
                       autoComplete="tel"
                       required
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
                       placeholder="Your phone number"
                     />
                   </div>
@@ -115,7 +109,7 @@ export default function Signin() {
                       type="password"
                       autoComplete="current-password"
                       required
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -134,7 +128,7 @@ export default function Signin() {
                       type="text"
                       autoComplete="off"
                       required
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -176,17 +170,16 @@ export default function Signin() {
 
             <p className="mt-4 text-center text-sm text-gray-500">
               New to LuLab?{" "}
-              <a
-                href="#"
+              <Link
+                href="/Signup"
                 className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
               >
                 Create an account
-              </a>
+              </Link>
             </p>
           </div>
         </div>
       </Grid>
-      <End />
     </>
   );
 }

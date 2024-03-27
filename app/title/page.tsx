@@ -340,7 +340,7 @@ const App: React.FC = () => {
               </Button>
             </NavbarItem>
             <Button
-              href="#"
+              href="/Signup"
               as={Link}
               color="default"
               variant="bordered"
