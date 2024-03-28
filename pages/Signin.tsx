@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../app/globals.css";
 import { Grid, Link } from "@mui/material";
 import { MuiTelInput } from "mui-tel-input";
@@ -12,11 +12,24 @@ export default function Signin() {
   const [useEmail, setUseEmail] = useState(true);
   const [usePassword, setUsePassword] = useState(true);
   const [showSendButton, setShowSendButton] = useState(false);
-
+  const [verificationCodeSent, setVerificationCodeSent] = useState(false);
   const handleSendCode = () => {
     console.log("Sending verification code...");
-    setShowSendButton(false); // 发送验证码后隐藏发送按钮
+    setShowSendButton(false);
+    setVerificationCodeSent(true);
+    setTimeout(() => {
+      setVerificationCodeSent(false);
+    }, 5000);
   };
+
+  useEffect(() => {
+    if (verificationCodeSent) {
+      const timer = setTimeout(() => {
+        setVerificationCodeSent(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [verificationCodeSent]);
 
   return (
     <>
@@ -43,7 +56,7 @@ export default function Signin() {
               <button
                 type="button"
                 onClick={() => setUseEmail(!useEmail)}
-                className="text-sm text-indigo-600 hover:text-indigo-500"
+                className="text-sm text-green-600 hover:text-green-500"
               >
                 {useEmail ? "Use phone number" : "Use email address"}
               </button>
@@ -67,7 +80,7 @@ export default function Signin() {
                       type="email"
                       autoComplete="email"
                       required
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 py-1.5 text-green-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -87,7 +100,7 @@ export default function Signin() {
                       type="tel"
                       autoComplete="tel"
                       required
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 py-1.5 text-green-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
                       placeholder="Your phone number"
                     />
                   </div>
@@ -109,7 +122,7 @@ export default function Signin() {
                       type="password"
                       autoComplete="current-password"
                       required
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 py-1.5 text-green-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -128,7 +141,7 @@ export default function Signin() {
                       type="text"
                       autoComplete="off"
                       required
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md border-0 py-1.5 text-green-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -139,10 +152,12 @@ export default function Signin() {
                   <button
                     type="button"
                     onClick={handleSendCode}
-                    className="font-semibold text
-                    -indigo-600 hover:text-indigo-500"
+                    className="font-semibold text-green-600 hover:text-green-500"
+                    disabled={verificationCodeSent}
                   >
-                    Send verification code
+                    {verificationCodeSent
+                      ? "Verification code sent"
+                      : "Send verification code"}
                   </button>
                 </div>
               )}
@@ -151,7 +166,7 @@ export default function Signin() {
                 <button
                   type="button"
                   onClick={() => setUsePassword(!usePassword)}
-                  className="font-semibold text-indigo-600 hover:text-indigo-500"
+                  className="font-semibold text-green-600 hover:text-green-500"
                 >
                   {usePassword ? "Use verification code" : "Use password"}
                 </button>
@@ -160,7 +175,7 @@ export default function Signin() {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:
+                  className="flex w-full justify-center rounded-md bg-customGreen px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:
   outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Sign in
@@ -172,7 +187,7 @@ export default function Signin() {
               New to LuLab?{" "}
               <Link
                 href="/Signup"
-                className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                className=" focus:ring-customGreen  font-semibold leading-6 text-green-600 hover:text-green-500"
               >
                 Create an account
               </Link>

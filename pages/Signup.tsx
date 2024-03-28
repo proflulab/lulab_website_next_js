@@ -64,7 +64,7 @@ export default function Signup() {
               <button
                 type="button"
                 onClick={() => setUseEmail(!useEmail)}
-                className="text-sm text-indigo-600 hover:text-indigo-500"
+                className="text-sm text-green-600 hover:text-green-500"
               >
                 {useEmail ? "Use phone number" : "Use email address"}
               </button>
@@ -117,7 +117,7 @@ export default function Signup() {
                 </div>
               )}
 
-              <div>
+              <div className="text-sm">
                 <label
                   htmlFor="verification-code"
                   className="block text-sm font-medium leading-6 text-gray-900"
@@ -137,7 +137,7 @@ export default function Signup() {
                     <button
                       type="button"
                       onClick={handleSendCode}
-                      className="font-semibold text-indigo-600 hover:text-indigo-500 text-sm"
+                      className="font-semibold text-green-600 hover:text-green-500"
                     >
                       Send verification code
                     </button>
@@ -148,7 +148,8 @@ export default function Signup() {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-customGreen px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:
+                  outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Sign up
                 </button>
@@ -159,7 +160,7 @@ export default function Signup() {
               Already have an account?{" "}
               <Link
                 href="/Signin"
-                className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                className="font-semibold text-green-600 hover:text-green-500"
               >
                 Sign in here
               </Link>
