@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../app/globals.css";
-import { Button, Grid, Link } from "@mui/material";
+import { Grid, Link } from "@mui/material";
 import { MuiTelInput } from "mui-tel-input";
 
 export default function Signup() {
@@ -10,7 +10,7 @@ export default function Signup() {
   const [phone, setPhone] = useState("");
   const [verificationCode, setVerificationCode] = useState("");
   const [useEmail, setUseEmail] = useState(true);
-  const [showSendButton, setShowSendButton] = useState(false);
+  const [countdown, setCountdown] = useState(0);
 
   const handleChangeEmail = (event: {
     target: { value: React.SetStateAction<string> };
@@ -30,13 +30,20 @@ export default function Signup() {
 
   const handleSendCode = () => {
     console.log("Sending verification code...");
-    setShowSendButton(false);
-    // Your code to send verification code goes here
+    setCountdown(60);
+
+    const timer = setInterval(() => {
+      setCountdown((prevCountdown) => prevCountdown - 1);
+    }, 1000);
+
+    setTimeout(() => {
+      clearInterval(timer);
+      setCountdown(0);
+    }, 60000);
   };
 
   const handleSignup = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    // Your code to handle signup goes here
   };
 
   return (
@@ -137,9 +144,12 @@ export default function Signup() {
                     <button
                       type="button"
                       onClick={handleSendCode}
+                      disabled={countdown > 0}
                       className="font-semibold text-green-600 hover:text-green-500"
                     >
-                      Send verification code
+                      {countdown > 0
+                        ? `Resend in ${countdown} seconds`
+                        : "Send verification code"}
                     </button>
                   </div>
                 </div>

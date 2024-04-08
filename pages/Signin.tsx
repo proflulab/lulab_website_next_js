@@ -4,32 +4,31 @@ import React, { useState, useEffect } from "react";
 import "../app/globals.css";
 import { Grid, Link } from "@mui/material";
 import { MuiTelInput } from "mui-tel-input";
+
 export default function Signin() {
-  const [phone, setPhone] = React.useState("");
+  const [phone, setPhone] = useState("");
   const handleChange = (newPhone: React.SetStateAction<string>) => {
     setPhone(newPhone);
   };
   const [useEmail, setUseEmail] = useState(true);
   const [usePassword, setUsePassword] = useState(true);
-  const [showSendButton, setShowSendButton] = useState(false);
   const [verificationCodeSent, setVerificationCodeSent] = useState(false);
+  const [countdown, setCountdown] = useState(0);
+
   const handleSendCode = () => {
     console.log("Sending verification code...");
-    setShowSendButton(false);
     setVerificationCodeSent(true);
-    setTimeout(() => {
-      setVerificationCodeSent(false);
-    }, 5000);
-  };
+    setCountdown(60);
 
-  useEffect(() => {
-    if (verificationCodeSent) {
-      const timer = setTimeout(() => {
-        setVerificationCodeSent(false);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [verificationCodeSent]);
+    const timer = setInterval(() => {
+      setCountdown((prevCountdown) => prevCountdown - 1);
+    }, 1000);
+
+    setTimeout(() => {
+      clearInterval(timer);
+      setVerificationCodeSent(false);
+    }, 60000);
+  };
 
   return (
     <>
@@ -156,7 +155,7 @@ export default function Signin() {
                     disabled={verificationCodeSent}
                   >
                     {verificationCodeSent
-                      ? "Verification code sent"
+                      ? `Resend in ${countdown} seconds`
                       : "Send verification code"}
                   </button>
                 </div>
