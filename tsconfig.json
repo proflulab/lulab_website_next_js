@@ -30,6 +30,6 @@
     ".next/types/**/*.ts",
     "app/Course/page.js",
     "pages/Signup.tsx"
-  ],
+, "app/components/Modal.js"  ],
   "exclude": ["node_modules"]
 }

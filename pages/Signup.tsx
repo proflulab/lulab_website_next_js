@@ -4,20 +4,30 @@ import React, { useState, useEffect } from "react";
 import "../app/globals.css";
 import { Grid, Link } from "@mui/material";
 import { MuiTelInput } from "mui-tel-input";
+import { useRouter } from 'next/router';
 
+import {
+  Modal, 
+  ModalContent, 
+  ModalHeader, 
+  ModalBody, 
+  ModalFooter,
+  useDisclosure
+} from "@nextui-org/react";
 export default function Signup() {
+
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [verificationCode, setVerificationCode] = useState("");
   const [useEmail, setUseEmail] = useState(true);
   const [countdown, setCountdown] = useState(0);
-
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const handleChangeEmail = (event: {
     target: { value: React.SetStateAction<string> };
   }) => {
     setEmail(event.target.value);
   };
-
+ 
   const handleChangePhone = (newPhone: React.SetStateAction<string>) => {
     setPhone(newPhone);
   };
@@ -45,25 +55,29 @@ export default function Signup() {
   const handleSignup = (event: { preventDefault: () => void }) => {
     event.preventDefault();
   };
-
+  
+    const router = useRouter();
+  
+    const handleClick = () => {
+      // 在按钮点击时跳转到下一个页面
+      router.push('create/page');
+    }
   return (
     <>
-      <Grid
-        sx={{
-          backgroundColor: "white",
-          minHeight: "500px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-          <div className="sm:mx-auto sm:w-full sm:max-w-md">
-            <img
-              className="mx-auto h-20 w-auto"
-              src="/logo.png"
-              alt="Your Company"
-            />
+      
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+    <ModalContent>
+    {(onClose) => (
+      <>
+        <ModalHeader>
+          <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+            <div className="sm:mx-auto sm:w-full sm:max-w-md">
+              <img
+                className="mx-auto h-20 w-auto"
+                src="/logo.png"
+                alt="Your Company"
+              />
+            </div>
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
               Sign up for an account
             </h2>
@@ -75,9 +89,11 @@ export default function Signup() {
               >
                 {useEmail ? "Use phone number" : "Use email address"}
               </button>
-            </div>
           </div>
-
+          </div>
+        </ModalHeader>
+        
+        <ModalBody>
           <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-md">
             <form className="space-y-6" onSubmit={handleSignup}>
               {useEmail ? (
@@ -101,6 +117,7 @@ export default function Signup() {
                     />
                   </div>
                 </div>
+                
               ) : (
                 <div>
                   <label
@@ -123,7 +140,20 @@ export default function Signup() {
                   </div>
                 </div>
               )}
+               <div>
+                      <label
+                        htmlFor="password"
+                        className="block text-sm font-medium leading-6 text-gray-900">
+                        Create password
+                      </label>
+                  <div className="mt-2">
+                    <input
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
+                      required
+                      />
 
+                  </div>
+                </div>
               <div className="text-sm">
                 <label
                   htmlFor="verification-code"
@@ -160,8 +190,9 @@ export default function Signup() {
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-customGreen px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:
                   outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  onClick={handleClick}
                 >
-                  Sign up
+                  Next
                 </button>
               </div>
             </form>
@@ -176,8 +207,14 @@ export default function Signup() {
               </Link>
             </p>
           </div>
-        </div>
-      </Grid>
+        </ModalBody>
+        <ModalFooter>
+        </ModalFooter>
+      </>
+    )}
+  </ModalContent>
+</Modal>
     </>
   );
 }
+

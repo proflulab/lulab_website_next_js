@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState, useEffect } from "react";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
 import "../app/globals.css";
 import { Grid, Link } from "@mui/material";
 import { MuiTelInput } from "mui-tel-input";
 
 export default function Signin() {
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const [phone, setPhone] = useState("");
   const handleChange = (newPhone: React.SetStateAction<string>) => {
     setPhone(newPhone);
@@ -32,15 +34,19 @@ export default function Signin() {
 
   return (
     <>
-      <Grid
-        sx={{
-          backgroundColor: "white",
-          minHeight: "500px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+      <Button onPress={onOpen} color="black">Sign in</Button>
+      <Modal 
+        backdrop="opaque" 
+        isOpen={isOpen} 
+        onOpenChange={onOpenChange}
+        radius="lg"
+        classNames={{
+          base: "bg-white",
         }}
       >
+        <ModalContent>
+          {(onClose) => (
+         <ModalHeader className="flex flex-col gap-1"> 
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
             <img
@@ -48,7 +54,7 @@ export default function Signin() {
               src="/logo.png"
               alt="Your Company"
             />
-            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
               Sign in to your account
             </h2>
             <div className="mt-4 text-center">
@@ -193,7 +199,10 @@ export default function Signin() {
             </p>
           </div>
         </div>
-      </Grid>
+        </ModalHeader>
+         )}
+         </ModalContent>
+      </Modal>
     </>
   );
 }

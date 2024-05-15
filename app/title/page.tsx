@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { NextUIProvider } from "@nextui-org/react";
+import modal from '../components/page';
+import Signin from "../../pages/Signin"
 import {
   Navbar,
   NavbarBrand,
@@ -15,7 +17,9 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownTrigger,
+  useDisclosure
 } from "@nextui-org/react";
+
 import {
   ChevronDown,
   Lock,
@@ -26,8 +30,10 @@ import {
   Scale,
   Leadership,
   Marketing,
+
 } from "./Icons";
 import { Logo } from "./Logo";
+
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,7 +54,8 @@ const App: React.FC = () => {
   }, []);
 
   const showMenuButton = windowWidth <= 640;
-
+  const [email, setEmail] = useState("");
+  const [useEmail, setUseEmail] = useState(true);
   const menuItems = ["Home", "Clubs", "Course", "About"];
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
@@ -72,7 +79,8 @@ const App: React.FC = () => {
       setIsClubsOpen(!isClubsOpen);
     }
   };
-
+  
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
   return (
     <React.StrictMode>
       <NextUIProvider>
@@ -328,30 +336,20 @@ const App: React.FC = () => {
               </NavbarMenu>
             )}
 
-            <NavbarItem>
-              <Button
-                color="default"
-                as={Link}
-                variant="light"
-                size="md"
-                href="/Signin"
-              >
-                Sign in
-              </Button>
-            </NavbarItem>
-            <Button
-              href="/Signup"
-              as={Link}
-              color="default"
-              variant="bordered"
-              size="md"
-            >
-              Sign up
-            </Button>
+           
+            {
+                Signin()
+            }
+            
+            {
+               modal()
+            } 
           </Navbar>
+         
         </main>
       </NextUIProvider>
     </React.StrictMode>
   );
 };
+
 export default App;
