@@ -47,8 +47,7 @@ export default function Signin() {
         <ModalContent>
           {(onClose) => (
          <ModalHeader className="flex flex-col gap-1"> 
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-          <div className="sm:mx-auto sm:w-full sm:max-w-md">
+     
             <img
               className="mx-auto h-20 w-auto"
               src="/logo.png"
@@ -66,9 +65,9 @@ export default function Signin() {
                 {useEmail ? "Use phone number" : "Use email address"}
               </button>
             </div>
-          </div>
+         
 
-{/* this.setState((state, props) => { return { first }}) */}
+
           <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-md">
             <form className="space-y-6" action="#" method="POST">
               {useEmail ? (
@@ -99,7 +98,18 @@ export default function Signin() {
                     Phone number
                   </label>
                   <div className=" flex rounded-md shadow-sm">
-                    <MuiTelInput onChange={handleChange} value={phone} />
+                  <MuiTelInput 
+                  onChange={handleChange} 
+                  value={phone} 
+                  sx={{
+                    '& .MuiInputBase-root': {
+                      height: '40px',
+                      padding: '0 6px',
+                      fontSize: '0.875rem',
+                      lineHeight: '1rem'
+                    }
+                  }}
+                />
                     <input
                       id="phone"
                       name="phone"
@@ -192,14 +202,19 @@ export default function Signin() {
             <p className="mt-4 text-center text-sm text-gray-500">
               New to LuLab?{" "}
               <Link
-                href="/Signup"
-                className=" focus:ring-customGreen  font-semibold leading-6 text-green-600 hover:text-green-500"
-              >
-                Create an account
-              </Link>
+              href="#"
+              className="text-green-600 font-semibold leading-6 hover:text-green-500 focus:ring-customGreen"
+              style={{
+                color: "green",  // 设置正常状态下的颜色
+                textDecoration: "none",  // 去掉下划线
+              }}
+            >
+              Create an account
+            </Link>
+
             </p>
           </div>
-        </div>
+        
         </ModalHeader>
          )}
          </ModalContent>

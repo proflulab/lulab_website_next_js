@@ -61,6 +61,7 @@ export default function firstmodal() {
   return (
     <>
       <Button onPress={handleOpenFirst} color="black">Sign up</Button>
+
       <Modal 
         backdrop="opaque" 
         isOpen={isOpenFirst} 
@@ -146,7 +147,19 @@ export default function firstmodal() {
                     Phone number
                   </label>
                 <div className=" flex rounded-md shadow-sm">
-                  <MuiTelInput onChange={handleChangePhone} value={phone} />
+                <MuiTelInput
+  onChange={handleChangePhone}
+  value={phone}
+  sx={{
+    '& .MuiInputBase-root': {
+      height: '40px',
+      padding: '0 6px',
+      fontSize: '0.875rem',
+      lineHeight: '1rem'
+    }
+  }}
+/>
+
                   <input
                     id="phone"
                     name="phone"
