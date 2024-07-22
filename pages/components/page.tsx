@@ -4,6 +4,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import styles from '../Signin.module.css';
 
 export default function FirstModal() {
   const [isOpenFirst, setIsOpenFirst] = useState(false);
@@ -158,8 +159,7 @@ export default function FirstModal() {
                             type="email"
                             autoComplete="email"
                             required
-                            style={{ color: "black" }}
-                            className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
+                            className={`block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6 ${styles.autofillFix}`}
                             onChange={handleChangeEmail}
                             value={email}
                           />
@@ -323,8 +323,7 @@ export default function FirstModal() {
                           type="email"
                           autoComplete="email"
                           required
-                          style={{ color: "black" }}
-                          className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
+                          className={`block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6 ${styles.autofillFix}`}
                         />
                       </div>
                     </div>
