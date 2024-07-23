@@ -1,0 +1,26 @@
+/* .autofillFix:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: #000 !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+    border: 1px solid #ccc !important;
+} */
+
+/* .autofillFix:-webkit-autofill:focus {
+    border: 2px solid customGreen !important;
+} */
+
+/* .autofillFix.focus {
+    border: 2px solid customGreen !important;
+} */
+
+
+.autofillFix:-webkit-autofill,
+.autofillFix:-webkit-autofill:hover,
+.autofillFix:-webkit-autofill:focus,
+.autofillFix:-webkit-autofill:active {
+  /* Ensures the text color remains visible over the autofill background */
+  -webkit-text-fill-color: black; /* Adjust the color as needed */
+  
+  /* Slows down the transition to make the autofill effect less noticeable */
+  transition: background-color 5000s;
+}

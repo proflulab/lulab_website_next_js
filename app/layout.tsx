@@ -15,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body>
+    <html lang="en" className="dark h-full bg-white">
+      <body className="h-full">
         <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
       </body>
     </html>

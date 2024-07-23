@@ -1,3 +1,4 @@
+
 "use client";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
 import React, { useEffect } from "react";
@@ -23,7 +24,6 @@ const Course = () => {
   return (
     <>
       <App />
-
       <Grid
         sx={{
           backgroundColor: "white",
@@ -39,7 +39,7 @@ const Course = () => {
             <Grid item xs={12} md={4}>
               {/* Stripe Buy Button code */}
               <stripe-buy-button
-                buy-button-id="buy_btn_1PfCPSEmgDIszJrIncbXJvj4"
+                buy-button-id="buy_btn_1OjCnoEmgDIszJrI1w8Hs6zU"
                 publishable-key="pk_test_51OgaIMEmgDIszJrIVQpseWGGIsUJNLBa7o9pdwMxzzq3oS39E79hItBKN9GuUuSbBBxcwsxwPGUy7NBcbgqDCssZ005iAmw0YI"
               ></stripe-buy-button>
             </Grid>
@@ -70,7 +70,7 @@ const Course = () => {
             <Grid item xs={12} md={4}>
               {/* Stripe Buy Button code */}
               <stripe-buy-button
-                buy-button-id="buy_btn_1PfCPSEmgDIszJrIncbXJvj4"
+                buy-button-id="buy_btn_1OjCnoEmgDIszJrI1w8Hs6zU"
                 publishable-key="pk_test_51OgaIMEmgDIszJrIVQpseWGGIsUJNLBa7o9pdwMxzzq3oS39E79hItBKN9GuUuSbBBxcwsxwPGUy7NBcbgqDCssZ005iAmw0YI"
               ></stripe-buy-button>
             </Grid>

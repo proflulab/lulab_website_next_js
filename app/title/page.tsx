@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { NextUIProvider } from "@nextui-org/react";
+import modal from '../../pages/components/page';
+import Signin from "../../pages/Signin"
 import {
   Navbar,
   NavbarBrand,
@@ -15,7 +17,9 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownTrigger,
+  useDisclosure
 } from "@nextui-org/react";
+
 import {
   ChevronDown,
   Lock,
@@ -26,8 +30,10 @@ import {
   Scale,
   Leadership,
   Marketing,
+
 } from "./Icons";
 import { Logo } from "./Logo";
+
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,7 +54,8 @@ const App: React.FC = () => {
   }, []);
 
   const showMenuButton = windowWidth <= 640;
-
+  const [email, setEmail] = useState("");
+  const [useEmail, setUseEmail] = useState(true);
   const menuItems = ["Home", "Clubs", "Course", "About"];
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
@@ -72,7 +79,8 @@ const App: React.FC = () => {
       setIsClubsOpen(!isClubsOpen);
     }
   };
-
+  
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
   return (
     <React.StrictMode>
       <NextUIProvider>
@@ -188,20 +196,7 @@ const App: React.FC = () => {
                 </>
               )}
             </NavbarContent>
-            <NavbarContent justify="end">
-              {/* {!showMenuButton && (
-          <>
-            <NavbarItem className="hidden lg:flex">
-              <Link href="#">Login</Link>
-            </NavbarItem>
-            <NavbarItem className="hidden lg:flex">
-              <Button as={Link} color="primary" href="#" variant="flat">
-                Sign Up
-              </Button>
-            </NavbarItem>
-          </>
-        )} */}
-            </NavbarContent>
+            <NavbarContent justify="end"></NavbarContent>
             {showMenuButton && isMenuOpen && (
               <NavbarMenu
                 className="dark text-foreground "
@@ -215,7 +210,6 @@ const App: React.FC = () => {
                           <Link className="w-full" color="foreground" size="lg">
                             {item}
                           </Link>
-
                           <Dropdown className="dark text-foreground bg-background">
                             <DropdownTrigger>
                               <Button
@@ -323,13 +317,16 @@ const App: React.FC = () => {
                     ) : (
                       <Link
                         className="w-full"
-                        color={
-                          index === menuItems.length - 0
-                            ? "danger"
-                            : "foreground"
+                        color="foreground"
+                        href={
+                          item === "Home"
+                            ? "/"
+                            : item === "Course"
+                            ? "/Course"
+                            : "/About"
                         }
-                        href={item === "Home" ? "/" : "/About"}
                         size="lg"
+                        key={item}
                       >
                         {item}
                       </Link>
@@ -338,10 +335,21 @@ const App: React.FC = () => {
                 ))}
               </NavbarMenu>
             )}
+
+           
+            {
+                Signin()
+            }
+            
+            {
+               modal()
+            } 
           </Navbar>
+         
         </main>
       </NextUIProvider>
     </React.StrictMode>
   );
 };
+
 export default App;
