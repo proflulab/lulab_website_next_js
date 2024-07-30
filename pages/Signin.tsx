@@ -71,9 +71,10 @@ const Signin = () => {
         radius="lg"
         classNames={{
           base: "bg-white",
+          
         }}
       >
-        <ModalContent>
+        <ModalContent className={`${styles.autofillFix}`}>
           <ModalHeader className="flex flex-col gap-1"> 
             <img
               className="mx-auto h-20 w-auto"
@@ -127,6 +128,7 @@ const Signin = () => {
                       country={"cn"}
                       value={phone}
                       onChange={handleChange}
+                      inputClass={`${styles.autofillFix}`}
                       inputStyle={{
                         width: "100%",
                         height: "40px",
@@ -172,7 +174,7 @@ const Signin = () => {
                         required
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6 pr-10"
+                        className={`block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6 pr-10 ${styles.autofillFix}`}
                       />
                       <button
                         type="button"
@@ -254,7 +256,7 @@ const Signin = () => {
           base: "bg-white",
         }}
       >
-        <ModalContent>
+        <ModalContent className={`${styles.autofillFix}`}>
           <ModalHeader className="flex flex-col gap-1"> 
             <img
               className="mx-auto h-20 w-auto"
@@ -310,7 +312,7 @@ const Signin = () => {
                           type={showPassword ? 'text' : 'password'}
                           autoComplete="current-password"
                           required
-                          className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6 pr-10"
+                          className={`block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6 pr-10 ${styles.autofillFix}`}
                         />
                         <button
                           type="button"
@@ -334,6 +336,7 @@ const Signin = () => {
                       country={"us"}
                       value={phone}
                       onChange={handleChange}
+                      inputClass={`${styles.autofillFix}`}
                       inputStyle={{
                         width: "100%",
                         height: "40px",

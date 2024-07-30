@@ -129,7 +129,7 @@ export default function FirstModal() {
         onClose={handleCloseFirst} // Ensure the onClose handler is defined and correctly used
       >
         <div ref={firstModalRef}>
-          <ModalContent>
+          <ModalContent className={`${styles.autofillFix}`}>
             <ModalHeader className="flex flex-col gap-1">
               <img className="mx-auto h-20 w-auto" src="/logo.png" alt="Your Company" />
               <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -179,7 +179,7 @@ export default function FirstModal() {
                               autoComplete="current-password"
                               required
                               style={{ color: "black" }}
-                              className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6 pr-10"
+                              className={`block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6 pr-10 ${styles.autofillFix}`}
                             />
                             <button
                               type="button"
@@ -204,6 +204,7 @@ export default function FirstModal() {
                         country={"us"}
                         value={phone}
                         onChange={handleChange}
+                        inputClass={`${styles.autofillFix}`}
                         inputStyle={{
                           width: "100%",
                           height: "40px",
@@ -293,7 +294,7 @@ export default function FirstModal() {
         onClose={handleCloseSecond} // Ensure the onClose handler is defined and correctly used
       >
         <div ref={secondModalRef}>
-          <ModalContent>
+          <ModalContent className={`${styles.autofillFix}`}>
             <ModalHeader className="flex flex-col gap-1">
               <img className="mx-auto h-20 w-auto" src="/logo.png" alt="Your Company" />
               <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -336,6 +337,7 @@ export default function FirstModal() {
                         country={"us"}
                         value={phone}
                         onChange={handleChange}
+                        inputClass={`${styles.autofillFix}`}
                         inputStyle={{
                           width: "100%",
                           height: "40px",
@@ -371,7 +373,7 @@ export default function FirstModal() {
                             autoComplete="current-password"
                             required
                             style={{ color: "black" }}
-                            className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6 pr-10"
+                            className={`block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6 pr-10 ${styles.autofillFix}`}
                           />
                           <button
                             type="button"
