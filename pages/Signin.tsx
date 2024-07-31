@@ -71,10 +71,10 @@ const Signin = () => {
         radius="lg"
         classNames={{
           base: "bg-white",
-          
+          body: `${styles.autofillFix}`
         }}
       >
-        <ModalContent className={`${styles.autofillFix}`}>
+        <ModalContent>
           <ModalHeader className="flex flex-col gap-1"> 
             <img
               className="mx-auto h-20 w-auto"
@@ -254,9 +254,10 @@ const Signin = () => {
         radius="lg"
         classNames={{
           base: "bg-white",
+          body: `${styles.autofillFix}`
         }}
       >
-        <ModalContent className={`${styles.autofillFix}`}>
+        <ModalContent>
           <ModalHeader className="flex flex-col gap-1"> 
             <img
               className="mx-auto h-20 w-auto"
