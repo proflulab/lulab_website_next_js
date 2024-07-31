@@ -124,12 +124,13 @@ export default function FirstModal() {
         radius="lg"
         classNames={{
           base: "bg-white",
+          body: `${styles.autofillFix}`
         }}
         closeButton
         onClose={handleCloseFirst} // Ensure the onClose handler is defined and correctly used
       >
         <div ref={firstModalRef}>
-          <ModalContent className={`${styles.autofillFix}`}>
+          <ModalContent>
             <ModalHeader className="flex flex-col gap-1">
               <img className="mx-auto h-20 w-auto" src="/logo.png" alt="Your Company" />
               <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -289,12 +290,13 @@ export default function FirstModal() {
         radius="lg"
         classNames={{
           base: "bg-white",
+          body: `${styles.autofillFix}`
         }}
         closeButton
         onClose={handleCloseSecond} // Ensure the onClose handler is defined and correctly used
       >
         <div ref={secondModalRef}>
-          <ModalContent className={`${styles.autofillFix}`}>
+          <ModalContent>
             <ModalHeader className="flex flex-col gap-1">
               <img className="mx-auto h-20 w-auto" src="/logo.png" alt="Your Company" />
               <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
