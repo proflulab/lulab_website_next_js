@@ -1,4 +1,3 @@
-
 "use client";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
 import React, { useEffect } from "react";
@@ -29,7 +28,7 @@ const Course = () => {
           backgroundColor: "white",
           minHeight: "500px",
           display: "flex",
-          flexDirection: isSmallerScreen ? "column" : "row", // 移动端垂直布局，其他水平布局
+          flexDirection: isSmallerScreen ? "column" : "row",
           alignItems: "center",
           justifyContent: "center",
         }}

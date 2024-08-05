@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { NextUIProvider } from "@nextui-org/react";
-import modal from '../../pages/components/page';
-import Signin from "../../pages/Signin"
+import modal from "../../pages/components/page";
+import Signin from "../../pages/Signin";
 import {
   Navbar,
   NavbarBrand,
@@ -17,7 +17,7 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownTrigger,
-  useDisclosure
+  useDisclosure,
 } from "@nextui-org/react";
 
 import {
@@ -30,10 +30,8 @@ import {
   Scale,
   Leadership,
   Marketing,
-
 } from "./Icons";
 import { Logo } from "./Logo";
-
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,8 +77,8 @@ const App: React.FC = () => {
       setIsClubsOpen(!isClubsOpen);
     }
   };
-  
-  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
     <React.StrictMode>
       <NextUIProvider>
@@ -336,16 +334,10 @@ const App: React.FC = () => {
               </NavbarMenu>
             )}
 
-           
-            {
-                Signin()
-            }
-            
-            {
-               modal()
-            } 
+            {Signin()}
+
+            {modal()}
           </Navbar>
-         
         </main>
       </NextUIProvider>
     </React.StrictMode>
