@@ -1,3 +1,13 @@
+/*
+ * @Author: caohanzhong 342292451@qq.com
+ * @Date: 2024-08-08 19:43:33
+ * @LastEditors: caohanzhong 342292451@qq.com
+ * @LastEditTime: 2024-08-08 20:34:09
+ * @FilePath: \lulab_website_next_jsd:\lulab_web_nextjs\dev\lulab_website_next_js\tailwind.config.ts
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ */
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -26,10 +36,21 @@ module.exports = {
   content: [
     // ...
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+
+    // Or if using `src` directory:
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customGreen: "#89d36f",
+      },
+    },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [require("@tailwindcss/forms"), nextui()],
 };
