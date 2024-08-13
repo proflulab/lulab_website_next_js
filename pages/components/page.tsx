@@ -11,6 +11,7 @@ import {
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import supabase from "../lib/supabaseClient";
 
 export default function FirstModal() {
   const [isOpenFirst, setIsOpenFirst] = useState(false);
@@ -162,11 +163,23 @@ export default function FirstModal() {
           phone,
           otp: verificationCode,
           type: "sms",
-          // ...(isOpenFirst ? {} : { password }) // Include password for signin
         }),
       });
 
       const result = await response.json();
+      const { access_token, refresh_token } = result;
+      console.log(access_token, refresh_token);
+
+      const { data, error } = await supabase.auth.setSession({
+        access_token,
+        refresh_token,
+      });
+      console.log("successful to set session:", data);
+
+      if (error) {
+        console.error("Error setting session:", error.message);
+      }
+
       if (response.ok) {
         window.location.href = "/";
       } else {
@@ -355,7 +368,7 @@ export default function FirstModal() {
                     />
                     {verificationError && (
                       <p className="mt-2 text-sm text-red-600">
-                        Invalid verification code
+                        {verificationError}
                       </p>
                     )}
                     <div className="mt-6">
