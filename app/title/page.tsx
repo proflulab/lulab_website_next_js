@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { NextUIProvider } from "@nextui-org/react";
+import modal from "../../pages/components/page";
 import {
   Navbar,
   NavbarBrand,
@@ -226,7 +227,7 @@ const App: React.FC = () => {
                                     setIsClubsOpen(!isClubsOpen);
                                   }
                                 }}
-                                onClick={(e) => {
+                                onClick={e => {
                                   if (showMenuButton) {
                                     e.preventDefault();
                                     setIsClubsOpen(!isClubsOpen);
@@ -333,6 +334,7 @@ const App: React.FC = () => {
                 ))}
               </NavbarMenu>
             )}
+            {modal()}
           </Navbar>
         </main>
       </NextUIProvider>
