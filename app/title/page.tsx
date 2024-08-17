@@ -177,6 +177,11 @@ const App: React.FC = () => {
                     </DropdownMenu>
                   </Dropdown>
                   <NavbarItem>
+                    <Link color="foreground" href="/Course">
+                      Course
+                    </Link>
+                  </NavbarItem>
+                  <NavbarItem>
                     <Link color="foreground" href="/About">
                       About
                     </Link>
