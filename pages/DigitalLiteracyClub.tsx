@@ -1,14 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+// import { Grid, Typography } from "@mui/material";
+import ClubPageTemplate from "./ClubPageTemplate";
+import { LiteracyClubData } from "./clubInfo/LiteracyClubInfo";
 import "../app/globals.css";
-import App from "../app/title/page";
-import End from "../app/title/end";
+// import App from "../app/title/page";
+// import End from "../app/title/end";
 
 const LiteracyClub: React.FC = () => {
   return (
     <>
-      <App />
+      <ClubPageTemplate club={LiteracyClubData} />
+      {/* <App />
       <Grid container direction="column" alignItems="center">
         <Grid item>
           <img
@@ -86,7 +89,7 @@ const LiteracyClub: React.FC = () => {
           </Typography>
         </Grid>
       </Grid>
-      <End />
+      <End /> */}
     </>
   );
 };

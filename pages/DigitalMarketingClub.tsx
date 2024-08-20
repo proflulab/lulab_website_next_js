@@ -1,18 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Grid, Typography } from "@mui/material";
-import "../app/globals.css";
-import App from "@/app/title/page";
-import End from "@/app/title/end";
+import App from "../app/title/page";
+import End from "../app/title/end";
 
-const MetaverseClub: React.FC = () => {
+const LiteracyClub: React.FC = () => {
   return (
     <>
       <App />
       <Grid container direction="column" alignItems="center">
         <Grid item>
           <img
-            src="/Marketing.jpg"
+            src="/literacy.png"
             alt=""
             style={{
               width: "100vw",
@@ -37,8 +36,8 @@ const MetaverseClub: React.FC = () => {
           <Typography
             sx={{ fontSize: { xs: "20px", md: "32px" }, margin: "20px" }}
           >
-            TAKE YOU TO MASTER CUTTING-EDGE PRACTICAL DIGITAL MARKETING
-            METHODOLOGY.
+            STRIVES TO ENHANCE CHILDREN&apos;S COMPUTER SKILLS AND DIGITAL
+            LITERACY THROUGH GAMES AND PRACTICAL EXPERIENCE.
           </Typography>
         </Grid>
         <Grid
@@ -64,13 +63,13 @@ const MetaverseClub: React.FC = () => {
               fontWeight: "bold",
             }}
           >
-            In Digital Marketing Club, you can understand the latest TikTok,
-            Wechat Video Account, Red Booklet and other mainstream short video
-            and live platform play, participate in Tsinghua Professor Lu
-            Xiangqian IP account operation, we will also invite the
-            industry&apos;s front-line operators and digital marketing experts
-            from time to time to share and exchange, to help you master the most
-            needed marketing skills in this era.
+            The &quot;Digital Literacy Club&quot; strives to enhance
+            children&apos;s computer skills and digital literacy through games
+            and practical experience. Children will gain a deeper understanding
+            of digital products and grasp fundamental programming concepts,
+            seamlessly integrating computer technology into their daily lives.
+            This sets a solid foundation for them to become adept talents in the
+            era of artificial intelligence.
           </Typography>
 
           <Typography
@@ -91,4 +90,4 @@ const MetaverseClub: React.FC = () => {
   );
 };
 
-export default MetaverseClub;
+export default LiteracyClub;
