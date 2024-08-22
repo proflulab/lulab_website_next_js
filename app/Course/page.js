@@ -1,15 +1,77 @@
 "use client";
-import { Grid, Typography, useMediaQuery } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  useMediaQuery,
+  Card,
+  CardContent,
+  CardMedia,
+  Button,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import App from "../title/page";
 import End from "../title/end";
 
 const Course = () => {
-  const [apiKey, setApiKey] = useState(null);
-  const [buyButtonId, setBuyButtonId] = useState(null);
+  const [accessToken, setAccessToken] = useState(null); // Xiaoe access_token
+  const [goodsData, setGoodsData] = useState(null); // 商品数据
+  const [apiKey, setApiKey] = useState(null); // Stripe API Key
+  const [buyButtonId, setBuyButtonId] = useState(null); // Stripe Buy Button ID
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // 错误信息
 
-  // 获取 API 密钥和 Buy Button ID
+  // 获取 Xiaoe access_token 的函数
+  const getXiaoeToken = async () => {
+    try {
+      const response = await fetch("/api/getXiaoeToken", {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch Xiaoe access token");
+      }
+
+      const data = await response.json();
+      setAccessToken(data.access_token);
+    } catch (error) {
+      console.error("Error fetching Xiaoe token:", error.message);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // 获取商品数据的函数
+  const getGoodsData = async () => {
+    if (!accessToken) return;
+
+    try {
+      const response = await fetch("/api/getXiaoeGoods", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          resources: [
+            {
+              type: 5,
+              ids: ["p_62692d0ee4b09dda126125b5"],
+            },
+          ],
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch goods data");
+      }
+
+      const data = await response.json();
+      setGoodsData(data.data[0]); // 假设返回的数组第一项是我们需要的数据
+    } catch (error) {
+      console.error("Error fetching goods data:", error.message);
+      setError(error.message);
+    }
+  };
+
+  // 获取 Stripe API Key 和 Buy Button ID 的函数
   const getApiKey = async () => {
     try {
       const response = await fetch("/api/getapikey", {
@@ -20,7 +82,7 @@ const Course = () => {
       const result = await response.json();
       if (response.ok) {
         setApiKey(result.api_key);
-        setBuyButtonId(result.buy_button_id); // 设置 Buy Button ID
+        setBuyButtonId(result.buy_button_id);
       } else {
         throw new Error(result.error || "Error fetching API key.");
       }
@@ -32,7 +94,8 @@ const Course = () => {
   };
 
   useEffect(() => {
-    getApiKey();
+    getXiaoeToken(); // 页面加载时请求 Xiaoe access_token
+    getApiKey(); // 获取 Stripe API Key 和 Buy Button ID
 
     // 动态添加 Stripe Buy Button 脚本
     const script = document.createElement("script");
@@ -41,10 +104,15 @@ const Course = () => {
     document.body.appendChild(script);
 
     return () => {
-      // 在组件卸载时移除脚本
       document.body.removeChild(script);
     };
-  }, []); // 依赖项为空数组表示只在组件加载时运行一次
+  }, []);
+
+  useEffect(() => {
+    if (accessToken) {
+      getGoodsData(); // 获取商品数据
+    }
+  }, [accessToken]);
 
   const isSmallerScreen = useMediaQuery("(max-width: 600px)");
 
@@ -56,77 +124,70 @@ const Course = () => {
           backgroundColor: "white",
           minHeight: "500px",
           display: "flex",
-          flexDirection: isSmallerScreen ? "column" : "row", // 移动端垂直布局，其他水平布局
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          padding: 2,
         }}
       >
-        {isSmallerScreen ? (
-          <>
-            <Grid item xs={12} md={4}>
-              {/* Stripe Buy Button code */}
-              {!loading && apiKey && buyButtonId && (
+        {loading ? (
+          <Typography
+            variant="body1"
+            sx={{ color: "black", textAlign: "center" }}
+          >
+            Loading...
+          </Typography>
+        ) : error ? (
+          <Typography
+            variant="body1"
+            sx={{ color: "red", textAlign: "center" }}
+          >
+            Error: {error}
+          </Typography>
+        ) : goodsData ? (
+          <Card sx={{ maxWidth: 600, margin: "20px", textAlign: "center" }}>
+            <CardMedia
+              component="img"
+              height="400"
+              image={goodsData.goods_img[0]} // 商品图片
+              alt={goodsData.goods_name}
+            />
+            <CardContent>
+              <Typography variant="h5" component="div">
+                {goodsData.goods_name} {/* 商品名称 */}
+              </Typography>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                sx={{ marginTop: 2 }}
+              >
+                {goodsData.goods_detail_text && (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: goodsData.goods_detail_text, // 商品描述（HTML）
+                    }}
+                  />
+                )}
+              </Typography>
+              <Typography variant="h6" color="primary" sx={{ marginTop: 3 }}>
+                {/* 商品价格 */}
+              </Typography>
+              {apiKey && buyButtonId && (
                 <stripe-buy-button
                   buy-button-id={buyButtonId}
                   publishable-key={apiKey}
+                  sx={{ marginTop: 2 }}
                 ></stripe-buy-button>
               )}
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Typography
-                variant="body1"
-                sx={{
-                  color: "black",
-                  textAlign: "center",
-                  fontSize: { xs: "16px", md: "20px" },
-                }}
-              >
-                Tsinghua Professor Lu Xiangqian <br />
-                Family Education & Career Development planning <br />
-                <span style={{ color: "green" }}>
-                  Includes 1 to 1 consultation and Q&A
-                </span>
-                <br />
-                Train children into <br />
-                Stanford Berkeley <br />
-                Instruct multiple participants to join <br />
-                Or start a unicorn company
-              </Typography>
-            </Grid>
-          </>
+            </CardContent>
+          </Card>
         ) : (
-          <>
-            <Grid item xs={12} md={4}>
-              {/* Stripe Buy Button code */}
-              {!loading && apiKey && buyButtonId && (
-                <stripe-buy-button
-                  buy-button-id={buyButtonId}
-                  publishable-key={apiKey}
-                ></stripe-buy-button>
-              )}
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Typography
-                variant="body1"
-                sx={{
-                  color: "black",
-                  textAlign: "center",
-                  fontSize: { xs: "16px", md: "20px" },
-                }}
-              >
-                Tsinghua Professor Lu Xiangqian <br />
-                Family Education & Career Development planning <br />
-                <span style={{ color: "green" }}>
-                  Includes 1 to 1 consultation and Q&A
-                </span>
-                <br />
-                Train children into <br />
-                Stanford Berkeley <br />
-                Instruct multiple participants to join <br />
-                Or start a unicorn company
-              </Typography>
-            </Grid>
-          </>
+          <Typography
+            variant="body1"
+            sx={{ color: "black", textAlign: "center" }}
+          >
+            No goods data available
+          </Typography>
         )}
       </Grid>
       <End />
