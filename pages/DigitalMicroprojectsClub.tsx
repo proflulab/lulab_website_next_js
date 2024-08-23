@@ -2,13 +2,16 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import "../app/globals.css";
+import ClubPageTemplate from "./ClubPageTemplate";
+import { DigitalMicroprojectsClubData } from "./clubInfo/DigitalMicroprojectsClubInfo";
 import App from "@/app/title/page";
 import End from "@/app/title/end";
 
 const MicroprojectsClub: React.FC = () => {
   return (
     <>
-      <App />
+          <ClubPageTemplate club={DigitalMicroprojectsClubData} />
+      {/* <App />
       <Grid container direction="column" alignItems="center">
         <Grid item>
           <img
@@ -86,7 +89,7 @@ const MicroprojectsClub: React.FC = () => {
           </Typography>
         </Grid>
       </Grid>
-      <End />
+      <End /> */}
     </>
   );
 };

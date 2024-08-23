@@ -1,13 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Grid, Typography } from "@mui/material";
+import ClubPageTemplate from "./ClubPageTemplate";
+import { DigitalMarketingClubData } from "./clubInfo/DigitalMarketingInfo";
 import App from "../app/title/page";
 import End from "../app/title/end";
 
 const LiteracyClub: React.FC = () => {
   return (
     <>
-      <App />
+      <ClubPageTemplate club={DigitalMarketingClubData} />
+      {/* <App />
       <Grid container direction="column" alignItems="center">
         <Grid item>
           <img
@@ -86,6 +89,7 @@ const LiteracyClub: React.FC = () => {
         </Grid>
       </Grid>
       <End />
+      */}
     </>
   );
 };

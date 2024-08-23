@@ -2,13 +2,16 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import "../app/globals.css";
+import ClubPageTemplate from "./ClubPageTemplate";
+import { LeadershipClubData } from "./clubInfo/LeadershipClubInfo";
 import App from "@/app/title/page";
 import End from "@/app/title/end";
 
 export default function LeadershipClub() {
   return (
     <>
-      <App />
+      <ClubPageTemplate club={LeadershipClubData} />
+      {/* <App />
       <Grid container direction="column" alignItems="center">
         <Grid item>
           <img
@@ -90,7 +93,7 @@ export default function LeadershipClub() {
         </Grid>
       </Grid>
 
-      <End />
+      <End /> */}
     </>
   );
 }

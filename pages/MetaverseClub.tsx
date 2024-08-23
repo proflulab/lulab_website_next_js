@@ -2,13 +2,17 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import "../app/globals.css";
+import ClubPageTemplate from "./ClubPageTemplate";
+import { MetaverseClubData } from "./clubInfo/MetaverseClubInfo";
 import App from "../app/title/page";
 import End from "../app/title/end";
 
 export default function MetaverseClub() {
   return (
     <>
-      <App />
+          <ClubPageTemplate club={MetaverseClubData} />
+
+      {/* <App />
       <Grid container direction="column" alignItems="center">
         <Grid item>
           <img
@@ -84,7 +88,7 @@ export default function MetaverseClub() {
           </Typography>
         </Grid>
       </Grid>
-      <End />
+      <End /> */}
     </>
   );
 }
