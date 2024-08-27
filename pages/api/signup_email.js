@@ -2,14 +2,14 @@ import supabase from "../lib/supabaseClient";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { phone, otp } = req.body;
+    const { email, otp, password } = req.body;
 
     try {
-      // 先检查手机号是否已经注册
-      const response = await fetch(`${req.headers.origin}/api/checkPhone`, {
+      // 检查邮箱是否已经注册
+      const response = await fetch(`${req.headers.origin}/api/checkEmail`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone }),
+        body: JSON.stringify({ email }),
       });
 
       const result = await response.json();
@@ -17,43 +17,56 @@ export default async function handler(req, res) {
       if (result.exists) {
         return res
           .status(400)
-          .json({ error: "Phone number already registered" });
+          .json({ error: "Email address already registered" });
       }
 
       let data, error;
 
       console.log("Request body:", req.body);
-      console.log(phone, otp);
 
-      if (phone && !otp) {
-        // 发送验证码
-        ({ data, error } = await supabase.auth.signInWithOtp({ phone }));
+      if (email && !otp) {
+        // 注册用户
+        ({ data, error } = await supabase.auth.signUp({ email, password }));
+
         if (error) {
-          console.log(error, phone);
+          console.log("Error signing up user:", error);
           return res.status(400).json({ error: error.message });
         }
-        console.log("Verification code sent successfully to:", phone);
+
+        // 发送邮箱验证码
+        ({ data, error } = await supabase.auth.signInWithOtp({
+          email,
+          options: {
+            shouldCreateUser: false, // 防止自动注册用户
+          },
+        }));
+
+        if (error) {
+          console.log("Error sending OTP:", error);
+          return res.status(400).json({ error: error.message });
+        }
+
+        console.log("Verification code sent successfully to:", email);
         return res
           .status(200)
           .json({ message: "Verification code sent successfully" });
-      } else if (phone && otp) {
-        // 验证验证码
+      } else if (email && otp) {
+        // 验证邮箱验证码
         ({ data, error } = await supabase.auth.verifyOtp({
-          phone,
+          email,
           token: otp,
-          type: "sms",
+          type: "email",
         }));
+
         if (error) {
+          console.log("Error verifying OTP:", error);
           return res.status(400).json({ error: error.message });
         }
 
         console.log("Verify OTP result:", data);
-        console.log("Session:", data.session);
-        console.log("Access token:", data.session?.access_token);
 
-        // 确保用户数据插入逻辑在此处
+        // 插入用户数据到 lulab_db 表
         if (data.session) {
-          // 在此处添加将用户数据存储到 lulab_db 表的逻辑
           const { user } = data;
           if (user) {
             const { data: insertData, error: insertError } = await supabase
@@ -61,9 +74,9 @@ export default async function handler(req, res) {
               .insert([
                 {
                   user_id: user.id,
-                  user_phone: phone,
-                  user_email: user.email || null,
-                  user_password: null, // 密码可以在用户注册或登录时处理
+                  user_email: user.email,
+                  user_phone: null,
+                  user_password: password,
                   created_at: new Date().toISOString(),
                 },
               ]);
@@ -80,7 +93,7 @@ export default async function handler(req, res) {
           return res.status(200).json({
             access_token: data.session.access_token,
             refresh_token: data.session.refresh_token,
-            user: data.user, // 也可以返回用户信息
+            user: data.user,
           });
         } else {
           return res
@@ -90,7 +103,7 @@ export default async function handler(req, res) {
       } else {
         return res
           .status(400)
-          .json({ error: "Phone and password are required" });
+          .json({ error: "Email and password are required" });
       }
     } catch (error) {
       console.error("Error:", error);

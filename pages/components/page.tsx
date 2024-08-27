@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import {
   Modal,
   ModalContent,
@@ -18,10 +18,14 @@ export default function FirstModal() {
   const [isOpenSecond, setIsOpenSecond] = useState(false);
   const [useEmail, setUseEmail] = useState(true);
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [phone, setPhone] = useState("");
+  const [usePhone, setUsePhone] = useState(true);
   const [phoneError, setPhoneError] = useState("");
   const [checkingPhone, setCheckingPhone] = useState(false);
+  const [checkingEmail, setCheckingEmail] = useState(false);
   const [validPhone, setValidPhone] = useState(true);
+  const [validEmail, setValidEmail] = useState(true);
   const [verificationCode, setVerificationCode] = useState("");
   const [countdown, setCountdown] = useState(0);
   const [verificationCodeSent, setVerificationCodeSent] = useState(false);
@@ -30,6 +34,7 @@ export default function FirstModal() {
   const [showPassword, setShowPassword] = useState(false);
   const [verificationError, setVerificationError] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleOpenFirst = () => {
     setIsLogin(false); // 注册模式
@@ -65,6 +70,9 @@ export default function FirstModal() {
 
   const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
+    if (emailError) {
+      setEmailError(""); // 用户输入时重置错误状态
+    }
   };
 
   const handleChangePhone = (newPhone: string) => {
@@ -92,14 +100,21 @@ export default function FirstModal() {
     if (verificationError) {
       setVerificationError(false); // 用户点击输入框时重置错误状态
     }
+    if (error) {
+      setError(null);
+    }
   };
 
-  const checkPhoneExists = async (phoneNumber: string) => {
+  const checkExists = async (phoneNumber?: string, emailAddress?: string) => {
     try {
-      const response = await fetch("/api/checkPhone", {
+      const endpoint = emailAddress ? "/api/checkEmail" : "/api/checkPhone";
+      const payload = emailAddress
+        ? { email: emailAddress }
+        : { phone: phoneNumber };
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone: phoneNumber }),
+        body: JSON.stringify(payload),
       });
       const result = await response.json();
       if (response.ok) {
@@ -115,11 +130,9 @@ export default function FirstModal() {
 
   const handleSendCode = async () => {
     if (isLogin && !validPhone) {
-      console.log("error");
-      return; // 登录模式下，如果手机号无效则不发送验证码
+      return; // 如果手机号无效，阻止发送验证码
     }
 
-    console.log("Sending verification code...");
     setCountdown(60);
     const timer = setInterval(() => {
       setCountdown(prevCountdown => prevCountdown - 1);
@@ -131,11 +144,25 @@ export default function FirstModal() {
     }, 60000);
 
     try {
-      const endpoint = isOpenFirst ? "/api/signup" : "/api/signin";
+      const endpoint = isOpenFirst
+        ? useEmail
+          ? "/api/signup_email" // 如果使用邮箱注册，调用邮箱注册接口
+          : "/api/signup"
+        : useEmail
+        ? "/api/signin_email"
+        : "/api/signin";
+      const payload = useEmail
+        ? usePassword
+          ? { email, password }
+          : { email }
+        : usePassword
+        ? { phone, password }
+        : { phone };
+
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone }),
+        body: JSON.stringify(payload),
       });
 
       const result = await response.json();
@@ -155,15 +182,22 @@ export default function FirstModal() {
     event.preventDefault();
 
     try {
-      const endpoint = isOpenFirst ? "/api/signup" : "/api/signin";
+      const endpoint = isOpenFirst
+        ? useEmail
+          ? "/api/signup_email" // 如果使用邮箱注册，调用邮箱注册接口
+          : "/api/signup"
+        : useEmail
+        ? "/api/signin_email"
+        : "/api/signin";
+      const payload = useEmail
+        ? usePassword
+          ? { email, otp: verificationCode, password, type: "email" }
+          : { email, otp: verificationCode, type: "email" }
+        : { phone, otp: verificationCode, type: "sms" };
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          phone,
-          otp: verificationCode,
-          type: "sms",
-        }),
+        body: JSON.stringify(payload),
       });
 
       const result = await response.json();
@@ -181,10 +215,12 @@ export default function FirstModal() {
       }
 
       if (response.ok) {
+        setError(null);
         window.location.href = "/";
       } else {
         console.error("Error during submit:", result.error);
         setVerificationError(true);
+        setError(result.error);
       }
     } catch (error) {
       console.error("Error during fetch:", error);
@@ -193,9 +229,27 @@ export default function FirstModal() {
   };
 
   useEffect(() => {
+    const validatePhone = (phone: string) => {
+      // 假设电话号码是国际标准格式，例如 +1234567890
+      const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+      return phoneRegex.test(phone);
+    };
+
+    const validateEmail = (email: string) => {
+      // 基本的邮箱正则表达式
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    };
+
     if (phone) {
+      if (!validatePhone(phone)) {
+        setPhoneError("Please enter a valid phone number.");
+        setValidPhone(false);
+        return;
+      }
+
       setCheckingPhone(true);
-      checkPhoneExists(phone).then(exists => {
+      checkExists(phone, undefined).then(exists => {
         if (isLogin) {
           // 登录逻辑
           setValidPhone(exists); // 只有手机号存在才是有效的
@@ -210,7 +264,32 @@ export default function FirstModal() {
         setCheckingPhone(false);
       });
     }
-  }, [phone, isLogin]);
+    if (email) {
+      if (!validateEmail(email)) {
+        setEmailError("Please enter a valid email address.");
+        setValidEmail(false);
+        return;
+      }
+
+      setCheckingEmail(true);
+      checkExists(undefined, email).then(exists => {
+        if (isLogin) {
+          // 登录逻辑：邮箱存在才是有效的
+          setValidEmail(exists);
+          setEmailError(
+            exists
+              ? ""
+              : "This email address is not registered. Please sign up."
+          );
+        } else {
+          // 注册逻辑：邮箱不存在才是有效的
+          setValidEmail(!exists);
+          setEmailError(exists ? "This email address is already in use." : "");
+        }
+        setCheckingEmail(false);
+      });
+    }
+  }, [phone, email, isLogin]);
 
   return (
     <>
@@ -272,6 +351,11 @@ export default function FirstModal() {
                           value={email}
                         />
                       </div>
+                      {emailError && (
+                        <p className="ml-3 text-red-600 text-sm flex items-center">
+                          {emailError}
+                        </p>
+                      )}
                     </div>
                     <div>
                       <label
@@ -288,6 +372,8 @@ export default function FirstModal() {
                           autoComplete="current-password"
                           required
                           className="block w-full pr-10 rounded-md border-0 py-1.5 text-green-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
+                          onChange={e => setPassword(e.target.value)}
+                          value={password}
                         />
                         <div
                           className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
@@ -368,7 +454,7 @@ export default function FirstModal() {
                     />
                     {verificationError && (
                       <p className="mt-2 text-sm text-red-600">
-                        {verificationError}
+                        Invalid verification code
                       </p>
                     )}
                     <div className="mt-6">
@@ -457,8 +543,15 @@ export default function FirstModal() {
                         autoComplete="email"
                         required
                         className="block w-full rounded-md border-0 py-1.5 text-green-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
+                        onChange={handleChangeEmail}
+                        value={email}
                       />
                     </div>
+                    {emailError && (
+                      <p className="ml-3 text-red-600 text-sm flex items-center">
+                        {emailError}
+                      </p>
+                    )}
                   </div>
                 ) : (
                   <div>
@@ -510,15 +603,37 @@ export default function FirstModal() {
                     >
                       Password
                     </label>
-                    <div className="mt-2">
+                    <div className="relative">
                       <input
                         id="password"
                         name="password"
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         autoComplete="current-password"
                         required
-                        className="block w-full rounded-md border-0 py-1.5 text-green-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customGreen sm:text-sm sm:leading-6"
+                        className={`block w-full rounded-md border-0 py-1.5 pr-10 text-green-600 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 ${
+                          error
+                            ? "ring-red-500 focus:ring-red-500"
+                            : "ring-gray-300 focus:ring-customGreen"
+                        }`}
+                        onChange={e => setPassword(e.target.value)}
+                        value={password}
+                        onFocus={handleFocus}
+                        style={{ paddingRight: "2.5rem" }} // 添加padding-right，防止文字与图标重叠
                       />
+                      <div
+                        className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                        onClick={toggleShowPassword}
+                        style={{ top: "50%", transform: "translateY(-50%)" }} // 保证图标在输入框垂直居中
+                      >
+                        {showPassword ? (
+                          <AiFillEyeInvisible className="h-5 w-5 text-gray-500" />
+                        ) : (
+                          <AiFillEye className="h-5 w-5 text-gray-500" />
+                        )}
+                      </div>
+                      {error && (
+                        <p className="mt-2 text-sm text-red-600">{error}</p>
+                      )}
                     </div>
                   </div>
                 ) : (
