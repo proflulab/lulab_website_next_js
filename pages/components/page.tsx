@@ -181,7 +181,7 @@ export default function FirstModal() {
       }
 
       if (response.ok) {
-        window.location.href = "/";
+        window.location.href = "/UserProfile";
       } else {
         console.error("Error during submit:", result.error);
         setVerificationError(true);

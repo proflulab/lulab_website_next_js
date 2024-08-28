@@ -86,6 +86,15 @@ const App: React.FC = () => {
     return `${start}****${end}`;
   };
 
+  const formatEmail = (email: string) => {
+    const [localPart, domain] = email.split("@");
+
+    // 如果本地部分小于等于3个字符，就保留全部字符，否则保留前3个字符
+    const start = localPart.length <= 3 ? localPart : localPart.slice(0, 3);
+
+    return `${start}****@${domain}`;
+  };
+
   const getAvatarInitial = (name: string) => {
     return name ? name.charAt(0).toUpperCase() : "N";
   };
@@ -283,7 +292,9 @@ const App: React.FC = () => {
                             gutterBottom
                             sx={{ textAlign: "center", marginBottom: 0 }}
                           >
-                            {formatPhoneNumber(user?.phone) || "No phone"}
+                            {user?.phone
+                              ? formatPhoneNumber(user.phone)
+                              : formatEmail(user?.email)}
                           </Typography>
                         </Box>
                       </Box>
