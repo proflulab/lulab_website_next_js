@@ -9,268 +9,155 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import App from "./title/page";
 import End from "./title/end";
-import { Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  Container,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions
+} from "@mui/material";
+import { Image } from "@nextui-org/react";
+import { Carousel } from "./Carousel";
+
 import {
   Event as OverviewIcon,
   School as EduIcon,
   Person as PersonIcon,
 } from "@mui/icons-material";
 
+let indentLevel = 2;
+let spaces = ' '.repeat(indentLevel * 4);   // 空格
+let warp = "\r";     // 换行
+
+
+let infomation = `
+${spaces}${spaces}In 1994, Professor Lu Xiangqian established a laboratory to test his teaching methods and was convinced 
+${warp}that the Internet would change the world. Students are divided into different clubs according to age and 
+nterests, respecting students' interests and hobbies and providing space for their growth.`;
+
+const imageUrls = [
+  "/image2.jpg",
+  "/image1.jpg",
+  "/xueyuan.jpg"
+];
+
 const Home: React.FC = () => {
-  const [images, setImages] = useState<string[]>([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  // const [images, setImages] = useState<string[]>([]);
+  // const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
-  useEffect(() => {
-    const imageUrls = ["image3.jpg", "xueyuan.jpg", "image1.jpg"];
-    setImages(imageUrls);
-  }, []);
+  // useEffect(() => {
+  //   const imageUrls = ["image3.jpg", "xueyuan.jpg", "image1.jpg"];
+  //   setImages(imageUrls);
+  // }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentImageIndex((prevIndex) =>
+  //       prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  //     );
+  //   }, 5000);
 
-    return () => clearInterval(interval);
-  }, [images]);
+  //   return () => clearInterval(interval);
+  // }, [images]);
 
-  const showNextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+  // const showNextImage = () => {
+  //   setCurrentImageIndex((prevIndex) =>
+  //     prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  //   );
+  // };
 
-  const showPreviousImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-  const [windowWidth, setWindowWidth] = useState<number>(0);
+  // const showPreviousImage = () => {
+  //   setCurrentImageIndex((prevIndex) =>
+  //     prevIndex === 0 ? images.length - 1 : prevIndex - 1
+  //   );
+  // };
+  // const [windowWidth, setWindowWidth] = useState<number>(0);
 
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  // const [isMobile, setIsMobile] = useState<boolean>(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setIsMobile(width <= 768);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     const width = window.innerWidth;
+  //     setIsMobile(width <= 768);
+  //   };
 
-    handleResize();
+  //   handleResize();
 
-    window.addEventListener("resize", handleResize);
+  //   window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   return (
     <>
       <App />
-
-      <div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            background: "white",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              position: "relative",
-              width: "100vw",
-              height: "48vw",
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                transform: "translateY(-50%)",
-                left: "5%",
-                right: "5%",
-                display: "flex",
-                justifyContent: "space-between",
-                zIndex: 2,
-              }}
+      <Grid container justifyContent="center" spacing={2} style={{ background: "white" }}>
+        <Box sx={{ my: 2 }}>
+          {/* Hero Section */}
+          <Card sx={{ display: 'flex', bgcolor: 'grey.300', mb: 4 }}>
+            <CardMedia
+              component="div"
+              sx={{ width: '50%', position: 'relative', height: 600 }}
             >
-              <button
-                onClick={showPreviousImage}
-                style={{ color: "green", fontWeight: "bold", fontSize: "28px" }}
-              >
-                <FontAwesomeIcon icon={faChevronLeft} />
-              </button>
-              <button
-                onClick={showNextImage}
-                style={{ color: "green", fontWeight: "bold", fontSize: "28px" }}
-              >
-                <FontAwesomeIcon icon={faChevronRight} />
-              </button>
-            </div>
-
-            <div
-              style={{
-                position: "absolute",
-                top: "90%",
-                left: "50%",
-                transform: "translateX(-50%)",
-                backgroundColor: "#333333",
-                color: "#fff",
-                padding: "15px",
-                zIndex: 1,
-                width: isMobile ? "90%" : "60%",
-              }}
-            >
-              <p
-                style={{
-                  fontSize: isMobile ? "15px" : "24px",
-                  textAlign: "center",
+              {/* <Image
+              src="/placeholder.svg"
+              alt="Placeholder"
+              layout="fill"
+              objectFit="cover"
+            /> */}
+            </CardMedia>
+            {/* <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
+            <CardContent sx={{ flex: '1 0 auto' }}>
+              <Typography variant="h5" component="div" gutterBottom>
+                We provide the best project practice environment and cultivate talents with strong comprehensive abilities.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button 
+                variant="contained" 
+                fullWidth 
+                sx={{ 
+                  bgcolor: 'teal', 
+                  '&:hover': { bgcolor: 'teal.dark' } 
                 }}
               >
-                Gathering the world&apos;s elite masters to play in a group.
-              </p>
-            </div>
+                Explore our courses
+              </Button>
+            </CardActions>
+          </Box> */}
+          </Card>
 
-            {images.length > 0 && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={images[currentImageIndex]}
-                alt={`Image ${currentImageIndex + 1}`}
-                style={{
-                  width: "100%",
-                  height: isMobile ? "100%" : "95%",
-                  objectFit: "cover",
-                  zIndex: 0,
-                }}
-              />
-            )}
-          </div>
-
-          <div style={{ margin: "20px" }}>
-            <Typography
-              variant="h2"
-              sx={{
-                fontSize: { xs: "35px", md: "60px" },
-                color: "black",
-                marginTop: "40px",
-                marginBottom: "40px",
-                textAlign: "center",
-                fontWeight: "bold",
-              }}
-            >
+          {/* Main Content */}
+          <Grid container justifyContent="center" spacing={2} style={{ paddingTop:'50px', paddingBottom:'50px' }}>
+            <Typography variant="h3" component="h1" gutterBottom style={{ fontWeight: 'bold', color: 'black' }}>
               Welcome to Lu Lab
             </Typography>
+            <Typography variant="h4" paragraph style={{ paddingLeft:'400px', paddingBottom:'20px' , paddingRight:'400px',color: 'black', fontSize: '18px' }}>
+                {infomation}
+              </Typography>
+            <Button
+              variant="contained"
+              sx={{
+                bgcolor: 'darkred',
+                '&:hover': { bgcolor: 'red.dark' }
+              }}
+              href="/About"
+            >
+              More about Lulab
+            </Button>
+          </Grid>
 
-            <Grid container spacing={6}>
-              <Grid item xs={12} sm={6} md={4}>
-                <div
-                  style={{
-                    display: "flex",
-
-                    marginBottom: "10px",
-                  }}
-                >
-                  <OverviewIcon fontSize="large" style={{ color: "#4CAF50" }} />
-                  <div>
-                    <Typography
-                      variant="h3"
-                      style={{
-                        fontWeight: "600",
-                        color: "black",
-                        fontSize: "28px",
-                      }}
-                    >
-                      Overview
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
-                    >
-                      In 1994, Professor Lu Xiangqian established a laboratory
-                      to test his teaching methods, convinced that the Internet
-                      would change the world.
-                    </Typography>
-                  </div>
-                </div>
-              </Grid>
-
-              <Grid item xs={12} sm={6} md={4}>
-                <div
-                  style={{
-                    display: "flex",
-
-                    marginBottom: "10px",
-                  }}
-                >
-                  <EduIcon fontSize="large" style={{ color: "#4CAF50" }} />
-                  <div>
-                    <Typography
-                      variant="h3"
-                      style={{
-                        fontWeight: "600",
-                        color: "black",
-                        fontSize: "28px",
-                      }}
-                    >
-                      Educational concept
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
-                    >
-                      It is better to learn theory than to learn cases; It is
-                      better to learn cases than to make cases; It is better to
-                      make a case than to play a case; One person is not as good
-                      as several; A few people to play is not as good as
-                      gathering the world&apos;s elite masters to play in a
-                      group.
-                    </Typography>
-                  </div>
-                </div>
-              </Grid>
-
-              <Grid item xs={12} sm={6} md={4}>
-                <div
-                  style={{
-                    display: "flex",
-
-                    marginBottom: "10px",
-                  }}
-                >
-                  <PersonIcon fontSize="large" style={{ color: "#4CAF50" }} />
-                  <div>
-                    <Typography
-                      variant="h3"
-                      style={{
-                        fontWeight: "600",
-                        color: "black",
-                        fontSize: "28px",
-                      }}
-                    >
-                      Personalized learning
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      style={{ fontWeight: "400", color: "black" }}
-                    >
-                      Students are divided into different clubs according to
-                      their age and interests. Respect students&apos; hobbies
-                      and provide development space for students&apos; growth.
-                    </Typography>
-                  </div>
-                </div>
-              </Grid>
-            </Grid>
-          </div>
-        </div>
-        <End />
-      </div>
+          {/* Image Section */}
+          <Carousel imageUrls={imageUrls} />
+        </Box>
+      </Grid>
+      <End />
     </>
   );
 };
