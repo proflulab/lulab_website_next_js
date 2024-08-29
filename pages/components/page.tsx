@@ -225,6 +225,8 @@ export default function FirstModal() {
         backdrop="opaque"
         isOpen={isOpenFirst}
         onOpenChange={setIsOpenFirst}
+        isDismissable={false}
+        isKeyboardDismissDisabled={true}
         radius="lg"
         classNames={{
           base: "bg-white",
@@ -414,6 +416,8 @@ export default function FirstModal() {
         backdrop="opaque"
         isOpen={isOpenSecond}
         onOpenChange={setIsOpenSecond}
+        isDismissable={false}
+        isKeyboardDismissDisabled={true}
         radius="lg"
         classNames={{
           base: "bg-white",
