@@ -22,7 +22,7 @@ export default function About() {
       <App />
       <Grid container justifyContent="center" spacing={2} style={{ background: "white" }}>
 
-        <Grid container justifyContent="center" style={{ background: "grey" }}>
+        <Grid container justifyContent="center" style={{ backgroundImage: "url('/background02.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <Typography variant="h3" align="center" gutterBottom style={{ paddingTop: '60px', fontWeight: 'bold', color: 'black' }}>
             Thank you for your interest in Lu Lab!
           </Typography>
@@ -59,8 +59,6 @@ export default function About() {
           </Grid>
         </Grid>
 
-
-
         <Grid container justifyContent="center" style={{ paddingTop: '30px' }} >
           <Box>
             <Typography variant="h3" align="center" gutterBottom style={{ fontWeight: 'bold', color: 'black' }}>
@@ -72,7 +70,6 @@ export default function About() {
           </Box>
         </Grid>
 
-
         <Grid container spacing={4} sx={{ mt: 2 }} style={{ width: '1200px', paddingBottom: '60px' }}>
 
           <Grid item xs={12} md={6}>
@@ -82,7 +79,7 @@ export default function About() {
                   Industrial grade
                 </Typography>
                 {/* <Box sx={{ width: 500, height: 240, bgcolor: '#f0f0f0', mb: 2 }} /> */}
-                <img src="/image2.jpg" style={{ width: 500, height: 240 }} />
+                <img src="/industrial-grade.png" style={{ width: 500, height: 300 }} />
                 <Typography variant="body1" style={{paddingTop: '10px'}}>
                   Individual member ¥38,000
                 </Typography>
@@ -100,7 +97,7 @@ export default function About() {
                   Metaverse grade
                 </Typography>
                 {/* <Box sx={{ width: 500, height: 240, bgcolor: '#f0f0f0', mb: 2 }} /> */}
-                <img src="/image2.jpg" style={{ width: 500, height: 240 }} />
+                <img src="/metaverse-grade.png" style={{ width: 500, height: 300 }} />
                 <Typography variant="body1" style={{paddingTop: '10px'}}>
                   Individual member ¥19,000
                 </Typography>

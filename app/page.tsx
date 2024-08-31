@@ -105,7 +105,7 @@ const Home: React.FC = () => {
               component="div"
               sx={{ position: 'relative', width: '100%', height: 650}}
             >
-            <img src="/background03.png" style={{ width: '100%', height: '100%', objectFit: "cover"}} />
+            <img src="/background02.png" style={{ width: '100%', height: '100%', objectFit: "cover"}} />
             
             </CardMedia>
             
