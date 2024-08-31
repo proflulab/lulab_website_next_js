@@ -100,18 +100,15 @@ const Home: React.FC = () => {
       <Grid container justifyContent="center" spacing={2} style={{ background: "white" }}>
         <Box sx={{ my: 2 }}>
           {/* Hero Section */}
-          <Card sx={{ display: 'flex', bgcolor: 'grey.300', mb: 4 }}>
+          <Card sx={{ display: 'flex', mb: 4 }}>
             <CardMedia
               component="div"
-              sx={{ width: '50%', position: 'relative', height: 600 }}
+              sx={{ position: 'relative', width: '100%', height: 650}}
             >
-              {/* <Image
-              src="/placeholder.svg"
-              alt="Placeholder"
-              layout="fill"
-              objectFit="cover"
-            /> */}
+            <img src="/background03.png" style={{ width: '100%', height: '100%', objectFit: "cover"}} />
+            
             </CardMedia>
+            
             {/* <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
             <CardContent sx={{ flex: '1 0 auto' }}>
               <Typography variant="h5" component="div" gutterBottom>
@@ -134,7 +131,7 @@ const Home: React.FC = () => {
           </Card>
 
           {/* Main Content */}
-          <Grid container justifyContent="center" spacing={2} style={{ paddingTop:'50px', paddingBottom:'50px' }}>
+          <Grid container justifyContent="center" spacing={2} style={{ paddingTop:'30px', paddingBottom:'50px' }}>
             <Typography variant="h3" component="h1" gutterBottom style={{ fontWeight: 'bold', color: 'black' }}>
               Welcome to Lu Lab
             </Typography>
