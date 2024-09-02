@@ -4,7 +4,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method === "GET" && req.url?.includes("/getXiaoeToken")) {
+  if (req.method === "GET" && req.url?.includes("/pages/api/getXiaoeToken")) {
     console.log("Handling getXiaoeToken request...");
 
     const {
