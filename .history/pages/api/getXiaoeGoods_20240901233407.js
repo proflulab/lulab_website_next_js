@@ -59,6 +59,7 @@
 // }
 export default async function handler(req, res) {
   if (req.method === "GET" && req.url.includes("/getXiaoeToken")) {
+    // 处理获取 Xiaoe access_token 的逻辑
     console.log("Handling getXiaoeToken request...");
 
     const {
@@ -70,7 +71,7 @@ export default async function handler(req, res) {
       NEXT_PUBLIC_APP_ID,
       NEXT_PUBLIC_CLIENT_ID,
       NEXT_PUBLIC_SECRET_KEY,
-    });
+    }); // 确认环境变量
 
     const apiUrl = "https://api.xiaoe-tech.com/token";
     const params = new URLSearchParams({
@@ -98,6 +99,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: "Internal server error" });
     }
   } else if (req.method === "POST" && req.url.includes("/getXiaoeGoods")) {
+    // 处理获取 Xiaoe goods 的逻辑
     console.log("Handling getXiaoeGoods request...");
 
     const { resources } = req.body;
@@ -105,17 +107,14 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: "Missing parameters" });
     }
 
-    // 获取动态的 API 基础 URL
-    const protocol = req.headers["x-forwarded-proto"] || "http";
-    const host = req.headers.host;
-    const baseUrl = `${protocol}://${host}`;
-
-    // 获取 Xiaoe access_token 的函数
     const getXiaoeToken = async () => {
       try {
-        const response = await fetch(`${baseUrl}/api/getXiaoeToken`, {
-          method: "GET",
-        });
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/getXiaoeToken`,
+          {
+            method: "GET",
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch Xiaoe access token");
@@ -154,6 +153,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: "Internal server error" });
     }
   } else {
+    // 如果请求不匹配任何路由
     return res.status(405).json({ message: "Method not allowed" });
   }
 }
