@@ -3,7 +3,7 @@
 
 import { Grid, Typography } from "@mui/material";
 import React from "react";
-
+import Image from "next/image";
 const End: React.FC = () => {
   return (
     <Grid>
@@ -15,7 +15,7 @@ const End: React.FC = () => {
               alignItems: "center", // Center items vertically
             }}
           >
-            <img src="/logo.png" alt="" height="50" width="50" />
+            <Image src="/logo.png" alt="" height="50" width="50" />
             <Typography
               variant="h1"
               style={{

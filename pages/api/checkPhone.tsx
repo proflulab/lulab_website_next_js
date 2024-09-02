@@ -1,16 +1,10 @@
-/*
- * @Author: caohanzhong 342292451@qq.com
- * @Date: 2024-07-28 22:22:30
- * @LastEditors: caohanzhong 342292451@qq.com
- * @LastEditTime: 2024-07-29 11:50:10
- * @FilePath: \lulab_website_next_js\pages\api\checkPhone.js
- * @Description:
- *
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
- */
-import supabase from "../lib/supabaseClient";
+import supabase from "../api/supabaseClient";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === "POST") {
     const { phone } = req.body;
 
@@ -24,10 +18,10 @@ export default async function handler(req, res) {
       console.log(phone);
 
       if (error) {
-        throw error;
+        throw error; // 将错误抛出以进入 catch 块
       }
 
-      if (data.length > 0) {
+      if (data && data.length > 0) {
         // Phone number exists
         return res.status(200).json({ exists: true });
       } else {
@@ -35,7 +29,13 @@ export default async function handler(req, res) {
         return res.status(200).json({ exists: false });
       }
     } catch (error) {
-      return res.status(500).json({ error: error.message });
+      // 使用 instanceof Error 来检查 error 类型
+      if (error instanceof Error) {
+        return res.status(500).json({ error: error.message });
+      } else {
+        // 如果 error 不是标准的 Error 对象，返回一个通用错误
+        return res.status(500).json({ error: "An unknown error occurred" });
+      }
     }
   } else {
     res.setHeader("Allow", ["POST"]);

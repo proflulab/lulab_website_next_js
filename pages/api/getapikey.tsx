@@ -1,6 +1,9 @@
-import supabase from "../lib/supabaseClient";
-
-export default async function getKey(req, res) {
+import supabase from "../api/supabaseClient";
+import { NextApiRequest, NextApiResponse } from "next";
+export default async function getKey(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === "POST") {
     const { service_name } = req.body;
     const { data, error } = await supabase

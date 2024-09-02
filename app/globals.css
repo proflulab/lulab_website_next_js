@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Assuming this is in a file like styles/globals.css or in a CSS module */
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 1rem; /* Adjust padding as needed */
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand p {
+  margin-left: 0.5rem; /* Adjust spacing between logo and text */
+}
