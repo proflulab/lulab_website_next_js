@@ -6,13 +6,14 @@ import Link from "next/link";
 import App from "../title/page";
 import End from "../title/end";
 import { Box, Divider, Grid, Typography } from "@mui/material";
+
 export default function About() {
   return (
     <>
       <App />
       <Grid>
         <div style={{ position: "relative" }}>
-          <img
+          <Image
             src="/image2.jpg"
             alt=""
             style={{
@@ -101,7 +102,7 @@ export default function About() {
             textAlign: { xs: "center", md: "left" },
           }}
         >
-          <img src="/LuXiangqian.png" alt="" width="360" height="380" />
+          <Image src="/LuXiangqian.png" alt="" width="360" height="380" />
           <Grid
             sx={{
               color: "black",

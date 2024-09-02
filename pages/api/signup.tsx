@@ -1,16 +1,10 @@
-/*
- * @Author: caohanzhong 342292451@qq.com
- * @Date: 2024-07-27 15:39:13
- * @LastEditors: caohanzhong 342292451@qq.com
- * @LastEditTime: 2024-08-13 16:13:23
- * @FilePath: \lulab_website_next_jsd:\lulab_web_nextjs\dev\lulab_website_next_js\pages\api\signup.js
- * @Description:
- *
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
- */
-import supabase from "../lib/supabaseClient";
+import { NextApiRequest, NextApiResponse } from "next";
+import supabase from "../api/supabaseClient";
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === "POST") {
     const { phone, otp } = req.body;
 

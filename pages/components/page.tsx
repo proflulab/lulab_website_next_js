@@ -11,7 +11,8 @@ import {
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import supabase from "../lib/supabaseClient";
+import supabase from "../api/supabaseClient";
+import Image from "next/image";
 
 export default function FirstModal() {
   const [isOpenFirst, setIsOpenFirst] = useState(false);
@@ -122,7 +123,7 @@ export default function FirstModal() {
     console.log("Sending verification code...");
     setCountdown(60);
     const timer = setInterval(() => {
-      setCountdown(prevCountdown => prevCountdown - 1);
+      setCountdown((prevCountdown) => prevCountdown - 1);
     }, 1000);
 
     setTimeout(() => {
@@ -195,7 +196,7 @@ export default function FirstModal() {
   useEffect(() => {
     if (phone) {
       setCheckingPhone(true);
-      checkPhoneExists(phone).then(exists => {
+      checkPhoneExists(phone).then((exists) => {
         if (isLogin) {
           // 登录逻辑
           setValidPhone(exists); // 只有手机号存在才是有效的
@@ -232,7 +233,7 @@ export default function FirstModal() {
       >
         <ModalContent>
           <ModalHeader className="flex flex-col gap-1">
-            <img
+            <Image
               className="mx-auto h-20 w-auto"
               src="/logo.png"
               alt="Your Company"
@@ -421,7 +422,7 @@ export default function FirstModal() {
       >
         <ModalContent>
           <ModalHeader className="flex flex-col gap-1">
-            <img
+            <Image
               className="mx-auto h-20 w-auto"
               src="/logo.png"
               alt="Your Company"
