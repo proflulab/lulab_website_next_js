@@ -1,4 +1,4 @@
-import supabase from "../api/supabaseClient";
+import supabase from "../lib/supabaseClient";
 
 export default async function getKey(req, res) {
   if (req.method === "POST") {

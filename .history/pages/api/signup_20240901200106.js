@@ -8,7 +8,7 @@
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
-import supabase from "../api/supabaseClient";
+import supabase from "../l";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {

@@ -8,6 +8,8 @@ const Course = () => {
   const [goodsData, setGoodsData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [apiKey, setApiKey] = useState(null);
+  const [buyButtonId, setBuyButtonId] = useState(null);
 
   useEffect(() => {
     const fetchXiaoeToken = async () => {

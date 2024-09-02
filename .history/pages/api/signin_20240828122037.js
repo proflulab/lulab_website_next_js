@@ -8,7 +8,7 @@
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
-import supabase from "../api/supabaseClient";
+import supabase from "../lib/supabaseClient";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -40,7 +40,7 @@ export default async function handler(req, res) {
       if (error) {
         return res.status(400).json({ error: error.message });
       }
-
+      
       console.log(data.session);
       return res.status(200).json({
         access_token: data.session.access_token,
