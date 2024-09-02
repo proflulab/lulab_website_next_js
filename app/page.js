@@ -172,8 +172,8 @@ const Course = () => {
       >
         <script async src="https://js.stripe.com/v3/buy-button.js"></script>
         <stripe-buy-button
-          buy-button-id="buy_btn_1PfCPSEmgDIszJrIncbXJvj4"
-          publishable-key="pk_test_51OgaIMEmgDIszJrIVQpseWGGIsUJNLBa7o9pdwMxzzq3oS39E79hItBKN9GuUuSbBBxcwsxwPGUy7NBcbgqDCssZ005iAmw0YI"
+          buy-button-id="buy_btn_1PuU6jJAR8bDRsEHJ75g29QJ"
+          publishable-key="pk_live_51OdmsRJAR8bDRsEHIoskHYvVlHrxSILRwkvbEGaHJkg5PQcpb22j3lC2XdWptqbl28hNLtaBJQYozW4uy9xGGeo500aE45XnDP"
         ></stripe-buy-button>
       </div>
     </>
