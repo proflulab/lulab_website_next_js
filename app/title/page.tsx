@@ -374,11 +374,11 @@ const App: React.FC = () => {
             </NavbarContent>
 
             {/* 将 Course 按钮居中 */}
-            <NavbarContent className="flex justify-center w-full">
+            {/* <NavbarContent className="flex justify-center w-full">
               <NavbarItem>
                 <Link color="foreground">Course</Link>
               </NavbarItem>
-            </NavbarContent>
+            </NavbarContent> */}
           </Navbar>
         </main>
       </NextUIProvider>
