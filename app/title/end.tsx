@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import Image from "next/image"; // 这里导入 Image 组件
 
 import { Grid, Typography } from "@mui/material";
 import React from "react";
@@ -15,7 +16,7 @@ const End: React.FC = () => {
               alignItems: "center", // Center items vertically
             }}
           >
-            <img src="/logo.png" alt="" height="50" width="50" />
+            <Image src="/logo.png" alt="" height="50" width="50" />
             <Typography
               variant="h1"
               style={{
