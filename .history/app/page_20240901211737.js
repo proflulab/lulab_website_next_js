@@ -26,31 +26,9 @@ const Course = () => {
       }
     };
 
-    // const fetchApiKey = async () => {
-    //   try {
-    //     const response = await fetch("/api/getapikey", {
-    //       method: "POST",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify({ service_name: "stripe API Key" }),
-    //     });
-    //     const result = await response.json();
-    //     if (response.ok) {
-    //       setApiKey(result.api_key);
-    //       setBuyButtonId(result.buy_button_id);
-    //     } else {
-    //       throw new Error(result.error || "Error fetching API key.");
-    //     }
-    //   } catch (error) {
-    //     console.error("Error fetching API key:", error.message);
-    //     setError(error.message);
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // };
-
     const fetchData = async () => {
       await fetchXiaoeToken();
-      // await fetchApiKey();
+      await fetchApiKey();
     };
 
     fetchData();

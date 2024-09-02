@@ -53,7 +53,7 @@ const Course = () => {
       // await fetchApiKey();
     };
 
-    fetchData();
+    // fetchData();
 
     const script = document.createElement("script");
     script.src = "https://js.stripe.com/v3/buy-button.js";
