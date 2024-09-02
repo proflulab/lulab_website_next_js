@@ -464,8 +464,6 @@ const Course = () => {
           zIndex: 1000, // 确保在页面顶部
         }}
       >
-        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-
         <stripe-buy-button
           buy-button-id="buy_btn_1PfCPSEmgDIszJrIncbXJvj4"
           publishable-key="pk_test_51OgaIMEmgDIszJrIVQpseWGGIsUJNLBa7o9pdwMxzzq3oS39E79hItBKN9GuUuSbBBxcwsxwPGUy7NBcbgqDCssZ005iAmw0YI"
