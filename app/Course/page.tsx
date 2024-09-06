@@ -1,94 +1,80 @@
 "use client";
-import { Grid, Typography, Card, CardContent, CardMedia } from "@mui/material";
+
+import { Grid, Typography, Card, CardContent, CircularProgress, useMediaQuery } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import App from "../title/page";
+import Carousel from "react-material-ui-carousel";
+import Image from "next/image";
+import { useTheme } from "@mui/material/styles";
 
 const Course = () => {
-  const [accessToken, setAccessToken] = useState<string | null>(null);
   const [goodsData, setGoodsData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const buyButtonId = "buy_btn_1PuU6jJAR8bDRsEHJ75g29QJ";
+  const publishableKey = "pk_live_51OdmsRJAR8bDRsEHIoskHYvVlHrxSILRwkvbEGaHJkg5PQcpb22j3lC2XdWptqbl28hNLtaBJQYozW4uy9xGGeo500aE45XnDP";
+
   useEffect(() => {
-    const fetchXiaoeToken = async () => {
+    const fetchXiaoeGood = async () => {
       try {
-        const response = await fetch("/api/getXiaoeToken", { method: "GET" });
+        const response = await fetch("/api/xiaoe/good", { method: "GET" });
         if (!response.ok) {
-          throw new Error("Failed to fetch Xiaoe access token");
+          throw new Error("Failed to fetch Xiaoe good");
         }
         const data = await response.json();
-        setAccessToken(data.access_token);
+        setGoodsData(data.data[0]);
       } catch (error) {
-        // Ensure error is a string
         setError((error as Error).message || "Unknown error occurred");
       } finally {
         setLoading(false);
       }
     };
 
-    // const fetchApiKey = async () => {
-    //   try {
-    //     const response = await fetch("/api/getapikey", {
-    //       method: "POST",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify({ service_name: "stripe API Key" }),
-    //     });
-    //     const result = await response.json();
-    //     if (response.ok) {
-    //       setApiKey(result.api_key);
-    //       setBuyButtonId(result.buy_button_id);
-    //     } else {
-    //       throw new Error(result.error || "Error fetching API key.");
-    //     }
-    //   } catch (error) {
-    //     console.error("Error fetching API key:", error.message);
-    //     setError(error.message);
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // };
+    fetchXiaoeGood();
 
-    const fetchData = async () => {
-      await fetchXiaoeToken();
-      // await fetchApiKey();
+    const loadStripeScript = () => {
+      const script = document.createElement("script");
+      script.src = "https://js.stripe.com/v3/buy-button.js";
+      script.async = true;
+      document.body.appendChild(script);
+
+      return () => {
+        document.body.removeChild(script);
+      };
     };
 
-    fetchData();
+    const stripeScriptCleanup = loadStripeScript();
 
-    const script = document.createElement("script");
-    script.src = "https://js.stripe.com/v3/buy-button.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
+    return stripeScriptCleanup;
   }, []);
 
-  useEffect(() => {
-    const fetchGoodsData = async () => {
-      if (!accessToken) return;
-      try {
-        const response = await fetch("/api/getXiaoeGoods", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            resources: [{ type: 21, ids: ["g_665f2719e0bcd_mrMARvTL54"] }],
-          }),
-        });
-        if (!response.ok) {
-          throw new Error("Failed to fetch goods data");
-        }
-        const data = await response.json();
-        setGoodsData(data.data[0]);
-      } catch (error) {
-        // Ensure error is a string
-        setError((error as Error).message || "Unknown error occurred");
-      }
-    };
+  if (loading) {
+    return (
+      <Grid container justifyContent="center" alignItems="center" sx={{ height: "100vh", backgroundColor: "#f5f5f5" }}>
+        <CircularProgress sx={{ color: "#5e72e4" }} />
+      </Grid>
+    );
+  }
 
-    fetchGoodsData();
-  }, [accessToken]);
+  if (error) {
+    return (
+      <Typography variant="body1" sx={{ color: "red", textAlign: "center" }}>
+        Error: {error}
+      </Typography>
+    );
+  }
+
+  if (!goodsData) {
+    return (
+      <Typography variant="body1" sx={{ color: "black", textAlign: "center" }}>
+        No goods data available
+      </Typography>
+    );
+  }
 
   return (
     <>
@@ -96,63 +82,64 @@ const Course = () => {
       <Grid
         sx={{
           backgroundColor: "white",
+          backgroundImage: "linear-gradient(to right, #f8f9fa, #e9ecef)",
           minHeight: "500px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           padding: 2,
+          marginTop: 0, // Ensure no top margin
+          width: "100%",
         }}
       >
-        {loading ? (
-          <Typography
-            variant="body1"
-            sx={{ color: "black", textAlign: "center" }}
-          >
-            Loading...
-          </Typography>
-        ) : error ? (
-          <Typography
-            variant="body1"
-            sx={{ color: "red", textAlign: "center" }}
-          >
-            Error: {error}
-          </Typography>
-        ) : goodsData ? (
-          <Card sx={{ maxWidth: 600, margin: "20px", textAlign: "center" }}>
-            <CardMedia
-              component="img"
-              height="400"
-              image={goodsData.goods_img[0]} // 商品图片
-              alt={goodsData.goods_name}
-            />
-            <CardContent>
-              <Typography variant="h5" component="div">
-                {goodsData.goods_name} {/* 商品名称 */}
-              </Typography>
+        <Card
+          sx={{
+            maxWidth: isMobile ? 360 : 600,
+            margin: "0px",
+            textAlign: "center",
+            borderRadius: "16px", // 圆角
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)", // 阴影
+          }}
+        >
+          <Carousel>
+            {goodsData.goods_img.map((img: string, index: number) => (
+              <div
+                key={index}
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: isMobile ? "250px" : "400px",
+                }}
+              >
+                <Image
+                  src={img}
+                  alt={`商品图片 ${index + 1}`}
+                  layout="fill"
+                  objectFit="cover"
+                  style={{ opacity: 0, transition: "opacity 0.5s ease-in-out" }} // 渐入效果
+                  onLoadingComplete={(img) => (img.style.opacity = "1")}
+                />
+              </div>
+            ))}
+          </Carousel>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              {goodsData.goods_name}
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ marginTop: 2 }}>
+              价格: ¥{(goodsData.price_high / 100).toFixed(2)}
+            </Typography>
+            {goodsData.goods_detail_text && (
               <Typography
                 variant="body1"
                 color="text.secondary"
-                sx={{ marginTop: 2 }}
-              >
-                {goodsData.goods_detail_text && (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: goodsData.goods_detail_text, // 商品描述（HTML）
-                    }}
-                  />
-                )}
-              </Typography>
-            </CardContent>
-          </Card>
-        ) : (
-          <Typography
-            variant="body1"
-            sx={{ color: "black", textAlign: "center" }}
-          >
-            No goods data available
-          </Typography>
-        )}
+                sx={{ marginTop: 2, lineHeight: "1.6" }} // 增加行间距
+                dangerouslySetInnerHTML={{ __html: goodsData.goods_detail_text }}
+              />
+            )}
+          </CardContent>
+        </Card>
       </Grid>
 
       <div
@@ -166,14 +153,13 @@ const Course = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          padding: "10px 0",
+          padding: "8px 0", // 减少高度
           zIndex: 1000,
         }}
       >
-        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
         <stripe-buy-button
-          buy-button-id="buy_btn_1PuU6jJAR8bDRsEHJ75g29QJ"
-          publishable-key="pk_live_51OdmsRJAR8bDRsEHIoskHYvVlHrxSILRwkvbEGaHJkg5PQcpb22j3lC2XdWptqbl28hNLtaBJQYozW4uy9xGGeo500aE45XnDP"
+          buy-button-id={buyButtonId} // 使用变量
+          publishable-key={publishableKey} // 使用变量
         ></stripe-buy-button>
       </div>
     </>

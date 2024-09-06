@@ -278,7 +278,7 @@
 // export default Home;
 "use client";
 import React from "react";
-import Course from "../app/Course/page"; // Adjust the path as necessary
+import Course from "./course/page"; // Adjust the path as necessary
 const Home: React.FC = () => {
   return (
     <>
