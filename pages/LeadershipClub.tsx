@@ -4,14 +4,14 @@ import { Grid, Typography } from "@mui/material";
 import "../app/globals.css";
 import App from "@/app/title/page";
 import End from "@/app/title/end";
-
+import Image from "next/image";
 export default function LeadershipClub() {
   return (
     <>
       <App />
       <Grid container direction="column" alignItems="center">
         <Grid item>
-          <img
+          <Image
             src="/image2.jpg"
             alt=""
             style={{

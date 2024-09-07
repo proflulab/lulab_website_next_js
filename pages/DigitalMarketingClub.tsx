@@ -4,14 +4,14 @@ import { Grid, Typography } from "@mui/material";
 import "../app/globals.css";
 import App from "@/app/title/page";
 import End from "@/app/title/end";
-
+import Image from "next/image";
 const MetaverseClub: React.FC = () => {
   return (
     <>
       <App />
       <Grid container direction="column" alignItems="center">
         <Grid item>
-          <img
+          <Image
             src="/Marketing.jpg"
             alt=""
             style={{
