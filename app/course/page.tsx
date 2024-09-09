@@ -2,10 +2,10 @@
 
 import { Grid, Typography, Card, CardContent, CircularProgress, useMediaQuery } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import App from "../title/page";
 import Carousel from "react-material-ui-carousel";
 import Image from "next/image";
 import { useTheme } from "@mui/material/styles";
+import styles from "./styles.module.css"; // 引入 CSS 模块
 
 const Course = () => {
   const [goodsData, setGoodsData] = useState<any>(null);
@@ -78,52 +78,26 @@ const Course = () => {
 
   return (
     <>
-      <App />
-      <Grid
-        sx={{
-          backgroundColor: "white",
-          backgroundImage: "linear-gradient(to right, #f8f9fa, #e9ecef)",
-          minHeight: "500px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: 2,
-          marginTop: 0, // Ensure no top margin
-          width: "100%",
-        }}
-      >
-        <Card
-          sx={{
-            maxWidth: isMobile ? 360 : 600,
-            margin: "0px",
-            textAlign: "center",
-            borderRadius: "16px", // 圆角
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)", // 阴影
-          }}
-        >
+      <Grid className={styles.container}>
+        <Card className={isMobile ? styles.cardMobile : styles.card}>
           <Carousel>
             {goodsData.goods_img.map((img: string, index: number) => (
               <div
                 key={index}
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  height: isMobile ? "250px" : "400px",
-                }}
+                className={isMobile ? styles.carouselImageContainerMobile : styles.carouselImageContainer}
               >
                 <Image
                   src={img}
                   alt={`商品图片 ${index + 1}`}
                   layout="fill"
                   objectFit="cover"
-                  style={{ opacity: 0, transition: "opacity 0.5s ease-in-out" }} // 渐入效果
+                  className={styles.carouselImage}
                   onLoadingComplete={(img) => (img.style.opacity = "1")}
                 />
               </div>
             ))}
           </Carousel>
-          <CardContent>
+          <CardContent className={styles.cardContent}>
             <Typography variant="h5" component="div">
               {goodsData.goods_name}
             </Typography>
@@ -134,7 +108,7 @@ const Course = () => {
               <Typography
                 variant="body1"
                 color="text.secondary"
-                sx={{ marginTop: 2, lineHeight: "1.6" }} // 增加行间距
+                className={styles.cardText}
                 dangerouslySetInnerHTML={{ __html: goodsData.goods_detail_text }}
               />
             )}
@@ -142,24 +116,10 @@ const Course = () => {
         </Card>
       </Grid>
 
-      <div
-        style={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          width: "100%",
-          backgroundColor: "#ffffff",
-          boxShadow: "0px -2px 5px rgba(0, 0, 0, 0.1)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "8px 0", // 减少高度
-          zIndex: 1000,
-        }}
-      >
+      <div className={styles.fixedBottomBar}>
         <stripe-buy-button
-          buy-button-id={buyButtonId} // 使用变量
-          publishable-key={publishableKey} // 使用变量
+          buy-button-id={buyButtonId}
+          publishable-key={publishableKey}
         ></stripe-buy-button>
       </div>
     </>

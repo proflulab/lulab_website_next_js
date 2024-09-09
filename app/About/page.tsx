@@ -1,16 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { Image } from "@nextui-org/react";
-import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import App from "../title/page";
-import End from "../title/end";
 import { Box, Divider, Grid, Typography } from "@mui/material";
 
 export default function About() {
   return (
     <>
-      <App />
       <Grid>
         <div style={{ position: "relative" }}>
           <Image
@@ -230,8 +225,6 @@ export default function About() {
               }}
             />
           </Box>
-
-          <End />
         </div>
       </div>
     </>
