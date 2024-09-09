@@ -2,7 +2,7 @@
  * @Author: caohanzhong 342292451@qq.com
  * @Date: 2024-09-06 16:06:27
  * @LastEditors: caohanzhong 342292451@qq.com
- * @LastEditTime: 2024-09-06 18:20:29
+ * @LastEditTime: 2024-09-09 15:29:36
  * @FilePath: \checkout-single-subscriptiond:\lulab_web_nextjs\dev\lulab_website_next_js\pages\api\webhook.tsx
  * @Description:
  *
@@ -18,8 +18,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
-const feishuAppToken = "IbqUbbb3HaMQcgs4shgcAmoqnbb"; // Feishu 应用的 Token
-const feishuTableId = "tblsGd06nGT04w5K"; // Feishu 表的 ID
+const feishuAppToken = process.env.FEISHU_TABLE_APP_TOKEN!; // Feishu 应用的 Token
+const feishuTableId = process.env.FEISHU_TABLE_ID!; // Feishu 表的 ID
 
 export const config = {
   api: {
@@ -96,17 +96,21 @@ export default async function handler(
       console.log("插入到 Feishu 表的数据:", recordData);
 
       try {
-        const feishuResponse = await axios.post(
+        const feishuResponse = await fetch(
           `https://base-api.feishu.cn/open-apis/bitable/v1/apps/${feishuAppToken}/tables/${feishuTableId}/records/batch_create`,
-          { records: [recordData] },
+          // { records: [recordData] },
           {
+            method: "POST",
             headers: {
               Authorization: `Bearer ${process.env.FEISHU_ACCESS_TOKEN}`,
               "Content-Type": "application/json",
             },
+            body: JSON.stringify({ records: [recordData] }),
           }
         );
-        console.log("数据成功插入到 Feishu 多维表:", feishuResponse.data);
+
+        const feishuData = await feishuResponse.json();
+        console.log("数据成功插入到 Feishu 多维表:", feishuData);
       } catch (error: any) {
         console.error(
           "插入数据到 Feishu 多维表时发生错误:",
