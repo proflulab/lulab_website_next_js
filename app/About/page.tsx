@@ -9,7 +9,7 @@ export default function About() {
       <Grid>
         <div style={{ position: "relative" }}>
           <Image
-            src="/image2.jpg"
+            src="/images/leadership.jpg"
             alt=""
             style={{
               width: "100vw",
