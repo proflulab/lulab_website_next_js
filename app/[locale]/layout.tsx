@@ -2,40 +2,44 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-08 03:01:48
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-09-10 16:42:25
- * @FilePath: /lulab_website_next_js/app/layout.tsx
+ * @LastEditTime: 2024-09-11 04:10:13
+ * @FilePath: /lulab_website_next_js/app/[locale]/layout.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
 
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
-import AppNav from './_components/navbar/navbar';
+import AppNav from '../../components/navbar/navbar';
 import React from 'react';
 import "./globals.css";
 
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params: { locale }
 }: {
   children: React.ReactNode
-  params: {
-    tag: string
-    item: string
-  }
+  params: { locale: string };
 }) {
+
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
       </head>
-      <body >
+      <body><NextIntlClientProvider messages={messages}>
         <React.StrictMode>
           <AppNav />
         </React.StrictMode>
         <main>
           {children}
         </main>
+      </NextIntlClientProvider>
       </body>
     </html>
   )

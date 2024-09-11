@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import Image from "next/image";
 import { useTheme } from "@mui/material/styles";
-import styles from "./styles.module.css"; // 引入 CSS 模块
+import styles from "./course.module.css";
 
 const Course = () => {
   const [goodsData, setGoodsData] = useState<any>(null);

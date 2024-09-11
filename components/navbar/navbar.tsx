@@ -2,8 +2,8 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-09 22:26:40
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-09-10 16:04:54
- * @FilePath: /lulab_website_next_js/app/_components/navbar/navbar.tsx
+ * @LastEditTime: 2024-09-11 16:50:45
+ * @FilePath: /lulab_website_next_js/components/navbar/navbar.tsx
  * @Description: 
  * 
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
@@ -20,28 +20,30 @@ import {
     NavbarMenuToggle,
     NavbarMenu,
     NavbarMenuItem,
-    Link,
     Button
 } from "@nextui-org/react";
-import { AcmeLogo } from "./acmeLogo";
-import { usePathname } from 'next/navigation'
+import { IconLogo } from "../icon/icon_logo";
+import { Link, usePathname } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
+// import DropdownIntl from '../next_ui/dropdown_intl';
+import ButtonIntl from '../next_ui/button_intl';
+
 
 export default function AppNav() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname()
+    const t = useTranslations('AppNav');
 
     const menuItems = [
-        { label: "About", href: "/about" },
-        { label: "Course", href: "/course" },
-        { label: "Clubs", href: "/clubs" },
-        { label: "Admissions", href: "/admissions" },
-        { label: "Join Us", href: "/join" }
+        { label: t('about'), href: "/about" },
+        { label: t('course'), href: "/course" },
+        { label: t('clubs'), href: "/clubs" },
+        { label: t('admissions'), href: "/admissions" },
+        { label: t('join_us'), href: "/join" }
     ];
 
     const pMenuItems = [...menuItems, ...[{ label: "Log Out", href: "/logout" },],];
-
-
 
     return (
         <Navbar shouldHideOnScroll isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
@@ -55,8 +57,8 @@ export default function AppNav() {
             <NavbarBrand>
                 <Link color="foreground" href="/">
                     <div className="flex items-center gap-4">
-                        <AcmeLogo />
-                        <p className="font-bold text-inherit">LU LAB</p>
+                        <IconLogo />
+                        <p className="font-bold text-inherit">{t('title')}</p>
                     </div>
                 </Link>
             </NavbarBrand>
@@ -80,14 +82,20 @@ export default function AppNav() {
 
             {/* 中间内容：引入新的 MenuContent 组件 */}
             <NavbarContent justify="end">
+                {/* <NavbarItem className="hidden lg:flex">
+                    <Link href="#">{t('login')}</Link>
+                </NavbarItem> */}
                 <NavbarItem className="hidden lg:flex">
-                    <Link href="#">Login</Link>
+                    <ButtonIntl />
                 </NavbarItem>
                 <NavbarItem>
-                    <Button as={Link} color="primary" href="#" variant="flat">
-                        Sign Up
+                    <Button as={Link} color="primary" href="/login" variant="flat">
+                        {t('login')}
                     </Button>
                 </NavbarItem>
+                {/* <NavbarItem className="hidden lg:flex">
+                    <DropdownIntl />
+                </NavbarItem> */}
             </NavbarContent>
 
             {/* 移动端菜单 */}
@@ -106,7 +114,8 @@ export default function AppNav() {
                     </NavbarMenuItem>
                 ))}
             </NavbarMenu>
-
         </Navbar>
+
+
     );
 }

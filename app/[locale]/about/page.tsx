@@ -6,7 +6,8 @@ import { Box, Divider, Grid, Typography } from "@mui/material";
 export default function About() {
   return (
     <>
-      <Grid>
+      <h1>About页面待开发</h1>
+      {/* <Grid>
         <div style={{ position: "relative" }}>
           <Image
             src="/images/leadership.jpg"
@@ -65,9 +66,9 @@ export default function About() {
             </Typography>
           </div>
         </div>
-      </Grid>
+      </Grid> */}
 
-      <div
+      {/* <div
         style={{
           height: "100%",
           width: "100%",
@@ -226,7 +227,7 @@ export default function About() {
             />
           </Box>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

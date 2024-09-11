@@ -2,16 +2,16 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-09 22:27:17
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-09-10 03:04:05
- * @FilePath: /lulab_website_next_js/app/_components/navbar/acmeLogo.tsx
+ * @LastEditTime: 2024-09-11 14:44:03
+ * @FilePath: /lulab_website_next_js/components/icon/icon_logo.tsx
  * @Description: 
  * 
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
  */
 
+
 import React from "react";
-export const AcmeLogo = () => (
-    // <svg fill="36" height="36" viewBox="0 0 32 32" width="36">
+export const IconLogo = () => (
     <svg width="32" height="34" viewBox="0 0 132 134" fill="none" >
         <path
             fillRule="evenodd"

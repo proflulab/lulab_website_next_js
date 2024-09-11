@@ -2,8 +2,8 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-10 01:59:14
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-09-10 17:40:43
- * @FilePath: /lulab_website_next_js/app/page.tsx
+ * @LastEditTime: 2024-09-11 16:00:24
+ * @FilePath: /lulab_website_next_js/app/[locale]/page.tsx
  * @Description: 
  * 
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
@@ -13,8 +13,12 @@
 import React from "react";
 import { Image } from "@nextui-org/react";
 import styles from './home.module.css'; // Import the CSS module
+import { useTranslations } from 'next-intl';
 
 const Home: React.FC = () => {
+
+  const t = useTranslations('HomePage');
+
   return (
     <>
       <Image
@@ -35,13 +39,10 @@ const Home: React.FC = () => {
         backgroundColor: 'rgba(0,0,0,0.5)',  // 文字背景透明度
         padding: '20px',
         borderRadius: '10px',
-        zIndex: 1000,  // 确保文字在最顶层
+        zIndex: 10,  // 调整z-index使得文字显示在图片之上但低于其他重要元素
+        whiteSpace: 'pre-wrap'  // 使换行符和空白符格式正确显示
       }}>
-        学理论不如学案例<br />
-        学案例不如做案例<br />
-        做案例不如玩案例<br />
-        一个人玩不如一起玩<br />
-        一起玩不如聚天下英才名师一块玩
+        {t('concept')}
       </div>
     </>
   );

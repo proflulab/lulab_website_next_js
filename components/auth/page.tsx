@@ -11,7 +11,7 @@ import {
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import supabase from "../api/supabaseClient";
+import supabase from "../../pages/api/supabaseClient";
 import Image from "next/image";
 
 export default function FirstModal() {
