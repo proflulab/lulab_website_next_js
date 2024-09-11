@@ -1,0 +1,19 @@
+{
+    "AppNav": {
+        "title": "陆向谦实验室",
+        "about": "关于",
+        "course": "课程",
+        "clubs": "俱乐部",
+        "admissions": "申请",
+        "join_us": "招聘",
+        "login": "登录",
+        "sign_up": "注册",
+        "log_out": "退出"
+    },
+    "HomePage": {
+        "concept": "学理论不如学案例\n学案例不如做案例\n做案例不如玩案例\n一个人玩不如一起玩\n一起玩不如聚天下英才名师一块玩"
+    },
+    "NotFoundPage": {
+        "title": "找不到相关页面"
+    }
+}
