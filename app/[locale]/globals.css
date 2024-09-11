@@ -1,0 +1,4 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Assuming this is in a file like styles/globals.css or in a CSS module */

@@ -1,13 +1,3 @@
-<!--
- * @Author: caohanzhong 342292451@qq.com
- * @Date: 2024-08-08 19:43:33
- * @LastEditors: caohanzhong 342292451@qq.com
- * @LastEditTime: 2024-08-14 11:38:43
- * @FilePath: \lulab_website_next_jsd:\lulab_web_nextjs\dev\lulab_website_next_js\README.md
- * @Description: 
- * 
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
--->
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

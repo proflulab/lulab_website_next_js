@@ -19,7 +19,7 @@ const AgreementPage: React.FC<AgreementProps> = ({ agreementContent }) => {
 };
 
 export const getStaticProps: GetStaticProps<AgreementProps> = async () => {
-    const filePath = path.join(process.cwd(), 'public', 'Agreement.md');
+    const filePath = path.join(process.cwd(), 'public', 'md/Agreement.md');
 
     // Read the file content
     const fileContent = fs.readFileSync(filePath, 'utf8');
