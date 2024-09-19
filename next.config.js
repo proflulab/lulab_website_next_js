@@ -16,6 +16,8 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  // 启动SWC减少首次访问路由的编译时间
+  swcMinify: true,
   images: {
     domains: ["wechatapppro-1252524126.cos.ap-shanghai.myqcloud.com"], // 添加允许的图片域名
   },

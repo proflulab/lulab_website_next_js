@@ -37,3 +37,6 @@ next-env.d.ts
 
 # .history
 .history
+
+# mp4
+*.mp4
