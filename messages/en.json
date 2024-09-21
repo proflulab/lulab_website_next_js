@@ -15,5 +15,31 @@
     },
     "NotFoundPage": {
         "title": "Not Found"
-    }
+    },
+    "AboutPage": {
+        "about": "About Lu Lab",
+        "mission": "Mission",
+        "mission_info": "Helping students of Lu Lab achieve their dreams",
+        "vision": "Vision",
+        "vision_info": "Becoming the online Stanford University. Bringing Stanford to everyone's doorstep",
+        "goals": "Goals of Cultivation",
+        "goals_info": "Cultivating students to become super individuals in the AI era",
+        "edu": "Educational Philosophy",
+        "edu_methods": "In 1994, firmly believing that the internet would disrupt the entire world, Professor Lu Xiangqian created the lab to put his educational methods into practice:",
+        "edu_methods_1st": "Unconventional Self-actualization",
+        "edu_methods_2nd": "Learning theories is inferior to learning cases; learning cases is inferior to doing cases; doing cases is inferior to playing with cases; playing alone is inferior to playing with a group; playing with a group is inferior to gathering elite teachers and mentors worldwide to play together.",
+        "lulab_origin": "Origin of Lu Lab",
+        "lulab_origin_info": "Lu Lab (Silicon Valley Lu Lab) originated from Tsinghua University and was officially established and registered in Silicon Valley, USA. It is a barrier-free online elite education lab with the goal of cultivating young talents in the era of innovation. Applications are submitted by parents, and the lab selects the best candidates for admission.",
+        "lulab_founder": "Introduction to the Founder of Lu Lab",
+        "lulab_founder_info_1st": "Professor at Tsinghua University, Specially Appointed Professor of Innovation/Entrepreneurship at the National Center for Teacher Network Training of the Ministry of Education, PhD from Hass School of Business, University of California, Berkeley",
+        "lulab_founder_info_2nd": "Professor Lu has two children, both of whom joined Lu Lab during junior high school",
+        "lulab_founder_info_3rd": "Daughter: Studied at Stanford University, worked part-time as an early employee at Pinterest during her studies, and is now an early employee at a well-known company in Silicon Valley.",
+        "lulab_founder_info_4th": "Son: Studied at the University of California, Berkeley, joined Uber full-time at 19 without compromising his academic pursuits. Currently a senior engineer at Google.",
+        "professors_msg": "Message from Professor Lu Xiangqian",
+        "professors_msg_info": "Professor Lu's education is quite distinctive. We guide children in practicing foundational skills in English, computer science, and artificial intelligence.",
+        "additional_1st": "Is Lu Lab a mixed-age program? Why implement mixed-age education?",
+        "additional_2nd": "Interview with Silicon Valley New Media Mentor Kelly Peng on Professor Lu: How to Live a Life Without Regrets?",
+        "additional_3rd": "Conversation between Lao Yu and Lu Xiangqian: Accomplished People Are Teaching Children Through 'Project-Based Learning'",
+        "read_more": "Read More"
+        }
 }
