@@ -13,6 +13,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 
 import AppNav from '../../components/navbar/navbar';
+import BottomBar from '../../components/bottombar/bottombar';
+
 import React from 'react';
 import "./globals.css";
 
@@ -39,6 +41,9 @@ export default async function RootLayout({
         <main>
           {children}
         </main>
+        <React.StrictMode>
+          <BottomBar />
+        </React.StrictMode>
       </NextIntlClientProvider>
       </body>
     </html>

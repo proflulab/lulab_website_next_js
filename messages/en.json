@@ -15,5 +15,11 @@
     },
     "NotFoundPage": {
         "title": "Not Found"
+    },
+    "BottomBar": {
+        "contact_info": "CONTACT INFO",
+        "contact_address": "East Brokaw Road 310-F San Jose, CA 95112 USA",
+        "scan": "If you have any questions, please scan the code",
+        "more_about": "More ways to follow us"
     }
 }
