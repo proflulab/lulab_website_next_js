@@ -45,7 +45,7 @@ export default function About() {
             <iframe
               style={{ width: "100%", height: "100%", border: "none", "position": "absolute" }}
               allowFullScreen
-              src={'http://go.plvideo.cn/front/video/preview?vid=d309ba6b1c4159b4050b549d24cd7967_d'}
+              src={'https://go.plvideo.cn/front/video/preview?vid=d309ba6b1c4159b4050b549d24cd7967_d'}
               title="Embedded Video Player"
             />
           </VideoContainer>
@@ -148,7 +148,7 @@ export default function About() {
                     <iframe
                       style={{ width: isMobile ? '60%' : '285px', height: isMobile ? "320px" : "500px", border: 'none', "position": "relative" }}
                       allowFullScreen
-                      src={'http://go.plvideo.cn/front/video/preview?vid=d309ba6b1cda2ecfc8934ec686bf78d0_d'}
+                      src={'https://go.plvideo.cn/front/video/preview?vid=d309ba6b1cda2ecfc8934ec686bf78d0_d'}
                       title="Embedded Video Player"
                     />
                   </Box>
