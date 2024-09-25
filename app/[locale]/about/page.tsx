@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import { Container, Typography, Grid, Card, CardContent, Box, useMediaQuery, useTheme } from '@mui/material';
 import { styled } from '@mui/system';
 import { useTranslations } from 'next-intl';
-
+import MainVideoPlayer from '@/components/videoplayer/MainVideoPlayer';
+import SortVideoPlayer from '@/components/sortvideoplayer/SortVideoPlayer';
 
 const VideoContainer = styled('div')({
   width: '100%',
   height: '100%',
-  paddingBottom: '56.25%', // 16:9 aspect ratio
+  paddingBottom: '10.25%', // 16:9 aspect ratio
   position: 'relative',
   marginBottom: '2rem',
 });
@@ -42,12 +43,7 @@ export default function About() {
               Your browser does not support the video tag.
             </video> */}
             {/* 使用在线视频（酷播云） */}
-            <iframe
-              style={{ width: "100%", height: "100%", border: "none", "position": "absolute" }}
-              allowFullScreen
-              src={'https://go.plvideo.cn/front/video/preview?vid=d309ba6b1c4159b4050b549d24cd7967_d'}
-              title="Embedded Video Player"
-            />
+            <MainVideoPlayer />
           </VideoContainer>
 
           <Container maxWidth="lg" className="py-12">
@@ -77,7 +73,7 @@ export default function About() {
                         <Typography variant={isMobile ? "h6" : "h4"} className="text-center mb-4 font-bold" style={{ paddingTop: isMobile ? "1px" : "5px" }}>
                           {title}
                         </Typography>
-                        <Typography variant={isMobile ? "body1" : "h6"} className="text-center" style={{ paddingTop: isMobile ? "10px" : "20px", color: "GrayText" }}>
+                        <Typography variant={isMobile ? "body1" : "h6"} style={{ paddingTop: isMobile ? "10px" : "20px", color: "GrayText" }}>
                           {index === 0 && t('mission_info')}
                           {index === 1 && t('vision_info')}
                           {index === 2 && t('goals_info')}
@@ -130,7 +126,8 @@ export default function About() {
                   </Card>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <Box className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">
+                  {/** bg-gray-200 */}
+                  <Box className="w-full h-full rounded-lg flex items-center justify-center">
                     {/* 使用本地视频 */}
                     {/* <video
                       width={isMobile ? "60%" : "260px"}
@@ -145,12 +142,25 @@ export default function About() {
                       Your browser does not support the video tag.
                     </video> */}
                     {/* 使用在线视频（酷播云） */}
-                    <iframe
+                    {/* <iframe
                       style={{ width: isMobile ? '60%' : '285px', height: isMobile ? "320px" : "500px", border: 'none', "position": "relative" }}
                       allowFullScreen
                       src={'https://go.plvideo.cn/front/video/preview?vid=d309ba6b1cda2ecfc8934ec686bf78d0_d'}
                       title="Embedded Video Player"
-                    />
+                    /> */}
+                    {/* <video
+                      width={isMobile ? "60%" : "260px"}
+                      height="auto"
+                      muted
+                      loop
+                      preload="metadata"
+                      controls
+                      style={{ margin: "auto" }}
+                    >
+                      <source src="https://dpv.videocc.net/d309ba6b1c/0/d309ba6b1cda2ecfc8934ec686bf78d0_1.mp4?pid=1727242537389X1944690" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video> */}
+                    <SortVideoPlayer isMobile={isMobile} />
                   </Box>
                 </Grid>
               </Grid>
