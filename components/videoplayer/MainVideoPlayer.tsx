@@ -34,7 +34,7 @@ const MainVideoPlayer = () => {
                 disablePictureInPicture  
             >
                 <source
-                    src="https://dpv.videocc.net/d309ba6b1c/7/d309ba6b1c4159b4050b549d24cd7967_2.mp4?pid=1727242279813X1119156"
+                    src="https://dpv.videocc.net/d309ba6b1c/4/d309ba6b1ca45781f605dca2431887b4_2.mp4?pid=1727313420263X1199484"
                     type="video/mp4"
                 />
                 Your browser does not support the video tag.

@@ -10,9 +10,9 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 /* 播放按钮 */
-video::-webkit-media-controls-play-button {
+/* video::-webkit-media-controls-play-button {
     display: none;
-}
+} */
 
 /* 进度条 */
 video::-webkit-media-controls-timeline {

@@ -60,7 +60,7 @@ export default function About() {
             <Grid container spacing={6} justifyContent="center" className="mb-20" style={{ paddingTop: isMobile ? "40px" : "80px" }}>
               {[t('mission'), t('vision'), t('goals')].map((title, index) => (
                 <Grid item xs={12} sm={4} key={index}>
-                  <Card className="h-full shadow-lg" style={{ height: isMobile ? 'auto' : "600px" }}>
+                  <Card className="h-full shadow-lg" sx={{ borderRadius: '16px' }} style={{ height: isMobile ? 'auto' : "600px" }}>
                     <CardContent className={`flex ${isMobile ? 'flex-row' : 'flex-col'} justify-between p-6`}>
                       <Box className={isMobile ? 'w-1/3 mr-4' : 'w-full'}>
                         <img
@@ -142,24 +142,6 @@ export default function About() {
                       Your browser does not support the video tag.
                     </video> */}
                     {/* 使用在线视频（酷播云） */}
-                    {/* <iframe
-                      style={{ width: isMobile ? '60%' : '285px', height: isMobile ? "320px" : "500px", border: 'none', "position": "relative" }}
-                      allowFullScreen
-                      src={'https://go.plvideo.cn/front/video/preview?vid=d309ba6b1cda2ecfc8934ec686bf78d0_d'}
-                      title="Embedded Video Player"
-                    /> */}
-                    {/* <video
-                      width={isMobile ? "60%" : "260px"}
-                      height="auto"
-                      muted
-                      loop
-                      preload="metadata"
-                      controls
-                      style={{ margin: "auto" }}
-                    >
-                      <source src="https://dpv.videocc.net/d309ba6b1c/0/d309ba6b1cda2ecfc8934ec686bf78d0_1.mp4?pid=1727242537389X1944690" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video> */}
                     <SortVideoPlayer isMobile={isMobile} />
                   </Box>
                 </Grid>
@@ -177,7 +159,7 @@ export default function About() {
                 <Grid item xs={12} md={4}>
                   <Box className="w-full h-full rounded-lg flex items-center justify-center">
                     <img
-                      src="/images/LuXiangqian01.png"
+                      src="/images/LuXiangqian05.png"
                       className="w-full h-full object-cover"
                       style={{ width: isMobile ? "200px" : "500px" }}
                       alt="Lu Xiangqian"
@@ -230,7 +212,7 @@ export default function About() {
                 { title: t('additional_3rd'), link: 'mp.weixin.qq.com/s/B0_A8XNqiA_gkEdiS1WK9A' }
               ].map((item, index) => (
                 <Grid item xs={12} md={4} key={index}>
-                  <Card className="h-full shadow-lg">
+                  <Card className="h-full shadow-lg" sx={{ borderRadius: '10px' }}>
                     <CardContent className="h-full flex flex-col justify-between p-6">
                       <Typography variant={isMobile ? "body1" : "h6"} className="mb-4 font-bold" style={{ color: "black" }}>
                         {item.title}

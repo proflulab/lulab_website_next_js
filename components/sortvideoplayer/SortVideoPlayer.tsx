@@ -5,8 +5,6 @@ interface SortVideoPlayerProps {
     isMobile: boolean;
 }
 
-
-
 const SortVideoPlayer: React.FC<SortVideoPlayerProps> = ({ isMobile }) => {
 
     const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -32,6 +30,7 @@ const SortVideoPlayer: React.FC<SortVideoPlayerProps> = ({ isMobile }) => {
                 ref={videoRef}
                 height="auto"
                 muted
+                autoPlay
                 loop
                 preload="metadata"
                 controls
