@@ -37,10 +37,10 @@ export default function AppNav() {
 
     const menuItems = [
         { label: t('about'), href: "/about" },
-        { label: t('course'), href: "/course" },
-        { label: t('clubs'), href: "/clubs" },
-        { label: t('admissions'), href: "/admissions" },
-        { label: t('join_us'), href: "/join" }
+        // { label: t('course'), href: "/course" },
+        // { label: t('clubs'), href: "/clubs" },
+        // { label: t('admissions'), href: "/admissions" },
+        // { label: t('join_us'), href: "/join" }
     ];
 
     const pMenuItems = [...menuItems, ...[{ label: "Log Out", href: "/logout" },],];
@@ -64,7 +64,8 @@ export default function AppNav() {
             </NavbarBrand>
 
             {/* 中间内容：仅在大屏显示 */}
-            <NavbarContent className="hidden sm:flex gap-8" justify="center">
+            {/** 移除了 NavbarContent的 justify="center" */}
+            <NavbarContent className="hidden sm:flex gap-8">
                 {menuItems.map((item, index) => (
                     <NavbarItem key={index} isActive={pathname === item.href}>
                         <Link
@@ -88,11 +89,11 @@ export default function AppNav() {
                 <NavbarItem className="hidden lg:flex">
                     <ButtonIntl />
                 </NavbarItem>
-                <NavbarItem>
+                {/* <NavbarItem>
                     <Button as={Link} color="primary" href="/login" variant="flat">
                         {t('login')}
                     </Button>
-                </NavbarItem>
+                </NavbarItem> */}
                 {/* <NavbarItem className="hidden lg:flex">
                     <DropdownIntl />
                 </NavbarItem> */}

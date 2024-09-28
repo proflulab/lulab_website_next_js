@@ -94,7 +94,7 @@ export default function About() {
               >
                 {t('edu')}
               </Typography>
-              <Card className="h-full shadow-lg">
+              <Card className="h-full shadow-lg" sx={{ borderRadius: '16px' }}>
                 <CardContent className="h-full flex flex-col justify-between p-6">
                   <Typography variant={isMobile ? "body1" : "h6"} className="text-lg">
                     {t('edu_methods')}
@@ -117,7 +117,7 @@ export default function About() {
               </Typography>
               <Grid container spacing={6} alignItems="center" direction={isMobile ? "column" : "row"}>
                 <Grid item xs={12} md={6}>
-                  <Card className="h-full shadow-lg" style={{ height: "300px", lineHeight: "300px", padding: "20px" }}>
+                  <Card className="h-full shadow-lg" sx={{ borderRadius: '16px' }} style={{ height: "300px", lineHeight: "300px", padding: "20px" }}>
                     <CardContent className="h-full flex flex-col justify-between p-6">
                       <Typography variant={isMobile ? "body1" : "h6"} className="text-lg">
                         {t('lulab_origin_info')}
@@ -167,7 +167,7 @@ export default function About() {
                   </Box>
                 </Grid>
                 <Grid item xs={12} md={8}>
-                  <Card className="h-full shadow-lg">
+                  <Card className="h-full shadow-lg" sx={{ borderRadius: '16px' }}>
                     <CardContent className="h-full flex flex-col justify-between p-6">
                       <Typography variant={isMobile ? "body1" : "h6"} className="text-lg space-y-4">
                         <p>{t('lulab_founder_info_1st')}</p>
@@ -212,7 +212,7 @@ export default function About() {
                 { title: t('additional_3rd'), link: 'mp.weixin.qq.com/s/B0_A8XNqiA_gkEdiS1WK9A' }
               ].map((item, index) => (
                 <Grid item xs={12} md={4} key={index}>
-                  <Card className="h-full shadow-lg" sx={{ borderRadius: '10px' }}>
+                  <Card className="h-full shadow-lg" sx={{ borderRadius: '16px' }}>
                     <CardContent className="h-full flex flex-col justify-between p-6">
                       <Typography variant={isMobile ? "body1" : "h6"} className="mb-4 font-bold" style={{ color: "black" }}>
                         {item.title}
