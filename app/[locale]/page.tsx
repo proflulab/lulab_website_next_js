@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-10 01:59:14
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-09-11 16:00:24
+ * @LastEditTime: 2024-09-29 18:09:31
  * @FilePath: /lulab_website_next_js/app/[locale]/page.tsx
  * @Description: 
  * 
@@ -15,33 +15,27 @@ import { Image } from "@nextui-org/react";
 import styles from './home.module.css'; // Import the CSS module
 import { useTranslations } from 'next-intl';
 
+/**
+ * Home组件
+ * 
+ * 该组件代表网站的主页，展示了一张领导力相关的图片和主页的概念文字
+ * 使用了模块化的CSS样式，并国际化支持了主页内容的动态加载
+ */
 const Home: React.FC = () => {
-
-  const t = useTranslations('HomePage');
+  // 使用国际化工具加载主页相关的翻译内容
+  const t = useTranslations('HomePage') || 'Default Concept Text';;
 
   return (
     <>
+      {/* 显示一张领导力相关的全屏图片 */}
       <Image
         src="/images/leadership.jpg"
         alt="Leadership"
         className={styles.fullImage}  // 使用模块化的CSS类
       />
 
-      <div style={{
-        position: 'absolute',
-        top: '35%',  // 根据图片中的位置进行调整
-        left: '50%',
-        transform: 'translateX(-50%)',
-        color: 'white',
-        textAlign: 'center',
-        fontSize: '24px',
-        width: '60%',  // 控制文字区域宽度
-        backgroundColor: 'rgba(0,0,0,0.5)',  // 文字背景透明度
-        padding: '20px',
-        borderRadius: '10px',
-        zIndex: 10,  // 调整z-index使得文字显示在图片之上但低于其他重要元素
-        whiteSpace: 'pre-wrap'  // 使换行符和空白符格式正确显示
-      }}>
+      {/* 在指定位置展示主页的概念文字 */}
+      <div className={styles.textContainer}>
         {t('concept')}
       </div>
     </>

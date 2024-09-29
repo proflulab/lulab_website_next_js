@@ -1,19 +1,26 @@
 .fullImage {
   width: 100vw;
   height: 100vh;
+  object-fit: cover;
 }
 
-.textOverlay {
+.textContainer {
   position: absolute;
-  top: 35%;
+  top: 35%; /* 根据图片中的位置进行调整 */
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  textalign: center;
-  fontsize: 24px;
-  width: 60%;
-  backgroundcolor: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 24px;
+  width: 60%; /* 控制文字区域宽度 */
+  background-color: rgba(0, 0, 0, 0.5); /* 文字背景透明度 */
   padding: 20px;
-  borderradius: 10px;
-  zindex: 10;
+  border-radius: 10px;
+  z-index: 10; /* 调整z-index使得文字显示在图片之上但低于其他重要元素 */
+  white-space: pre-wrap; /* 使换行符和空白符格式正确显示 */
+
+  @media (max-width: 768px) {
+    font-size: 18px; /* 在小屏幕上减小字体大小 */
+    width: 86%; /* 在小屏幕上增加宽度 */
+  }
 }
