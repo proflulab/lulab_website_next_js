@@ -1,19 +1,11 @@
 .fullImage {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  object-fit: 'cover',
 }
 
-.textOverlay {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  textalign: center;
-  fontsize: 24px;
-  width: 60%;
-  backgroundcolor: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  borderradius: 10px;
-  zindex: 10;
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: 'cover',
 }
