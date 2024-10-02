@@ -37,13 +37,8 @@ export default function About() {
         <>
           {/* Video */}
           <VideoContainer>
-            {/* 使用本地视频 */}
-            {/* <video width="100%" height="auto" autoPlay muted loop controls>
-              <source src="/video/aboutLuLab.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video> */}
             {/* 使用在线视频（酷播云） */}
-            <MainVideoPlayer />
+            <MainVideoPlayer isMobile={isMobile}/> 
           </VideoContainer>
 
           <Container maxWidth="lg" className="py-12">
@@ -128,21 +123,10 @@ export default function About() {
                 <Grid item xs={12} md={6}>
                   {/** bg-gray-200 */}
                   <Box className="w-full h-full rounded-lg flex items-center justify-center">
-                    {/* 使用本地视频 */}
-                    {/* <video
-                      width={isMobile ? "60%" : "260px"}
-                      height="auto"
-                      autoPlay
-                      muted
-                      loop
-                      controls
-                      style={{ margin: "auto" }}
-                    >
-                      <source src="/video/lulaborigin.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video> */}
-                    {/* 使用在线视频（酷播云） */}
-                    <SortVideoPlayer isMobile={isMobile} />
+                    <Typography style={{ paddingTop: isMobile? '50px' : '0px', paddingLeft: isMobile? '50px' : '0px', paddingRight: isMobile? '50px' : '0px'}}>
+                      {/* 使用在线视频（酷播云） */}
+                      <SortVideoPlayer isMobile={isMobile} />
+                    </Typography>
                   </Box>
                 </Grid>
               </Grid>

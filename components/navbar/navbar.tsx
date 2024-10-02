@@ -27,6 +27,8 @@ import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 // import DropdownIntl from '../next_ui/dropdown_intl';
 import ButtonIntl from '../next_ui/button_intl';
+import handler from "@/pages/api/checkPhone";
+import styles from './navbar.module.css';
 
 
 export default function AppNav() {
@@ -34,6 +36,9 @@ export default function AppNav() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname()
     const t = useTranslations('AppNav');
+    const handleMenuItemClick = () => {
+        setIsMenuOpen(false); // 点击后关闭菜单
+    };
 
     const menuItems = [
         { label: t('about'), href: "/about" },
@@ -52,7 +57,7 @@ export default function AppNav() {
 
             {/* 移动端菜单切换按钮 */}
             <NavbarContent className="sm:hidden" justify="start">
-                <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+                <NavbarMenuToggle className={styles.navbarMenuToggle} aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
             </NavbarContent>
 
             {/* 左侧品牌 */}
@@ -101,9 +106,9 @@ export default function AppNav() {
             </NavbarContent>
 
             {/* 移动端菜单 */}
-            <NavbarMenu>
+            <NavbarMenu onClick={handleMenuItemClick} >
                 {pMenuItems.map((item, index) => (
-                    <NavbarMenuItem key={index} isActive={pathname === item.href}>
+                    <NavbarMenuItem key={index} isActive={pathname === item.href} >
                         <Link
                             href={item.href}
                             style={{
