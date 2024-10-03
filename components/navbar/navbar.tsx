@@ -65,7 +65,7 @@ export default function AppNav() {
                 <Link color="foreground" href="/">
                     <div className="flex items-center gap-4">
                         <IconLogo />
-                        <p className="font-bold text-inherit">{t('title')}</p>
+                        <p className="font-bold text-inherit" onClick={handleMenuItemClick}>{t('title')}</p>
                     </div>
                 </Link>
             </NavbarBrand>
@@ -92,7 +92,7 @@ export default function AppNav() {
                 {/* <NavbarItem className="hidden lg:flex">
                     <Link href="#">{t('login')}</Link>
                 </NavbarItem> */}
-                <NavbarItem className="hidden lg:flex">
+                <NavbarItem className="lg:flex">
                     <ButtonIntl />
                 </NavbarItem>
                 {/* <NavbarItem>

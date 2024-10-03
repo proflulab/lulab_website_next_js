@@ -17,6 +17,7 @@ import { useParams } from 'next/navigation';
 import { Locale, usePathname, useRouter } from '@/i18n/routing';
 import { IconEn } from '../icon/icon_en';
 import { IconZh } from '../icon/icon_zh';
+import { color } from "framer-motion";
 
 export default function ButtonIntl() {
 
@@ -34,6 +35,7 @@ export default function ButtonIntl() {
             isIconOnly
             aria-label="Like"
             onPress={handleChange}
+            style={{backgroundColor: 'white'}}
         >
             {params.locale === 'zh' ? <IconEn color="#306fe5" /> : <IconZh color="#306fe5" />}
         </Button>
