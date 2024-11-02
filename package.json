@@ -25,6 +25,7 @@
     "framer-motion": "^10.16.16",
     "gray-matter": "^4.0.3",
     "next": "^14.0.2",
+    "next-auth": "^5.0.0-beta.25",
     "next-intl": "^3.19.1",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",

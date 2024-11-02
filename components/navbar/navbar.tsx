@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-09 22:26:40
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-09-11 16:50:45
+ * @LastEditTime: 2024-11-02 12:44:08
  * @FilePath: /lulab_website_next_js/components/navbar/navbar.tsx
  * @Description: 
  * 
@@ -14,6 +14,7 @@
 import React, { useState } from "react";
 import {
     Navbar,
+    Avatar,
     NavbarBrand,
     NavbarContent,
     NavbarItem,
@@ -25,8 +26,9 @@ import {
 import { IconLogo } from "../icon/icon_logo";
 import { Link, usePathname } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
-// import DropdownIntl from '../next_ui/dropdown_intl';
 import ButtonIntl from '../next_ui/button_intl';
+import { SessionProvider } from "next-auth/react"
+import UserAvatar from '../avatar/cliend_avatar'
 
 
 export default function AppNav() {
@@ -34,15 +36,13 @@ export default function AppNav() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname()
     const t = useTranslations('AppNav');
-
     const menuItems = [
         { label: t('about'), href: "/about" },
         { label: t('course'), href: "/course" },
         { label: t('clubs'), href: "/clubs" },
-        { label: t('admissions'), href: "/admissions" },
+        // { label: t('admissions'), href: "/admissions" },
         { label: t('join_us'), href: "/join" }
     ];
-
     const pMenuItems = [...menuItems, ...[{ label: "Log Out", href: "/logout" },],];
 
     return (
@@ -89,9 +89,14 @@ export default function AppNav() {
                     <ButtonIntl />
                 </NavbarItem>
                 <NavbarItem>
-                    <Button as={Link} color="primary" href="/login" variant="flat">
+                    <SessionProvider>
+                        <UserAvatar />
+                    </SessionProvider>
+
+                    {/* <Button as={Link} color="primary" href="/api/auth/signin" variant="flat">
                         {t('login')}
-                    </Button>
+                    </Button> */}
+
                 </NavbarItem>
                 {/* <NavbarItem className="hidden lg:flex">
                     <DropdownIntl />
@@ -115,7 +120,5 @@ export default function AppNav() {
                 ))}
             </NavbarMenu>
         </Navbar>
-
-
     );
 }
