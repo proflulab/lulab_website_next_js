@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-06 23:08:21
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-11-22 20:05:17
+ * @LastEditTime: 2024-11-22 20:13:09
  * @FilePath: /lulab_website_next_js/utils/xiaoe.ts
  * @Description: 
  * 
@@ -62,8 +62,8 @@ export async function goodsDetail(resources: object[], retryCount = 0) {
     const end_url = "xe.goods.detail.get/4.0.0"
     let tokenData = await getToken();
 
-    if (tokenData.code===2023) {
-        throw new Error("无法获取小鹅通token");
+    if (tokenData.code === 2023) {
+        return null;
     }
 
     try {
