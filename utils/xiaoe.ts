@@ -2,8 +2,8 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-06 23:08:21
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-09-08 01:54:55
- * @FilePath: /lulab_website_next_js-1/utils/xiaoe.ts
+ * @LastEditTime: 2024-11-22 20:13:09
+ * @FilePath: /lulab_website_next_js/utils/xiaoe.ts
  * @Description: 
  * 
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
@@ -48,7 +48,7 @@ export async function getToken() {
         }
 
         const data = await response.json();
-        // console.log("Xiaoe Token Response:", data);
+        // console.log("Xiaoe Token Response:",data.code);
 
         return data;
     } catch (error) {
@@ -61,6 +61,10 @@ export async function goodsDetail(resources: object[], retryCount = 0) {
 
     const end_url = "xe.goods.detail.get/4.0.0"
     let tokenData = await getToken();
+
+    if (tokenData.code === 2023) {
+        return null;
+    }
 
     try {
         const response = await fetch(BASE_URL + end_url, {
