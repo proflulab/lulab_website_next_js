@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-11 02:49:22
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-09-11 15:06:16
+ * @LastEditTime: 2024-11-22 21:46:40
  * @FilePath: /lulab_website_next_js/components/next_ui/dropdown_intl.tsx
  * @Description: 
  * 
@@ -15,7 +15,6 @@ import React from "react";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import { useParams } from 'next/navigation';
 import { Locale, usePathname, useRouter } from '@/i18n/routing';
-import { IconEn } from '../icon/icon_en';
 
 export default function DropdownIntl() {
 
