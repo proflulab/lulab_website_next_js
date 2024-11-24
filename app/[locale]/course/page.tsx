@@ -7,8 +7,16 @@ import Image from "next/image";
 import { useTheme } from "@mui/material/styles";
 import styles from "./course.module.css";
 
+
+interface GoodsData {
+  goods_name: string;
+  price_high: number;
+  goods_img: string[];
+  goods_detail_text?: string;
+}
+
 const Course = () => {
-  const [goodsData, setGoodsData] = useState<any>(null);
+  const [goodsData, setGoodsData] = useState<GoodsData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 

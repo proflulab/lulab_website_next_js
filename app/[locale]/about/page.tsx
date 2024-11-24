@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { Image } from "@nextui-org/react";
-import { Box, Divider, Grid, Typography } from "@mui/material";
+// import { Image } from "@nextui-org/react";
+// import { Box, Divider, Grid, Typography } from "@mui/material";
 
 export default function About() {
   return (

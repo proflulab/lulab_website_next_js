@@ -1,15 +1,15 @@
 /*
  * @Author: 杨仕明 shiming.y@qq.com
- * @Date: 2024-09-10 21:10:47
+ * @Date: 2024-11-22 20:48:10
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-11-03 04:34:15
- * @FilePath: /lulab_website_next_js/next.config.js
+ * @LastEditTime: 2024-11-22 21:11:48
+ * @FilePath: /lulab_website_next_js/next.config.mjs
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
 
-const createNextIntlPlugin = require("next-intl/plugin");
+import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -31,4 +31,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withNextIntl(nextConfig);
+export default withNextIntl(nextConfig);
