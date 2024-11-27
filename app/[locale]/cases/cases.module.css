@@ -1,0 +1,197 @@
+.pageWrapper {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.pageTitle {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.guestGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.guestCard {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.guestCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatarPlaceholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.headerInfo {
+  flex: 1;
+}
+
+.guestName {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 4px 0;
+}
+
+.guestCompany {
+  font-size: 16px;
+  color: #4a90e2;
+  margin: 0;
+  font-weight: 500;
+}
+
+.cardBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.guestTitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.guestDate {
+  font-size: 14px;
+  color: #999;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding: 32px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .pageTitle {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+
+  .guestGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .guestCard {
+    padding: 20px;
+  }
+}
+
+/* 在现有样式的基础上添加以下内容 */
+
+.searchContainer {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 16px 48px 16px 24px;
+  font-size: 16px;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #999;
+}
+
+.clearButton {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.clearButton:hover {
+  color: #666;
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 16px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  .searchContainer {
+    margin-bottom: 24px;
+  }
+
+  .searchInput {
+    padding: 12px 40px 12px 16px;
+    font-size: 14px;
+  }
+}

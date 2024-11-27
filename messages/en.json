@@ -17,5 +17,10 @@
     },
     "NotFoundPage": {
         "title": "Not Found"
+    },
+    "Cases": {
+        "pastCaseGuests": "Past Case Guests",
+        "searchPlaceholder": "搜索嘉宾姓名、公司或职位...",
+        "noResults": "未找到匹配的结果"
     }
 }
