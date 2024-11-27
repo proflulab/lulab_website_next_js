@@ -2,8 +2,8 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-09 22:26:40
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-09-11 16:50:45
- * @FilePath: /lulab_website_next_js/components/navbar/navbar.tsx
+ * @LastEditTime: 2024-11-27 21:39:38
+ * @FilePath: /lulab_website_next_js/components/Navbar/Navbar.tsx
  * @Description: 
  * 
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
@@ -11,111 +11,198 @@
 
 'use client'
 
-import React, { useState } from "react";
-import {
-    Navbar,
-    NavbarBrand,
-    NavbarContent,
-    NavbarItem,
-    NavbarMenuToggle,
-    NavbarMenu,
-    NavbarMenuItem,
-    Button
-} from "@nextui-org/react";
-import { IconLogo } from "../icon/icon_logo";
-import { Link, usePathname } from '@/i18n/routing';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useMediaQuery } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import styles from './navbar.module.css';
+import { IconLogo } from '../icon/icon_logo';
+import { IconZh } from '../icon/icon_zh';
+import { IconEn } from '../icon/icon_en';
+import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-// import DropdownIntl from '../next_ui/dropdown_intl';
-import ButtonIntl from '../next_ui/button_intl';
 
 
-export default function AppNav() {
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const pathname = usePathname()
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname();
+    const isMobile = useMediaQuery('(max-width: 768px)');
+    const router = useRouter();
+
     const t = useTranslations('AppNav');
 
-    const menuItems = [
-        { label: t('about'), href: "/about" },
-        { label: t('course'), href: "/course" },
-        { label: t('clubs'), href: "/clubs" },
-        { label: t('admissions'), href: "/admissions" },
-        { label: t('join_us'), href: "/join" }
+    const navItems = [
+        { name: t('home'), path: '/' },
+        { name: t('about'), path: '/about' },
+        { name: t('training'), path: '/course' },
+        { name: t('clubs'), path: '/clubs' },
     ];
 
-    const pMenuItems = [...menuItems, ...[{ label: "Log Out", href: "/logout" },],];
+
+
+    // 语言切换逻辑
+    const [currentLocale, setCurrentLocale] = useState('zh');
+
+    useEffect(() => {
+        // 从路径中获取当前语言
+        const locale = pathname.startsWith('/en') ? 'en' : 'zh';
+        setCurrentLocale(locale);
+    }, [pathname]);
+
+    const toggleLanguage = () => {
+        const newLocale = currentLocale === 'zh' ? 'en' : 'zh';
+        const newPath = pathname.replace(/^\/[a-z]{2}/, '');
+        router.push(`/${newLocale}${newPath}`);
+        setCurrentLocale(newLocale);
+    };
+
+    const isActive = (path: string) => {
+        if (path === '/') {
+            return pathname === path;
+        }
+        return pathname.startsWith(path);
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
-        <Navbar shouldHideOnScroll isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+        <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+            <div className={styles.navContainer}>
+                {/* Logo Section */}
+                <motion.div
+                    className={styles.leftSection}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <Link href="/" className={styles.logo}>
+                        <div className={styles.logoContainer}>
+                            <IconLogo />
+                            <motion.span
+                                className={styles.logoText}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 0.5 }}
+                            >
+                                LU LAB
+                            </motion.span>
+                        </div>
+                    </Link>
+                </motion.div>
 
-            {/* 移动端菜单切换按钮 */}
-            <NavbarContent className="sm:hidden" justify="start">
-                <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
-            </NavbarContent>
-
-            {/* 左侧品牌 */}
-            <NavbarBrand>
-                <Link color="foreground" href="/">
-                    <div className="flex items-center gap-4">
-                        <IconLogo />
-                        <p className="font-bold text-inherit">{t('title')}</p>
+                {/* Desktop Navigation */}
+                <div className={`${styles.desktopNav} ${isMobile ? 'hidden' : ''}`}>
+                    <div className={styles.navLinks}>
+                        {navItems.map((item, index) => (
+                            <motion.div
+                                key={item.path}
+                                className={styles.navItem}
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1, duration: 0.5 }}
+                            >
+                                <Link
+                                    href={item.path}
+                                    className={`${styles.navLink} ${isActive(item.path) ? styles.active : ''}`}
+                                >
+                                    <span>{item.name}</span>
+                                </Link>
+                                {isActive(item.path) && (
+                                    <motion.div
+                                        className={styles.underline}
+                                        layoutId="underline"
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 300,
+                                            damping: 30
+                                        }}
+                                    />
+                                )}
+                            </motion.div>
+                        ))}
                     </div>
-                </Link>
-            </NavbarBrand>
 
-            {/* 中间内容：仅在大屏显示 */}
-            <NavbarContent className="hidden sm:flex gap-8" justify="center">
-                {menuItems.map((item, index) => (
-                    <NavbarItem key={index} isActive={pathname === item.href}>
-                        <Link
-                            href={item.href}
-                            style={{
-                                color: pathname === item.href ? 'red' : 'inherit', // 当前路由项显示红色
-                                fontWeight: pathname === item.href ? 'bold' : 'normal'
-                            }}
+                    {/* Language Toggle Button */}
+                    <motion.button
+                        className={styles.langToggle}
+                        onClick={toggleLanguage}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        {currentLocale === 'zh' ? <IconEn /> : <IconZh />}
+                    </motion.button>
+                </div>
+
+                {/* Mobile Menu Button and Language Toggle */}
+                <div className={styles.mobileControls}>
+                    <motion.button
+                        className={styles.langToggle}
+                        onClick={toggleLanguage}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        {currentLocale === 'zh' ? <IconEn /> : <IconZh />}
+                    </motion.button>
+
+                    {isMobile && (
+                        <motion.button
+                            className={styles.mobileMenuBtn}
+                            onClick={() => setIsOpen(!isOpen)}
+                            aria-label="Toggle menu"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
                         >
-                            {item.label}
-                        </Link>
-                    </NavbarItem>
-                ))}
-            </NavbarContent>
+                            {isOpen ? <CloseIcon /> : <MenuIcon />}
+                        </motion.button>
+                    )}
+                </div>
 
-            {/* 中间内容：引入新的 MenuContent 组件 */}
-            <NavbarContent justify="end">
-                {/* <NavbarItem className="hidden lg:flex">
-                    <Link href="#">{t('login')}</Link>
-                </NavbarItem> */}
-                <NavbarItem className="hidden lg:flex">
-                    <ButtonIntl />
-                </NavbarItem>
-                <NavbarItem>
-                    <Button as={Link} color="primary" href="/login" variant="flat">
-                        {t('login')}
-                    </Button>
-                </NavbarItem>
-                {/* <NavbarItem className="hidden lg:flex">
-                    <DropdownIntl />
-                </NavbarItem> */}
-            </NavbarContent>
-
-            {/* 移动端菜单 */}
-            <NavbarMenu>
-                {pMenuItems.map((item, index) => (
-                    <NavbarMenuItem key={index} isActive={pathname === item.href}>
-                        <Link
-                            href={item.href}
-                            style={{
-                                color: pathname === item.href ? 'red' : 'inherit', // 当前路由项显示红色
-                                fontWeight: pathname === item.href ? 'bold' : 'normal'
-                            }}
+                {/* Mobile Navigation */}
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            className={styles.mobileNav}
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
                         >
-                            {item.label}
-                        </Link>
-                    </NavbarMenuItem>
-                ))}
-            </NavbarMenu>
-        </Navbar>
-
-
+                            {navItems.map((item, index) => (
+                                <motion.div
+                                    key={item.path}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    whileHover={{ x: 5 }}
+                                    style={{ padding: '1rem 0' }}
+                                >
+                                    <Link
+                                        href={item.path}
+                                        className={`${styles.mobileNavLink} ${isActive(item.path) ? styles.active : ''}`}
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+        </nav>
     );
-}
+};
+
+export default Navbar;

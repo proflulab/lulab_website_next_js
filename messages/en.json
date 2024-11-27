@@ -1,6 +1,7 @@
 {
     "AppNav": {
         "title": "LU LAB",
+        "home": "Home",
         "about": "About",
         "course": "Course",
         "clubs": "Clubs",
@@ -8,7 +9,8 @@
         "join_us": "Join Us",
         "login": "Login",
         "sign_up": "Sign Up",
-        "log_out": "Log Out"
+        "log_out": "Log Out",
+        "training": "Training Camp"
     },
     "HomePage": {
         "concept": "It is better to learn cases than to learn theory \nIt is better to learn from cases than to do them\nIt is better to play with cases than to make cases\nPlaying alone is worse than playing together\nIt is better to gather the best and most talented teachers from all over the world to play together"
