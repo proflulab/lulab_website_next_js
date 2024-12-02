@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-11-28 15:45:22
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-12-02 14:32:43
+ * @LastEditTime: 2024-12-02 14:35:56
  * @FilePath: /lulab_website_next_js/components/footer.tsx
  * @Description: 
  * 
@@ -10,7 +10,8 @@
  */
 
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+// import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { useTranslations } from 'next-intl';
 
 export function Footer() {
