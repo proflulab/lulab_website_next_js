@@ -17,5 +17,20 @@
     },
     "NotFoundPage": {
         "title": "Not Found"
+    },
+    "Footer": {
+        "title": "Lu Lab",
+        "slogan": "Building a Stanford University without walls online",
+        "quickLinks": "Quick Links",
+        "about": "About Us",
+        "courses": "Courses",
+        "joinUs": "Join Us",
+        "contact": "Contact",
+        "email": "info@lulabs.org",
+        "phone": "010-12345678",
+        "address": "School of Economics and Management, Tsinghua University, Beijing",
+        "followUs": "Follow Us",
+        "wechat": "WeChat Official Account: Lu Lab",
+        "copyright": "© {year} Lu Lab. All rights reserved."
     }
 }
