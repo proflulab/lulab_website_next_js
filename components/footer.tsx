@@ -2,12 +2,13 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-11-28 15:45:22
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-11-28 15:49:45
+ * @LastEditTime: 2024-12-02 14:32:43
  * @FilePath: /lulab_website_next_js/components/footer.tsx
  * @Description: 
  * 
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
  */
+
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useTranslations } from 'next-intl';
@@ -52,10 +53,10 @@ export function Footer() {
                                 <Mail className="h-4 w-4" />
                                 {t('email')}
                             </li>
-                            <li className="flex items-center gap-2 text-muted-foreground">
+                            {/* <li className="flex items-center gap-2 text-muted-foreground">
                                 <Phone className="h-4 w-4" />
                                 {t('phone')}
-                            </li>
+                            </li> */}
                             <li className="flex items-center gap-2 text-muted-foreground">
                                 <MapPin className="h-4 w-4" />
                                 {t('address')}
