@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-10 01:59:14
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-11-22 21:40:37
+ * @LastEditTime: 2024-11-29 20:14:26
  * @FilePath: /lulab_website_next_js/app/[locale]/page.tsx
  * @Description: 
  * 
@@ -14,6 +14,7 @@ import React from "react";
 import { Image } from "@nextui-org/react";
 import styles from './home.module.css'; // Import the CSS module
 import { useTranslations } from 'next-intl';
+import { Hero } from "@/components/sections/Hero";
 
 const Home: React.FC = () => {
 
@@ -21,7 +22,8 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Image
+      <Hero />
+      {/* <Image
         src="/images/leadership.jpg"
         alt="Leadership"
         className={styles.fullImage}  // 使用模块化的CSS类
@@ -43,7 +45,7 @@ const Home: React.FC = () => {
         whiteSpace: 'pre-wrap'  // 使换行符和空白符格式正确显示
       }}>
         {t('concept')}
-      </div>
+      </div> */}
     </>
   );
 };
