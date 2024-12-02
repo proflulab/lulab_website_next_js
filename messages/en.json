@@ -32,5 +32,14 @@
         "followUs": "Follow Us",
         "wechat": "WeChat Official Account: Lu Lab",
         "copyright": "© {year} Lu Lab. All rights reserved."
+    },
+    "AlumniPage": {
+        "title": "Our Alumni",
+        "subtitle": "See what our alumni have achieved in the industry"
+    },
+    "AlumniFilter": {
+        "search": "Search alumni...",
+        "graduationYear": "Graduation Year",
+        "skills": "Skills"
     }
 }

@@ -1,0 +1,105 @@
+.card {
+  background: var(--background);
+  border: none;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.05);
+  padding: 0.5rem;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+  padding: 2.5rem 2rem 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+  width: 90px;
+  height: 90px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-left: 0.5rem;
+}
+
+.name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.title {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.company {
+  font-size: 1rem;
+  color: var(--primary);
+  font-weight: 500;
+  margin: 0;
+}
+
+.description {
+  margin: 1.5rem 2rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 2rem;
+}
+
+.skill {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  padding: 0.5rem 1.2rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.linkedinButton {
+  width: calc(100% - 4rem);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  transition: background-color 0.3s ease;
+  margin: 1.5rem 2rem;
+  font-weight: 600;
+  padding: 1.2rem;
+  border-radius: 8px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+}
+
+.linkedinButton:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  background: linear-gradient(45deg, var(--secondary), var(--primary));
+}

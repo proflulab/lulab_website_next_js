@@ -1,0 +1,128 @@
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.profileCard {
+    background: var(--background);
+    border-radius: 16px;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.05);
+}
+
+.header {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
+
+.avatar {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.headerInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin: 0;
+}
+
+.title {
+    font-size: 1.2rem;
+    color: var(--muted-foreground);
+    margin: 0;
+}
+
+.company {
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 500;
+    margin: 0;
+}
+
+.education {
+    font-size: 1rem;
+    color: var(--muted-foreground);
+    margin: 0;
+}
+
+.divider {
+    margin: 1rem 0;
+}
+
+.section {
+    padding: 1.5rem 2rem;
+}
+
+.section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+}
+
+.experienceItem {
+    margin-bottom: 1.5rem;
+}
+
+.experienceItem h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--foreground);
+}
+
+.period {
+    font-size: 0.9rem;
+    color: var(--muted-foreground);
+    margin-bottom: 0.5rem;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.skill {
+    background: var(--accent);
+    color: var(--accent-foreground);
+    padding: 0.5rem 1.2rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.linkedinButton {
+    width: 100%;
+    margin-top: 2rem;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 1.2rem;
+    font-weight: 600;
+}
+
+.linkedinButton:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .section {
+        padding: 1rem;
+    }
+} 

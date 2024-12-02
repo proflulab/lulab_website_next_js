@@ -32,5 +32,14 @@
         "followUs": "关注我们",
         "wechat": "微信公众号：陆向谦实验室",
         "copyright": "© {year} 陆向谦实验室. All rights reserved."
+    },
+    "AlumniPage": {
+        "title": "我们的学员",
+        "subtitle": "看看我们的学员在业界取得的成就"
+    },
+    "AlumniFilter": {
+        "search": "搜索学员...",
+        "graduationYear": "毕业年份",
+        "skills": "技能"
     }
 }
