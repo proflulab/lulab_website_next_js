@@ -25,5 +25,20 @@
     },
     "NotFoundPage": {
         "title": "Not Found"
+    },
+    "Footer": {
+        "title": "Lu Lab",
+        "slogan": "Building a Stanford University without walls online",
+        "quickLinks": "Quick Links",
+        "about": "About Us",
+        "courses": "Courses",
+        "joinUs": "Join Us",
+        "contact": "Contact",
+        "email": "info@lulabs.org",
+        "phone": "010-12345678",
+        "address": "97 East Brokaw Road 310-F, San Jose, CA 95112, USA",
+        "followUs": "Follow Us",
+        "wechat": "WeChat Official Account: Lu Lab",
+        "copyright": "© {year} Lu Lab. All rights reserved."
     }
 }

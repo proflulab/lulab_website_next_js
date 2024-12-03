@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-08 03:01:48
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-11-27 22:12:28
+ * @LastEditTime: 2024-11-28 15:46:18
  * @FilePath: /lulab_website_next_js/app/[locale]/layout.tsx
  * @Description:
  *
@@ -14,6 +14,7 @@ import { getMessages } from 'next-intl/server';
 import React from 'react';
 import "./globals.css";
 import Navbar from '@/components/navbar/navbar';
+import { Footer } from '@/components/footer';
 
 
 
@@ -38,6 +39,7 @@ export default async function RootLayout({
             <main>
               {children}
             </main>
+            <Footer />
           </div>
         </NextIntlClientProvider>
       </body>
