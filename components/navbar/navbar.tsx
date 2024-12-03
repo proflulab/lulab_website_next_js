@@ -2,8 +2,8 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-09 22:26:40
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-11-27 21:39:38
- * @FilePath: /lulab_website_next_js/components/Navbar/Navbar.tsx
+ * @LastEditTime: 2024-12-03 17:02:38
+ * @FilePath: /lulab_website_next_js/components/navbar/navbar.tsx
  * @Description: 
  * 
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
@@ -62,10 +62,12 @@ const Navbar = () => {
     };
 
     const isActive = (path: string) => {
+        const currentPath = pathname.replace(/^\/[a-z]{2}/, '');
+
         if (path === '/') {
-            return pathname === path;
+            return currentPath === '';
         }
-        return pathname.startsWith(path);
+        return currentPath.startsWith(path);
     };
 
     useEffect(() => {
@@ -95,8 +97,7 @@ const Navbar = () => {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.2, duration: 0.5 }}
-                            >
-                                LU LAB
+                            >{t('logoText')}
                             </motion.span>
                         </div>
                     </Link>

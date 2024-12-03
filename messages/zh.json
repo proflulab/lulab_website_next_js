@@ -1,6 +1,7 @@
 {
     "AppNav": {
-        "title": "陆向谦实验室",
+
+        "logoText": "陆向谦实验室",
         "home": "首页",
         "about": "关于",
         "course": "课程",
@@ -13,7 +14,15 @@
         "training": "训练营"
     },
     "HomePage": {
-        "concept": "学理论不如学案例\n学案例不如做案例\n做案例不如玩案例\n一个人玩不如一起玩\n一起玩不如聚天下英才名师一块玩"
+        "concept": "学理论不如学案例\n学案例不如做案例\n做案例不如玩案例\n一个人玩不如一起玩\n一起玩不如聚天下英才名师一块玩",
+        "Hero": {
+            "title": "创新时代的",
+            "titleHighlight": "教育革新",
+            "subtitle": "探索教育新范式：实践驱动、项目导向、精英聚合、协作共赢",
+            "enrollButton": "立即报名",
+            "learnMoreButton": "了解更多",
+            "tagline": "培养具备全球视野与创新精神的复合型人才"
+        }
     },
     "NotFoundPage": {
         "title": "找不到相关页面"

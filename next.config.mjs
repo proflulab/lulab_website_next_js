@@ -17,7 +17,10 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
   images: {
-    domains: ["wechatapppro-1252524126.cos.ap-shanghai.myqcloud.com"], // 添加允许的图片域名
+    domains: [
+      "wechatapppro-1252524126.cos.ap-shanghai.myqcloud.com",
+      "images.unsplash.com",
+    ], // 添加允许的图片域名
   },
 
   async redirects() {
