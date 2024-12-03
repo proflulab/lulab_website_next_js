@@ -1,5 +1,5 @@
 {
-    "eggHelper.serverPort": 50721,
+    "eggHelper.serverPort": 36519,
     "i18n-ally.localesPaths": [
         "i18n",
         "messages"
