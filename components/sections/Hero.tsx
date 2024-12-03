@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-11-28 18:46:39
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-12-03 16:42:21
+ * @LastEditTime: 2024-12-03 17:16:04
  * @FilePath: /lulab_website_next_js/components/sections/Hero.tsx
  * @Description: 
  * 
@@ -34,7 +34,7 @@ const BackgroundImage = () => (
   </div>
 );
 
-const HeroContent = ({ t }: { t: any }) => {
+const HeroContent = ({ t }: { t: ReturnType<typeof useTranslations> }) => {
   const router = useRouter();
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
