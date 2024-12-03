@@ -1,6 +1,6 @@
 {
     "AppNav": {
-        "title": "LU LAB",
+        "logoText": "LU LAB",
         "home": "Home",
         "about": "About",
         "course": "Course",
@@ -16,8 +16,11 @@
         "concept": "It is better to learn cases than to learn theory \nIt is better to learn from cases than to do them\nIt is better to play with cases than to make cases\nPlaying alone is worse than playing together\nIt is better to gather the best and most talented teachers from all over the world to play together",
         "Hero": {
             "title": "Educational Innovation in an Era of Change",
-            "titleHighlight": "Innovation",
-            "subtitle": "Explore new paradigms of 21st century education with Lu Lab"
+            "titleHighlight": "",
+            "subtitle": "Explore new paradigms of education: practice-driven, project-oriented, elite aggregation, and collaborative win-win",
+            "enrollButton": "Enroll Now",
+            "learnMoreButton": "Learn More",
+            "tagline": "Cultivating versatile talents with global vision and innovative spirit"
         }
     },
     "NotFoundPage": {
