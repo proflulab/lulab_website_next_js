@@ -1,6 +1,17 @@
+/*
+ * @Author: 杨仕明 shiming.y@qq.com
+ * @Date: 2024-12-03 22:34:55
+ * @LastEditors: 杨仕明 shiming.y@qq.com
+ * @LastEditTime: 2024-12-05 18:49:44
+ * @FilePath: /lulab_website_next_js/components/about/founder.tsx
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ */
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 
 interface AchievementProps {
     title: string;
@@ -17,13 +28,14 @@ function Achievement({ title, content }: AchievementProps) {
 }
 
 interface QualificationProps {
+    name: string;
     items: string[];
 }
 
-function Qualifications({ items }: QualificationProps) {
+function Qualifications({ name, items }: QualificationProps) {
     return (
         <div className="mb-6">
-            <h3 className="text-2xl font-semibold mb-4">陆向谦教授</h3>
+            <h3 className="text-2xl font-semibold mb-4">{name}</h3>
             <ul className="text-gray-600 text-lg space-y-2">
                 {items.map((item, index) => (
                     <li key={index}>{item}</li>
@@ -34,38 +46,35 @@ function Qualifications({ items }: QualificationProps) {
 }
 
 export function Founder() {
-    const qualifications = [
-        "清华经管学院创新创业课程教授",
-        "教育部全国高教教师网络培训中心创新/创业特聘教授",
-        "美国加州伯克利大学Haas商学院博士",
-        "美国西北大学Kellogg商学院工商管理硕士",
-        "清华大学工学硕士"
-    ];
+    const t = useTranslations('AboutPage.Founder');
 
     const achievements = [
         {
-            title: "丰富的实践经验",
-            content: "曾策划摩托罗拉进入中国战略、任教于香港科技大学管理学院、担任投资基金负责人，同时也是一位成功的创业家。"
+            key: 'experience',
+            title: t('achievements.experience.title'),
+            content: t('achievements.experience.content')
         },
         {
-            title: "教学成就",
-            content: "陆向谦实验室的学员创立了多家独角兽公司。陆教授更鼓励学员们加入正在爆发的创业公司进一步修身，目标在30岁前达到财务自由。他亲自为优秀学员推荐机会，对接实验室嘉宾创始人与CEO。"
+            key: 'teaching',
+            title: t('achievements.teaching.title'),
+            content: t('achievements.teaching.content')
         },
         {
-            title: "身体力行的教育理念",
-            content: "陆教授的两个孩子从中学起就加入了陆向谦实验室。女儿毕业于斯坦福大学，曾是Pinterest和Airtable的早期员工；儿子就读于加州伯克利大学，19岁便全职加入Uber，在不影响学业的同时，现已成为Flexport的早期员工。"
+            key: 'philosophy',
+            title: t('achievements.philosophy.title'),
+            content: t('achievements.philosophy.content')
         }
     ];
 
     return (
         <div className="flex flex-col items-center max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12 text-center">创始人介绍</h2>
+            <h2 className="text-4xl font-bold mb-12 text-center">{t('title')}</h2>
 
             <div className="flex flex-col md:flex-row gap-8 items-center w-full">
                 <div className="md:w-1/3 relative aspect-[3/4] w-full max-w-md">
                     <Image
                         src="/images/about/founder.jpg"
-                        alt="陆向谦教授"
+                        alt={t('name')}
                         fill
                         className="rounded-lg shadow-lg object-cover"
                         priority
@@ -74,10 +83,13 @@ export function Founder() {
 
                 <div className="md:w-2/3">
                     <div className="space-y-6">
-                        <Qualifications items={qualifications} />
-                        {achievements.map((achievement, index) => (
+                        <Qualifications
+                            name={t('name')}
+                            items={t.raw('qualifications')}
+                        />
+                        {achievements.map((achievement) => (
                             <Achievement
-                                key={index}
+                                key={achievement.key}
                                 title={achievement.title}
                                 content={achievement.content}
                             />
