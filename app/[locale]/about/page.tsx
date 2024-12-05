@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-12-03 18:34:23
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-12-04 19:01:58
+ * @LastEditTime: 2024-12-05 19:09:24
  * @FilePath: /lulab_website_next_js/app/[locale]/about/page.tsx
  * @Description: 
  * 
@@ -21,7 +21,7 @@ import { Timeline } from "@/components/about/timeline";
 export default function About() {
   return (
     <main className="flex flex-col w-full scroll-smooth">
-      <section className="w-full h-[calc(100vh-64px)]">
+      <section className="w-full h-[30vh] md:h-[calc(100vh-64px)]">
         <Carousel />
       </section>
 
