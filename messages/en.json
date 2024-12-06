@@ -40,5 +40,90 @@
         "followUs": "Follow Us",
         "wechat": "WeChat Official Account: Lu Lab",
         "copyright": "© {year} Lu Lab. All rights reserved."
+    },
+    "Training": {
+        "title": "Training Camps",
+        "tabs": {
+            "all": "All",
+            "ai": "AI",
+            "programming": "Programming",
+            "metaverse": "Metaverse"
+        },
+        "projects": {
+            "aiBasic": {
+                "title": "AI Basic Training",
+                "description": "Master AI basics and develop simple AI applications",
+                "duration": "8 weeks",
+                "level": "Beginner"
+            },
+            "aiAdvanced": {
+                "title": "AI Advanced Training",
+                "description": "Deep dive into AI and develop complex systems",
+                "duration": "12 weeks",
+                "level": "Advanced"
+            }
+        },
+        "curriculum": {
+            "title": "Curriculum",
+            "week1": {
+                "title": "Week 1: AI Fundamentals",
+                "topics": "AI History,Machine Learning Basics,Intro to Deep Learning"
+            },
+            "week2": {
+                "title": "Week 2: Python Programming",
+                "topics": "Python Syntax,Data Structures,Basic Algorithms"
+            },
+            "week3": {
+                "title": "Week 3: Data Science Basics",
+                "topics": "Data Analysis,Data Visualization,Basic Statistics"
+            },
+            "week4": {
+                "title": "Week 4: Project Development",
+                "topics": "Project Planning,Team Collaboration,Project Presentation"
+            },
+            "timeline": {
+                "week1": {
+                    "title": "Getting Started",
+                    "description": "Master basic concepts and tools",
+                    "date": "Week 1-2"
+                },
+                "week2": {
+                    "title": "Practical Phase",
+                    "description": "Start hands-on project development",
+                    "date": "Week 3-4"
+                },
+                "week3": {
+                    "title": "Data Science Phase",
+                    "description": "Learn basic concepts and tools of data science",
+                    "date": "Week 5-6"
+                },
+                "week4": {
+                    "title": "Project Phase",
+                    "description": "Complete a full project development",
+                    "date": "Week 7-8"
+                }
+            }
+        },
+        "enroll": {
+            "title": "Training Enrollment",
+            "form": {
+                "name": "Name",
+                "namePlaceholder": "Enter your name",
+                "email": "Email",
+                "emailPlaceholder": "Enter your email address",
+                "phone": "Phone",
+                "phonePlaceholder": "Enter your phone number",
+                "message": "Message",
+                "messagePlaceholder": "Enter any additional information (optional)",
+                "submit": "Submit Enrollment",
+                "submitting": "Submitting..."
+            }
+        },
+        "projectDetails": {
+            "duration": "Duration",
+            "level": "Level",
+            "price": "Price",
+            "enrollButton": "Enroll Now"
+        }
     }
 }

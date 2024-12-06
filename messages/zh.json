@@ -41,5 +41,90 @@
         "followUs": "关注我们",
         "wechat": "微信公众号：陆向谦实验室",
         "copyright": "© {year} 陆向谦实验室. All rights reserved."
+    },
+    "Training": {
+        "title": "训练营",
+        "tabs": {
+            "all": "全部",
+            "ai": "人工智能",
+            "programming": "编程开发",
+            "metaverse": "元宇宙"
+        },
+        "projects": {
+            "aiBasic": {
+                "title": "AI基础训练营",
+                "description": "掌握AI基础知识,开发简单的AI应用",
+                "duration": "8周",
+                "level": "入门级"
+            },
+            "aiAdvanced": {
+                "title": "AI进阶训练营",
+                "description": "深入学习AI技术,开发复杂的AI系统",
+                "duration": "12周", 
+                "level": "进阶级"
+            }
+        },
+        "curriculum": {
+            "title": "课程大纲",
+            "week1": {
+                "title": "第一周: AI基础概念",
+                "topics": "AI发展历史,机器学习基础,深度学习入门"
+            },
+            "week2": {
+                "title": "第二周: Python编程基础",
+                "topics": "Python语法,数据结构,算法基础"
+            },
+            "week3": {
+                "title": "第三周: 数据科学基础",
+                "topics": "数据分析,数据可视化,统计学基础"
+            },
+            "week4": {
+                "title": "第四周: 项目开发",
+                "topics": "项目规划,团队协作,项目演示"
+            },
+            "timeline": {
+                "week1": {
+                    "title": "入门阶段",
+                    "description": "掌握基础概念和工具使用",
+                    "date": "第1-2周"
+                },
+                "week2": {
+                    "title": "实战阶段",
+                    "description": "开始动手实践项目开发",
+                    "date": "第3-4周"
+                },
+                "week3": {
+                    "title": "数据科学阶段",
+                    "description": "学习数据科学的基本概念和工具",
+                    "date": "第5-6周"
+                },
+                "week4": {
+                    "title": "项目阶段",
+                    "description": "完成一个完整的项目开发",
+                    "date": "第7-8周"
+                }
+            }
+        },
+        "enroll": {
+            "title": "培训报名",
+            "form": {
+                "name": "姓名",
+                "namePlaceholder": "请输入您的姓名",
+                "email": "电子邮箱",
+                "emailPlaceholder": "请输入您的电子邮箱",
+                "phone": "联系电话",
+                "phonePlaceholder": "请输入您的联系电话",
+                "message": "留言",
+                "messagePlaceholder": "请输入您想告诉我们的其他信息（选填）",
+                "submit": "提交报名",
+                "submitting": "提交中..."
+            }
+        },
+        "projectDetails": {
+            "duration": "课程时长",
+            "level": "难度等级",
+            "price": "课程费用",
+            "enrollButton": "立即报名"
+        }
     }
 }
