@@ -39,7 +39,7 @@
         "address": "97 East Brokaw Road 310-F, San Jose, CA 95112, USA",
         "followUs": "Follow Us",
         "wechat": "WeChat Official Account: Lu Lab",
-        "copyright": "© {year} Lu Lab. All rights reserved."
+        "copyright": " Lu Lab. All rights reserved."
     },
     "Training": {
         "title": "Training Camps",
@@ -49,6 +49,14 @@
             "programming": "Programming",
             "metaverse": "Metaverse"
         },
+        "courseDescription": "Course Description",
+        "prerequisites": "Prerequisites",
+        "outcomes": "Learning Outcomes",
+        "enrollNow": "Enroll Now",
+        "price": "Price",
+        "duration": "Duration",
+        "level": "Level",
+        "enrollButton": "Enroll in this Course",
         "categories": {
             "ai": "AI Foundation Training Camp",
             "programming": "Programming Training Camp",
@@ -58,14 +66,122 @@
             "aiBasic": {
                 "title": "AI Basic Training",
                 "description": "Master AI basics and develop simple AI applications",
+                "fullDescription": "This comprehensive AI Basic Training course is designed for beginners who want to start their journey in artificial intelligence. You'll learn the fundamentals of AI, including machine learning basics, Python programming, and practical AI application development.",
                 "duration": "8 weeks",
-                "level": "Beginner"
+                "level": "Beginner",
+                "prerequisites": [
+                    "Basic programming knowledge",
+                    "High school mathematics",
+                    "Basic English reading ability",
+                    "Personal computer with internet access"
+                ],
+                "outcomes": [
+                    "Understand AI fundamentals and key concepts",
+                    "Write Python code for AI applications",
+                    "Build and train simple machine learning models",
+                    "Develop a complete AI project from scratch",
+                    "Work with popular AI frameworks and tools"
+                ]
             },
             "aiAdvanced": {
                 "title": "AI Advanced Training",
                 "description": "Deep dive into AI and develop complex systems",
+                "fullDescription": "The AI Advanced Training course is designed for those who already have a foundation in AI and want to take their skills to the next level. This intensive program covers advanced topics in deep learning, natural language processing, and computer vision.",
                 "duration": "12 weeks",
-                "level": "Advanced"
+                "level": "Advanced",
+                "prerequisites": [
+                    "Completion of AI Basic Training or equivalent experience",
+                    "Strong programming skills in Python",
+                    "Understanding of basic machine learning concepts",
+                    "Knowledge of linear algebra and calculus"
+                ],
+                "outcomes": [
+                    "Design and implement complex AI systems",
+                    "Master advanced deep learning architectures",
+                    "Develop production-ready AI solutions",
+                    "Optimize AI models for performance",
+                    "Deploy AI systems to production environments"
+                ]
+            },
+            "programmingBasic": {
+                "title": "Basic Programming Training",
+                "description": "Learn programming fundamentals and web development",
+                "fullDescription": "This comprehensive programming course is designed for beginners who want to start their journey in software development. You'll learn programming fundamentals, web development basics, and build your first web applications using modern technologies.",
+                "duration": "10 weeks",
+                "level": "Beginner",
+                "prerequisites": [
+                    "Basic computer skills",
+                    "High school mathematics",
+                    "Basic English reading ability",
+                    "Personal computer with internet access"
+                ],
+                "outcomes": [
+                    "Understand programming fundamentals",
+                    "Build responsive web applications",
+                    "Work with databases and APIs",
+                    "Implement user authentication",
+                    "Deploy web applications to the cloud"
+                ]
+            },
+            "programmingAdvanced": {
+                "title": "Advanced Programming Training",
+                "description": "Master full-stack development and system architecture",
+                "fullDescription": "The Advanced Programming course is designed for developers who want to master full-stack development and system architecture. This intensive program covers advanced web technologies, cloud services, and enterprise-level application development.",
+                "duration": "14 weeks",
+                "level": "Advanced",
+                "prerequisites": [
+                    "Completion of Basic Programming Training or equivalent experience",
+                    "Strong understanding of HTML, CSS, and JavaScript",
+                    "Basic knowledge of backend development",
+                    "Experience with version control systems"
+                ],
+                "outcomes": [
+                    "Design and implement complex web applications",
+                    "Master modern frontend frameworks",
+                    "Build scalable backend services",
+                    "Implement DevOps practices",
+                    "Deploy and maintain cloud infrastructure"
+                ]
+            },
+            "metaverseBasic": {
+                "title": "Metaverse Fundamentals",
+                "description": "Explore virtual worlds and 3D development",
+                "fullDescription": "Start your journey into the metaverse with this foundational course. Learn about virtual reality, 3D modeling, and basic game development. You'll understand the core concepts of the metaverse and create your first virtual experiences.",
+                "duration": "8 weeks",
+                "level": "Beginner",
+                "prerequisites": [
+                    "Basic computer skills",
+                    "Interest in 3D design and gaming",
+                    "Basic mathematics knowledge",
+                    "VR-capable computer recommended"
+                ],
+                "outcomes": [
+                    "Understand metaverse concepts",
+                    "Create basic 3D models",
+                    "Develop simple virtual environments",
+                    "Implement basic user interactions",
+                    "Deploy virtual experiences"
+                ]
+            },
+            "metaverseAdvanced": {
+                "title": "Advanced Metaverse Development",
+                "description": "Create immersive virtual experiences and worlds",
+                "fullDescription": "Take your metaverse development skills to the next level. This advanced course covers complex 3D modeling, multiplayer networking, blockchain integration, and creation of sophisticated virtual environments and experiences.",
+                "duration": "12 weeks",
+                "level": "Advanced",
+                "prerequisites": [
+                    "Completion of Metaverse Fundamentals or equivalent experience",
+                    "Basic programming knowledge",
+                    "3D modeling experience",
+                    "Understanding of game development concepts"
+                ],
+                "outcomes": [
+                    "Create complex virtual environments",
+                    "Implement multiplayer functionality",
+                    "Integrate blockchain and NFTs",
+                    "Optimize 3D assets and performance",
+                    "Deploy scalable metaverse applications"
+                ]
             }
         },
         "curriculum": {
@@ -106,6 +222,114 @@
                     "title": "Project Phase",
                     "description": "Complete a full project development",
                     "date": "Week 7-8"
+                }
+            },
+            "aiBasic": {
+                "timeline": {
+                    "week1": {
+                        "title": "AI Fundamentals & Python",
+                        "description": "Learn Python basics and AI concepts",
+                        "date": "Week 1"
+                    },
+                    "week2": {
+                        "title": "Data Processing & Analysis",
+                        "description": "Master data preprocessing and analysis",
+                        "date": "Week 2"
+                    },
+                    "week3": {
+                        "title": "Machine Learning Basics",
+                        "description": "Understanding core ML algorithms",
+                        "date": "Week 3"
+                    },
+                    "week4": {
+                        "title": "Intro to Deep Learning",
+                        "description": "Neural network basics and practice",
+                        "date": "Week 4"
+                    },
+                    "week5": {
+                        "title": "Computer Vision Applications",
+                        "description": "Image processing and recognition",
+                        "date": "Week 5"
+                    },
+                    "week6": {
+                        "title": "NLP Fundamentals",
+                        "description": "Text analysis and processing",
+                        "date": "Week 6"
+                    },
+                    "week7": {
+                        "title": "AI Model Deployment",
+                        "description": "Model optimization and deployment",
+                        "date": "Week 7"
+                    },
+                    "week8": {
+                        "title": "Project Implementation",
+                        "description": "Comprehensive project development",
+                        "date": "Week 8"
+                    }
+                }
+            },
+            "aiAdvanced": {
+                "timeline": {
+                    "week1": {
+                        "title": "Advanced Python & AI Frameworks",
+                        "description": "Deep dive into Python and AI frameworks",
+                        "date": "Week 1"
+                    },
+                    "week2": {
+                        "title": "Advanced Data Analysis",
+                        "description": "Complex data processing techniques",
+                        "date": "Week 2"
+                    },
+                    "week3": {
+                        "title": "Advanced Deep Learning",
+                        "description": "Complex neural architectures",
+                        "date": "Week 3"
+                    },
+                    "week4": {
+                        "title": "Advanced Computer Vision",
+                        "description": "Object detection and segmentation",
+                        "date": "Week 4"
+                    },
+                    "week5": {
+                        "title": "Advanced NLP",
+                        "description": "Transformers and pre-trained models",
+                        "date": "Week 5"
+                    },
+                    "week6": {
+                        "title": "Generative AI",
+                        "description": "GANs and diffusion models",
+                        "date": "Week 6"
+                    },
+                    "week7": {
+                        "title": "Reinforcement Learning",
+                        "description": "RL theory and practice",
+                        "date": "Week 7"
+                    },
+                    "week8": {
+                        "title": "AI System Design",
+                        "description": "Large-scale AI architecture",
+                        "date": "Week 8"
+                    },
+                    "week9": {
+                        "title": "AI Security & Ethics",
+                        "description": "AI safety and ethical considerations",
+                        "date": "Week 9"
+                    },
+                    "week10": {
+                        "title": "Cloud AI Deployment",
+                        "description": "Distributed AI systems",
+                        "date": "Week 10"
+                    },
+                    "week11": {
+                        "title": "AI Performance Optimization",
+                        "description": "Model compression and tuning",
+                        "date": "Week 11"
+                    },
+                    "week12": {
+                        "title": "Graduation Project",
+                        "description": "Advanced project development",
+                        "date": "Week 12"
+                    }
                 }
             }
         },

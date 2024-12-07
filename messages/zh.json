@@ -40,33 +40,149 @@
         "address": "美国加利福尼亚州圣何塞市东布罗考路97号310-F室, 邮编95112",
         "followUs": "关注我们",
         "wechat": "微信公众号：陆向谦实验室",
-        "copyright": "© {year} 陆向谦实验室. All rights reserved."
+        "copyright": " 陆向谦实验室. All rights reserved."
     },
     "Training": {
         "title": "训练营",
         "tabs": {
             "all": "全部",
             "ai": "人工智能",
-            "programming": "编程开发",
+            "programming": "编程",
             "metaverse": "元宇宙"
         },
+        "courseDescription": "课程介绍",
+        "prerequisites": "课程要求",
+        "outcomes": "学习成果",
+        "enrollNow": "立即报名",
+        "price": "价格",
+        "duration": "课程时长",
+        "level": "难度等级",
+        "enrollButton": "报名参加",
         "categories": {
-            "ai": "AI基础训练营",
+            "ai": "人工智能基础训练营",
             "programming": "编程训练营",
             "metaverse": "元宇宙训练营"
         },
         "projects": {
             "aiBasic": {
-                "title": "AI基础训练营",
-                "description": "掌握AI基础知识,开发简单的AI应用",
+                "title": "人工智能基础训练",
+                "description": "掌握AI基础知识，开发简单AI应用",
+                "fullDescription": "这个全面的人工智能基础训练课程专为想要开始人工智能之旅的初学者设计。您将学习人工智能的基础知识，包括机器学习基础、Python编程和实用的AI应用开发。",
                 "duration": "8周",
-                "level": "入门级"
+                "level": "初级",
+                "prerequisites": [
+                    "基础编程知识",
+                    "高中数学水平",
+                    "基本英文阅读能力",
+                    "可上网的个人电脑"
+                ],
+                "outcomes": [
+                    "理解人工智能基础概念",
+                    "编写AI应用程序的Python代码",
+                    "构建和训练简单的机器学习模型",
+                    "从零开始开发完整的AI项目",
+                    "使用流行的AI框架和工具"
+                ]
             },
             "aiAdvanced": {
-                "title": "AI进阶训练营",
-                "description": "深入学习AI技术,开发复杂的AI系统",
-                "duration": "12周", 
-                "level": "进阶级"
+                "title": "人工智能高级训练",
+                "description": "深入AI领域，开发复杂系统",
+                "fullDescription": "人工智能高级训练课程专为已具备AI基础并想要提升技能的学习者设计。这个密集课程涵盖深度学习、自然语言处理和计算机视觉等高级主题。",
+                "duration": "12周",
+                "level": "高级",
+                "prerequisites": [
+                    "完成AI基础训练或具备同等经验",
+                    "扎实的Python编程技能",
+                    "理解基本的机器学习概念",
+                    "掌握线性代数和微积分知识"
+                ],
+                "outcomes": [
+                    "设计和实现复杂的AI系统",
+                    "掌握高级深度学习架构",
+                    "开发生产级AI解决方案",
+                    "优化AI模型性能",
+                    "将AI系统部署到生产环境"
+                ]
+            },
+            "programmingBasic": {
+                "title": "基础编程训练",
+                "description": "学习编程基础和网页开发",
+                "fullDescription": "这个全面的编程课程专为想要开始软件开发之旅的初学者设计。您将学习编程基础知识、网页开发基础，并使用现代技术构建您的第一个网络应用程序。",
+                "duration": "10周",
+                "level": "初级",
+                "prerequisites": [
+                    "基本计算机操作技能",
+                    "高中数学水平",
+                    "基本英文阅读能力",
+                    "可上网的个人电脑"
+                ],
+                "outcomes": [
+                    "理解编程基础概念",
+                    "构建响应式网页应用",
+                    "使用数据库和API",
+                    "实现用户认证",
+                    "将网页应用部署到云端"
+                ]
+            },
+            "programmingAdvanced": {
+                "title": "高级编程训练",
+                "description": "掌握全栈开发和系统架构",
+                "fullDescription": "高级编程课程专为想要掌握全栈开发和系统架构的开发者设计。这个密集课程涵盖高级网络技术、云服务和企业级应用开发。",
+                "duration": "14周",
+                "level": "高级",
+                "prerequisites": [
+                    "完成基础编程训练或具备同等经验",
+                    "深入理解HTML、CSS和JavaScript",
+                    "具备后端开发基础知识",
+                    "有版本控制系统使用经验"
+                ],
+                "outcomes": [
+                    "设计和实现复杂的网页应用",
+                    "掌握现代前端框架",
+                    "构建可扩展的后端服务",
+                    "实践DevOps开发运维",
+                    "部署和维护云端基础设施"
+                ]
+            },
+            "metaverseBasic": {
+                "title": "元宇宙基础训练",
+                "description": "探索虚拟世界和3D开发",
+                "fullDescription": "从这门基础课程开始您的元宇宙之旅。学习虚拟现实、3D建模和基础游戏开发。您将理解元宇宙的核心概念并创建您的第一个虚拟体验。",
+                "duration": "8周",
+                "level": "初级",
+                "prerequisites": [
+                    "基本计算机操作技能",
+                    "对3D设计和游戏开发有兴趣",
+                    "基础数学知识",
+                    "推荐使用支持VR的电脑"
+                ],
+                "outcomes": [
+                    "理解元宇宙概念",
+                    "创建基础3D模型",
+                    "开发简单虚拟环境",
+                    "实现基本用户交互",
+                    "部署虚拟体验"
+                ]
+            },
+            "metaverseAdvanced": {
+                "title": "高级元宇宙开发",
+                "description": "创建沉浸式虚拟体验和世界",
+                "fullDescription": "将您的元宇宙开发技能提升到新的高度。这个高级课程涵盖复杂的3D建模、多人联网、区块链集成，以及创建精密的虚拟环境和体验。",
+                "duration": "12周",
+                "level": "高级",
+                "prerequisites": [
+                    "完成元宇宙基础训练或具备同等经验",
+                    "基础编程知识",
+                    "3D建模经验",
+                    "理解游戏开发概念"
+                ],
+                "outcomes": [
+                    "创建复杂的虚拟环境",
+                    "实现多人功能",
+                    "集成区块链和NFT",
+                    "优化3D资源和性能",
+                    "部署可扩展的元宇宙应用"
+                ]
             }
         },
         "curriculum": {
@@ -107,6 +223,114 @@
                     "title": "项目阶段",
                     "description": "完成一个完整的项目开发",
                     "date": "第7-8周"
+                }
+            },
+            "aiBasic": {
+                "timeline": {
+                    "week1": {
+                        "title": "AI基础与Python编程",
+                        "description": "学习Python基础语法和AI概念",
+                        "date": "第1周"
+                    },
+                    "week2": {
+                        "title": "数据处理与分析",
+                        "description": "掌握数据预处理和分析技术",
+                        "date": "第2周"
+                    },
+                    "week3": {
+                        "title": "机器学习基础",
+                        "description": "理解机器学习核心算法",
+                        "date": "第3周"
+                    },
+                    "week4": {
+                        "title": "深度学习入门",
+                        "description": "神经网络基础与实践",
+                        "date": "第4周"
+                    },
+                    "week5": {
+                        "title": "计算机视觉应用",
+                        "description": "图像处理与识别实战",
+                        "date": "第5周"
+                    },
+                    "week6": {
+                        "title": "自然语言处理基础",
+                        "description": "文本分析与处理技术",
+                        "date": "第6周"
+                    },
+                    "week7": {
+                        "title": "AI模型部署",
+                        "description": "模型优化与实际部署",
+                        "date": "第7周"
+                    },
+                    "week8": {
+                        "title": "项目实战",
+                        "description": "综合项目开发与展示",
+                        "date": "第8周"
+                    }
+                }
+            },
+            "aiAdvanced": {
+                "timeline": {
+                    "week1": {
+                        "title": "高级Python与AI框架",
+                        "description": "深入Python高级特性和主流AI框架",
+                        "date": "第1周"
+                    },
+                    "week2": {
+                        "title": "高级数据分析",
+                        "description": "复杂数据处理与高级分析技术",
+                        "date": "第2周"
+                    },
+                    "week3": {
+                        "title": "深度学习进阶",
+                        "description": "复杂神经网络架构与优化",
+                        "date": "第3周"
+                    },
+                    "week4": {
+                        "title": "计算机视觉高级应用",
+                        "description": "目标检测与图像分割",
+                        "date": "第4周"
+                    },
+                    "week5": {
+                        "title": "自然语言处理进阶",
+                        "description": "transformer架构与预训练模型",
+                        "date": "第5周"
+                    },
+                    "week6": {
+                        "title": "生成式AI",
+                        "description": "GAN与扩散模型实践",
+                        "date": "第6周"
+                    },
+                    "week7": {
+                        "title": "强化学习",
+                        "description": "强化学习理论与实践",
+                        "date": "第7周"
+                    },
+                    "week8": {
+                        "title": "AI系统设计",
+                        "description": "大规模AI系统架构设计",
+                        "date": "第8周"
+                    },
+                    "week9": {
+                        "title": "AI安全与伦理",
+                        "description": "AI模型安全性与伦理考量",
+                        "date": "第9周"
+                    },
+                    "week10": {
+                        "title": "云端AI部署",
+                        "description": "分布式AI系统部署",
+                        "date": "第10周"
+                    },
+                    "week11": {
+                        "title": "AI性能优化",
+                        "description": "模型压缩与性能调优",
+                        "date": "第11周"
+                    },
+                    "week12": {
+                        "title": "毕业项目",
+                        "description": "高级项目开发与答辩",
+                        "date": "第12周"
+                    }
                 }
             }
         },
