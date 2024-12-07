@@ -49,6 +49,11 @@
             "programming": "Programming",
             "metaverse": "Metaverse"
         },
+        "categories": {
+            "ai": "AI Foundation Training Camp",
+            "programming": "Programming Training Camp",
+            "metaverse": "Metaverse Training Camp"
+        },
         "projects": {
             "aiBasic": {
                 "title": "AI Basic Training",

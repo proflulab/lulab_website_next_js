@@ -50,6 +50,11 @@
             "programming": "编程开发",
             "metaverse": "元宇宙"
         },
+        "categories": {
+            "ai": "AI基础训练营",
+            "programming": "编程训练营",
+            "metaverse": "元宇宙训练营"
+        },
         "projects": {
             "aiBasic": {
                 "title": "AI基础训练营",
