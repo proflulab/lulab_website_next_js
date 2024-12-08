@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useParams, notFound } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,7 @@ export default function ProjectDetails() {
     const t = useTranslations("Training");
     const params = useParams();
     const projectId = params.projectId as string;
+    const router = useRouter();
 
     const project = getProjectById(projectId);
 
@@ -152,8 +154,7 @@ export default function ProjectDetails() {
                                         className="w-full text-lg font-semibold" 
                                         size="lg"
                                         onClick={() => {
-                                            // Add enrollment logic here
-                                            console.log('Enroll clicked');
+                                            router.push('/training/enroll');
                                         }}
                                     >
                                         {t('enrollButton')}
@@ -182,8 +183,7 @@ export default function ProjectDetails() {
                             size="lg"
                             className="text-lg font-semibold px-8"
                             onClick={() => {
-                                // Add enrollment logic here
-                                console.log('Enroll clicked');
+                                router.push('/training/enroll');
                             }}
                         >
                             {t('enrollButton')}
