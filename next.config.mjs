@@ -35,3 +35,8 @@ const nextConfig = {
 };
 
 export default withNextIntl(nextConfig);
+module.exports = {
+  siteUrl: "https://www.lulabs.org/",
+  generateRobotsTxt: true,
+  generateSitemap: true,
+};
