@@ -15,12 +15,14 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 
+// ... existing code ...
+
 const nextConfig = {
   images: {
     domains: [
       "wechatapppro-1252524126.cos.ap-shanghai.myqcloud.com",
       "images.unsplash.com",
-    ], // 添加允许的图片域名
+    ],
   },
 
   async redirects() {
@@ -32,11 +34,12 @@ const nextConfig = {
       },
     ];
   },
-};
 
-export default withNextIntl(nextConfig);
-module.exports = {
+  // Add sitemap configuration to nextConfig object
   siteUrl: "https://www.lulabs.org/",
   generateRobotsTxt: true,
   generateSitemap: true,
 };
+
+export default withNextIntl(nextConfig);
+// Remove the module.exports block
