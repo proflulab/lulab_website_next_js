@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-09 22:26:40
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-12-09 15:43:54
+ * @LastEditTime: 2024-12-29 04:36:46
  * @FilePath: /lulab_website_next_js/components/navbar/navbar.tsx
  * @Description: 
  * 
@@ -12,8 +12,7 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -22,7 +21,7 @@ import styles from './navbar.module.css';
 import { IconLogo } from '../icon/icon_logo';
 import { IconZh } from '../icon/icon_zh';
 import { IconEn } from '../icon/icon_en';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname, Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
 
@@ -30,9 +29,10 @@ import { useTranslations } from 'next-intl';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const pathname = usePathname();
-    const isMobile = useMediaQuery('(max-width: 768px)');
     const router = useRouter();
+    const pathname = usePathname();
+    const { locale = 'zh' } = useParams();
+    const isMobile = useMediaQuery('(max-width: 768px)');
 
     const t = useTranslations('AppNav');
 
@@ -46,33 +46,23 @@ const Navbar = () => {
 
 
     // 语言切换逻辑
-    const [currentLocale, setCurrentLocale] = useState('zh');
-
-    useEffect(() => {
-        // 从路径中获取当前语言
-        const locale = pathname.startsWith('/en') ? 'en' : 'zh';
-        setCurrentLocale(locale);
-    }, [pathname]);
-
     const toggleLanguage = () => {
-        const newLocale = currentLocale === 'zh' ? 'en' : 'zh';
-        const newPath = pathname.replace(/^\/[a-z]{2}/, '');
-        router.push(`/${newLocale}${newPath}`);
-        setCurrentLocale(newLocale);
+        const nextLocale = locale === 'en' ? 'zh' : 'en';
+        router.replace(pathname, { locale: nextLocale });
     };
 
     const isActive = (path: string) => {
-        const currentPath = pathname.replace(/^\/[a-z]{2}/, '');
-
+        // 如果导航项是首页
         if (path === '/') {
-            return currentPath === '';
+            return pathname === '/';
         }
-        return currentPath.startsWith(path);
+        // 其他导航项就直接判断当前 pathname 是否以 path 开头
+        return pathname.startsWith(path);
     };
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
+            setScrolled(window.scrollY > 0);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -142,7 +132,7 @@ const Navbar = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                     >
-                        {currentLocale === 'zh' ? <IconEn /> : <IconZh />}
+                        {locale === 'zh' ? <IconEn /> : <IconZh />}
                     </motion.button>
                 </div>
 
@@ -154,7 +144,7 @@ const Navbar = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                     >
-                        {currentLocale === 'zh' ? <IconEn /> : <IconZh />}
+                        {locale === 'zh' ? <IconEn /> : <IconZh />}
                     </motion.button>
 
                     {isMobile && (
