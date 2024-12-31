@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://dev.lulabs.cn/sitemap.xml
+Disallow: /private/
+Disallow: /admin/
+Disallow: /backend/ 
