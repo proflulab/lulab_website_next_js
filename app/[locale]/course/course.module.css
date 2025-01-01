@@ -1,0 +1,70 @@
+/* app/course/styles.module.css */
+
+/* 容器样式 */
+.container {
+  background-color: white;
+  background-image: linear-gradient(to right, #f8f9fa, #e9ecef);
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  margin-top: 0; /* 确保没有顶部外边距 */
+  width: 100%;
+}
+
+/* 卡片样式 */
+.card {
+  max-width: 600px;
+  margin: 0px;
+  text-align: center;
+  border-radius: 16px; /* 圆角 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 阴影 */
+}
+
+.cardMobile {
+  max-width: 360px;
+}
+
+/* 图片轮播容器 */
+.carouselImageContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.carouselImageContainerMobile {
+  height: 250px;
+}
+
+/* 图片样式 */
+.carouselImage {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* 卡片内容样式 */
+.cardContent {
+  margin-top: 2px;
+}
+
+.cardText {
+  margin-top: 2px;
+  line-height: 1.6; /* 增加行间距 */
+}
+
+/* 底部按钮样式 */
+.fixedBottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0; /* 减少高度 */
+  z-index: 1000;
+}

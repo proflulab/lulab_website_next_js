@@ -1,3 +1,9 @@
 {
-    "eggHelper.serverPort": 39032
+    "eggHelper.serverPort": 64274,
+    "i18n-ally.localesPaths": [
+        "i18n",
+        "messages"
+    ],
+    "Codegeex.RepoIndex": true,
+    "i18n-ally.keystyle": "nested"
 }
