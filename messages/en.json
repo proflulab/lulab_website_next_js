@@ -1,358 +1,175 @@
 {
-    "AppNav": {
-        "logoText": "LU LAB",
-        "home": "Home",
-        "about": "About",
-        "course": "Course",
-        "clubs": "Clubs",
-        "admissions": "Admissions",
-        "join_us": "Join Us",
-        "login": "Login",
-        "sign_up": "Sign Up",
-        "log_out": "Log Out",
-        "training": "Training Camp"
+  "AppNav": {
+    "logoText": "LU LAB",
+    "home": "Home",
+    "about": "About",
+    "course": "Course",
+    "clubs": "Clubs",
+    "admissions": "Admissions",
+    "join_us": "Join Us",
+    "login": "Login",
+    "sign_up": "Sign Up",
+    "log_out": "Log Out",
+    "training": "Training Camp"
+  },
+  "HomePage": {
+    "concept": "It is better to learn cases than to learn theory \nIt is better to learn from cases than to do them\nIt is better to play with cases than to make cases\nPlaying alone is worse than playing together\nIt is better to gather the best and most talented teachers from all over the world to play together",
+    "Hero": {
+      "title": "Educational Innovation in an Era of Change",
+      "titleHighlight": "",
+      "subtitle": "Explore new paradigms of education: practice-driven, project-oriented, elite aggregation, and collaborative win-win",
+      "enrollButton": "Enroll Now",
+      "learnMoreButton": "Learn More",
+      "tagline": "Cultivating versatile talents with global vision and innovative spirit"
+    }
+  },
+  "NotFoundPage": {
+    "title": "Not Found"
+  },
+  "Footer": {
+    "title": {
+      "name": "Lu Lab",
+      "slogan": "Building a “Stanford University” without walls online"
     },
-    "HomePage": {
-        "concept": "It is better to learn cases than to learn theory \nIt is better to learn from cases than to do them\nIt is better to play with cases than to make cases\nPlaying alone is worse than playing together\nIt is better to gather the best and most talented teachers from all over the world to play together",
-        "Hero": {
-            "title": "Educational Innovation in an Era of Change",
-            "titleHighlight": "",
-            "subtitle": "Explore new paradigms of education: practice-driven, project-oriented, elite aggregation, and collaborative win-win",
-            "enrollButton": "Enroll Now",
-            "learnMoreButton": "Learn More",
-            "tagline": "Cultivating versatile talents with global vision and innovative spirit"
-        }
-    },
-    "NotFoundPage": {
-        "title": "Not Found"
-    },
-    "Footer": {
-        "title": "Lu Lab",
-        "slogan": "Building a Stanford University without walls online",
-        "quickLinks": "Quick Links",
+    "quickLinks": {
+      "title": "Quick Links",
+      "items": {
         "about": "About Us",
         "courses": "Courses",
-        "joinUs": "Join Us",
-        "contact": "Contact",
+        "joinUs": "Join Us"
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "items": {
         "email": "info@lulabs.org",
         "phone": "010-12345678",
-        "address": "97 East Brokaw Road 310-F, San Jose, CA 95112, USA",
-        "followUs": "Follow Us",
-        "wechat": "WeChat Official Account: Lu Lab",
-        "copyright": " Lu Lab. All rights reserved."
+        "address": "97 East Brokaw Road 310-F, San Jose, CA 95112, USA"
+      }
     },
-    "Training": {
-        "title": "Training Camps",
-        "tabs": {
-            "all": "All",
-            "ai": "AI",
-            "programming": "Programming",
-            "metaverse": "Metaverse"
+    "followUs": {
+      "title": "Follow Us",
+      "items": {
+        "wechat": "WeChat Official Account: Lu Lab"
+      }
+    },
+    "copyright": " {year} Lu Lab. All rights reserved."
+  },
+  "AboutPage": {
+    "Mission": {
+      "title": "About Us",
+      "mission": {
+        "title": "Mission",
+        "content": "Through project-based learning and innovative education, we cultivate versatile talents with global vision, innovative spirit, and practical abilities, helping young students achieve unconventional self-realization."
+      },
+      "vision": {
+        "title": "Vision",
+        "content": "To create an online Stanford University with soul, promote educational reform, and cultivate innovative talents capable of meeting future challenges for modern society."
+      },
+      "goal": {
+        "title": "Educational Goals",
+        "content": "We cultivate versatile talents with global vision, innovative spirit, and practical abilities. Through project-based learning and practice, students explore their interests and strengths in real-world problems, quickly identifying career directions. We emphasize practice-first, lifelong learning, and team collaboration, helping students achieve unconventional personal development and career breakthroughs while promoting educational equity and social progress."
+      }
+    },
+    "Founder": {
+      "title": "Founder Introduction",
+      "name": "Professor Lu Xiangqian",
+      "qualifications": [
+        "Professor of Innovation and Entrepreneurship at Tsinghua SEM",
+        "Special Professor of Innovation/Entrepreneurship at MOE National Higher Education Teacher Network Training Center",
+        "Ph.D. from UC Berkeley Haas School of Business",
+        "MBA from Northwestern University Kellogg School of Management",
+        "Master's degree from Tsinghua University"
+      ],
+      "achievements": {
+        "experience": {
+          "title": "Rich Practical Experience",
+          "content": "Planned Motorola's entry strategy into China, taught at HKUST Business School, led investment funds, and is also a successful entrepreneur."
         },
-        "courseDescription": "Course Description",
-        "prerequisites": "Prerequisites",
-        "outcomes": "Learning Outcomes",
-        "enrollNow": "Enroll Now",
-        "price": "Price",
-        "duration": "Duration",
-        "level": "Level",
-        "enrollButton": "Enroll in this Course",
-        "categories": {
-            "ai": "AI Foundation Training Camp",
-            "programming": "Programming Training Camp",
-            "metaverse": "Metaverse Training Camp"
+        "teaching": {
+          "title": "Teaching Achievements",
+          "content": "Lu Lab's students have founded multiple unicorn companies. Professor Lu encourages students to join emerging startups for further development, aiming for financial freedom before 30. He personally recommends opportunities to outstanding students, connecting them with founder and CEO guests of the lab."
         },
-        "projects": {
-            "aiBasic": {
-                "title": "AI Basic Training",
-                "description": "Master AI basics and develop simple AI applications",
-                "fullDescription": "This comprehensive AI Basic Training course is designed for beginners who want to start their journey in artificial intelligence. You'll learn the fundamentals of AI, including machine learning basics, Python programming, and practical AI application development.",
-                "duration": "8 weeks",
-                "level": "Beginner",
-                "prerequisites": [
-                    "Basic programming knowledge",
-                    "High school mathematics",
-                    "Basic English reading ability",
-                    "Personal computer with internet access"
-                ],
-                "outcomes": [
-                    "Understand AI fundamentals and key concepts",
-                    "Write Python code for AI applications",
-                    "Build and train simple machine learning models",
-                    "Develop a complete AI project from scratch",
-                    "Work with popular AI frameworks and tools"
-                ]
-            },
-            "aiAdvanced": {
-                "title": "AI Advanced Training",
-                "description": "Deep dive into AI and develop complex systems",
-                "fullDescription": "The AI Advanced Training course is designed for those who already have a foundation in AI and want to take their skills to the next level. This intensive program covers advanced topics in deep learning, natural language processing, and computer vision.",
-                "duration": "12 weeks",
-                "level": "Advanced",
-                "prerequisites": [
-                    "Completion of AI Basic Training or equivalent experience",
-                    "Strong programming skills in Python",
-                    "Understanding of basic machine learning concepts",
-                    "Knowledge of linear algebra and calculus"
-                ],
-                "outcomes": [
-                    "Design and implement complex AI systems",
-                    "Master advanced deep learning architectures",
-                    "Develop production-ready AI solutions",
-                    "Optimize AI models for performance",
-                    "Deploy AI systems to production environments"
-                ]
-            },
-            "programmingBasic": {
-                "title": "Basic Programming Training",
-                "description": "Learn programming fundamentals and web development",
-                "fullDescription": "This comprehensive programming course is designed for beginners who want to start their journey in software development. You'll learn programming fundamentals, web development basics, and build your first web applications using modern technologies.",
-                "duration": "10 weeks",
-                "level": "Beginner",
-                "prerequisites": [
-                    "Basic computer skills",
-                    "High school mathematics",
-                    "Basic English reading ability",
-                    "Personal computer with internet access"
-                ],
-                "outcomes": [
-                    "Understand programming fundamentals",
-                    "Build responsive web applications",
-                    "Work with databases and APIs",
-                    "Implement user authentication",
-                    "Deploy web applications to the cloud"
-                ]
-            },
-            "programmingAdvanced": {
-                "title": "Advanced Programming Training",
-                "description": "Master full-stack development and system architecture",
-                "fullDescription": "The Advanced Programming course is designed for developers who want to master full-stack development and system architecture. This intensive program covers advanced web technologies, cloud services, and enterprise-level application development.",
-                "duration": "14 weeks",
-                "level": "Advanced",
-                "prerequisites": [
-                    "Completion of Basic Programming Training or equivalent experience",
-                    "Strong understanding of HTML, CSS, and JavaScript",
-                    "Basic knowledge of backend development",
-                    "Experience with version control systems"
-                ],
-                "outcomes": [
-                    "Design and implement complex web applications",
-                    "Master modern frontend frameworks",
-                    "Build scalable backend services",
-                    "Implement DevOps practices",
-                    "Deploy and maintain cloud infrastructure"
-                ]
-            },
-            "metaverseBasic": {
-                "title": "Metaverse Fundamentals",
-                "description": "Explore virtual worlds and 3D development",
-                "fullDescription": "Start your journey into the metaverse with this foundational course. Learn about virtual reality, 3D modeling, and basic game development. You'll understand the core concepts of the metaverse and create your first virtual experiences.",
-                "duration": "8 weeks",
-                "level": "Beginner",
-                "prerequisites": [
-                    "Basic computer skills",
-                    "Interest in 3D design and gaming",
-                    "Basic mathematics knowledge",
-                    "VR-capable computer recommended"
-                ],
-                "outcomes": [
-                    "Understand metaverse concepts",
-                    "Create basic 3D models",
-                    "Develop simple virtual environments",
-                    "Implement basic user interactions",
-                    "Deploy virtual experiences"
-                ]
-            },
-            "metaverseAdvanced": {
-                "title": "Advanced Metaverse Development",
-                "description": "Create immersive virtual experiences and worlds",
-                "fullDescription": "Take your metaverse development skills to the next level. This advanced course covers complex 3D modeling, multiplayer networking, blockchain integration, and creation of sophisticated virtual environments and experiences.",
-                "duration": "12 weeks",
-                "level": "Advanced",
-                "prerequisites": [
-                    "Completion of Metaverse Fundamentals or equivalent experience",
-                    "Basic programming knowledge",
-                    "3D modeling experience",
-                    "Understanding of game development concepts"
-                ],
-                "outcomes": [
-                    "Create complex virtual environments",
-                    "Implement multiplayer functionality",
-                    "Integrate blockchain and NFTs",
-                    "Optimize 3D assets and performance",
-                    "Deploy scalable metaverse applications"
-                ]
-            }
-        },
-        "curriculum": {
-            "title": "Curriculum",
-            "week1": {
-                "title": "Week 1: AI Fundamentals",
-                "topics": "AI History,Machine Learning Basics,Intro to Deep Learning"
-            },
-            "week2": {
-                "title": "Week 2: Python Programming",
-                "topics": "Python Syntax,Data Structures,Basic Algorithms"
-            },
-            "week3": {
-                "title": "Week 3: Data Science Basics",
-                "topics": "Data Analysis,Data Visualization,Basic Statistics"
-            },
-            "week4": {
-                "title": "Week 4: Project Development",
-                "topics": "Project Planning,Team Collaboration,Project Presentation"
-            },
-            "timeline": {
-                "week1": {
-                    "title": "Getting Started",
-                    "description": "Master basic concepts and tools",
-                    "date": "Week 1-2"
-                },
-                "week2": {
-                    "title": "Practical Phase",
-                    "description": "Start hands-on project development",
-                    "date": "Week 3-4"
-                },
-                "week3": {
-                    "title": "Data Science Phase",
-                    "description": "Learn basic concepts and tools of data science",
-                    "date": "Week 5-6"
-                },
-                "week4": {
-                    "title": "Project Phase",
-                    "description": "Complete a full project development",
-                    "date": "Week 7-8"
-                }
-            },
-            "aiBasic": {
-                "timeline": {
-                    "week1": {
-                        "title": "AI Fundamentals & Python",
-                        "description": "Learn Python basics and AI concepts",
-                        "date": "Week 1"
-                    },
-                    "week2": {
-                        "title": "Data Processing & Analysis",
-                        "description": "Master data preprocessing and analysis",
-                        "date": "Week 2"
-                    },
-                    "week3": {
-                        "title": "Machine Learning Basics",
-                        "description": "Understanding core ML algorithms",
-                        "date": "Week 3"
-                    },
-                    "week4": {
-                        "title": "Intro to Deep Learning",
-                        "description": "Neural network basics and practice",
-                        "date": "Week 4"
-                    },
-                    "week5": {
-                        "title": "Computer Vision Applications",
-                        "description": "Image processing and recognition",
-                        "date": "Week 5"
-                    },
-                    "week6": {
-                        "title": "NLP Fundamentals",
-                        "description": "Text analysis and processing",
-                        "date": "Week 6"
-                    },
-                    "week7": {
-                        "title": "AI Model Deployment",
-                        "description": "Model optimization and deployment",
-                        "date": "Week 7"
-                    },
-                    "week8": {
-                        "title": "Project Implementation",
-                        "description": "Comprehensive project development",
-                        "date": "Week 8"
-                    }
-                }
-            },
-            "aiAdvanced": {
-                "timeline": {
-                    "week1": {
-                        "title": "Advanced Python & AI Frameworks",
-                        "description": "Deep dive into Python and AI frameworks",
-                        "date": "Week 1"
-                    },
-                    "week2": {
-                        "title": "Advanced Data Analysis",
-                        "description": "Complex data processing techniques",
-                        "date": "Week 2"
-                    },
-                    "week3": {
-                        "title": "Advanced Deep Learning",
-                        "description": "Complex neural architectures",
-                        "date": "Week 3"
-                    },
-                    "week4": {
-                        "title": "Advanced Computer Vision",
-                        "description": "Object detection and segmentation",
-                        "date": "Week 4"
-                    },
-                    "week5": {
-                        "title": "Advanced NLP",
-                        "description": "Transformers and pre-trained models",
-                        "date": "Week 5"
-                    },
-                    "week6": {
-                        "title": "Generative AI",
-                        "description": "GANs and diffusion models",
-                        "date": "Week 6"
-                    },
-                    "week7": {
-                        "title": "Reinforcement Learning",
-                        "description": "RL theory and practice",
-                        "date": "Week 7"
-                    },
-                    "week8": {
-                        "title": "AI System Design",
-                        "description": "Large-scale AI architecture",
-                        "date": "Week 8"
-                    },
-                    "week9": {
-                        "title": "AI Security & Ethics",
-                        "description": "AI safety and ethical considerations",
-                        "date": "Week 9"
-                    },
-                    "week10": {
-                        "title": "Cloud AI Deployment",
-                        "description": "Distributed AI systems",
-                        "date": "Week 10"
-                    },
-                    "week11": {
-                        "title": "AI Performance Optimization",
-                        "description": "Model compression and tuning",
-                        "date": "Week 11"
-                    },
-                    "week12": {
-                        "title": "Graduation Project",
-                        "description": "Advanced project development",
-                        "date": "Week 12"
-                    }
-                }
-            }
-        },
-        "enroll": {
-            "title": "Training Enrollment",
-            "form": {
-                "name": "Name",
-                "namePlaceholder": "Enter your name",
-                "email": "Email",
-                "emailPlaceholder": "Enter your email address",
-                "phone": "Phone",
-                "phonePlaceholder": "Enter your phone number",
-                "message": "Message",
-                "messagePlaceholder": "Enter any additional information (optional)",
-                "submit": "Submit Enrollment",
-                "submitting": "Submitting..."
-            }
-        },
-        "projectDetails": {
-            "duration": "Duration",
-            "level": "Level",
-            "price": "Price",
-            "enrollButton": "Enroll Now"
+        "philosophy": {
+          "title": "Living Educational Philosophy",
+          "content": "Professor Lu's two children joined Lu Lab since high school. His daughter graduated from Stanford University and was an early employee at Pinterest and Airtable; his son studies at UC Berkeley, joined Uber full-time at 19, and is now an early employee at Flexport while maintaining his studies."
         }
+      }
+    },
+    "Philosophy": {
+      "title": "Educational Philosophy",
+      "items": [
+        {
+          "title": "Practice First",
+          "content": "Emphasizing 'learning from cases is better than theory, doing cases is better than learning them, playing with cases is better than doing them,' transforming knowledge into ability through practical activities"
+        },
+        {
+          "title": "Project-Based Learning",
+          "content": "Adopting real problem-oriented learning models to cultivate innovation ability through solving practical problems"
+        },
+        {
+          "title": "Early Trial and Error",
+          "content": "Encouraging exploration and experimentation at low-cost stages, learning from failures to find one's interests and strengths"
+        },
+        {
+          "title": "Collaborative Win-Win",
+          "content": "Promoting the concept of 'gathering talents and masters worldwide to learn together,' fostering mutual learning and progress through teamwork"
+        },
+        {
+          "title": "Personalized Development",
+          "content": "Respecting student uniqueness, providing tailored development plans, supporting unconventional growth paths"
+        },
+        {
+          "title": "Lifelong Learning",
+          "content": "Inspiring sustained learning enthusiasm, focusing on interest cultivation and capability building, promoting educational innovation"
+        },
+        {
+          "title": "Global Vision",
+          "content": "Introducing top global educational resources, cultivating innovative talents with international perspective"
+        },
+        {
+          "title": "School-Family Collaboration",
+          "content": "Emphasizing parental involvement in education, encouraging parents to learn and grow with their children"
+        },
+        {
+          "title": "Future-Oriented",
+          "content": "Dedicated to cultivating innovative talents capable of meeting future challenges, promoting educational reform"
+        }
+      ]
+    },
+    "Origin": {
+      "title": "Origins",
+      "content": [
+        "Lu Lab originated from Professor Lu's deep reflection on his two children's education. While teaching mathematical finance at HKUST, he witnessed the rise of the internet wave, foresaw the opportunities brought by technological revolution, and subsequently started entrepreneurship achieving financial freedom.",
+        "His Silicon Valley experience revealed that even top university graduates face employment challenges, while those who engaged with computers early and excelled in computer communication were highly sought after. This led him to spend five years researching educational methods, successfully applying them to his own children.",
+        "With a heart to give back to Tsinghua University, Professor Lu hopes to help more students overcome basic computer skills and English learning difficulties. He innovatively designed a family-friendly learning model, delivering quality educational content directly to learners through the internet, enabling effective parental participation and companionship.",
+        "Drawing from Stanford University's educational philosophy, the lab is committed to popularizing advanced educational methods through online platforms, realizing the vision of making elite education accessible to ordinary families. Facing the mismatch between traditional education and modern society's needs, the lab cultivates future talents adapted to new economic development through innovative educational models."
+      ]
+    },
+    "Timeline": {
+      "title": "Development History",
+      "milestones": [
+        {
+          "year": "1994",
+          "content": "Professor Lu foresightedly predicted the internet would revolutionize the world and began focusing on innovative education models."
+        },
+        {
+          "year": "2007",
+          "content": "Established innovation and entrepreneurship courses at Tsinghua SEM, aiming to cultivate students' practical abilities and innovative thinking."
+        },
+        {
+          "year": "April 2014",
+          "content": "Extended courses from Tsinghua classrooms to online platforms to reach a broader audience, initiating the lab's internet education exploration."
+        },
+        {
+          "year": "Fall 2020",
+          "content": "Collaborated with Fudan University in teaching, promoting cross-university cooperation in innovation and entrepreneurship education."
+        },
+        {
+          "year": "Present",
+          "content": "The lab has gradually formed a systematic project-based learning model, collaborating with top global entrepreneurs and business leaders, cultivating numerous versatile talents with global vision and innovative practical abilities, realizing the vision of an online Stanford University."
+        }
+      ]
     }
+  }
 }
