@@ -1,14 +1,19 @@
+/*
+ * @Author: 杨仕明 shiming.y@qq.com
+ * @Date: 2025-01-03 19:50:13
+ * @LastEditors: 杨仕明 shiming.y@qq.com
+ * @LastEditTime: 2025-01-03 23:17:22
+ * @FilePath: /lulab_website_next_js/components/training/Training.tsx
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 "use client";
 
-import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ProjectCard } from "./ProjectCard";
 import { TRAINING_PROJECTS } from "@/config/training";
 
 export function Training() {
-    const t = useTranslations("Training");
-
     const fadeIn = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
@@ -19,6 +24,19 @@ export function Training() {
         return TRAINING_PROJECTS.filter(project => project.category === category);
     };
 
+    const tabLabels = {
+        all: "All Projects",
+        ai: "AI Projects",
+        programming: "Programming",
+        metaverse: "Metaverse"
+    };
+
+    const categoryLabels = {
+        ai: "Artificial Intelligence",
+        programming: "Programming",
+        metaverse: "Metaverse"
+    };
+
     return (
         <div className="min-h-screen bg-background">
             <motion.div
@@ -27,15 +45,13 @@ export function Training() {
                 variants={fadeIn}
                 className="container mx-auto px-4 py-8"
             >
-                <h1 className="text-4xl font-bold text-center mb-8">
-                    {t("title")}
-                </h1>
+
 
                 <Tabs defaultValue="all" className="w-full">
                     <TabsList className="w-full justify-start mb-8 overflow-x-auto">
                         {["all", "ai", "programming", "metaverse"].map((tab) => (
                             <TabsTrigger key={tab} value={tab}>
-                                {t(`tabs.${tab}`)}
+                                {tabLabels[tab as keyof typeof tabLabels]}
                             </TabsTrigger>
                         ))}
                     </TabsList>
@@ -46,14 +62,13 @@ export function Training() {
                                 {filterProjectsByCategory(category).map((project) => (
                                     <ProjectCard
                                         key={project.id}
-                                        title={t(`projects.${project.id}.title`)}
-                                        description={t(`projects.${project.id}.description`)}
+                                        title={project.title}
+                                        description={project.description}
                                         image={project.image}
-                                        price={project.price}
-                                        duration={t(`projects.${project.id}.duration`)}
-                                        level={t(`projects.${project.id}.level`)}
+                                        duration={project.duration}
+                                        level={project.level}
                                         projectId={project.id}
-                                        category={t(`categories.${project.category}`)}
+                                        category={categoryLabels[project.category as keyof typeof categoryLabels]}
                                     />
                                 ))}
                             </div>
@@ -63,4 +78,4 @@ export function Training() {
             </motion.div>
         </div>
     );
-} 
+}

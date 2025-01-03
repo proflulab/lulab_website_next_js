@@ -1,134 +1,163 @@
-export interface CurriculumWeek {
+export interface WeekContent {
+    id: string;
     title: string;
     topics: string[];
-}
-
-export interface Curriculum {
-    [week: string]: CurriculumWeek;
+    timeline: {
+        title: string;
+        description: string;
+        date: string;
+    };
 }
 
 export interface TrainingProject {
     id: string;
+    title: string;
     category: string;
     image: string;
-    price: number;
     curriculumKey: string;
     duration: string;
     level: string;
     maxStudents: number;
     prerequisites?: string[];
     outcomes?: string[];
-    curriculum?: Curriculum;
+    description: string;
 }
+
+export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
+    aiBasic: [
+        {
+            id: "week1",
+            title: "第一周：人工智能导论",
+            topics: [
+                "人工智能的历史与发展",
+                "机器学习基础概念",
+                "深度学习简介",
+                "Python编程基础",
+                "开发环境搭建",
+                "AI伦理与社会影响"
+            ],
+            timeline: {
+                title: "人工智能基础入门",
+                description: "了解AI发展历史，掌握基本概念，搭建开发环境",
+                date: "第1周"
+            }
+        },
+        {
+            id: "week2",
+            title: "第二周：机器学习基础",
+            topics: [
+                "监督学习与无监督学习",
+                "回归与分类问题",
+                "模型评估方法",
+                "特征工程",
+                "常用算法介绍",
+                "实战案例分析"
+            ],
+            timeline: {
+                title: "机器学习实践",
+                description: "掌握机器学习基础理论，动手实践基础算法",
+                date: "第2周"
+            }
+        },
+        {
+            id: "week3",
+            title: "第三周：深度学习进阶",
+            topics: [
+                "神经网络原理",
+                "卷积神经网络",
+                "循环神经网络",
+                "迁移学习",
+                "模型优化技巧",
+                "框架使用实践"
+            ],
+            timeline: {
+                title: "深度学习探索",
+                description: "深入学习神经网络，实践深度学习模型",
+                date: "第3周"
+            }
+        },
+        {
+            id: "week4",
+            title: "第四周：项目实战",
+            topics: [
+                "项目架构设计",
+                "数据收集与预处理",
+                "模型选择与训练",
+                "部署与优化",
+                "性能评估",
+                "项目答辩"
+            ],
+            timeline: {
+                title: "综合项目实践",
+                description: "独立完成AI项目，从设计到部署全流程实践",
+                date: "第4周"
+            }
+        }
+    ],
+    aiAdvanced: [
+        {
+            id: "week1",
+            title: "第一周：高级Python与AI框架",
+            topics: [
+                "Python高级特性",
+                "PyTorch深入理解",
+                "TensorFlow高级应用",
+                "分布式训练基础",
+                "GPU加速优化",
+                "自动化部署流程"
+            ],
+            timeline: {
+                title: "高级开发环境搭建",
+                description: "掌握高级Python特性和主流AI框架",
+                date: "第1周"
+            }
+        },
+        {
+            id: "week2",
+            title: "第二周：深度学习高级概念",
+            topics: [
+                "神经网络架构设计",
+                "优化器原理",
+                "损失函数设计",
+                "注意力机制",
+                "Transformer架构",
+                "模型压缩技术"
+            ],
+            timeline: {
+                title: "深度学习进阶",
+                description: "深入理解深度学习核心概念",
+                date: "第2周"
+            }
+        }
+    ]
+};
 
 export const TRAINING_PROJECTS: TrainingProject[] = [
     {
         id: 'aiBasic',
+        title: 'AI基础训练营',
         category: 'ai',
-        image: '/images/ai-basic.jpg',
-        price: 19000,
+        image: '/images/about/lab-origin.png',
         curriculumKey: 'aiBasic',
-        duration: '8周',
+        description: "AI基础课程涵盖人工智能的核心概念和技术，包括机器学习、深度学习、计算机视觉和自然语言处理的入门知识。学员将通过理论学习和实践项目，掌握AI领域的基本技能，为未来深入学习和应用AI技术打下坚实基础。",
+        duration: '4周',
         level: '入门级',
         maxStudents: 30,
         prerequisites: [],
-        outcomes: ['理解AI基础概念', '掌握基本机器学习算法'],
-        curriculum: {
-            week1: {
-                title: '人工智能导论',
-                topics: ['AI的历史与发展', '机器学习基础概念', 'Python编程基础']
-            },
-            week2: {
-                title: '数据处理与分析',
-                topics: ['数据预处理技术', '探索性数据分析', '数据可视化']
-            },
-            week3: {
-                title: '机器学习基础',
-                topics: ['监督学习算法', '无监督学习入门', '模型评估方法']
-            },
-            week4: {
-                title: '深度学习入门',
-                topics: ['神经网络基础', '深度学习框架介绍', '简单神经网络实现']
-            },
-            week5: {
-                title: '计算机视觉基础',
-                topics: ['图像处理基础', '卷积神经网络', '图像分类实践']
-            },
-            week6: {
-                title: '自然语言处理入门',
-                topics: ['文本处理基础', '词向量技术', '简单文本分类']
-            },
-            week7: {
-                title: '强化学习基础',
-                topics: ['强化学习概念', 'Q-learning入门', '简单游戏AI实现']
-            },
-            week8: {
-                title: '项目实战',
-                topics: ['项目选题与规划', '开发与实现', '结果展示与总结']
-            }
-        }
+        outcomes: ['理解AI基础概念', '掌握基本机器学习算法']
     },
     {
         id: 'aiAdvanced',
         category: 'ai',
-        image: '/images/ai-advanced.jpg',
-        price: 38000,
+        title: 'AI进阶训练营',
+        image: '/images/about/lab-origin.png',
         curriculumKey: 'aiAdvanced',
+        description: "AI进阶课程深入探讨人工智能的高级概念和最新技术，包括深度学习架构设计、模型优化、分布式训练等进阶主题。学员将通过实战项目，掌握AI系统开发和部署的完整流程，为实际工作中的AI应用打下坚实基础。",
         duration: '12周',
         level: '进阶级',
         maxStudents: 20,
         prerequisites: ['aiBasic'],
-        outcomes: ['开发复杂AI模型', '实践深度学习技术'],
-        curriculum: {
-            week1: {
-                title: '高级Python与AI框架',
-                topics: ['Python高级特性', 'PyTorch深入理解', 'TensorFlow高级应用']
-            },
-            week2: {
-                title: '深度学习高级概念',
-                topics: ['神经网络架构设计', '优化器原理', '损失函数设计']
-            },
-            week3: {
-                title: '计算机视觉进阶',
-                topics: ['目标检测', '图像分割', '生成对抗网络']
-            },
-            week4: {
-                title: 'NLP高级应用',
-                topics: ['Transformer架构', 'BERT模型原理', '大规模语言模型']
-            },
-            week5: {
-                title: '强化学习进阶',
-                topics: ['策略梯度方法', 'Actor-Critic架构', '多智能体系统']
-            },
-            week6: {
-                title: '模型部署与优化',
-                topics: ['模型压缩技术', '边缘设备部署', '性能优化']
-            },
-            week7: {
-                title: '大规模机器学习',
-                topics: ['分布式训练', '模型并行化', '梯度累积']
-            },
-            week8: {
-                title: 'AI系统设计',
-                topics: ['系统架构设计', '微服务集成', 'API开发']
-            },
-            week9: {
-                title: 'AI伦理与安全',
-                topics: ['AI伦理准则', '模型安全性', '隐私保护']
-            },
-            week10: {
-                title: '前沿技术探索',
-                topics: ['元学习', '自监督学习', '神经架构搜索']
-            },
-            week11: {
-                title: '项目规划与开发',
-                topics: ['需求分析', '技术选型', '开发实施']
-            },
-            week12: {
-                title: '项目完善与展示',
-                topics: ['系统测试', '性能优化', '项目答辩']
-            }
-        }
+        outcomes: ['开发复杂AI模型', '实践深度学习技术']
     }
 ];
 

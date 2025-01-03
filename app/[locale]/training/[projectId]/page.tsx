@@ -1,6 +1,5 @@
 'use client';
 
-import { useTranslations } from "next-intl";
 import { useParams, notFound } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -15,7 +14,6 @@ import { Suspense } from "react";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 
 export default function ProjectDetails() {
-    const t = useTranslations("Training");
     const params = useParams();
     const projectId = params.projectId as string;
     const router = useRouter();
@@ -31,7 +29,7 @@ export default function ProjectDetails() {
             <div className="relative h-[50vh] w-full overflow-hidden group">
                 <Image
                     src={project.image}
-                    alt={t(`projects.${projectId}.title`)}
+                    alt={project.title}
                     fill
                     className="object-cover brightness-[0.4] transform scale-105 group-hover:scale-110 transition-all duration-700 ease-out"
                     priority
@@ -44,10 +42,10 @@ export default function ProjectDetails() {
                         className="text-center"
                     >
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center shadow-text bg-clip-text">
-                            {t(`projects.${projectId}.title`)}
+                            {project.title}
                         </h1>
                         <p className="text-xl md:text-2xl text-center max-w-3xl px-4 leading-relaxed shadow-text text-gray-200">
-                            {t(`projects.${projectId}.description`)}
+                            {project.description}
                         </p>
                     </motion.div>
                 </div>
@@ -63,7 +61,6 @@ export default function ProjectDetails() {
                     <CourseFeatures
                         duration={project.duration}
                         level={project.level}
-                        price={project.price}
                         maxStudents={project.maxStudents}
                     />
                 </motion.div>
@@ -81,12 +78,12 @@ export default function ProjectDetails() {
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.4 }}
                                 >
-                                    <h2 className="text-3xl font-bold mb-8 text-primary border-b pb-4">{t('courseDescription')}</h2>
+                                    <h2 className="text-3xl font-bold mb-8 text-primary border-b pb-4">项目描述</h2>
                                     <div className="mb-12 text-lg leading-relaxed">
-                                        {t(`projects.${projectId}.fullDescription`)}
+                                        {project.fullDescription}
                                     </div>
 
-                                    <h2 className="text-3xl font-bold mb-8 text-primary border-b pb-4">{t('prerequisites')}</h2>
+                                    <h2 className="text-3xl font-bold mb-8 text-primary border-b pb-4">项目要求</h2>
                                     <ul className="list-none space-y-4 mb-12">
                                         {project.prerequisites?.map((prereq, index) => (
                                             <motion.li
@@ -97,12 +94,12 @@ export default function ProjectDetails() {
                                                 className="flex items-start hover:translate-x-2 transition-transform duration-300"
                                             >
                                                 <span className="inline-block w-2 h-2 rounded-full bg-primary mt-2 mr-3" />
-                                                <span className="text-lg">{t(`projects.${projectId}.prerequisites.${index}`)}</span>
+                                                <span className="text-lg">{prereq}</span>
                                             </motion.li>
                                         ))}
                                     </ul>
 
-                                    <h2 className="text-3xl font-bold mb-8 text-primary border-b pb-4">{t('outcomes')}</h2>
+                                    <h2 className="text-3xl font-bold mb-8 text-primary border-b pb-4">项目目标</h2>
                                     <ul className="list-none space-y-4 mb-12">
                                         {project.outcomes?.map((outcome, index) => (
                                             <motion.li
@@ -113,7 +110,7 @@ export default function ProjectDetails() {
                                                 className="flex items-start hover:translate-x-2 transition-transform duration-300"
                                             >
                                                 <span className="inline-block w-2 h-2 rounded-full bg-primary mt-2 mr-3" />
-                                                <span className="text-lg">{t(`projects.${projectId}.outcomes.${index}`)}</span>
+                                                <span className="text-lg">{outcome}</span>
                                             </motion.li>
                                         ))}
                                     </ul>
@@ -136,20 +133,8 @@ export default function ProjectDetails() {
                             className="sticky top-24"
                         >
                             <Card className="p-8 shadow-xl border-2 hover:border-primary transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-                                <h3 className="text-2xl font-bold mb-8 text-primary">{t('enrollNow')}</h3>
+                                <h3 className="text-2xl font-bold mb-8 text-primary">立即报名</h3>
                                 <div className="space-y-6">
-                                    <div className="flex justify-between items-center p-3 rounded-lg bg-muted/50">
-                                        <span className="text-muted-foreground">{t('price')}</span>
-                                        <span className="text-2xl font-bold text-primary">¥{project.price.toLocaleString()}</span>
-                                    </div>
-                                    <div className="flex justify-between items-center p-3 rounded-lg bg-muted/50">
-                                        <span className="text-muted-foreground">{t('duration')}</span>
-                                        <span className="font-bold">{project.duration}</span>
-                                    </div>
-                                    <div className="flex justify-between items-center p-3 rounded-lg bg-muted/50">
-                                        <span className="text-muted-foreground">{t('level')}</span>
-                                        <span className="font-bold">{project.level}</span>
-                                    </div>
                                     <Button 
                                         className="w-full text-lg font-semibold" 
                                         size="lg"
@@ -157,7 +142,7 @@ export default function ProjectDetails() {
                                             router.push('/training/enroll');
                                         }}
                                     >
-                                        {t('enrollButton')}
+                                        立即报名
                                     </Button>
                                 </div>
                             </Card>
@@ -175,10 +160,6 @@ export default function ProjectDetails() {
                     className="container mx-auto p-4"
                 >
                     <div className="flex items-center justify-between gap-4">
-                        <div className="flex flex-col">
-                            <span className="text-sm text-muted-foreground">{t('price')}</span>
-                            <span className="text-2xl font-bold text-primary">¥{project.price.toLocaleString()}</span>
-                        </div>
                         <Button 
                             size="lg"
                             className="text-lg font-semibold px-8"
@@ -186,7 +167,7 @@ export default function ProjectDetails() {
                                 router.push('/training/enroll');
                             }}
                         >
-                            {t('enrollButton')}
+                            立即报名
                         </Button>
                     </div>
                 </motion.div>

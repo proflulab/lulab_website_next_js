@@ -10,7 +10,6 @@ interface ProjectCardProps {
     title: string;
     description: string;
     image: string;
-    price: number;
     duration: string;
     level: string;
     projectId: string;
@@ -21,7 +20,6 @@ export const ProjectCard = React.memo(function ProjectCard({
     title,
     description,
     image,
-    price,
     duration,
     level,
     projectId,
@@ -71,9 +69,6 @@ export const ProjectCard = React.memo(function ProjectCard({
                 </CardContent>
                 <CardFooter className="p-6 pt-0">
                     <div className="w-full flex justify-between items-center">
-                        <div className="text-lg font-semibold">
-                            ¥{price.toLocaleString()}
-                        </div>
                         <Button onClick={handleClick}>了解更多</Button>
                     </div>
                 </CardFooter>
