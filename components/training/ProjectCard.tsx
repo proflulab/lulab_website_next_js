@@ -39,37 +39,37 @@ export const ProjectCard = React.memo(function ProjectCard({
         >
             <Card className="h-full flex flex-col">
                 <CardHeader className="p-0">
-                    <div className="relative h-48 w-full">
+                    <div className="relative h-40 sm:h-48 w-full">
                         <Image
                             src={image}
                             alt={title}
                             fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className="object-cover rounded-t-lg"
+                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                             priority={false}
                         />
-                        <div className="absolute top-2 right-2 px-2 py-1 bg-primary/80 text-white rounded">
+                        <div className="absolute top-2 right-2 px-2 py-1 bg-primary/80 text-white rounded text-sm">
                             {category}
                         </div>
                     </div>
                 </CardHeader>
-                <CardContent className="p-6 flex-grow">
-                    <h3 className="text-xl font-semibold mb-2">{title}</h3>
-                    <p className="text-muted-foreground mb-4 line-clamp-2">{description}</p>
-                    <div className="flex justify-between text-sm text-muted-foreground">
+                <CardContent className="p-4 sm:p-6 flex-grow">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{title}</h3>
+                    <p className="text-muted-foreground mb-4 line-clamp-2 text-sm sm:text-base">{description}</p>
+                    <div className="flex justify-between text-xs sm:text-sm text-muted-foreground">
                         <span className="flex items-center gap-1">
-                            <ClockIcon className="w-4 h-4" />
+                            <ClockIcon className="w-3 h-3 sm:w-4 sm:h-4" />
                             {duration}
                         </span>
                         <span className="flex items-center gap-1">
-                            <ReaderIcon className="w-4 h-4" />
+                            <ReaderIcon className="w-3 h-3 sm:w-4 sm:h-4" />
                             {level}
                         </span>
                     </div>
                 </CardContent>
-                <CardFooter className="p-6 pt-0">
+                <CardFooter className="p-4 sm:p-6 pt-0">
                     <div className="w-full flex justify-between items-center">
-                        <Button onClick={handleClick}>了解更多</Button>
+                        <Button onClick={handleClick} size="sm" className="w-full sm:w-auto">了解更多</Button>
                     </div>
                 </CardFooter>
             </Card>
