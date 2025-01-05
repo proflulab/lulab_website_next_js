@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-05 17:10:51
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-06 00:07:24
+ * @LastEditTime: 2025-01-06 00:22:50
  * @FilePath: /lulab_website_next_js/app/api/stripe/route.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -17,7 +17,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 export async function POST(request: Request) {
   try {
 
-    const body = await request.json();
+    // const body = await request.json();
     const session = await stripe.checkout.sessions.create({
       ui_mode: 'embedded',
       line_items: [
