@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-05 17:16:02
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-05 19:04:21
+ * @LastEditTime: 2025-01-05 20:58:14
  * @FilePath: /lulab_website_next_js/app/[locale]/bootcamp/checkout/page.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -28,8 +28,21 @@ export default function CheckoutPage() {
 
   const options = { fetchClientSecret };
 
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div id="checkout" className="w-full  mx-auto p-4">
+    <div id="checkout" className={isMobile ? 'pt-4' : 'pt-24'}>
       <EmbeddedCheckoutProvider
         stripe={stripePromise}
         options={options}

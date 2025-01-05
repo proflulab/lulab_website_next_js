@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-09 15:21:05
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-09-09 16:46:14
+ * @LastEditTime: 2025-01-05 20:17:54
  * @FilePath: /lulab_website_next_js/app/clubs/page.tsx
  * @Description: 
  * 
@@ -10,7 +10,6 @@
  */
 
 import React from 'react';
-// import Link from 'next/link';
 
 interface Club {
     id: number;
