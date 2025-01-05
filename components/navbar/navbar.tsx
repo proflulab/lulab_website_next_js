@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-09 22:26:40
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-12-29 04:36:46
+ * @LastEditTime: 2025-01-06 01:12:44
  * @FilePath: /lulab_website_next_js/components/navbar/navbar.tsx
  * @Description: 
  * 
@@ -39,7 +39,7 @@ const Navbar = () => {
     const navItems = [
         { name: t('home'), path: '/' },
         { name: t('about'), path: '/about' },
-        // { name: t('training'), path: '/course' },
+        { name: t('bootcamp'), path: '/bootcamp' },
         // { name: t('clubs'), path: '/clubs' },
     ];
 
