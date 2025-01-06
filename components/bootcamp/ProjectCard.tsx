@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:30:56
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-06 01:11:22
+ * @LastEditTime: 2025-01-07 03:54:44
  * @FilePath: /lulab_website_next_js/components/bootcamp/ProjectCard.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -45,7 +45,7 @@ export const ProjectCard = React.memo(function ProjectCard({
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2 }}
         >
-            <Card className="h-full flex flex-col">
+            <Card className="h-full flex flex-col rounded-lg overflow-hidden">
                 <CardHeader className="p-0">
                     <div className="relative h-40 sm:h-48 w-full">
                         <Image
@@ -61,9 +61,9 @@ export const ProjectCard = React.memo(function ProjectCard({
                         </div>
                     </div>
                 </CardHeader>
-                <CardContent className="p-4 sm:p-6 flex-grow">
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{title}</h3>
-                    <p className="text-muted-foreground mb-4 line-clamp-2 text-sm sm:text-base">{description}</p>
+                <CardContent className="p-4 sm:p-6 flex flex-col gap-4">
+                    <h3 className="text-lg sm:text-xl font-semibold">{title}</h3>
+                    <p className="text-muted-foreground mb-4 text-sm sm:text-base">{description}</p>
                     <div className="flex justify-between text-xs sm:text-sm text-muted-foreground">
                         <span className="flex items-center gap-1">
                             <ClockIcon className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -76,11 +76,11 @@ export const ProjectCard = React.memo(function ProjectCard({
                     </div>
                 </CardContent>
                 <CardFooter className="p-4 sm:p-6 pt-0">
-                    <div className="w-full flex justify-between items-center">
+                    <div className="w-full flex justify-center">
                         <Button onClick={handleClick} size="sm" className="w-full sm:w-auto">了解更多</Button>
                     </div>
                 </CardFooter>
             </Card>
         </motion.div>
     );
-}); 
+});

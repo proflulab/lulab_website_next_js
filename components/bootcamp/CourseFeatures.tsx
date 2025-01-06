@@ -40,7 +40,7 @@ export function CourseFeatures({ duration, level, maxStudents }: CourseFeaturesP
     ];
 
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
                 <motion.div
                     key={feature.label}
@@ -48,14 +48,14 @@ export function CourseFeatures({ duration, level, maxStudents }: CourseFeaturesP
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                 >
-                    <Card className="p-4 flex flex-col items-center text-center">
-                        <div className="mb-2 text-primary">
+                    <Card className="p-6 flex flex-col items-center text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
+                        <div className="mb-4 text-primary transform group-hover:scale-110 transition-transform duration-300">
                             {feature.icon}
                         </div>
-                        <div className="text-sm text-muted-foreground">
+                        <div className="text-sm font-medium text-muted-foreground mb-2">
                             {feature.label}
                         </div>
-                        <div className="font-semibold mt-1">
+                        <div className="font-bold text-lg">
                             {feature.value}
                         </div>
                     </Card>
