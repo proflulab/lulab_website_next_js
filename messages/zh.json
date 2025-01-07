@@ -53,7 +53,7 @@
         "wechat": "微信公众号：陆向谦实验室"
       }
     },
-    "copyright": "© {year} 陆向谦实验室. All rights reserved."
+    "copyright": " 陆向谦实验室. All rights reserved."
   },
   "AboutPage": {
     "Mission": {
@@ -168,6 +168,36 @@
         {
           "year": "至今",
           "content": "实验室逐步形成系统化的项目式学习模式，与国内外顶尖创业者和企业家合作，培养了大批具备全球视野和创新实践能力的复合型人才，实现网上斯坦福大学的愿景。"
+        }
+      ]
+    }
+  },
+  "BootcampPage": {
+    "Cube": {
+      "features": [
+        {
+          "title": "行业专家指导",
+          "description": "资深导师提供实战经验，精准匹配行业需求"
+        },
+        {
+          "title": "项目驱动学习",
+          "description": "以真实项目为导向，从零到一构建完整产品"
+        },
+        {
+          "title": "AI工具辅助",
+          "description": "掌握AI辅助开发工具，提升效率与代码质量"
+        },
+        {
+          "title": "协作与分班机制",
+          "description": "团队协作、灵活分班，保障不同水平学员的成长"
+        },
+        {
+          "title": "灵活课程与答疑",
+          "description": "实时调整课程，专设答疑环节解决学习难点"
+        },
+        {
+          "title": "职业技能提升",
+          "description": "重点培养企业级开发能力与项目实战经验"
         }
       ]
     }

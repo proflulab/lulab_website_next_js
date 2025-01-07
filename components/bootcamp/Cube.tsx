@@ -2,19 +2,18 @@ import { useRef, useMemo, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Html, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
-
-// 数据数组：每个点要展示的内容
-const data = [
-    { title: "行业专家指导", description: "资深导师提供实战经验，精准匹配行业需求" },
-    { title: "项目驱动学习", description: "以真实项目为导向，从零到一构建完整产品" },
-    { title: "AI工具辅助", description: "掌握AI辅助开发工具，提升效率与代码质量" },
-    { title: "协作与分班机制", description: "团队协作、灵活分班，保障不同水平学员的成长" },
-    { title: "灵活课程与答疑", description: "实时调整课程，专设答疑环节解决学习难点" },
-    { title: "职业技能提升", description: "重点培养企业级开发能力与项目实战经验" },
-];
+import { useTranslations } from 'next-intl';
 
 // 主组件：球形点交互
 export default function SphericalPointsInteraction() {
+    const t = useTranslations('BootcampPage.Cube');
+    const data = useMemo(() => {
+        return Array.from({ length: 6 }, (_, i) => ({
+            title: t(`features.${i}.title`),
+            description: t(`features.${i}.description`)
+        }));
+    }, [t]);
+
     return (
         <Canvas
             style={{ height: '100vh' }}
@@ -25,21 +24,21 @@ export default function SphericalPointsInteraction() {
                 <Particles />
                 <pointLight position={[10, 10, 10]} intensity={1} /> {/* 点光源 */}
                 <OrbitControls enableZoom={false} enableRotate={false} />
-                <SphericalPoints />
+                <SphericalPoints data={data} />
             </group>
         </Canvas>
     );
 }
 
 // 球形点组件
-function SphericalPoints() {
+function SphericalPoints({ data }: { data: { title: string; description: string }[] }) {
     const radius = 2.8; // 球体半径
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const sphereRef = useRef<THREE.Mesh>(null);
     const [rotation, setRotation] = useState(0);
 
     // 使用 useMemo 优化性能，只在 radius 变化时重新计算点
-    const points = useMemo(() => generateSphericalPoints(data.length, radius), [radius]);
+    const points = useMemo(() => generateSphericalPoints(data.length, radius), [radius, data.length]);
 
     // Generate gradient colors for cards
     const gradientColors = useMemo(() => {
@@ -50,7 +49,7 @@ function SphericalPoints() {
                 hsla(${hue1}, 70%, 60%, 0.9),
                 hsla(${hue2}, 70%, 60%, 0.9))`;
         });
-    }, []);
+    }, [data.length]);
 
     useFrame((state, delta) => {
         if (sphereRef.current) {

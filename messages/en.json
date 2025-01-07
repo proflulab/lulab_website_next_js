@@ -171,5 +171,35 @@
         }
       ]
     }
+  },
+  "BootcampPage": {
+    "Cube": {
+      "features": [
+        {
+          "title": "Industry Expert Guidance",
+          "description": "Senior mentors provide practical experience, precisely matching industry needs"
+        },
+        {
+          "title": "Project-Driven Learning",
+          "description": "Build complete products from scratch with real project orientation"
+        },
+        {
+          "title": "AI Tool Assistance",
+          "description": "Master AI-assisted development tools to improve efficiency and code quality"
+        },
+        {
+          "title": "Collaboration & Class Division",
+          "description": "Team collaboration and flexible class division ensure growth for students at different levels"
+        },
+        {
+          "title": "Flexible Courses & Q&A",
+          "description": "Real-time course adjustments with dedicated Q&A sessions to address learning challenges"
+        },
+        {
+          "title": "Career Skills Enhancement",
+          "description": "Focus on developing enterprise-level development capabilities and project experience"
+        }
+      ]
+    }
   }
 }
