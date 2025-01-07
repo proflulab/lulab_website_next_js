@@ -27,7 +27,7 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
     aiBasic: [
         {
             id: "week1",
-            title: "第一周：人工智能导论",
+            title: "人工智能导论",
             topics: [
                 "人工智能的历史与发展",
                 "机器学习基础概念",
@@ -44,7 +44,7 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
         },
         {
             id: "week2",
-            title: "第二周：机器学习基础",
+            title: "机器学习基础",
             topics: [
                 "监督学习与无监督学习",
                 "回归与分类问题",
@@ -61,7 +61,7 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
         },
         {
             id: "week3",
-            title: "第三周：深度学习进阶",
+            title: "深度学习进阶",
             topics: [
                 "神经网络原理",
                 "卷积神经网络",
@@ -78,7 +78,7 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
         },
         {
             id: "week4",
-            title: "第四周：项目实战",
+            title: "项目实战",
             topics: [
                 "项目架构设计",
                 "数据收集与预处理",
@@ -97,7 +97,7 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
     aiAdvanced: [
         {
             id: "week1",
-            title: "第一周：高级Python与AI框架",
+            title: "高级Python与AI框架",
             topics: [
                 "Python高级特性",
                 "PyTorch深入理解",
@@ -114,7 +114,7 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
         },
         {
             id: "week2",
-            title: "第二周：深度学习高级概念",
+            title: "深度学习高级概念",
             topics: [
                 "神经网络架构设计",
                 "优化器原理",

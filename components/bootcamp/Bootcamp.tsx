@@ -10,7 +10,7 @@
 
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
-import { BOOTCAMP_PROJECTS } from "@/data/bootcamp";
+import { BOOTCAMP_PROJECTS } from "@/lib/db/bootcamp";
 import { ChevronRight, } from "lucide-react";
 import React from 'react';
 import Cube from './Cube';

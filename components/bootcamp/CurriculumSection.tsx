@@ -18,7 +18,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { memo } from "react";
-import { CURRICULUM_DATA } from "@/data/bootcamp";
+import { CURRICULUM_DATA } from "@/lib/db/bootcamp";
 
 const WEEK_COLORS = [
     "border-l-blue-500",

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CurriculumSection } from "@/components/bootcamp/CurriculumSection";
 import { CourseFeatures } from "@/components/bootcamp/CourseFeatures";
-import { getProjectById } from "@/data/bootcamp";
+import { getProjectById } from "@/lib/db/bootcamp";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { Suspense } from "react";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
