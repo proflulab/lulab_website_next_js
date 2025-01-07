@@ -183,7 +183,9 @@
       "learnMoreButton": "了解更多"
     },
     "Projects": {
-      "title": "训练营项目"
+      "title": "训练营项目",
+      "Learnmore": "了解更多",
+      "maxStudents":"最多学生人数"
     },
     "Projectdetails": {
       "Description": "项目描述",
@@ -197,6 +199,11 @@
       "CurriculumSection": {
         "title": "大纲",
         "weeklyTopics": "主题："
+      },
+      "CourseFeatures": {
+        "duration": "课程时长",
+        "level": "课程难度",
+        "classSize": "班级规模"
       }
     },
 

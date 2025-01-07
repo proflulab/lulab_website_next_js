@@ -2,17 +2,17 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:30:56
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-07 03:54:44
+ * @LastEditTime: 2025-01-08 04:40:28
  * @FilePath: /lulab_website_next_js/components/bootcamp/ProjectCard.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import React from "react";
 import Image from "next/image";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { useRouter } from '@/i18n/routing';
 import { motion } from "framer-motion";
-import { ClockIcon, ReaderIcon } from "@radix-ui/react-icons";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useTranslations } from 'next-intl';
 
 interface ProjectCardProps {
     title: string;
@@ -22,6 +22,8 @@ interface ProjectCardProps {
     level: string;
     projectId: string;
     category: string;
+    maxStudents: number;
+    subtitle: string
 }
 
 export const ProjectCard = React.memo(function ProjectCard({
@@ -32,8 +34,12 @@ export const ProjectCard = React.memo(function ProjectCard({
     level,
     projectId,
     category,
+    maxStudents,
+    subtitle,
 }: ProjectCardProps) {
+
     const router = useRouter();
+    const t = useTranslations('BootcampPage.Projects');
 
     const handleClick = () => {
         router.push(`/bootcamp/${projectId}`);
@@ -44,41 +50,38 @@ export const ProjectCard = React.memo(function ProjectCard({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2 }}
+            className="h-[500px]"
         >
-            <Card className="h-full flex flex-col rounded-lg overflow-hidden">
-                <CardHeader className="p-0">
-                    <div className="relative h-40 sm:h-48 w-full">
-                        <Image
-                            src={image}
-                            alt={title}
-                            fill
-                            className="object-cover rounded-t-lg"
-                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                            priority={false}
-                        />
-                        <div className="absolute top-2 right-2 px-2 py-1 bg-primary/80 text-white rounded text-sm">
-                            {category}
-                        </div>
+            <Card className="overflow-hidden h-full flex flex-col">
+                <div className="relative h-48 flex-shrink-0">
+                    <Image
+                        src={image}
+                        alt={title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                        priority={false}
+                    />
+                    <div className="absolute top-0 right-0 bg-primary text-white px-2 py-1 text-sm font-semibold rounded-bl-lg">
+                        {category}
                     </div>
+                </div>
+                <CardHeader className="flex-shrink-0">
+                    <h3 className="text-xl font-bold line-clamp-1">{title}</h3>
+                    <p className="text-muted-foreground line-clamp-1">{subtitle}</p>
                 </CardHeader>
-                <CardContent className="p-4 sm:p-6 flex flex-col gap-4">
-                    <h3 className="text-lg sm:text-xl font-semibold">{title}</h3>
-                    <p className="text-muted-foreground mb-4 text-sm sm:text-base">{description}</p>
-                    <div className="flex justify-between text-xs sm:text-sm text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                            <ClockIcon className="w-3 h-3 sm:w-4 sm:h-4" />
-                            {duration}
-                        </span>
-                        <span className="flex items-center gap-1">
-                            <ReaderIcon className="w-3 h-3 sm:w-4 sm:h-4" />
-                            {level}
-                        </span>
+                <CardContent className="space-y-4 flex-1">
+                    <div className="flex justify-between items-center">
+                        <span className="text-sm text-muted-foreground">{duration}</span>
+                        <span className="text-sm font-semibold text-primary">{level}</span>
                     </div>
+                    <p className="text-sm text-card-foreground line-clamp-3">{description}</p>
                 </CardContent>
-                <CardFooter className="p-4 sm:p-6 pt-0">
-                    <div className="w-full flex justify-center">
-                        <Button onClick={handleClick} size="sm" className="w-full sm:w-auto">了解更多</Button>
-                    </div>
+                <CardFooter className="flex justify-between items-center flex-shrink-0">
+                    <span className="text-sm text-muted-foreground">{t("maxStudents")}: {maxStudents}</span>
+                    <Button onClick={handleClick} variant="default">
+                    {t("Learnmore")}
+                    </Button>
                 </CardFooter>
             </Card>
         </motion.div>

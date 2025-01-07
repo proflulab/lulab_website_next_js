@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-03 19:50:13
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-06 00:31:25
+ * @LastEditTime: 2025-01-08 04:52:06
  * @FilePath: /lulab_website_next_js/components/training/CourseFeatures.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -13,6 +13,7 @@ import {
     PersonIcon,
     BarChartIcon
 } from "@radix-ui/react-icons";
+import { useTranslations } from "next-intl";
 
 interface CourseFeaturesProps {
     duration: string;
@@ -21,20 +22,22 @@ interface CourseFeaturesProps {
 }
 
 export function CourseFeatures({ duration, level, maxStudents }: CourseFeaturesProps) {
+    const t = useTranslations('BootcampPage.Projectdetails.CourseFeatures');
+
     const features = [
         {
             icon: <ClockIcon className="w-6 h-6" />,
-            label: "Duration",
+            label: t('duration'),
             value: duration
         },
         {
             icon: <BarChartIcon className="w-6 h-6" />,
-            label: "Level",
+            label: t('level'),
             value: level
         },
         {
             icon: <PersonIcon className="w-6 h-6" />,
-            label: "Class Size",
+            label: t('classSize'),
             value: maxStudents ? `Max ${maxStudents} students` : "Flexible"
         }
     ];

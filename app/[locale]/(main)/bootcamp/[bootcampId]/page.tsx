@@ -47,7 +47,7 @@ export default function ProjectDetails() {
                             {project.title}
                         </h1>
                         <p className="text-xl md:text-2xl text-center max-w-3xl px-4 leading-relaxed shadow-text text-gray-200">
-                            {project.description}
+                            {project.subtitle}
                         </p>
                     </motion.div>
                 </div>

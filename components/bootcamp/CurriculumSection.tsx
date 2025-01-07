@@ -18,7 +18,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { memo } from "react";
-import { CURRICULUM_DATA } from "@/lib/db/bootcamp";
+import { getProjectById } from "@/lib/db/bootcamp";
 import { useTranslations } from 'next-intl';
 
 
@@ -33,6 +33,7 @@ interface WeekContent {
     id: string;
     title: string;
     topics: string[];
+    goals: string[];
     description: string;
     date: string;
 }
@@ -78,8 +79,9 @@ const WeekCard = memo(({ content, index, t }: { content: WeekContent; index: num
 
 WeekCard.displayName = "WeekCard";
 
-export function CurriculumSection({ curriculumKey = 'aiBasic' }: CurriculumSectionProps) {
-    const curriculumData = CURRICULUM_DATA[curriculumKey] || CURRICULUM_DATA.aiBasic;
+export function CurriculumSection({ curriculumKey = 'pythonBasic' }: CurriculumSectionProps) {
+    const project = getProjectById(curriculumKey);
+    const curriculumData = project?.curriculum || [];
     const t = useTranslations("BootcampPage.Projectdetails.CurriculumSection");
 
     return (

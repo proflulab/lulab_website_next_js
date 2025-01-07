@@ -182,7 +182,8 @@
       "learnMoreButton": "Learn More"
     },
     "Projects": {
-      "title": "Bootcamp Projects"
+      "title": "Bootcamp Projects",
+      "Learnmore": "Learn More"
     },
     "Projectdetails": {
       "Description": "Project Description",
@@ -195,7 +196,13 @@
       },
       "CurriculumSection": {
         "title": "Curriculum",
-        "weeklyTopics": "Topics:"
+        "weeklyTopics": "Topics:",
+        "maxStudents":"Max Students"
+      },
+      "CourseFeatures": {
+        "duration": "Duration",
+        "level": "Level",
+        "classSize": "Class Size"
       }
     },
     "ErrorBoundary": {
