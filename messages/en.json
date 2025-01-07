@@ -173,6 +173,21 @@
     }
   },
   "BootcampPage": {
+    "Hero": {
+      "title": "In AI Bootcamp",
+      "subtitle": "Launch Your Future",
+      "description": "Join our cutting-edge bootcamp and master the technologies shaping the future. Whether you're interested in AI, programming, or the metaverse, you'll find the perfect project for you.",
+      "enrollButton": "Enroll Now",
+      "projectsButton": "Project List",
+      "learnMoreButton": "Learn More"
+    },
+    "Projects": {
+      "title": "Bootcamp Projects"
+    },
+    "CTA": {
+      "question": "Ready to start your bootcamp journey?",
+      "enrollButton": "Enroll Now"
+    },
     "Cube": {
       "features": [
         {

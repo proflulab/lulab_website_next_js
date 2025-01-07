@@ -173,6 +173,21 @@
     }
   },
   "BootcampPage": {
+    "Hero": {
+      "title": "在AI训练营",
+      "subtitle": "启动你的未来",
+      "description": "加入我们尖端训练营，掌握塑造未来的技术。无论你对AI、编程还是元宇宙感兴趣，都能找到你最适合的项目。",
+      "enrollButton": "立即报名",
+      "projectsButton": "项目列表",
+      "learnMoreButton": "了解更多"
+    },
+    "Projects": {
+      "title": "训练营项目"
+    },
+    "CTA": {
+      "question": "准备好开启训练营之旅了吗？",
+      "enrollButton": "立即报名"
+    },
     "Cube": {
       "features": [
         {
