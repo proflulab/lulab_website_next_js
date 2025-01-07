@@ -12,11 +12,13 @@ import { getProjectById } from "@/lib/db/bootcamp";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { Suspense } from "react";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { useTranslations } from 'next-intl';
 
 export default function ProjectDetails() {
     const params = useParams();
     const bootcampId = params.bootcampId as string;
     const router = useRouter();
+    const t = useTranslations('BootcampPage');
 
     const project = getProjectById(bootcampId);
 
@@ -42,10 +44,10 @@ export default function ProjectDetails() {
                         className="text-center"
                     >
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-center shadow-text bg-clip-text">
-                            {project.title}
+                            {t('Hero.title')}
                         </h1>
                         <p className="text-xl md:text-2xl text-center max-w-3xl px-4 leading-relaxed shadow-text text-gray-200">
-                            {project.description}
+                            {t('Hero.subtitle')}
                         </p>
                     </motion.div>
                 </div>
@@ -80,14 +82,13 @@ export default function ProjectDetails() {
                                     className="space-y-12"
                                 >
                                     <div>
-                                        <h2 className="text-3xl font-bold mb-6 text-primary border-b pb-4">项目描述</h2>
+                                        <h2 className="text-3xl font-bold mb-6 text-primary border-b pb-4">{t('ProjectDescription.title')}</h2>
                                         <div className="text-lg leading-relaxed text-muted-foreground">
                                             {project.description}
                                         </div>
                                     </div>
-
                                     <div>
-                                        <h2 className="text-3xl font-bold mb-6 text-primary border-b pb-4">项目要求</h2>
+                                        <h2 className="text-3xl font-bold mb-6 text-primary border-b pb-4">{t('ProjectRequirements.title')}</h2>
                                         <ul className="list-none space-y-4">
                                             {project.prerequisites?.map((prereq, index) => (
                                                 <motion.li
@@ -105,7 +106,7 @@ export default function ProjectDetails() {
                                     </div>
 
                                     <div>
-                                        <h2 className="text-3xl font-bold mb-6 text-primary border-b pb-4">项目目标</h2>
+                                        <h2 className="text-3xl font-bold mb-6 text-primary border-b pb-4">{t('ProjectOutcomes.title')}</h2>
                                         <ul className="list-none space-y-4">
                                             {project.outcomes?.map((outcome, index) => (
                                                 <motion.li
@@ -125,7 +126,7 @@ export default function ProjectDetails() {
                             </div>
                         </motion.div>
 
-                        <ErrorBoundary fallback={<div className="p-4 bg-destructive/10 rounded-lg">Something went wrong</div>}>
+                        <ErrorBoundary fallback={<div className="p-4 bg-destructive/10 rounded-lg">{t('ErrorBoundary.message')}</div>}>
                             <Suspense fallback={<div className="flex justify-center p-8"><LoadingSpinner /></div>}>
                                 <CurriculumSection curriculumKey={bootcampId} />
                             </Suspense>
@@ -140,8 +141,8 @@ export default function ProjectDetails() {
                             className="sticky top-24"
                         >
                             <Card className="p-8 shadow-xl border-2 hover:border-primary transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-                                <h3 className="text-2xl font-bold mb-4 text-primary">训练营报名</h3>
-                                <p className="text-muted-foreground mb-8">加入我们的训练营，开启你的AI之旅</p>
+                                <h3 className="text-2xl font-bold mb-4 text-primary">{t('Enroll.title')}</h3>
+                                <p className="text-muted-foreground mb-8">{t('Enroll.description')}</p>
                                 <div className="space-y-6">
                                     <Button 
                                         className="w-full text-lg font-semibold" 
@@ -150,7 +151,7 @@ export default function ProjectDetails() {
                                             router.push('/checkout');
                                         }}
                                     >
-                                        立即报名
+                                        {t('Enroll.button')}
                                     </Button>
                                 </div>
                             </Card>
@@ -174,7 +175,7 @@ export default function ProjectDetails() {
                             router.push('/checkout');
                         }}
                     >
-                        立即报名训练营
+                        {t('Enroll.button')}
                     </Button>
                 </motion.div>
             </div>

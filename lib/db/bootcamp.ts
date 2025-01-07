@@ -145,8 +145,8 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
 export const BOOTCAMP_PROJECTS: BootcampProject[] = [
     {
         id: 'aiBasic',
-        title: 'AI基础训练营',
         category: 'AI',
+        title: 'AI基础训练营',
         image: '/images/about/lab-origin.png',
         curriculumKey: 'aiBasic',
         description: "AI基础课程涵盖人工智能的核心概念和技术，包括机器学习、深度学习、计算机视觉和自然语言处理的入门知识。学员将通过理论学习和实践项目，掌握AI领域的基本技能，为未来深入学习和应用AI技术打下坚实基础。",
@@ -163,8 +163,8 @@ export const BOOTCAMP_PROJECTS: BootcampProject[] = [
     },
     {
         id: 'aiAdvanced',
-        category: 'AI',
         title: 'AI进阶训练营',
+        category: 'AI',
         image: '/images/about/lab-origin.png',
         curriculumKey: 'aiAdvanced',
         description: "AI进阶课程深入探讨人工智能的高级概念和最新技术，包括深度学习架构设计、模型优化、分布式训练等进阶主题。学员将通过实战项目，掌握AI系统开发和部署的完整流程，为实际工作中的AI应用打下坚实基础。",
