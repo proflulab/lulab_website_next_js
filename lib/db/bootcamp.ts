@@ -2,11 +2,9 @@ export interface WeekContent {
     id: string;
     title: string;
     topics: string[];
-    timeline: {
-        title: string;
-        description: string;
-        date: string;
-    };
+    goals: string[];
+    description: string;
+    date: string;
 }
 
 export interface BootcampProject {
@@ -36,11 +34,13 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
                 "开发环境搭建",
                 "AI伦理与社会影响"
             ],
-            timeline: {
-                title: "人工智能基础入门",
-                description: "了解AI发展历史，掌握基本概念，搭建开发环境",
-                date: "第1周"
-            }
+            goals: [
+                "了解人工智能的发展历程",
+                "掌握机器学习和深度学习的基本概念",
+                "搭建Python开发环境，初步编写简单程序"
+            ],
+            description: "本周重点是了解人工智能的基本概念与发展历史，搭建Python开发环境，为后续学习打下基础。",
+            date: "第1周"
         },
         {
             id: "week2",
@@ -53,11 +53,13 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
                 "常用算法介绍",
                 "实战案例分析"
             ],
-            timeline: {
-                title: "机器学习实践",
-                description: "掌握机器学习基础理论，动手实践基础算法",
-                date: "第2周"
-            }
+            goals: [
+                "理解监督学习和无监督学习的基本原理",
+                "掌握常见机器学习算法的使用",
+                "进行简单的模型评估与特征工程"
+            ],
+            description: "本周重点是掌握机器学习的基础理论与常见算法，能够独立完成简单的机器学习任务。",
+            date: "第2周"
         },
         {
             id: "week3",
@@ -70,11 +72,13 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
                 "模型优化技巧",
                 "框架使用实践"
             ],
-            timeline: {
-                title: "深度学习探索",
-                description: "深入学习神经网络，实践深度学习模型",
-                date: "第3周"
-            }
+            goals: [
+                "深入理解神经网络及其核心机制",
+                "掌握卷积神经网络与循环神经网络的实际应用",
+                "学习迁移学习技术与模型优化技巧"
+            ],
+            description: "本周重点是深入学习神经网络的核心机制与常见应用，掌握深度学习框架的基本操作。",
+            date: "第3周"
         },
         {
             id: "week4",
@@ -87,11 +91,13 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
                 "性能评估",
                 "项目答辩"
             ],
-            timeline: {
-                title: "综合项目实践",
-                description: "独立完成AI项目，从设计到部署全流程实践",
-                date: "第4周"
-            }
+            goals: [
+                "独立完成AI项目的设计与实现",
+                "掌握模型训练与优化的完整流程",
+                "进行项目答辩，展示成果"
+            ],
+            description: "本周将独立完成一个AI项目，包括从设计到部署的完整流程，并进行项目答辩展示。",
+            date: "第4周"
         }
     ],
     aiAdvanced: [
@@ -106,11 +112,13 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
                 "GPU加速优化",
                 "自动化部署流程"
             ],
-            timeline: {
-                title: "高级开发环境搭建",
-                description: "掌握高级Python特性和主流AI框架",
-                date: "第1周"
-            }
+            goals: [
+                "掌握Python高级特性，提升代码效率",
+                "深入学习PyTorch与TensorFlow框架",
+                "初步理解分布式训练与GPU加速优化"
+            ],
+            description: "本周重点是掌握Python高级特性与主流AI框架的使用，为后续深度学习开发打下基础。",
+            date: "第1周"
         },
         {
             id: "week2",
@@ -123,11 +131,13 @@ export const CURRICULUM_DATA: Record<string, WeekContent[]> = {
                 "Transformer架构",
                 "模型压缩技术"
             ],
-            timeline: {
-                title: "深度学习进阶",
-                description: "深入理解深度学习核心概念",
-                date: "第2周"
-            }
+            goals: [
+                "理解深度学习中常见的高级概念与优化方法",
+                "掌握Transformer架构与注意力机制的原理与应用",
+                "学习模型压缩技术，提高模型部署效率"
+            ],
+            description: "本周重点是深入理解深度学习的高级概念与最新技术，掌握模型优化与部署技巧。",
+            date: "第2周"
         }
     ]
 };
@@ -136,19 +146,24 @@ export const BOOTCAMP_PROJECTS: BootcampProject[] = [
     {
         id: 'aiBasic',
         title: 'AI基础训练营',
-        category: 'ai',
+        category: 'AI',
         image: '/images/about/lab-origin.png',
         curriculumKey: 'aiBasic',
         description: "AI基础课程涵盖人工智能的核心概念和技术，包括机器学习、深度学习、计算机视觉和自然语言处理的入门知识。学员将通过理论学习和实践项目，掌握AI领域的基本技能，为未来深入学习和应用AI技术打下坚实基础。",
         duration: '4周',
         level: '入门级',
         maxStudents: 30,
-        prerequisites: [],
-        outcomes: ['理解AI基础概念', '掌握基本机器学习算法']
+        outcomes: ['理解AI基础概念', '掌握基本机器学习算法'],
+        prerequisites: [
+            "具备一台至少8GB内存的电脑，推荐使用16GB内存以上",
+            "能够每天投入至少2小时学习时间",
+            "提前安装好Python和Jupyter Notebook",
+            "具备基本的英语阅读能力"
+        ],
     },
     {
         id: 'aiAdvanced',
-        category: 'ai',
+        category: 'AI',
         title: 'AI进阶训练营',
         image: '/images/about/lab-origin.png',
         curriculumKey: 'aiAdvanced',
@@ -156,8 +171,13 @@ export const BOOTCAMP_PROJECTS: BootcampProject[] = [
         duration: '12周',
         level: '进阶级',
         maxStudents: 20,
-        prerequisites: ['aiBasic'],
-        outcomes: ['开发复杂AI模型', '实践深度学习技术']
+        outcomes: ['开发复杂AI模型', '实践深度学习技术'],
+        prerequisites: [
+            "具备一台至少8GB内存的电脑，推荐使用16GB内存以上",
+            "能够每天投入至少2小时学习时间",
+            "提前安装好Python和Jupyter Notebook",
+            "具备基本的英语阅读能力"
+        ],
     }
 ];
 
