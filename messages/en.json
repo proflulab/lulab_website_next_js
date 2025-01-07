@@ -181,25 +181,21 @@
       "projectsButton": "Project List",
       "learnMoreButton": "Learn More"
     },
-    "ProjectDescription": {
-      "title": "Project Description"
+    "Projects": {
+      "title": "Bootcamp Projects"
     },
-    "ProjectRequirements": {
-      "title": "Project Requirements"
-    },
-    "ProjectOutcomes": {
-      "title": "Project Outcomes"
-    },
-    "Enroll": {
-      "title": "Bootcamp Enrollment",
-      "description": "Join our bootcamp and start your AI journey",
-      "button": "Enroll Now"
+    "Projectdetails": {
+      "Description": "Project Description",
+      "Requirements": "Project Requirements",
+      "Outcomes": "Project Outcomes",
+      "Enroll": {
+        "title": "Bootcamp Enrollment",
+        "description": "Join our bootcamp and start your AI journey",
+        "button": "Enroll Now"
+      }
     },
     "ErrorBoundary": {
       "message": "Something went wrong"
-    },
-    "Projects": {
-      "title": "Bootcamp Projects"
     },
     "CTA": {
       "question": "Ready to start your bootcamp journey?",

@@ -181,25 +181,22 @@
       "projectsButton": "项目列表",
       "learnMoreButton": "了解更多"
     },
-    "ProjectDescription": {
-      "title": "项目描述"
-    },
-    "ProjectRequirements": {
-      "title": "项目要求"
-    },
-    "ProjectOutcomes": {
-      "title": "项目目标"
-    },
-    "Enroll": {
-      "title": "训练营报名",
-      "description": "加入我们的训练营，开启你的AI之旅",
-      "button": "立即报名"
-    },
-    "ErrorBoundary": {
-      "message": "出现了一些问题"
-    },
     "Projects": {
       "title": "训练营项目"
+    },
+    "Projectdetails": {
+      "Description": "项目描述",
+      "Requirements": "项目要求",
+      "Outcomes": "项目目标",
+      "Enroll": {
+        "title": "训练营报名",
+        "description": "加入我们的训练营，开启你的AI之旅",
+        "button": "立即报名"
+      }
+    },
+
+    "ErrorBoundary": {
+      "message": "出现了一些问题"
     },
     "CTA": {
       "question": "准备好开启训练营之旅了吗？",
