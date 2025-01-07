@@ -192,6 +192,10 @@
         "title": "Bootcamp Enrollment",
         "description": "Join our bootcamp and start your AI journey",
         "button": "Enroll Now"
+      },
+      "CurriculumSection": {
+        "title": "Curriculum",
+        "weeklyTopics": "Topics:"
       }
     },
     "ErrorBoundary": {

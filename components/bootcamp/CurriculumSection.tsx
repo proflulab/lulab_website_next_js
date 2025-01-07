@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:31:11
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-07 17:14:04
+ * @LastEditTime: 2025-01-08 03:22:13
  * @FilePath: /lulab_website_next_js/components/bootcamp/CurriculumSection.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -19,6 +19,8 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { memo } from "react";
 import { CURRICULUM_DATA } from "@/lib/db/bootcamp";
+import { useTranslations } from 'next-intl';
+
 
 const WEEK_COLORS = [
     "border-l-blue-500",
@@ -39,7 +41,7 @@ interface CurriculumSectionProps {
     curriculumKey?: string;
 }
 
-const WeekCard = memo(({ content, index }: { content: WeekContent; index: number }) => (
+const WeekCard = memo(({ content, index, t }: { content: WeekContent; index: number, t: string }) => (
     <Card className={cn(
         "transition-all duration-300 hover:shadow-lg",
         "border-l-4",
@@ -59,7 +61,7 @@ const WeekCard = memo(({ content, index }: { content: WeekContent; index: number
         <CardContent className="p-4 md:p-6 pt-0 md:pt-0">
             <div className="space-y-3 md:space-y-4">
                 <h4 className="font-semibold text-xs md:text-sm text-muted-foreground">
-                    本周主题：
+                {t}
                 </h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
                     {content.topics.map((topic, topicIndex) => (
@@ -78,13 +80,14 @@ WeekCard.displayName = "WeekCard";
 
 export function CurriculumSection({ curriculumKey = 'aiBasic' }: CurriculumSectionProps) {
     const curriculumData = CURRICULUM_DATA[curriculumKey] || CURRICULUM_DATA.aiBasic;
+    const t = useTranslations("BootcampPage.Projectdetails.CurriculumSection");
 
     return (
         <section className="py-8 md:py-16 px-4">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-8 md:mb-12">
                     <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
-                        大纲
+                    {t("title")}
                     </h2>
                     <Progress value={100} className="w-20 md:w-24 mx-auto" />
                 </div>
@@ -95,6 +98,7 @@ export function CurriculumSection({ curriculumKey = 'aiBasic' }: CurriculumSecti
                             key={content.id}
                             content={content}
                             index={index}
+                            t={t("weeklyTopics")}
                         />
                     ))}
                 </div>

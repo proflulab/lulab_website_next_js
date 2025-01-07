@@ -172,6 +172,7 @@
       ]
     }
   },
+
   "BootcampPage": {
     "Hero": {
       "title": "在AI训练营",
@@ -192,6 +193,10 @@
         "title": "训练营报名",
         "description": "加入我们的训练营，开启你的AI之旅",
         "button": "立即报名"
+      },
+      "CurriculumSection": {
+        "title": "大纲",
+        "weeklyTopics": "主题："
       }
     },
 
