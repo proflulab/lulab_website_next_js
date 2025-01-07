@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-03 19:50:13
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-07 19:46:14
+ * @LastEditTime: 2025-01-08 05:11:25
  * @FilePath: /lulab_website_next_js/components/training/Training.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -50,8 +50,8 @@ export function Bootcamp() {
                         animate="visible"
                         variants={{
                             hidden: { opacity: 0, y: 30 },
-                            visible: { 
-                                opacity: 1, 
+                            visible: {
+                                opacity: 1,
                                 y: 0,
                                 transition: {
                                     duration: 0.8,
@@ -61,7 +61,7 @@ export function Bootcamp() {
                         }}
                         className="max-w-4xl pt-20"
                     >
-                        <motion.h1 
+                        <motion.h1
                             className="text-7xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-[#ff9300] to-[#ff0099] leading-tight"
                             initial={{ scale: 0.95 }}
                             animate={{ scale: 1 }}
@@ -75,7 +75,7 @@ export function Bootcamp() {
                                 {t("Hero.subtitle")}
                             </span>
                         </motion.h1>
-                        <motion.p 
+                        <motion.p
                             className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ export function Bootcamp() {
                         >
                             {t("Hero.description")}
                         </motion.p>
-                        <motion.div 
+                        <motion.div
                             className="flex items-center gap-4 flex-wrap"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -112,10 +112,10 @@ export function Bootcamp() {
                             </a>
                         </motion.div>
                     </motion.div>
-                    {/* Background Cube Section */}
-                    <div className="hidden md:block absolute inset-0 opacity-80 ">
-                        <Cube />
-                    </div>
+                </div>
+                {/* Background Cube Section */}
+                <div className="hidden md:block absolute inset-0 opacity-80 ">
+                    <Cube />
                 </div>
             </section>
 
