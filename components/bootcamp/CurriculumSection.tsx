@@ -2,24 +2,17 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:31:11
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-08 03:22:13
+ * @LastEditTime: 2025-01-10 02:35:05
  * @FilePath: /lulab_website_next_js/components/bootcamp/CurriculumSection.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 
 import { cn } from "@/lib/utils";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { memo } from "react";
-import { getProjectById } from "@/lib/db/bootcamp";
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 
 const WEEK_COLORS = [
@@ -35,11 +28,17 @@ interface WeekContent {
     topics: string[];
     goals: string[];
     description: string;
-    date: string;
+    week: string;
 }
 
 interface CurriculumSectionProps {
-    curriculumKey?: string;
+    curriculum: {
+        title: string;
+        topics: string[];
+        goals: string | null;
+        description: string;
+        week: number;
+    }[];
 }
 
 const WeekCard = memo(({ content, index, t }: { content: WeekContent; index: number, t: string }) => (
@@ -52,7 +51,7 @@ const WeekCard = memo(({ content, index, t }: { content: WeekContent; index: num
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <CardTitle className="text-lg md:text-xl">{content.title}</CardTitle>
                 <Badge variant="outline" className="w-fit text-xs md:text-sm">
-                    {content.date}
+                    {content.week}
                 </Badge>
             </div>
             <CardDescription className="mt-2 text-sm md:text-base">
@@ -62,7 +61,7 @@ const WeekCard = memo(({ content, index, t }: { content: WeekContent; index: num
         <CardContent className="p-4 md:p-6 pt-0 md:pt-0">
             <div className="space-y-3 md:space-y-4">
                 <h4 className="font-semibold text-xs md:text-sm text-muted-foreground">
-                {t}
+                    {t}
                 </h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
                     {content.topics.map((topic, topicIndex) => (
@@ -79,26 +78,33 @@ const WeekCard = memo(({ content, index, t }: { content: WeekContent; index: num
 
 WeekCard.displayName = "WeekCard";
 
-export function CurriculumSection({ curriculumKey = 'pythonBasic' }: CurriculumSectionProps) {
-    const project = getProjectById(curriculumKey);
-    const curriculumData = project?.curriculum || [];
+export function CurriculumSection({ curriculum }: CurriculumSectionProps) {
+
     const t = useTranslations("BootcampPage.Projectdetails.CurriculumSection");
+    const locale = useLocale();
 
     return (
         <section className="py-8 md:py-16 px-4">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-8 md:mb-12">
                     <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
-                    {t("title")}
+                        {t("title")}
                     </h2>
                     <Progress value={100} className="w-20 md:w-24 mx-auto" />
                 </div>
 
                 <div className="grid gap-4 md:gap-8">
-                    {curriculumData.map((content, index) => (
+                    {curriculum.map((content, index) => (
                         <WeekCard
-                            key={content.id}
-                            content={content}
+                            key={content.week}
+                            content={{
+                                id: String(content.week),
+                                title: content.title,
+                                topics: content.topics,
+                                goals: content.goals ? [content.goals] : [],
+                                description: content.description,
+                                week: `${locale === 'zh' ? `第${content.week}周` : 'Week ' + content.week}`
+                            }}
                             index={index}
                             t={t("weeklyTopics")}
                         />

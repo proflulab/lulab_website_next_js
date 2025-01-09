@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:30:56
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-08 04:40:28
+ * @LastEditTime: 2025-01-09 03:47:58
  * @FilePath: /lulab_website_next_js/components/bootcamp/ProjectCard.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -20,10 +20,10 @@ interface ProjectCardProps {
     image: string;
     duration: string;
     level: string;
-    projectId: string;
     category: string;
     maxStudents: number;
-    subtitle: string
+    subtitle: string;
+    slug: string;
 }
 
 export const ProjectCard = React.memo(function ProjectCard({
@@ -32,17 +32,17 @@ export const ProjectCard = React.memo(function ProjectCard({
     image,
     duration,
     level,
-    projectId,
     category,
     maxStudents,
     subtitle,
+    slug,
 }: ProjectCardProps) {
 
     const router = useRouter();
     const t = useTranslations('BootcampPage.Projects');
 
     const handleClick = () => {
-        router.push(`/bootcamp/${projectId}`);
+        router.push(`/bootcamp/${slug}`);
     };
 
     return (

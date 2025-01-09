@@ -20,6 +20,7 @@ export interface BootcampProject {
     outcomes?: string[];
     description: string;
     curriculum: WeekContent[];
+    slug: string;
 }
 
 export const getProjectById = (id: string): BootcampProject | undefined => {
@@ -28,8 +29,9 @@ export const getProjectById = (id: string): BootcampProject | undefined => {
 
 export const BOOTCAMP_PROJECTS: BootcampProject[] = [
     {
-        id: 'pythonBasic',
+        id: '49b14a0a-83ab-4332-9837-7d50c24fb394',
         category: '编程',
+        slug: 'python',
         title: 'Python编程入门',
         subtitle: '从零开始学习Python编程',
         image: '/images/about/lab-origin.png',
@@ -118,8 +120,9 @@ export const BOOTCAMP_PROJECTS: BootcampProject[] = [
         ]
     },
     {
-        id: 'webDevelopment',
+        id: '6ac3d223-9d51-4103-853a-6566996a496b',
         category: 'Web开发',
+        slug: 'web',
         title: 'Web前端开发训练营',
         subtitle: '全面掌握HTML、CSS与JavaScript',
         image: '/images/about/lab-origin.png',

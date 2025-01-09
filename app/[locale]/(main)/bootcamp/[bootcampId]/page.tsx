@@ -8,11 +8,39 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CurriculumSection } from "@/components/bootcamp/CurriculumSection";
 import { CourseFeatures } from "@/components/bootcamp/CourseFeatures";
-import { getProjectById } from "@/lib/db/bootcamp";
+// import { getProjectById } from "@/lib/db/bootcamp";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
-import { Suspense } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { useTranslations } from 'next-intl';
+
+
+// 单个课程内容的接口
+interface CurriculumItem {
+    title: string;                // 课程标题
+    topics: string[];             // 课程包含的主题
+    goals: string | null;         // 学习目标，可为空
+    description: string;          // 课程描述
+    week: number;                 // 所属周次
+}
+
+
+// API 返回数据的接口
+interface ProjectDetail {
+    id: string;                   // 项目 ID
+    title: string;                // 项目标题
+    image: string;
+    slug: string;                 // 项目标识符
+    subtitle: string;             // 项目副标题
+    description: string;          // 项目描述
+    category: string;             // 项目类别
+    duration: string;             // 项目时长
+    level: string;                // 项目难度级别
+    max_students: number;         // 最大学生人数
+    prerequisites: string[];      // 先修条件
+    outcomes: string[];           // 学习成果             // 项目信息
+    curriculum: CurriculumItem[]; // 课程内容数组
+}
 
 export default function ProjectDetails() {
     const params = useParams();
@@ -20,10 +48,41 @@ export default function ProjectDetails() {
     const router = useRouter();
     const t = useTranslations('BootcampPage');
 
-    const project = getProjectById(bootcampId);
+    // const project = getProjectById(bootcampId);
 
-    if (!project) {
-        notFound();
+    const [project, setProject] = useState<ProjectDetail | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<boolean>(false);
+
+    useEffect(() => {
+        async function fetchProject() {
+            try {
+                setLoading(true);
+                const response = await fetch(`/api/bootcamp/${bootcampId}`);
+                if (!response.ok) {
+                    setError(true);
+                    return;
+                }
+                const data = await response.json();
+                setProject(data.project);
+            } catch (error) {
+                setError(true);
+                console.error('Error fetching project:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchProject();
+    }, [bootcampId]);
+
+    if (loading) {
+        return <div className="flex justify-center p-8"><LoadingSpinner /></div>;
+    }
+
+
+    if (error || !project) {
+        return notFound();
     }
 
     return (
@@ -63,7 +122,7 @@ export default function ProjectDetails() {
                     <CourseFeatures
                         duration={project.duration}
                         level={project.level}
-                        maxStudents={project.maxStudents}
+                        maxStudents={project.max_students}
                     />
                 </motion.div>
 
@@ -90,7 +149,7 @@ export default function ProjectDetails() {
                                     <div>
                                         <h2 className="text-3xl font-bold mb-6 text-primary border-b pb-4">{t('Projectdetails.Requirements')}</h2>
                                         <ul className="list-none space-y-4">
-                                            {project.prerequisites?.map((prereq, index) => (
+                                            {project.prerequisites?.map((prereq: string, index: number) => (
                                                 <motion.li
                                                     key={index}
                                                     initial={{ opacity: 0, x: -20 }}
@@ -108,7 +167,7 @@ export default function ProjectDetails() {
                                     <div>
                                         <h2 className="text-3xl font-bold mb-6 text-primary border-b pb-4">{t('Projectdetails.Outcomes')}</h2>
                                         <ul className="list-none space-y-4">
-                                            {project.outcomes?.map((outcome, index) => (
+                                            {project.outcomes?.map((outcome: string, index: number) => (
                                                 <motion.li
                                                     key={index}
                                                     initial={{ opacity: 0, x: -20 }}
@@ -128,13 +187,13 @@ export default function ProjectDetails() {
 
                         <ErrorBoundary fallback={<div className="p-4 bg-destructive/10 rounded-lg">{t('ErrorBoundary.message')}</div>}>
                             <Suspense fallback={<div className="flex justify-center p-8"><LoadingSpinner /></div>}>
-                                <CurriculumSection curriculumKey={bootcampId} />
+                                <CurriculumSection curriculum={project.curriculum} />
                             </Suspense>
                         </ErrorBoundary>
                     </div>
 
                     <div className="hidden lg:block lg:col-span-1">
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.4 }}
@@ -144,8 +203,8 @@ export default function ProjectDetails() {
                                 <h3 className="text-2xl font-bold mb-4 text-primary">{t('Projectdetails.Enroll.title')}</h3>
                                 <p className="text-muted-foreground mb-8">{t('Projectdetails.Enroll.description')}</p>
                                 <div className="space-y-6">
-                                    <Button 
-                                        className="w-full text-lg font-semibold" 
+                                    <Button
+                                        className="w-full text-lg font-semibold"
                                         size="lg"
                                         onClick={() => {
                                             router.push('/checkout');
@@ -162,13 +221,13 @@ export default function ProjectDetails() {
 
             {/* Mobile Fixed Purchase Button */}
             <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-background/80 backdrop-blur-lg border-t z-50 shadow-lg">
-                <motion.div 
+                <motion.div
                     initial={{ y: 100 }}
                     animate={{ y: 0 }}
                     transition={{ type: "spring", stiffness: 100 }}
                     className="container mx-auto p-4 flex items-center justify-center"
                 >
-                    <Button 
+                    <Button
                         size="lg"
                         className="text-lg font-semibold px-8"
                         onClick={() => {
