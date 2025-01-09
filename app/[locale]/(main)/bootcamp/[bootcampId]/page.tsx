@@ -38,7 +38,7 @@ interface ProjectDetail {
     level: string;                // 项目难度级别
     max_students: number;         // 最大学生人数
     prerequisites: string[];      // 先修条件
-    outcomes: string[];           // 学习成果             // 项目信息
+    outcomes: string[];           // 学习成果
     curriculum: CurriculumItem[]; // 课程内容数组
 }
 

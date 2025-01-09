@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:28:21
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-09 03:49:40
+ * @LastEditTime: 2025-01-10 02:48:55
  * @FilePath: /lulab_website_next_js/app/[locale]/(main)/bootcamp/page.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -17,6 +17,7 @@ import { ChevronRight, } from "lucide-react";
 import React, { useEffect, useState } from 'react';
 import Cube from '@/components/bootcamp/Cube';
 import { useTranslations } from 'next-intl';
+import { LoadingSpinner } from "@/components/LoadingSpinner";
 
 
 interface Project {
@@ -76,8 +77,6 @@ export default function BootcampPage() {
 
         fetchProjects();
     }, []);
-
-    if (loading) return <p>Loading...</p>;
 
     return (
         <div className="min-h-screen bg-background relative overflow-hidden">
@@ -168,9 +167,15 @@ export default function BootcampPage() {
                     >
                         <h2 className="text-3xl font-bold mb-12 text-center">{t("Projects.title")}</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {projects.map((project) => (
-                                <ProjectCard key={project.id} {...project} slug={project.slug} />
-                            ))}
+                            {loading ? (
+                                <div className="col-span-full flex justify-center p-8">
+                                    <LoadingSpinner />
+                                </div>
+                            ) : (
+                                projects.map((project) => (
+                                    <ProjectCard key={project.id} {...project} slug={project.slug} />
+                                ))
+                            )}
                         </div>
                     </motion.div>
                 </div>
