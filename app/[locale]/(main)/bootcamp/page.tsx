@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:28:21
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-10 02:48:55
+ * @LastEditTime: 2025-01-10 03:18:15
  * @FilePath: /lulab_website_next_js/app/[locale]/(main)/bootcamp/page.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,7 +12,6 @@
 
 import { motion } from "framer-motion";
 import { ProjectCard } from "@/components/bootcamp/ProjectCard";
-// import { BOOTCAMP_PROJECTS } from "@/lib/db/bootcamp";
 import { ChevronRight, } from "lucide-react";
 import React, { useEffect, useState } from 'react';
 import Cube from '@/components/bootcamp/Cube';
@@ -105,11 +104,11 @@ export default function BootcampPage() {
                             animate={{ scale: 1 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
                         >
-                            <span className="mr-2">
+                            <span className="mr-8">
                                 {t("Hero.title")}
                             </span>
                             <br />
-                            <span className="mr-2">
+                            <span className="ml-24">
                                 {t("Hero.subtitle")}
                             </span>
                         </motion.h1>
@@ -142,7 +141,7 @@ export default function BootcampPage() {
                                 <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                             </button>
                             <a
-                                href="/bootcamp/about"
+                                href="https://oad0a72p9r.feishu.cn/wiki/UU1WwuiFMiBwRtkR9k8c6oVWngf"
                                 className="group inline-flex items-center px-6 py-3 rounded-full border-2 border-primary/20 bg-background/50 hover:bg-primary/10 hover:border-primary transition-all relative z-10 font-medium"
                             >
                                 {t("Hero.learnMoreButton")}
