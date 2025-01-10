@@ -10,7 +10,7 @@
     "login": "登录",
     "sign_up": "注册",
     "log_out": "退出",
-    "training": "训练营"
+    "bootcamp": "训练营"
   },
   "HomePage": {
     "concept": "学理论不如学案例\n学案例不如做案例\n做案例不如玩案例\n一个人玩不如一起玩\n一起玩不如聚天下英才名师一块玩",
@@ -53,7 +53,7 @@
         "wechat": "微信公众号：陆向谦实验室"
       }
     },
-    "copyright": "© {year} 陆向谦实验室. All rights reserved."
+    "copyright": " 陆向谦实验室. All rights reserved."
   },
   "AboutPage": {
     "Mission": {
@@ -168,6 +168,77 @@
         {
           "year": "至今",
           "content": "实验室逐步形成系统化的项目式学习模式，与国内外顶尖创业者和企业家合作，培养了大批具备全球视野和创新实践能力的复合型人才，实现网上斯坦福大学的愿景。"
+        }
+      ]
+    }
+  },
+
+  "BootcampPage": {
+    "Hero": {
+      "title": "在AI训练营",
+      "subtitle": "启动你的未来",
+      "description": "加入我们尖端训练营，掌握塑造未来的技术。无论你对AI、编程还是元宇宙感兴趣，都能找到你最适合的项目。",
+      "enrollButton": "立即报名",
+      "projectsButton": "项目列表",
+      "learnMoreButton": "了解更多"
+    },
+    "Projects": {
+      "title": "训练营项目",
+      "Learnmore": "了解更多",
+      "maxStudents":"最多学生人数"
+    },
+    "Projectdetails": {
+      "Description": "项目描述",
+      "Requirements": "项目要求",
+      "Outcomes": "项目目标",
+      "Enroll": {
+        "title": "训练营报名",
+        "description": "加入我们的训练营，开启你的AI之旅",
+        "button": "立即报名"
+      },
+      "CurriculumSection": {
+        "title": "大纲",
+        "weeklyTopics": "主题："
+      },
+      "CourseFeatures": {
+        "duration": "课程时长",
+        "level": "课程难度",
+        "classSize": "班级规模"
+      }
+    },
+
+    "ErrorBoundary": {
+      "message": "出现了一些问题"
+    },
+    "CTA": {
+      "question": "准备好开启训练营之旅了吗？",
+      "enrollButton": "立即报名"
+    },
+    "Cube": {
+      "features": [
+        {
+          "title": "行业专家指导",
+          "description": "资深导师提供实战经验，精准匹配行业需求"
+        },
+        {
+          "title": "项目驱动学习",
+          "description": "以真实项目为导向，从零到一构建完整产品"
+        },
+        {
+          "title": "AI工具辅助",
+          "description": "掌握AI辅助开发工具，提升效率与代码质量"
+        },
+        {
+          "title": "协作与分班机制",
+          "description": "团队协作、灵活分班，保障不同水平学员的成长"
+        },
+        {
+          "title": "灵活课程与答疑",
+          "description": "实时调整课程，专设答疑环节解决学习难点"
+        },
+        {
+          "title": "职业技能提升",
+          "description": "重点培养企业级开发能力与项目实战经验"
         }
       ]
     }
