@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:28:21
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-10 03:18:15
+ * @LastEditTime: 2025-01-11 23:00:06
  * @FilePath: /lulab_website_next_js/app/[locale]/(main)/bootcamp/page.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -64,7 +64,7 @@ export default function BootcampPage() {
     useEffect(() => {
         async function fetchProjects() {
             try {
-                const response = await fetch('/api/projects');
+                const response = await fetch('/api/projects', { cache: 'no-store' });
                 const data = await response.json();
                 setProjects(data);
             } catch (error) {

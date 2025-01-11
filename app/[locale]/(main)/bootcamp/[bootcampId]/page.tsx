@@ -57,7 +57,7 @@ export default function ProjectDetails() {
         async function fetchProject() {
             try {
                 setLoading(true);
-                const response = await fetch(`/api/bootcamp/${bootcampId}`);
+                const response = await fetch(`/api/bootcamp/${bootcampId}`, { cache: 'no-store' });
                 if (!response.ok) {
                     setError(true);
                     return;
