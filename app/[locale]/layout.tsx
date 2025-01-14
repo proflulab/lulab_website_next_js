@@ -9,23 +9,21 @@
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
 
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import React from 'react';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import React from "react";
 import "./globals.css";
-import Navbar from '@/components/navbar/navbar';
-import { Footer } from '@/components/footer';
-
-
+import Navbar from "@/components/navbar/navbar";
+import { Footer } from "@/components/footer";
+import { Metadata } from "next";
 
 export default async function RootLayout({
   children,
-  params: { locale }
+  params: { locale },
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
   params: { locale: string };
 }) {
-
   const messages = await getMessages();
 
   return (
@@ -36,13 +34,36 @@ export default async function RootLayout({
             <React.StrictMode>
               <Navbar />
             </React.StrictMode>
-            <main>
-              {children}
-            </main>
+            <main>{children}</main>
             <Footer />
           </div>
         </NextIntlClientProvider>
       </body>
     </html>
-  )
+  );
 }
+
+export const metadata: Metadata = {
+  title: {
+    default: "陆向谦实验室 | lulabs",
+    template: "%s | 陆向谦实验室",
+  },
+  description: "聚天下名师英才组团玩",
+  keywords: ["lulabs", "陆向谦实验室", "人工智能", "lulabs"],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    locale: "zh_CN",
+    title: "陆向谦实验室",
+    description: "聚天下名师英才组团玩",
+    siteName: "陆向谦实验室",
+  },
+  twitter: {
+    // card: 'summary_large_image',
+    title: "陆向谦实验室",
+    description: "聚天下名师英才组团玩",
+  },
+};
