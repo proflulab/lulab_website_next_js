@@ -1,17 +1,14 @@
-// next.config.mjs
 import createNextIntlPlugin from "next-intl/plugin";
-
-const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
   images: {
     domains: [
       "wechatapppro-1252524126.cos.ap-shanghai.myqcloud.com",
       "images.unsplash.com",
     ],
   },
-
   async redirects() {
     return [
       {
@@ -21,10 +18,7 @@ const nextConfig = {
       },
     ];
   },
-
-  siteUrl: "https://dev.lulabs.cn/",
-  generateRobotsTxt: true,
-  generateSitemap: true,
 };
 
+const withNextIntl = createNextIntlPlugin();
 export default withNextIntl(nextConfig);
