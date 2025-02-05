@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-11 16:54:04
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-09-11 17:19:39
+ * @LastEditTime: 2025-01-05 19:51:58
  * @FilePath: /lulab_website_next_js/app/[locale]/not-found.tsx
  * @Description: 
  * 
@@ -10,7 +10,7 @@
  */
 
 import {useTranslations} from 'next-intl';
- 
+
 export default function NotFoundPage() {
   const t = useTranslations('NotFoundPage');
   return <h1>{t('title')}</h1>;
