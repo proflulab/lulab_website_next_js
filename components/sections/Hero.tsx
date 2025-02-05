@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-11-28 18:46:39
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-12-03 17:16:04
+ * @LastEditTime: 2025-01-10 03:28:00
  * @FilePath: /lulab_website_next_js/components/sections/Hero.tsx
  * @Description: 
  * 
@@ -15,10 +15,9 @@
 import Image from "next/image";
 import { useTranslations } from 'next-intl';
 import { Button } from "@/components/ui/button";
-// import { GraduationCap, Globe } from "lucide-react";
-import { Globe } from "lucide-react";
+import { GraduationCap, Globe } from "lucide-react";
 import { motion } from "framer-motion";
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/routing';
 
 const BackgroundImage = () => (
   <div className="absolute inset-0 z-0">
@@ -34,7 +33,9 @@ const BackgroundImage = () => (
   </div>
 );
 
-const HeroContent = ({ t }: { t: ReturnType<typeof useTranslations> }) => {
+const HeroContent = () => {
+
+  const t = useTranslations('HomePage.Hero');
   const router = useRouter();
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
@@ -74,13 +75,14 @@ const HeroContent = ({ t }: { t: ReturnType<typeof useTranslations> }) => {
         transition={{ duration: 0.6, delay: 0.4 }}
         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
       >
-        {/* <Button 
-          size="lg" 
+        <Button
+          size="lg"
           className="w-full sm:w-auto gap-2 hover:scale-105 transition-transform"
+          onClick={() => router.push('/bootcamp')}
         >
           <GraduationCap className="w-5 h-5" />
           {t('enrollButton')}
-        </Button> */}
+        </Button>
         <Button
           size="lg"
           variant="outline"
@@ -96,12 +98,11 @@ const HeroContent = ({ t }: { t: ReturnType<typeof useTranslations> }) => {
 };
 
 export function Hero() {
-  const t = useTranslations('HomePage.Hero');
 
   return (
     <section className="relative h-[93vh] flex items-center justify-center overflow-hidden bg-black">
       <BackgroundImage />
-      <HeroContent t={t} />
+      <HeroContent />
     </section>
   );
 }

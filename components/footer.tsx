@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-11-28 15:45:22
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-12-03 15:48:12
+ * @LastEditTime: 2024-12-29 03:59:35
  * @FilePath: /lulab_website_next_js/components/footer.tsx
  * @Description: 
  * 
@@ -15,15 +15,15 @@ import { useTranslations } from 'next-intl';
 
 // 抽取导航链接配置
 const QUICK_LINKS = [
-    { href: '/about', translationKey: 'about' },
-    { href: '/course', translationKey: 'courses' },
-    // { href: '/join', translationKey: 'joinUs' },
+    { href: '/about', key: 'about' },
+    // { href: '/courses', key: 'courses' },
+    // { href: '/join', key: 'joinUs' },
 ] as const;
 
 // 抽取联系方式配置
 const CONTACT_INFO = [
-    { icon: Mail, translationKey: 'email' },
-    { icon: MapPin, translationKey: 'address' },
+    { icon: Mail, key: 'email' },
+    { icon: MapPin, key: 'address' },
 ] as const;
 
 // 抽取 Footer Column 组件
@@ -50,44 +50,48 @@ export function Footer() {
         <footer className="bg-secondary py-12">
             <div className="container px-4 mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <FooterColumn title={t('title')}>
+                    {/* Title Section */}
+                    <FooterColumn title={t('title.name')}>
                         <p className="text-muted-foreground">
-                            {t('slogan')}
+                            {t('title.slogan')}
                         </p>
                     </FooterColumn>
 
-                    <FooterColumn title={t('quickLinks')}>
+                    {/* Quick Links Section */}
+                    <FooterColumn title={t('quickLinks.title')}>
                         <ul className="space-y-2">
-                            {QUICK_LINKS.map(({ href, translationKey }) => (
+                            {QUICK_LINKS.map(({ href, key }) => (
                                 <li key={href}>
                                     <Link
                                         href={href}
                                         className="text-muted-foreground hover:text-primary transition-colors duration-200"
                                     >
-                                        {t(translationKey)}
+                                        {t(`quickLinks.items.${key}`)}
                                     </Link>
                                 </li>
                             ))}
                         </ul>
                     </FooterColumn>
 
-                    <FooterColumn title={t('contact')}>
+                    {/* Contact Section */}
+                    <FooterColumn title={t('contact.title')}>
                         <ul className="space-y-2">
-                            {CONTACT_INFO.map(({ icon: Icon, translationKey }) => (
+                            {CONTACT_INFO.map(({ icon: Icon, key }) => (
                                 <li
-                                    key={translationKey}
+                                    key={key}
                                     className="flex items-center gap-2 text-muted-foreground"
                                 >
                                     <Icon className="h-4 w-4 flex-shrink-0" />
-                                    {t(translationKey)}
+                                    {t(`contact.items.${key}`)}
                                 </li>
                             ))}
                         </ul>
                     </FooterColumn>
 
-                    <FooterColumn title={t('followUs')}>
+                    {/* Follow Us Section */}
+                    <FooterColumn title={t('followUs.title')}>
                         <p className="text-muted-foreground">
-                            {t('wechat')}
+                            {t('followUs.items.wechat')}
                         </p>
                     </FooterColumn>
                 </div>
