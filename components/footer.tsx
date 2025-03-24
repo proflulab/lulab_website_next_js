@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-11-28 15:45:22
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-12-29 03:59:35
+ * @LastEditTime: 2025-03-24 15:01:00
  * @FilePath: /lulab_website_next_js/components/footer.tsx
  * @Description: 
  * 
@@ -12,11 +12,13 @@
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
 import { useTranslations } from 'next-intl';
+import Image from "next/image";
+import { HoverCard, HoverCardContent, HoverCardTrigger, } from "@/components/ui/hover-card";
 
 // 抽取导航链接配置
 const QUICK_LINKS = [
     { href: '/about', key: 'about' },
-    // { href: '/courses', key: 'courses' },
+    { href: '/bootcamp', key: 'bootcamp' },
     // { href: '/join', key: 'joinUs' },
 ] as const;
 
@@ -90,8 +92,30 @@ export function Footer() {
 
                     {/* Follow Us Section */}
                     <FooterColumn title={t('followUs.title')}>
-                        <p className="text-muted-foreground">
+                        {/* <p className="text-muted-foreground">
                             {t('followUs.items.wechat')}
+                        </p> */}
+                        <p className="text-muted-foreground">
+                            <HoverCard>
+                                <HoverCardTrigger asChild>
+                                    {/* <Button variant="link">{t('followUs.items.wechat')}</Button> */}
+                                    {/* {t('followUs.items.wechat')} */}
+                                    <span className="cursor-pointer">
+                                        {t('followUs.items.wechat')}
+                                    </span>
+                                </HoverCardTrigger>
+                                <HoverCardContent className="p-0 w-auto h-auto">
+                                    <div className="flex justify-center items-center">
+                                        <Image
+                                            src="/images/about/wechat-qr.jpg"
+                                            alt="WeChat QR Code"
+                                            width={200}
+                                            height={200}
+                                            className="rounded-lg"
+                                        />
+                                    </div>
+                                </HoverCardContent>
+                            </HoverCard>
                         </p>
                     </FooterColumn>
                 </div>

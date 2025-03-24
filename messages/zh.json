@@ -35,7 +35,7 @@
       "title": "快速链接",
       "items": {
         "about": "关于我们",
-        "courses": "课程体系",
+        "bootcamp": "训练营",
         "joinUs": "加入我们"
       }
     },
@@ -44,7 +44,7 @@
       "items": {
         "email": "info@lulabs.org",
         "phone": "010-12345678",
-        "address": "美国加利福尼亚州圣何塞市东布罗考路97号310-F室, 邮编95112"
+        "address": "305 Pacific View Dr, Pacifica, CA 94044, USA"
       }
     },
     "followUs": {
@@ -172,10 +172,9 @@
       ]
     }
   },
-
   "BootcampPage": {
     "Hero": {
-      "title": "在AI训练营",
+      "title": "在训练营",
       "subtitle": "启动你的未来",
       "description": "加入我们尖端训练营，掌握塑造未来的技术。无论你对AI、编程还是元宇宙感兴趣，都能找到你最适合的项目。",
       "enrollButton": "立即报名",
@@ -185,7 +184,7 @@
     "Projects": {
       "title": "训练营项目",
       "Learnmore": "了解更多",
-      "maxStudents":"最多学生人数"
+      "maxStudents": "最多学生人数"
     },
     "Projectdetails": {
       "Description": "项目描述",
@@ -206,7 +205,6 @@
         "classSize": "班级规模"
       }
     },
-
     "ErrorBoundary": {
       "message": "出现了一些问题"
     },
@@ -241,6 +239,23 @@
           "description": "重点培养企业级开发能力与项目实战经验"
         }
       ]
+    }
+  },
+  "ReturnPage": {
+    "paymentSuccess": "支付成功！",
+    "orderConfirmation": "订单确认",
+    "emailStatus": {
+      "sending": "确认邮件正在发送至：",
+      "sent": "确认邮件已发送至："
+    },
+    "orderId": "订单编号：",
+    "customerSupport": {
+      "title": "如有任何问题，请联系我们的客服团队：",
+      "email": "orders@lulabs.org"
+    },
+    "buttons": {
+      "returnHome": "返回首页",
+      "viewOrders": "查看订单"
     }
   }
 }
