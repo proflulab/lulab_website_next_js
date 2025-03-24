@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-08 03:01:48
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-06 00:20:06
+ * @LastEditTime: 2025-03-23 21:14:52
  * @FilePath: /lulab_website_next_js/app/[locale]/layout.tsx
  * @Description:
  *
@@ -38,9 +38,7 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <div className="flex flex-col min-h-screen">
-            <main>
-              {children}
-            </main>
+            {children}
           </div>
         </NextIntlClientProvider>
       </body>
