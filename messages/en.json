@@ -35,7 +35,7 @@
       "title": "Quick Links",
       "items": {
         "about": "About Us",
-        "courses": "Courses",
+        "bootcamp": "bootcamp",
         "joinUs": "Join Us"
       }
     },
@@ -44,7 +44,7 @@
       "items": {
         "email": "info@lulabs.org",
         "phone": "010-12345678",
-        "address": "97 East Brokaw Road 310-F, San Jose, CA 95112, USA"
+        "address": "305 Pacific View Dr, Pacifica, CA 94044, USA"
       }
     },
     "followUs": {
@@ -174,7 +174,7 @@
   },
   "BootcampPage": {
     "Hero": {
-      "title": "In AI Bootcamp",
+      "title": "In Lulab Bootcamp",
       "subtitle": "Launch Your Future",
       "description": "Join our cutting-edge bootcamp and master the technologies shaping the future. Whether you're interested in AI, programming, or the metaverse, you'll find the perfect project for you.",
       "enrollButton": "Enroll Now",
@@ -183,7 +183,8 @@
     },
     "Projects": {
       "title": "Bootcamp Projects",
-      "Learnmore": "Learn More"
+      "Learnmore": "Learn More",
+      "maxStudents": "maxStudents"
     },
     "Projectdetails": {
       "Description": "Project Description",
@@ -197,7 +198,7 @@
       "CurriculumSection": {
         "title": "Curriculum",
         "weeklyTopics": "Topics:",
-        "maxStudents":"Max Students"
+        "maxStudents": "Max Students"
       },
       "CourseFeatures": {
         "duration": "Duration",
@@ -239,6 +240,23 @@
           "description": "Focus on developing enterprise-level development capabilities and project experience"
         }
       ]
+    }
+  },
+  "ReturnPage": {
+    "paymentSuccess": "Payment Successful!",
+    "orderConfirmation": "Order Confirmation",
+    "emailStatus": {
+      "sending": "Confirmation email is being sent to:",
+      "sent": "Confirmation email has been sent to:"
+    },
+    "orderId": "Order ID:",
+    "customerSupport": {
+      "title": "If you have any questions, please contact our customer service team:",
+      "email": "orders@lulabs.org"
+    },
+    "buttons": {
+      "returnHome": "Return Home",
+      "viewOrders": "View Orders"
     }
   }
 }

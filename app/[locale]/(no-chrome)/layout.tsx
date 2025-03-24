@@ -19,10 +19,8 @@ export default async function CheckoutLayout({
   params: { locale: string };
 }) {
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-grow">
-        {children}
-      </main>
-    </div>
+    <main className="flex flex-col min-h-screen">
+      {children}
+    </main>
   )
 }

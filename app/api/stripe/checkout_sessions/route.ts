@@ -2,17 +2,14 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-05 17:10:51
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-06 00:22:50
- * @FilePath: /lulab_website_next_js/app/api/stripe/route.ts
+ * @LastEditTime: 2025-03-23 23:55:43
+ * @FilePath: /lulab_website_next_js/app/api/stripe/checkout_sessions/route.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia',
-});
+import { stripe } from '../../../../lib/stripe'
 
 export async function POST(request: Request) {
   try {
@@ -52,7 +49,8 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
       status: session.status,
-      customer_email: session.customer_details?.email
+      customer_email: session.customer_details?.email,
+      payment_intent: session.payment_intent,
     });
   } catch (err) {
     if (err instanceof Stripe.errors.StripeError) {
