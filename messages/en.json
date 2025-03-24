@@ -183,7 +183,8 @@
     },
     "Projects": {
       "title": "Bootcamp Projects",
-      "Learnmore": "Learn More"
+      "Learnmore": "Learn More",
+      "maxStudents": "maxStudents"
     },
     "Projectdetails": {
       "Description": "Project Description",

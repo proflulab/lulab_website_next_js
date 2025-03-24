@@ -197,7 +197,8 @@
       },
       "CurriculumSection": {
         "title": "大纲",
-        "weeklyTopics": "主题："
+        "weeklyTopics": "主题：",
+        "maxStudents": "最多学生"
       },
       "CourseFeatures": {
         "duration": "课程时长",
