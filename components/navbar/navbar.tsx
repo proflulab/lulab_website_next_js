@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-09 22:26:40
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-06 01:12:44
+ * @LastEditTime: 2025-02-06 11:47:42
  * @FilePath: /lulab_website_next_js/components/navbar/navbar.tsx
  * @Description: 
  * 
@@ -15,14 +15,16 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMediaQuery } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+import dynamic from 'next/dynamic';
 import styles from './navbar.module.css';
 import { IconLogo } from '../icon/icon_logo';
 import { IconZh } from '../icon/icon_zh';
 import { IconEn } from '../icon/icon_en';
 import { useRouter, usePathname, Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+
+const MenuIcon = dynamic(() => import('@mui/icons-material/Menu'));
+const CloseIcon = dynamic(() => import('@mui/icons-material/Close'));
 
 
 

@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:31:11
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-10 02:35:05
+ * @LastEditTime: 2025-02-06 00:34:16
  * @FilePath: /lulab_website_next_js/components/bootcamp/CurriculumSection.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -103,7 +103,7 @@ export function CurriculumSection({ curriculum }: CurriculumSectionProps) {
                                 topics: content.topics,
                                 goals: content.goals ? [content.goals] : [],
                                 description: content.description,
-                                week: `${locale === 'zh' ? `第${content.week}周` : 'Week ' + content.week}`
+                                week: `${locale === 'zh' ? `第${content.week}阶段` : 'Phase ' + content.week}`
                             }}
                             index={index}
                             t={t("weeklyTopics")}
