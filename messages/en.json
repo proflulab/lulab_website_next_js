@@ -10,7 +10,7 @@
     "login": "Login",
     "sign_up": "Sign Up",
     "log_out": "Log Out",
-    "training": "Training Camp"
+    "bootcamp": "Bootcamp"
   },
   "HomePage": {
     "concept": "It is better to learn cases than to learn theory \nIt is better to learn from cases than to do them\nIt is better to play with cases than to make cases\nPlaying alone is worse than playing together\nIt is better to gather the best and most talented teachers from all over the world to play together",
@@ -35,7 +35,7 @@
       "title": "Quick Links",
       "items": {
         "about": "About Us",
-        "courses": "Courses",
+        "bootcamp": "bootcamp",
         "joinUs": "Join Us"
       }
     },
@@ -44,7 +44,7 @@
       "items": {
         "email": "info@lulabs.org",
         "phone": "010-12345678",
-        "address": "97 East Brokaw Road 310-F, San Jose, CA 95112, USA"
+        "address": "305 Pacific View Dr, Pacifica, CA 94044, USA"
       }
     },
     "followUs": {
@@ -170,6 +170,93 @@
           "content": "The lab has gradually formed a systematic project-based learning model, collaborating with top global entrepreneurs and business leaders, cultivating numerous versatile talents with global vision and innovative practical abilities, realizing the vision of an online Stanford University."
         }
       ]
+    }
+  },
+  "BootcampPage": {
+    "Hero": {
+      "title": "In Lulab Bootcamp",
+      "subtitle": "Launch Your Future",
+      "description": "Join our cutting-edge bootcamp and master the technologies shaping the future. Whether you're interested in AI, programming, or the metaverse, you'll find the perfect project for you.",
+      "enrollButton": "Enroll Now",
+      "projectsButton": "Project List",
+      "learnMoreButton": "Learn More"
+    },
+    "Projects": {
+      "title": "Bootcamp Projects",
+      "Learnmore": "Learn More",
+      "maxStudents": "maxStudents"
+    },
+    "Projectdetails": {
+      "Description": "Project Description",
+      "Requirements": "Project Requirements",
+      "Outcomes": "Project Outcomes",
+      "Enroll": {
+        "title": "Bootcamp Enrollment",
+        "description": "Join our bootcamp and start your AI journey",
+        "button": "Enroll Now"
+      },
+      "CurriculumSection": {
+        "title": "Curriculum",
+        "weeklyTopics": "Topics:",
+        "maxStudents": "Max Students"
+      },
+      "CourseFeatures": {
+        "duration": "Duration",
+        "level": "Level",
+        "classSize": "Class Size"
+      }
+    },
+    "ErrorBoundary": {
+      "message": "Something went wrong"
+    },
+    "CTA": {
+      "question": "Ready to start your bootcamp journey?",
+      "enrollButton": "Enroll Now"
+    },
+    "Cube": {
+      "features": [
+        {
+          "title": "Industry Expert Guidance",
+          "description": "Senior mentors provide practical experience, precisely matching industry needs"
+        },
+        {
+          "title": "Project-Driven Learning",
+          "description": "Build complete products from scratch with real project orientation"
+        },
+        {
+          "title": "AI Tool Assistance",
+          "description": "Master AI-assisted development tools to improve efficiency and code quality"
+        },
+        {
+          "title": "Collaboration & Class Division",
+          "description": "Team collaboration and flexible class division ensure growth for students at different levels"
+        },
+        {
+          "title": "Flexible Courses & Q&A",
+          "description": "Real-time course adjustments with dedicated Q&A sessions to address learning challenges"
+        },
+        {
+          "title": "Career Skills Enhancement",
+          "description": "Focus on developing enterprise-level development capabilities and project experience"
+        }
+      ]
+    }
+  },
+  "ReturnPage": {
+    "paymentSuccess": "Payment Successful!",
+    "orderConfirmation": "Order Confirmation",
+    "emailStatus": {
+      "sending": "Confirmation email is being sent to:",
+      "sent": "Confirmation email has been sent to:"
+    },
+    "orderId": "Order ID:",
+    "customerSupport": {
+      "title": "If you have any questions, please contact our customer service team:",
+      "email": "orders@lulabs.org"
+    },
+    "buttons": {
+      "returnHome": "Return Home",
+      "viewOrders": "View Orders"
     }
   }
 }
