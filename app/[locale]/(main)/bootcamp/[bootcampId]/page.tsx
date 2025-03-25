@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CurriculumSection } from "@/components/bootcamp/CurriculumSection";
+import { CurriculumSection } from "@/components/admin/project/curriculum/CurriculumSection";
 import { CourseFeatures } from "@/components/bootcamp/CourseFeatures";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { useEffect, useState, Suspense } from "react";

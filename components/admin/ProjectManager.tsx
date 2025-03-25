@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
-import ProjectFormDialog from './ProjectFormDialog';
-import CurriculumFormDialog from './CurriculumFormDialog';
+import ProjectFormDialog from './project/ProjectFormDialog';
+import CurriculumFormDialog from './project/curriculum/CurriculumFormDialog';
 
 interface Project {
     id: string;
@@ -193,7 +193,7 @@ export default function ProjectManager() {
                     setShowProjectForm(false);
                     setEditingProject(null);
                 }}
-                project={editingProject}
+                project={editingProject || undefined}
                 onSubmit={handleProjectSubmit}
             />
 
@@ -270,7 +270,7 @@ export default function ProjectManager() {
                             setShowCurriculumForm(false);
                             setEditingCurriculum(null);
                         }}
-                        curriculum={editingCurriculum}
+                        curriculum={editingCurriculum || undefined}
                         projectId={selectedProject.id}
                         onSubmit={handleCurriculumSubmit}
                     />

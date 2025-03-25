@@ -2,14 +2,14 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-11-28 15:45:22
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-03-24 15:01:00
+ * @LastEditTime: 2025-03-25 18:57:07
  * @FilePath: /lulab_website_next_js/components/footer.tsx
  * @Description: 
  * 
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
  */
 
-import Link from "next/link";
+import { Link } from '@/i18n/routing';
 import { Mail, MapPin } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import Image from "next/image";
