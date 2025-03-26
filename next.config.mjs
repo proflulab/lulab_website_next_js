@@ -21,16 +21,22 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'wechatapppro-1252524126.cos.ap-shanghai.myqcloud.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "wechatapppro-1252524126.cos.ap-shanghai.myqcloud.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "*.public.blob.vercel-storage.com",
+        port: "",
+        pathname: "/**",
       },
     ],
   },
