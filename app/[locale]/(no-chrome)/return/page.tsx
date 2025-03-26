@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { redirect } from 'next/navigation';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { useTranslations } from 'next-intl';
 

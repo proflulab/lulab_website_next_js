@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:30:56
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-09 03:47:58
+ * @LastEditTime: 2025-03-25 13:31:57
  * @FilePath: /lulab_website_next_js/components/bootcamp/ProjectCard.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -80,7 +80,7 @@ export const ProjectCard = React.memo(function ProjectCard({
                 <CardFooter className="flex justify-between items-center flex-shrink-0">
                     <span className="text-sm text-muted-foreground">{t("maxStudents")}: {maxStudents}</span>
                     <Button onClick={handleClick} variant="default">
-                    {t("Learnmore")}
+                        {t("Learnmore")}
                     </Button>
                 </CardFooter>
             </Card>
