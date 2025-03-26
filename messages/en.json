@@ -1,4 +1,11 @@
 {
+  "Login": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Sign In",
+    "error": "Login failed: {error}"
+  },
   "AppNav": {
     "logoText": "LU LAB",
     "home": "Home",

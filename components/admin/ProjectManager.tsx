@@ -9,6 +9,7 @@ import { useRouter } from '@/i18n/routing';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { useToast } from "@/hooks/use-toast"
 import { Project } from '@/types';
+import { LoadingSpinner } from "@/components/LoadingSpinner";
 
 
 function ProjectCard({
@@ -178,7 +179,7 @@ export default function ProjectManager() {
 
             {loading ? (
                 <div className="flex justify-center py-8">
-                    <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent"></div>
+                    <LoadingSpinner />
                 </div>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
