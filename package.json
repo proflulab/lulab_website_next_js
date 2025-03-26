@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/neon-adapter": "^1.8.0",
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "@mui/icons-material": "^6.1.8",
