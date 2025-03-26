@@ -10,7 +10,7 @@
  */
 
 
-import { goodsDetail } from "../../../../utils/xiaoe";
+import { goodsDetail } from "../../../../lib/xiaoe";
 
 
 const XIAOE_GOOD_TYPE = process.env.XIAOE_GOOD_TYPE;
