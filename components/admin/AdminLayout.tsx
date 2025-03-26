@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-03-25 13:03:41
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-03-25 19:30:20
+ * @LastEditTime: 2025-03-26 14:15:47
  * @FilePath: /lulab_website_next_js/components/admin/AdminLayout.tsx
  * @Description: 
  * 
@@ -14,6 +14,8 @@ import React from 'react';
 import { usePathname, Link } from '@/i18n/routing';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { LayoutDashboard, Users, FolderKanban, Settings, User, LogOut } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -24,6 +26,7 @@ interface AdminLayoutProps {
 
 export default function AdminLayout({ children }: AdminLayoutProps) {
     const pathname = usePathname();
+    const router = useRouter();
 
     const NAV_ITEMS = [
         { name: 'Dashboard', href: '/admin', icon: <LayoutDashboard className="h-5 w-5 mr-2" /> },
@@ -38,6 +41,15 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         return currentPath.startsWith(targetHref);
     };
     const activeItem = NAV_ITEMS.find(item => isActivePath(pathname, item.href));
+
+    const handleLogout = async () => {
+        try {
+            await signOut({ redirect: false });
+            router.push('/login');
+        } catch (error) {
+            console.error('Logout failed:', error);
+        }
+    };
 
     return (
         <div className="min-h-screen bg-background grid grid-cols-[256px_1fr] gap-4 p-4">
@@ -73,7 +85,6 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                     <div className="flex justify-between items-center">
                         <div className="text-lg font-semibold">
                             {activeItem?.name}
-                            {/* Management */}
                         </div>
 
                         <DropdownMenu>
@@ -95,7 +106,11 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                                     <span>Settings</span>
                                 </DropdownMenuItem>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem aria-label="Log out">
+                                <DropdownMenuItem
+                                    onClick={handleLogout}
+                                    className="text-red-600 hover:text-red-700 cursor-pointer"
+                                    aria-label="Log out"
+                                >
                                     <LogOut className="mr-2 h-4 w-4" />
                                     <span>Logout</span>
                                 </DropdownMenuItem>

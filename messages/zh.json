@@ -1,4 +1,11 @@
 {
+  "Login": {
+    "title": "登录",
+    "username": "用户名",
+    "password": "密码",
+    "submit": "登录",
+    "error": "登录失败：{error}"
+  },
   "AppNav": {
     "logoText": "陆向谦实验室",
     "home": "首页",
