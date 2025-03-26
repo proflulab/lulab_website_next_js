@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-03-25 12:23:13
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-03-25 19:01:55
+ * @LastEditTime: 2025-03-26 12:13:39
  * @FilePath: /lulab_website_next_js/components/admin/project/curriculum/CurriculumFormDialog.tsx
  * @Description: 
  * 
@@ -18,16 +18,7 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 import CurriculumForm from './CurriculumForm';
-
-interface Curriculum {
-    id?: string;
-    project_id: string;
-    title: string;
-    description: string;
-    week: number;
-    topics: string[];
-    goals: string[] | null;
-}
+import { Curriculum } from '@/types';
 
 interface CurriculumFormDialogProps {
     isOpen: boolean;

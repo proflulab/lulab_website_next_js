@@ -1,16 +1,31 @@
+/*
+ * @Author: 杨仕明 shiming.y@qq.com
+ * @Date: 2025-03-25 13:07:24
+ * @LastEditors: 杨仕明 shiming.y@qq.com
+ * @LastEditTime: 2025-03-25 21:49:21
+ * @FilePath: /lulab_website_next_js/app/[locale]/(no-chrome)/admin/settings/page.tsx
+ * @Description: 
+ * 
+ * Copyright (c) 2025 by ${git_name_email}, All Rights Reserved. 
+ */
 'use client';
 
 import React from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Button } from "@/components/ui/button";
+// import { Input } from "@/components/ui/input";
+// import { Textarea } from "@/components/ui/textarea";
 
 export default function SettingsPage() {
     return (
         <AdminLayout>
-            <div className="space-y-6">
+            <div style={{ padding: '2rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <h2>待开发</h2>
+                </div>
+            </div>
+            {/* <div className="space-y-6">
                 <Card>
                     <CardHeader>
                         <CardTitle>General Settings</CardTitle>
@@ -71,7 +86,7 @@ export default function SettingsPage() {
                         </form>
                     </CardContent>
                 </Card>
-            </div>
+            </div> */}
         </AdminLayout>
     );
 }

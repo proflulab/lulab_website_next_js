@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+// import React, { useState } from 'react';
 // import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 // import { Button } from "@/components/ui/button";
 // import { Badge } from "@/components/ui/badge";
@@ -9,99 +10,99 @@ import React, { useState } from 'react';
 // // import { Textarea } from "@/components/ui/textarea";
 // import { Search, UserPlus, Mail, Edit, Trash2 } from 'lucide-react';
 
-interface User {
-    id: string;
-    name: string;
-    email: string;
-    role: string;
-    status: string;
-    created_at: string;
-    projects?: string[];
-}
+// interface User {
+//     id: string;
+//     name: string;
+//     email: string;
+//     role: string;
+//     status: string;
+//     created_at: string;
+//     projects?: string[];
+// }
 
 export default function UserManager() {
-    const [users, setUsers] = useState<User[]>([
-        // Sample data - in a real app, this would come from an API
-        { id: '1', name: 'John Doe', email: 'john@example.com', role: 'student', status: 'active', created_at: '2023-01-15', projects: ['Web Development', 'Mobile App'] },
-        { id: '2', name: 'Jane Smith', email: 'jane@example.com', role: 'student', status: 'active', created_at: '2023-02-20', projects: ['Data Science'] },
-        { id: '3', name: 'Robert Johnson', email: 'robert@example.com', role: 'instructor', status: 'active', created_at: '2022-11-05' },
-        { id: '4', name: 'Emily Davis', email: 'emily@example.com', role: 'student', status: 'inactive', created_at: '2023-03-10', projects: ['Game Development'] },
-        { id: '5', name: 'Michael Wilson', email: 'michael@example.com', role: 'admin', status: 'active', created_at: '2022-10-01' },
-    ]);
+    // const [users, setUsers] = useState<User[]>([
+    //     // Sample data - in a real app, this would come from an API
+    //     { id: '1', name: 'John Doe', email: 'john@example.com', role: 'student', status: 'active', created_at: '2023-01-15', projects: ['Web Development', 'Mobile App'] },
+    //     { id: '2', name: 'Jane Smith', email: 'jane@example.com', role: 'student', status: 'active', created_at: '2023-02-20', projects: ['Data Science'] },
+    //     { id: '3', name: 'Robert Johnson', email: 'robert@example.com', role: 'instructor', status: 'active', created_at: '2022-11-05' },
+    //     { id: '4', name: 'Emily Davis', email: 'emily@example.com', role: 'student', status: 'inactive', created_at: '2023-03-10', projects: ['Game Development'] },
+    //     { id: '5', name: 'Michael Wilson', email: 'michael@example.com', role: 'admin', status: 'active', created_at: '2022-10-01' },
+    // ]);
 
-    const [searchTerm, setSearchTerm] = useState('');
-    const [showUserForm, setShowUserForm] = useState(false);
-    const [editingUser, setEditingUser] = useState<User | null>(null);
-    const [formData, setFormData] = useState<Partial<User>>({
-        name: '',
-        email: '',
-        role: 'student',
-        status: 'active',
-    });
+    // const [searchTerm, setSearchTerm] = useState('');
+    // const [showUserForm, setShowUserForm] = useState(false);
+    // const [editingUser, setEditingUser] = useState<User | null>(null);
+    // const [formData, setFormData] = useState<Partial<User>>({
+    //     name: '',
+    //     email: '',
+    //     role: 'student',
+    //     status: 'active',
+    // });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
-    };
+    // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    //     const { name, value } = e.target;
+    //     setFormData(prev => ({
+    //         ...prev,
+    //         [name]: value
+    //     }));
+    // };
 
-    const handleSubmit = () => {
-        if (editingUser) {
-            // Update existing user
-            setUsers(prev => prev.map(user =>
-                user.id === editingUser.id ? { ...user, ...formData } : user
-            ));
-        } else {
-            // Add new user
-            const newUser: User = {
-                id: Date.now().toString(),
-                name: formData.name || '',
-                email: formData.email || '',
-                role: formData.role || 'student',
-                status: formData.status || 'active',
-                created_at: new Date().toISOString().split('T')[0],
-                projects: [],
-            };
-            setUsers(prev => [...prev, newUser]);
-        }
-        setShowUserForm(false);
-        resetForm();
-    };
+    // const handleSubmit = () => {
+    //     if (editingUser) {
+    //         // Update existing user
+    //         setUsers(prev => prev.map(user =>
+    //             user.id === editingUser.id ? { ...user, ...formData } : user
+    //         ));
+    //     } else {
+    //         // Add new user
+    //         const newUser: User = {
+    //             id: Date.now().toString(),
+    //             name: formData.name || '',
+    //             email: formData.email || '',
+    //             role: formData.role || 'student',
+    //             status: formData.status || 'active',
+    //             created_at: new Date().toISOString().split('T')[0],
+    //             projects: [],
+    //         };
+    //         setUsers(prev => [...prev, newUser]);
+    //     }
+    //     setShowUserForm(false);
+    //     resetForm();
+    // };
 
-    const handleEdit = (user: User) => {
-        setEditingUser(user);
-        setFormData({
-            name: user.name,
-            email: user.email,
-            role: user.role,
-            status: user.status,
-        });
-        setShowUserForm(true);
-    };
+    // const handleEdit = (user: User) => {
+    //     setEditingUser(user);
+    //     setFormData({
+    //         name: user.name,
+    //         email: user.email,
+    //         role: user.role,
+    //         status: user.status,
+    //     });
+    //     setShowUserForm(true);
+    // };
 
-    const handleDelete = (userId: string) => {
-        if (confirm('Are you sure you want to delete this user?')) {
-            setUsers(prev => prev.filter(user => user.id !== userId));
-        }
-    };
+    // const handleDelete = (userId: string) => {
+    //     if (confirm('Are you sure you want to delete this user?')) {
+    //         setUsers(prev => prev.filter(user => user.id !== userId));
+    //     }
+    // };
 
-    const resetForm = () => {
-        setEditingUser(null);
-        setFormData({
-            name: '',
-            email: '',
-            role: 'student',
-            status: 'active',
-        });
-    };
+    // const resetForm = () => {
+    //     setEditingUser(null);
+    //     setFormData({
+    //         name: '',
+    //         email: '',
+    //         role: 'student',
+    //         status: 'active',
+    //     });
+    // };
 
-    const filteredUsers = users.filter(user =>
-        user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.role.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    // const filteredUsers = users.filter(user =>
+    //     user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    //     user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    //     user.role.toLowerCase().includes(searchTerm.toLowerCase())
+    // );
 
     return (
         <div style={{ padding: '2rem' }}>

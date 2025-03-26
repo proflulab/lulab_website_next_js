@@ -5,21 +5,7 @@ import { Card, CardContent, CardFooter } from "../../ui/card";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
 import { Textarea } from "../../ui/textarea";
-
-interface Project {
-    id?: string;
-    title: string;
-    subtitle: string;
-    category: string;
-    image: string;
-    duration: string;
-    level: string;
-    max_students: number;
-    description: string;
-    slug: string;
-    prerequisites: string[];
-    outcomes: string[];
-}
+import { Project } from '@/types';
 
 interface ProjectFormProps {
     project?: Project;

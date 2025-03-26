@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-03-24 00:00:00
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-03-24 00:00:00
+ * @LastEditTime: 2025-03-26 01:11:15
  * @FilePath: /lulab_website_next_js/app/api/curriculums/route.ts
  */
 
@@ -45,7 +45,14 @@ export async function POST(request: Request) {
 
         const result = await sql`
       INSERT INTO curriculums (project_id, title, description, week, topics, goals)
-      VALUES (${project_id}, ${title}, ${description}, ${week}, ${topics}, ${goals})
+      VALUES (
+        ${project_id}, 
+        ${title}, 
+        ${description}, 
+        ${week}, 
+        ${JSON.stringify(topics)},
+        ${JSON.stringify(goals)}
+      )
       RETURNING *
     `;
 
@@ -67,8 +74,8 @@ export async function PUT(request: Request) {
       SET title = ${title},
           description = ${description},
           week = ${week},
-          topics = ${topics},
-          goals = ${goals}
+          topics =  ${JSON.stringify(topics)},
+          goals = ${JSON.stringify(goals)}
       WHERE id = ${id}
       RETURNING *
     `;

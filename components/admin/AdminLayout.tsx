@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-03-25 13:03:41
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-03-25 18:57:22
+ * @LastEditTime: 2025-03-25 19:30:20
  * @FilePath: /lulab_website_next_js/components/admin/AdminLayout.tsx
  * @Description: 
  * 
@@ -30,6 +30,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         { name: 'Projects', href: '/admin/projects', icon: <FolderKanban className="h-5 w-5 mr-2" /> },
         { name: 'Users', href: '/admin/users', icon: <Users className="h-5 w-5 mr-2" /> },
         { name: 'Settings', href: '/admin/settings', icon: <Settings className="h-5 w-5 mr-2" /> },
+        // { name: 'Projects/Curriculum', href: '/admin/projects/curriculum', icon: <FolderKanban className="h-5 w-5 mr-2" /> },
     ];
 
     const isActivePath = (currentPath: string, targetHref: string) => {

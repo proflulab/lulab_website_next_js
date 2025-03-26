@@ -5,16 +5,7 @@ import { Card, CardContent, CardFooter } from "../../../ui/card";
 import { Button } from "../../../ui/button";
 import { Input } from "../../../ui/input";
 import { Textarea } from "../../../ui/textarea";
-
-interface Curriculum {
-    id?: string;
-    project_id: string;
-    title: string;
-    description: string;
-    week: number;
-    topics: string[];
-    goals: string[] | null;
-}
+import { Curriculum } from '@/types';
 
 interface CurriculumFormProps {
     curriculum?: Curriculum;

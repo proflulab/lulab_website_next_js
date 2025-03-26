@@ -1,3 +1,14 @@
+/*
+ * @Author: 杨仕明 shiming.y@qq.com
+ * @Date: 2025-03-25 12:23:13
+ * @LastEditors: 杨仕明 shiming.y@qq.com
+ * @LastEditTime: 2025-03-26 12:12:34
+ * @FilePath: /lulab_website_next_js/components/admin/project/ProjectFormDialog.tsx
+ * @Description: 
+ * 
+ * Copyright (c) 2025 by ${git_name_email}, All Rights Reserved. 
+ */
+
 'use client';
 
 import React from 'react';
@@ -8,21 +19,8 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 import ProjectForm from './ProjectForm';
+import { Project } from '@/types';
 
-interface Project {
-    id?: string;
-    title: string;
-    subtitle: string;
-    category: string;
-    image: string;
-    duration: string;
-    level: string;
-    max_students: number;
-    description: string;
-    slug: string;
-    prerequisites: string[];
-    outcomes: string[];
-}
 
 interface ProjectFormDialogProps {
     isOpen: boolean;
