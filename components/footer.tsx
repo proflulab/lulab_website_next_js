@@ -92,31 +92,18 @@ export function Footer() {
 
                     {/* Follow Us Section */}
                     <FooterColumn title={t('followUs.title')}>
-                        {/* <p className="text-muted-foreground">
-                            {t('followUs.items.wechat')}
-                        </p> */}
-                        <p className="text-muted-foreground">
-                            <HoverCard>
-                                <HoverCardTrigger asChild>
-                                    {/* <Button variant="link">{t('followUs.items.wechat')}</Button> */}
-                                    {/* {t('followUs.items.wechat')} */}
-                                    <span className="cursor-pointer">
-                                        {t('followUs.items.wechat')}
-                                    </span>
-                                </HoverCardTrigger>
-                                <HoverCardContent className="p-0 w-auto h-auto">
-                                    <div className="flex justify-center items-center">
-                                        <Image
-                                            src="/images/about/wechat-qr.jpg"
-                                            alt="WeChat QR Code"
-                                            width={200}
-                                            height={200}
-                                            className="rounded-lg"
-                                        />
-                                    </div>
-                                </HoverCardContent>
-                            </HoverCard>
-                        </p>
+                        <div className="flex flex-col items-center gap-2">
+                            <Image
+                                src="/images/about/wechat-qr.jpg"
+                                alt="WeChat QR Code"
+                                width={200}
+                                height={200}
+                                className="rounded-lg"
+                            />
+                            <p className="text-muted-foreground">
+                                {t('followUs.items.wechat')}
+                            </p>
+                        </div>
                     </FooterColumn>
                 </div>
 
