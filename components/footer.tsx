@@ -66,7 +66,7 @@ export function Footer() {
                                 <li key={href}>
                                     <Link
                                         href={href}
-                                        className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                                        className="text-muted-foreground hover:text-primary transition-colors duration-200
                                     >
                                         {t(`quickLinks.items.${key}`)}
                                     </Link>
