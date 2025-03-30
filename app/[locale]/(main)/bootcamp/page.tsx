@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:28:21
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-11 23:00:06
+ * @LastEditTime: 2025-03-31 00:19:21
  * @FilePath: /lulab_website_next_js/app/[locale]/(main)/bootcamp/page.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -16,6 +16,7 @@ import { ChevronRight, } from "lucide-react";
 import React, { useEffect, useState } from 'react';
 import Cube from '@/components/bootcamp/Cube';
 import { useTranslations } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 
 
@@ -35,15 +36,17 @@ interface Project {
 
 export default function BootcampPage() {
     const t = useTranslations('BootcampPage');
+    const searchParams = useSearchParams();
     const fadeIn = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
     };
 
     const projectsSectionRef = React.useRef<HTMLDivElement>(null);
-    const [showFixedNav, setShowFixedNav] = React.useState(false);
+    const [showFixedNav, setShowFixedNav] = useState(false);
+    const [channelCode, setChannelCode] = useState<string>(''); // 默认渠道代码为空
 
-    React.useEffect(() => {
+    useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
             setShowFixedNav(scrollPosition > 400); // 当滚动超过400px时显示
@@ -52,6 +55,15 @@ export default function BootcampPage() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // 单独处理渠道代码的 useEffect
+    useEffect(() => {
+        // 检查URL中是否有渠道参数
+        const channelParam = searchParams.get('channel');
+        if (channelParam) {
+            setChannelCode(channelParam);
+        }
+    }, [searchParams]);
 
     const scrollToProjects = () => {
         projectsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -73,7 +85,6 @@ export default function BootcampPage() {
                 setLoading(false);
             }
         }
-
         fetchProjects();
     }, []);
 
@@ -127,7 +138,7 @@ export default function BootcampPage() {
                             transition={{ delay: 0.4, duration: 0.6 }}
                         >
                             <a
-                                href="/checkout"
+                                href={channelCode ? `/checkout?channel=${channelCode}` : `/checkout`}
                                 className="group inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-[#ff9300] to-[#ff0099] text-white hover:from-[#ff8c00] hover:to-[#ff00b5] transition-all shadow-lg hover:shadow-xl hover:scale-105 font-semibold text-lg relative z-10"
                             >
                                 {t("Hero.enrollButton")}
@@ -192,7 +203,7 @@ export default function BootcampPage() {
                         <span className="text-sm text-muted-foreground">{t("CTA.question")}</span>
                     </div>
                     <a
-                        href="/checkout"
+                        href={channelCode ? `/checkout?channel=${channelCode}` : `/checkout`}
                         className="group inline-flex items-center px-8 py-3 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all font-medium shadow-lg hover:shadow-xl hover:scale-105 sm:px-4 sm:py-2"
                     >
                         {t("CTA.enrollButton")}
