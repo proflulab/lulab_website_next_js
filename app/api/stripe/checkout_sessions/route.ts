@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-05 17:10:51
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-03-30 01:57:32
+ * @LastEditTime: 2025-03-31 02:50:03
  * @FilePath: /lulab_website_next_js/app/api/stripe/checkout_sessions/route.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -13,7 +13,6 @@ import { stripe } from '../../../../lib/stripe'
 
 export async function POST(request: Request) {
   try {
-
     const body = await request.json();
     const session = await stripe.checkout.sessions.create({
       ui_mode: 'embedded',
@@ -28,6 +27,14 @@ export async function POST(request: Request) {
       },
       metadata: {
         affiliate: body.channelCode,
+      },
+      consent_collection: {
+        terms_of_service: 'required',
+      },
+      custom_text: {
+        terms_of_service_acceptance: {
+          message: `I agree to the [Terms of Service](${request.headers.get('origin')}/agreement.html)`,
+        },
       },
       mode: 'payment',
       return_url: `${request.headers.get('origin')}/return?session_id={CHECKOUT_SESSION_ID}`,

@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-11-03 04:21:48
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2024-11-03 04:25:58
+ * @LastEditTime: 2025-03-31 02:23:13
  * @FilePath: /lulab_website_next_js/app/[locale]/agreement.html/page.tsx
  * @Description: 
  * 
@@ -15,8 +15,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-
-
 
 
 const AgreeMent: React.FC = () => {

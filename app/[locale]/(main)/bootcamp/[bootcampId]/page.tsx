@@ -12,6 +12,7 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { useEffect, useState, Suspense } from "react";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { useTranslations } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 
 
 // 单个课程内容的接口
@@ -46,12 +47,14 @@ export default function ProjectDetails() {
     const bootcampId = params.bootcampId as string;
     const router = useRouter();
     const t = useTranslations('BootcampPage');
+    const searchParams = useSearchParams();
 
     // const project = getProjectById(bootcampId);
 
     const [project, setProject] = useState<ProjectDetail | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
+    const [channelCode, setChannelCode] = useState<string>(''); // 默认渠道代码为空
 
     useEffect(() => {
         async function fetchProject() {
@@ -74,6 +77,15 @@ export default function ProjectDetails() {
 
         fetchProject();
     }, [bootcampId]);
+
+    // 单独处理渠道代码的 useEffect
+    useEffect(() => {
+        // 检查URL中是否有渠道参数
+        const channelParam = searchParams.get('channel');
+        if (channelParam) {
+            setChannelCode(channelParam);
+        }
+    }, [searchParams]);
 
     if (loading) {
         return <div className="flex justify-center p-8"><LoadingSpinner /></div>;
@@ -206,7 +218,7 @@ export default function ProjectDetails() {
                                         className="w-full text-lg font-semibold"
                                         size="lg"
                                         onClick={() => {
-                                            router.push('/checkout');
+                                            router.push(channelCode ? `/checkout?channel=${channelCode}` : '/checkout');
                                         }}
                                     >
                                         {t('Projectdetails.Enroll.button')}
