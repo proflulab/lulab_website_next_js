@@ -16,7 +16,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { LayoutDashboard, Users, FolderKanban, Settings, User, LogOut } from 'lucide-react';
+import { LayoutDashboard, Users, FolderKanban, Settings, User, LogOut, Share2 } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
@@ -32,6 +32,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         { name: 'Dashboard', href: '/admin', icon: <LayoutDashboard className="h-5 w-5 mr-2" /> },
         { name: 'Projects', href: '/admin/projects', icon: <FolderKanban className="h-5 w-5 mr-2" /> },
         { name: 'Users', href: '/admin/users', icon: <Users className="h-5 w-5 mr-2" /> },
+        { name: 'Channels', href: '/admin/channels', icon: <Share2 className="h-5 w-5 mr-2" /> },
         { name: 'Settings', href: '/admin/settings', icon: <Settings className="h-5 w-5 mr-2" /> },
         // { name: 'Projects/Curriculum', href: '/admin/projects/curriculum', icon: <FolderKanban className="h-5 w-5 mr-2" /> },
     ];
