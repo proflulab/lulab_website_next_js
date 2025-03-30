@@ -16,3 +16,38 @@ CREATE TABLE users (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+
+-- 创建渠道表
+CREATE TABLE channels (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  code VARCHAR(50) UNIQUE NOT NULL,
+  description TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- 创建订单表
+CREATE TABLE orders (
+  id BIGSERIAL PRIMARY KEY,
+  order_no UUID NOT NULL DEFAULT gen_random_uuid(),
+
+  source VARCHAR(50) NOT NULL, -- stripe, paypal, wechat 等订单来源
+  external_order_id VARCHAR(255), -- 外部平台的订单ID
+  payment_session_id VARCHAR(255) UNIQUE NOT NULL, -- 通用支付会话ID
+  payment_intent_id VARCHAR(255), -- 通用支付意图ID
+
+  channel_id INTEGER REFERENCES channels(id),
+  customer_email VARCHAR(255),
+
+  amount INTEGER NOT NULL,
+  currency VARCHAR(3) NOT NULL DEFAULT 'cny',
+  status VARCHAR(50) NOT NULL,
+
+  metadata JSONB, -- 存储各支付系统额外数据
+
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+
+  UNIQUE (source, external_order_id) -- 通过来源和外部订单ID确保唯一
+);

@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-05 17:10:51
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-03-25 12:08:36
+ * @LastEditTime: 2025-03-30 01:57:32
  * @FilePath: /lulab_website_next_js/app/api/stripe/checkout_sessions/route.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -14,7 +14,7 @@ import { stripe } from '../../../../lib/stripe'
 export async function POST(request: Request) {
   try {
 
-    // const body = await request.json();
+    const body = await request.json();
     const session = await stripe.checkout.sessions.create({
       ui_mode: 'embedded',
       line_items: [
@@ -25,6 +25,9 @@ export async function POST(request: Request) {
       ],
       phone_number_collection: {
         enabled: true,
+      },
+      metadata: {
+        affiliate: body.channelCode,
       },
       mode: 'payment',
       return_url: `${request.headers.get('origin')}/return?session_id={CHECKOUT_SESSION_ID}`,

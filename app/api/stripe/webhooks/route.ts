@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server'
 import { headers } from 'next/headers'
+import { neon } from '@neondatabase/serverless';
 
-import { stripe } from '../../../../lib/stripe'
+const sql = neon(process.env.DATABASE_URL as string);
+import { stripe, Stripe } from '../../../../lib/stripe'
 
 export async function POST(request: Request) {
   let event
@@ -33,6 +35,9 @@ export async function POST(request: Request) {
         case 'checkout.session.completed':
           data = event.data.object
           console.log(`CheckoutSession status: ${data.payment_status}`)
+
+          // 处理支付成功事件，保存订单信息
+          await handleCheckoutSessionCompleted(data)
           break
         default:
           throw new Error(`Unhandled event: ${event.type}`)
@@ -47,4 +52,57 @@ export async function POST(request: Request) {
   }
   // Return a response to acknowledge receipt of the event.
   return NextResponse.json({ message: 'Received' }, { status: 200 })
+}
+
+// 处理结账会话完成事件
+
+
+async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) {
+  try {
+    const channelCode = session.metadata?.affiliate;
+    let channelId = null;
+
+    // 如果有渠道代码，查找对应的渠道ID
+    if (channelCode) {
+      const channelResult = await sql`
+        SELECT id FROM channels WHERE code = ${channelCode}
+      `;
+
+      if (channelResult.length > 0) {
+        channelId = channelResult[0].id;
+      }
+    }
+
+    // 保存订单信息到数据库
+    await sql`
+      INSERT INTO orders (
+        source,
+        external_order_id,
+        payment_session_id,
+        payment_intent_id,
+        channel_id,
+        customer_email,
+        amount,
+        currency,
+        status,
+        metadata
+      ) VALUES (
+        'stripe',
+        ${session.id},
+        ${session.id},
+        ${session.payment_intent},
+        ${channelId},
+        ${session.customer_details?.email},
+        ${session.amount_total},
+        ${session.currency},
+        ${session.status},
+        ${JSON.stringify(session)}
+      )
+    `;
+
+    console.log(`Order saved for session ${session.id}`);
+  } catch (error) {
+    console.error('Error saving order:', error);
+    throw error;
+  }
 }
