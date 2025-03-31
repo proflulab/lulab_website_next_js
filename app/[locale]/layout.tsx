@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-08 03:01:48
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-03-23 21:14:52
+ * @LastEditTime: 2025-03-31 05:34:18
  * @FilePath: /lulab_website_next_js/app/[locale]/layout.tsx
  * @Description:
  *
@@ -13,6 +13,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import React from 'react';
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata = {
   title: 'Lu Lab',
@@ -39,6 +40,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <div className="flex flex-col min-h-screen">
             {children}
+            <Toaster />
           </div>
         </NextIntlClientProvider>
       </body>
