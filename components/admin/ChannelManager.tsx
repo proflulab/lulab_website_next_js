@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { Copy, Trash2, Plus, ExternalLink } from 'lucide-react';
 import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { useToast } from "@/hooks/use-toast";
 
 interface Channel {
     id: number;
@@ -132,14 +133,24 @@ export default function ChannelManager() {
         }
     };
 
+    const { toast } = useToast();
+
     const copyToClipboard = (text: string) => {
         navigator.clipboard.writeText(text);
-        // 可以添加一个提示，表示已复制
+        toast({
+            title: "复制成功",
+            description: "链接已复制到剪贴板"
+        });
     };
 
     const generateCheckoutUrl = (channelCode: string) => {
         const baseUrl = window.location.origin;
         return `${baseUrl}/checkout?channel=${channelCode}`;
+    };
+
+    const generateBootcampUrl = (channelCode: string) => {
+        const baseUrl = window.location.origin;
+        return `${baseUrl}/bootcamp?channel=${channelCode}`;
     };
 
     return (
@@ -243,6 +254,14 @@ export default function ChannelManager() {
 
                             <div className="bg-gray-50 p-3 rounded-md mb-4">
                                 <div className="flex justify-between items-center">
+                                    <span className="text-xs text-gray-500">训练营推广链接:</span>
+                                    <Button variant="ghost" size="icon" onClick={() => copyToClipboard(generateBootcampUrl(channel.code))}>
+                                        <Copy className="h-3 w-3" />
+                                    </Button>
+                                </div>
+                                <p className="text-xs text-gray-700 truncate">{generateBootcampUrl(channel.code)}</p>
+
+                                <div className="flex justify-between items-center">
                                     <span className="text-xs text-gray-500">支付推广链接:</span>
                                     <Button variant="ghost" size="icon" onClick={() => copyToClipboard(generateCheckoutUrl(channel.code))}>
                                         <Copy className="h-3 w-3" />
@@ -250,6 +269,7 @@ export default function ChannelManager() {
                                 </div>
                                 <p className="text-xs text-gray-700 truncate">{generateCheckoutUrl(channel.code)}</p>
                             </div>
+
 
                             <div className="flex justify-between items-center">
                                 <div>
