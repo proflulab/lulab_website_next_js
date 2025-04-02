@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-11-28 18:46:39
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-01-10 03:28:00
+ * @LastEditTime: 2025-04-02 00:17:21
  * @FilePath: /lulab_website_next_js/components/sections/Hero.tsx
  * @Description: 
  * 
@@ -22,7 +22,7 @@ import { useRouter } from '@/i18n/routing';
 const BackgroundImage = () => (
   <div className="absolute inset-0 z-0">
     <Image
-      src="/images/leadership.jpg"
+      src="/images/leadership.webp"
       alt="Education Background"
       fill
       className="object-cover brightness-75 transform scale-105 animate-ken-burns"
