@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2024-09-10 22:36:03
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-03-31 03:20:27
+ * @LastEditTime: 2025-04-01 22:23:07
  * @FilePath: /lulab_website_next_js/middleware.ts
  * @Description: 参考材料https://next-intl.dev/docs/routing/middleware#example-auth-js
  * 
@@ -21,6 +21,7 @@ const publicPages = [
     '/bootcamp',
     '/about',
     '/checkout',
+    '/agreement.html',
 ];
 
 // 定义允许访问子路径的页面
