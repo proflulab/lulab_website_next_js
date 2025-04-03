@@ -93,16 +93,22 @@ export function Footer() {
                     {/* Follow Us Section */}
                     <FooterColumn title={t('followUs.title')}>
                         <div className="flex flex-col items-center gap-2">
-                            <Image
-                                src="/images/about/wechat-qr.jpg"
-                                alt="WeChat QR Code"
-                                width={200}
-                                height={200}
-                                className="rounded-lg"
-                            />
-                            <p className="text-muted-foreground">
-                                {t('followUs.items.wechat')}
-                            </p>
+                            <HoverCard>
+                                <HoverCardTrigger>
+                                    <p className="text-muted-foreground cursor-pointer hover:text-primary transition-colors">
+                                        {t('followUs.items.wechat')}
+                                    </p>
+                                </HoverCardTrigger>
+                                <HoverCardContent className="p-2">
+                                    <Image
+                                        src="/images/about/wechat-qr.jpg"
+                                        alt="WeChat QR Code"
+                                        width={200}
+                                        height={200}
+                                        className="rounded-lg"
+                                    />
+                                </HoverCardContent>
+                            </HoverCard>
                         </div>
                     </FooterColumn>
                 </div>
