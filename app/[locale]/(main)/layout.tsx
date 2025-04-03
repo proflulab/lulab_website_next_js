@@ -13,7 +13,7 @@ import { Footer } from '@/components/footer';
 export default function MainLayout({
     children,
 }: {
-    children: React.ReactNode
+    children: import("react").ReactNode
 }) {
     return (
         <main>
