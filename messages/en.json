@@ -57,7 +57,8 @@
     "followUs": {
       "title": "Follow or Contact Us",
       "items": {
-        "wechat": "WeChat Official Account: Lu Lab"
+        "wechat": "WeChat Public",
+        "qywork": "Contact Us"
       }
     },
     "copyright": " {year} Lu Lab. All rights reserved."

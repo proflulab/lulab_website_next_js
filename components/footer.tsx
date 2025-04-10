@@ -103,7 +103,7 @@ export function Footer() {
                                         height={96}
                                         className="rounded-sm"
                                     />
-                                    <p className="text-center text-xs text-gray-600 mt-1.5">扫码关注微信公众号</p>
+                                    <p className="text-center text-xs text-gray-600 mt-1.5">{t('followUs.items.wechat')}</p>
                                 </div>
                                 
                                 {/* 小程序二维码 */}
@@ -115,7 +115,7 @@ export function Footer() {
                                         height={96}
                                         className="rounded-sm"
                                     />
-                                    <p className="text-center text-xs text-gray-600 mt-1.5">扫码联系我们</p>
+                                    <p className="text-center text-xs text-gray-600 mt-1.5">{t('followUs.items.qywork')}</p>
                                 </div>
                             </div>
                         </div>
