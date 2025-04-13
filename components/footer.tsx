@@ -13,7 +13,6 @@ import { Link } from '@/i18n/routing';
 import { Mail, MapPin } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import Image from "next/image";
-import { HoverCard, HoverCardContent, HoverCardTrigger, } from "@/components/ui/hover-card";
 
 // 抽取导航链接配置
 const QUICK_LINKS = [
