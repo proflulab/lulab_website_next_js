@@ -13,7 +13,6 @@ import { Link } from '@/i18n/routing';
 import { Mail, MapPin } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import Image from "next/image";
-import { HoverCard, HoverCardContent, HoverCardTrigger, } from "@/components/ui/hover-card";
 
 // 抽取导航链接配置
 const QUICK_LINKS = [
@@ -92,31 +91,33 @@ export function Footer() {
 
                     {/* Follow Us Section */}
                     <FooterColumn title={t('followUs.title')}>
-                        {/* <p className="text-muted-foreground">
-                            {t('followUs.items.wechat')}
-                        </p> */}
-                        <p className="text-muted-foreground">
-                            <HoverCard>
-                                <HoverCardTrigger asChild>
-                                    {/* <Button variant="link">{t('followUs.items.wechat')}</Button> */}
-                                    {/* {t('followUs.items.wechat')} */}
-                                    <span className="cursor-pointer">
-                                        {t('followUs.items.wechat')}
-                                    </span>
-                                </HoverCardTrigger>
-                                <HoverCardContent className="p-0 w-auto h-auto">
-                                    <div className="flex justify-center items-center">
-                                        <Image
-                                            src="/images/about/wechat-qr.jpg"
-                                            alt="WeChat QR Code"
-                                            width={200}
-                                            height={200}
-                                            className="rounded-lg"
-                                        />
-                                    </div>
-                                </HoverCardContent>
-                            </HoverCard>
-                        </p>
+                        <div className="flex flex-col -mt-4 space-y-3">
+                            <div className="flex gap-3 justify-start">
+                                {/* 公众号二维码 */}
+                                <div className="border border-gray-200 p-1.5 rounded-md">
+                                    <Image
+                                        src="/images/about/wechat-qr.jpg"
+                                        alt="WeChat QR Code"
+                                        width={96}
+                                        height={96}
+                                        className="rounded-sm"
+                                    />
+                                    <p className="text-center text-xs text-gray-600 mt-1.5">{t('followUs.items.wechat')}</p>
+                                </div>
+                                
+                                {/* 小程序二维码 */}
+                                <div className="border border-gray-200 p-1.5 rounded-md">
+                                    <Image
+                                        src="/images/about/qywork.jpg"
+                                        alt="Mini Program QR Code"
+                                        width={96}
+                                        height={96}
+                                        className="rounded-sm"
+                                    />
+                                    <p className="text-center text-xs text-gray-600 mt-1.5">{t('followUs.items.qywork')}</p>
+                                </div>
+                            </div>
+                        </div>
                     </FooterColumn>
                 </div>
 

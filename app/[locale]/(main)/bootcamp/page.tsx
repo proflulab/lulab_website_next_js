@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-01-06 00:28:21
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-03-31 00:19:21
+ * @LastEditTime: 2025-04-01 22:52:38
  * @FilePath: /lulab_website_next_js/app/[locale]/(main)/bootcamp/page.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -110,16 +110,16 @@ export default function BootcampPage() {
                         className="max-w-4xl pt-20"
                     >
                         <motion.h1
-                            className="text-7xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-[#ff9300] to-[#ff0099] leading-tight"
+                            className="text-4xl md:text-7xl font-extrabold mb-6 md:mb-8 bg-clip-text text-transparent bg-gradient-to-r from-[#ff9300] to-[#ff0099] leading-tight"
                             initial={{ scale: 0.95 }}
                             animate={{ scale: 1 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
                         >
-                            <span className="mr-8">
+                            <span className="mr-8 md:mr-8 block md:inline">
                                 {t("Hero.title")}
                             </span>
                             <br />
-                            <span className="ml-24">
+                            <span className="ml-0 md:ml-24 block md:inline">
                                 {t("Hero.subtitle")}
                             </span>
                         </motion.h1>
