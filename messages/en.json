@@ -155,7 +155,14 @@
       ]
     },
     "Timeline": {
-      "title": "Development History",
+      "title": "Development Timeline",
+      "fazhan": "Witness our growth journey and important milestones",
+      "clickToView": "Click on timeline nodes for details",
+      "milestoneCount": "Key Milestones",
+      "yearsDevelopment": "Years of Development",
+      "infinitePossibilities": "Infinite Possibilities",
+      "introduction": "From our inception to the present, we have been committed to innovation and development. This timeline records every important moment of our growth, witnessing our efforts and achievements. In the future, we will continue to move forward and create more excellence.",
+      "returnButton": "Return to Timeline",
       "milestones": [
         {
           "year": "1994",
