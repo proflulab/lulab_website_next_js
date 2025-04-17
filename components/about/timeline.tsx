@@ -2,8 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useEffect, useRef, useState } from 'react';
-import { X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion'; // 新增动画库
+import { motion } from 'framer-motion'; // 移除未使用的 AnimatePresence 和 X
 
 interface TimelineItemProps {
     year: string;
@@ -52,7 +51,7 @@ export function Timeline() {
         description: string;
     }>;
     
-    // 绘制时间线
+    // 绘制时间线 - 合并两个useEffect为一个
     useEffect(() => {
         if (!canvasRef.current) return;
         
@@ -65,188 +64,71 @@ export function Timeline() {
             const container = canvas.parentElement;
             if (container) {
                 canvas.width = container.clientWidth;
-                canvas.height = 24; // 与canvas样式高度一致
+                canvas.height = 60; // 调整高度适合波浪线
             }
         };
         
         setCanvasSize();
         window.addEventListener('resize', setCanvasSize);
         
-        // 绘制时间线
+        // 绘制波浪线时间线
         const drawTimeline = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
-            // 绘制主线
+            if (milestones.length <= 1) return;
+            
             const startX = 100;
             const endX = canvas.width - 100;
-            const centerY = canvas.height / 2; // 线段正中
-            const offset = 10; // Z字形高度略微减小
+            const centerY = canvas.height / 2;
+            const segmentWidth = (endX - startX) / (milestones.length - 1);
             
-            // 不再绘制直线，改为Z字形线条
-            if (milestones.length > 1) {
-                const segmentWidth = (endX - startX) / (milestones.length - 1);
+            // 创建渐变
+            const gradient = ctx.createLinearGradient(startX, centerY, endX, centerY);
+            gradient.addColorStop(0, '#36D1DC'); // 浅蓝色
+            gradient.addColorStop(1, '#5B86E5'); // 深蓝色
+            
+            // 设置线条样式
+            ctx.strokeStyle = '#36D1DC';
+            ctx.lineWidth = 6;
+            ctx.lineCap = 'round';
+            
+            // 绘制主线 - 波浪线
+            ctx.beginPath();
+            ctx.moveTo(startX, centerY);
+            
+            // 使用贝塞尔曲线创建波浪效果
+            for (let i = 0; i < milestones.length - 1; i++) {
+                const x1 = startX + i * segmentWidth;
+                const x2 = startX + (i + 1) * segmentWidth;
+                const xMid = (x1 + x2) / 2;
                 
-                // 使用渐变色
-                const gradient = ctx.createLinearGradient(startX, centerY, endX, centerY);
-                gradient.addColorStop(0, '#36D1DC'); // 浅蓝色
-                gradient.addColorStop(1, '#5B86E5'); // 深蓝色
+                // 轻微的波浪效果
+                const amplitude = 10; // 波浪幅度
+                const y1 = i % 2 === 0 ? centerY - amplitude : centerY + amplitude;
                 
-                ctx.strokeStyle = gradient;
-                ctx.lineWidth = 6; // 增加线条宽度
-                ctx.lineCap = 'round'; // 线条端点为圆形
-                ctx.lineJoin = 'round'; // 线条连接处为圆形
+                ctx.quadraticCurveTo(xMid, y1, x2, centerY);
+            }
+            
+            ctx.stroke();
+            
+            // 在每个时间点位置添加圆形端点
+            for (let i = 0; i < milestones.length; i++) {
+                const x = startX + i * segmentWidth;
                 
-                // 绘制Z字形连接线
+                // 外圆
                 ctx.beginPath();
-                ctx.moveTo(startX, centerY);
-                
-                for (let i = 0; i < milestones.length - 1; i++) {
-                    const x1 = startX + i * segmentWidth;
-                    const x2 = startX + (i + 1) * segmentWidth;
-                    
-                    // 根据索引奇偶性决定Z形方向
-                    const direction = i % 2 === 0 ? 1 : -1;
-                    
-                    // 绘制更平滑的Z字形
-                    const segmentThird = segmentWidth / 3;
-                    
-                    // 水平线
-                    ctx.lineTo(x1 + segmentThird, centerY);
-                    
-                    // 斜线（使用贝塞尔曲线使拐角更圆润）
-                    ctx.quadraticCurveTo(
-                        x1 + segmentThird + 10, centerY, 
-                        x1 + segmentThird + 10, centerY + direction * offset / 2
-                    );
-                    
-                    ctx.lineTo(x1 + 2 * segmentThird - 10, centerY + direction * offset);
-                    
-                    ctx.quadraticCurveTo(
-                        x1 + 2 * segmentThird, centerY + direction * offset,
-                        x1 + 2 * segmentThird, centerY + direction * offset
-                    );
-                    
-                    // 水平线
-                    ctx.lineTo(x2 - segmentThird, centerY + direction * offset);
-                    
-                    // 斜线
-                    ctx.quadraticCurveTo(
-                        x2 - segmentThird + 10, centerY + direction * offset,
-                        x2 - segmentThird + 10, centerY + direction * offset / 2
-                    );
-                    
-                    ctx.lineTo(x2, centerY);
-                }
-                
+                ctx.arc(x, centerY, 12, 0, Math.PI * 2);
+                ctx.fillStyle = 'white';
+                ctx.strokeStyle = '#36D1DC';
+                ctx.lineWidth = 4;
+                ctx.fill();
                 ctx.stroke();
                 
-                // 添加端点装饰
-                for (let i = 0; i < milestones.length; i++) {
-                    const x = startX + i * segmentWidth;
-                    
-                    // 在每个时间点位置添加圆形端点
-                    ctx.beginPath();
-                    ctx.arc(x, centerY, 4, 0, Math.PI * 2);
-                    ctx.fillStyle = i === 0 ? '#36D1DC' : (i === milestones.length - 1 ? '#5B86E5' : gradient);
-                    ctx.fill();
-                    
-                    // 在Z字形拐点添加小圆点
-                    if (i < milestones.length - 1) {
-                        const direction = i % 2 === 0 ? 1 : -1;
-                        const segmentThird = segmentWidth / 3;
-                        
-                        // 拐点1
-                        ctx.beginPath();
-                        ctx.arc(x + segmentThird, centerY, 3, 0, Math.PI * 2);
-                        ctx.fillStyle = '#36D1DC';
-                        ctx.fill();
-                        
-                        // 拐点2
-                        ctx.beginPath();
-                        ctx.arc(x + 2 * segmentThird, centerY + direction * offset, 3, 0, Math.PI * 2);
-                        ctx.fillStyle = '#5B86E5';
-                        ctx.fill();
-                    }
-                }
-            }
-        };
-        
-        drawTimeline();
-        
-        return () => {
-            window.removeEventListener('resize', setCanvasSize);
-        };
-    }, [milestones]);
-
-    // 在canvas绘制逻辑中增加阴影效果
-    useEffect(() => {
-        if (!canvasRef.current) return;
-        
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
-        
-        // 设置画布尺寸
-        const setCanvasSize = () => {
-            const container = canvas.parentElement;
-            if (container) {
-                canvas.width = container.clientWidth;
-                canvas.height = 220; // 适当加高，保证五边形完整显示
-            }
-        };
-        
-        setCanvasSize();
-        window.addEventListener('resize', setCanvasSize);
-        
-        // 绘制五边形时间线
-        const drawTimeline = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            const n = milestones.length;
-            if (n < 3) return; // 至少3个点才能成多边形
-
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            const r = Math.min(canvas.width, canvas.height) * 0.35; // 半径
-
-            // 计算五边形顶点
-            const points = [];
-            for (let i = 0; i < n; i++) {
-                // -Math.PI/2 让第一个点朝上
-                const angle = -Math.PI / 2 + (2 * Math.PI * i) / n;
-                const x = centerX + r * Math.cos(angle);
-                const y = centerY + r * Math.sin(angle);
-                points.push({ x, y });
-            }
-
-            // 去除五边形主线，只保留顶点圆点
-            // ctx.save();
-            // const gradient = ctx.createLinearGradient(points[0].x, points[0].y, points[2].x, points[2].y);
-            // gradient.addColorStop(0, '#36D1DC');
-            // gradient.addColorStop(1, '#5B86E5');
-            // ctx.strokeStyle = gradient;
-            // ctx.lineWidth = 6;
-            // ctx.lineCap = 'round';
-            // ctx.lineJoin = 'round';
-
-            // ctx.beginPath();
-            // ctx.moveTo(points[0].x, points[0].y);
-            // for (let i = 1; i < n; i++) {
-            //     ctx.lineTo(points[i].x, points[i].y);
-            // }
-            // ctx.closePath();
-            // ctx.stroke();
-            // ctx.restore();
-
-            // 绘制五边形顶点的圆点
-            for (let i = 0; i < n; i++) {
+                // 内圆
                 ctx.beginPath();
-                ctx.arc(points[i].x, points[i].y, 8, 0, Math.PI * 2);
-                ctx.fillStyle = i === 0 ? '#36D1DC' : (i === n - 1 ? '#5B86E5' : '#4B9FE5');
-                ctx.shadowColor = '#5B86E5';
-                ctx.shadowBlur = 8;
+                ctx.arc(x, centerY, 5, 0, Math.PI * 2);
+                ctx.fillStyle = '#36D1DC';
                 ctx.fill();
-                ctx.shadowBlur = 0;
             }
         };
         
@@ -370,7 +252,7 @@ export function Timeline() {
                 </p>
             </motion.div>
             
-            {/* 详细介绍弹窗 - 保持原有设计 */}
+            {/* 详细介绍弹窗 */}
             {selectedMilestone && (
                 <motion.div 
                     className="fixed inset-0 flex items-center justify-center z-50 p-4"
@@ -395,7 +277,7 @@ export function Timeline() {
                             </div>
                         </div>
                         
-                        {/* 底部按钮 - 蓝色按钮样式 */}
+                        {/* 底部按钮 */}
                         <div className="p-4 flex justify-end">
                             <motion.button 
                                 onClick={() => setSelectedMilestone(null)}
