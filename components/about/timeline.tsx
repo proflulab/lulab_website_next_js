@@ -37,7 +37,8 @@ function TimelineItem({ year, content, onClick }: TimelineItemProps) {
 
 export function Timeline() {
     const t = useTranslations('AboutPage.Timeline');
-    const canvasRef = useRef<HTMLCanvasElement>(null);
+    // 移除 canvasRef
+    // const canvasRef = useRef<HTMLCanvasElement>(null); 
     const [selectedMilestone, setSelectedMilestone] = useState<{
         year: string;
         content: string;
@@ -50,95 +51,6 @@ export function Timeline() {
         content: string;
         description: string;
     }>;
-    
-    // 绘制时间线 - 合并两个useEffect为一个
-    useEffect(() => {
-        if (!canvasRef.current) return;
-        
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
-        
-        // 设置画布尺寸
-        const setCanvasSize = () => {
-            const container = canvas.parentElement;
-            if (container) {
-                canvas.width = container.clientWidth;
-                canvas.height = 60; // 调整高度适合波浪线
-            }
-        };
-        
-        setCanvasSize();
-        window.addEventListener('resize', setCanvasSize);
-        
-        // 绘制波浪线时间线
-        const drawTimeline = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            if (milestones.length <= 1) return;
-            
-            const startX = 100;
-            const endX = canvas.width - 100;
-            const centerY = canvas.height / 2;
-            const segmentWidth = (endX - startX) / (milestones.length - 1);
-            
-            // 创建渐变
-            const gradient = ctx.createLinearGradient(startX, centerY, endX, centerY);
-            gradient.addColorStop(0, '#36D1DC'); // 浅蓝色
-            gradient.addColorStop(1, '#5B86E5'); // 深蓝色
-            
-            // 设置线条样式
-            ctx.strokeStyle = '#36D1DC';
-            ctx.lineWidth = 6;
-            ctx.lineCap = 'round';
-            
-            // 绘制主线 - 波浪线
-            ctx.beginPath();
-            ctx.moveTo(startX, centerY);
-            
-            // 使用贝塞尔曲线创建波浪效果
-            for (let i = 0; i < milestones.length - 1; i++) {
-                const x1 = startX + i * segmentWidth;
-                const x2 = startX + (i + 1) * segmentWidth;
-                const xMid = (x1 + x2) / 2;
-                
-                // 轻微的波浪效果
-                const amplitude = 10; // 波浪幅度
-                const y1 = i % 2 === 0 ? centerY - amplitude : centerY + amplitude;
-                
-                ctx.quadraticCurveTo(xMid, y1, x2, centerY);
-            }
-            
-            ctx.stroke();
-            
-            // 在每个时间点位置添加圆形端点
-            for (let i = 0; i < milestones.length; i++) {
-                const x = startX + i * segmentWidth;
-                
-                // 外圆
-                ctx.beginPath();
-                ctx.arc(x, centerY, 12, 0, Math.PI * 2);
-                ctx.fillStyle = 'white';
-                ctx.strokeStyle = '#36D1DC';
-                ctx.lineWidth = 4;
-                ctx.fill();
-                ctx.stroke();
-                
-                // 内圆
-                ctx.beginPath();
-                ctx.arc(x, centerY, 5, 0, Math.PI * 2);
-                ctx.fillStyle = '#36D1DC';
-                ctx.fill();
-            }
-        };
-        
-        drawTimeline();
-        
-        return () => {
-            window.removeEventListener('resize', setCanvasSize);
-        };
-    }, [milestones]);
-
     // 弹窗部分优化为玻璃质感效果
     return (
         <div className="flex flex-col items-center max-w-7xl mx-auto px-4 py-20">
@@ -162,27 +74,24 @@ export function Timeline() {
                 {t('fazhan')}
             </motion.p>
             
-            {/* 优化时间线容器 */}
+            {/* 优化时间线容器 - 设置为更美观的背景 */}
             <motion.div 
-                className="w-full rounded-2xl p-8 bg-[#e6f7fb] shadow-lg relative overflow-hidden"
+                className="w-full rounded-2xl p-8 bg-gradient-to-r from-blue-50 via-white to-blue-50 shadow-lg relative border border-blue-100" 
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5 }}
             >
-                {/* 背景装饰 */}
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                    <svg className="absolute top-0 left-0 w-full opacity-10" viewBox="0 0 1440 320" preserveAspectRatio="none">
-                        <path fill="#36D1DC" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-                    </svg>
-                    <svg className="absolute bottom-0 left-0 w-full opacity-10" viewBox="0 0 1440 320" preserveAspectRatio="none">
-                        <path fill="#5B86E5" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,122.7C960,139,1056,149,1152,149.3C1248,149,1344,139,1392,133.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                    </svg>
+                {/* 添加装饰性背景元素 */}
+                <div className="absolute inset-0 overflow-hidden rounded-2xl opacity-10">
+                    <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-200 rounded-full"></div>
+                    <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-200 rounded-full"></div>
                 </div>
                 
-                <div className="relative w-full h-[180px]">
-                    <canvas ref={canvasRef} className="absolute top-1/2 left-0 w-full h-[60px] -translate-y-1/2" />
+                {/* 调整容器高度 */}
+                <div className="relative w-full h-auto min-h-[120px] flex items-center z-10">
                     
-                    <div className="absolute top-1/2 left-0 w-full flex justify-between px-[100px] -translate-y-1/2">
+                    {/* TimelineItem 容器 */}
+                    <div className="w-full flex justify-between px-[100px]">
                         {milestones.map((milestone, index) => (
                             <TimelineItem
                                 key={index}
@@ -191,18 +100,6 @@ export function Timeline() {
                                 onClick={() => setSelectedMilestone(milestone)}
                             />
                         ))}
-                    </div>
-                    
-                    <div className="absolute bottom-0 left-0 w-full flex items-center justify-center">
-                        <div className="text-center">
-                            <motion.span 
-                                className="text-sm text-gray-500 italic px-3 py-1.5 bg-white/70 rounded-full shadow-sm"
-                                animate={{ opacity: [0.7, 1, 0.7] }}
-                                transition={{ repeat: Infinity, duration: 2 }}
-                            >
-                                {t('clickToView')}
-                            </motion.span>
-                        </div>
                     </div>
                 </div>
             </motion.div>
@@ -252,7 +149,7 @@ export function Timeline() {
                 </p>
             </motion.div>
             
-            {/* 详细介绍弹窗 */}
+            {/* 详细介绍弹窗 - 保持原有设计 */}
             {selectedMilestone && (
                 <motion.div 
                     className="fixed inset-0 flex items-center justify-center z-50 p-4"
@@ -277,7 +174,7 @@ export function Timeline() {
                             </div>
                         </div>
                         
-                        {/* 底部按钮 */}
+                        {/* 底部按钮 - 蓝色按钮样式 */}
                         <div className="p-4 flex justify-end">
                             <motion.button 
                                 onClick={() => setSelectedMilestone(null)}
