@@ -90,6 +90,9 @@ export function Timeline() {
                 {/* 调整容器高度 */}
                 <div className="relative w-full h-auto min-h-[120px] flex items-center z-10">
                     
+                    {/* 添加装饰性线条 */}
+                    <div className="absolute top-1/2 left-[100px] right-[100px] h-0.5 bg-gradient-to-r from-[#36D1DC] to-[#5B86E5] transform -translate-y-1/2 rounded-full"></div>
+                    
                     {/* TimelineItem 容器 */}
                     <div className="w-full flex justify-between px-[100px]">
                         {milestones.map((milestone, index) => (
