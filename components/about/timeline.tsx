@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion'; // 移除未使用的 AnimatePresence 和 X
+import { useState } from 'react'; // 移除未使用的 useEffect 和 useRef
+import { motion } from 'framer-motion';
 
 interface TimelineItemProps {
     year: string;
