@@ -8,15 +8,13 @@ interface TimelineItemProps {
     year: string;
     content: string;
     description?: string;
-    onClick: () => void;
 }
 
-// 修改TimelineItem组件，增加更多动画和视觉效果
-function TimelineItem({ year, content, onClick }: TimelineItemProps) {
+// 修改TimelineItem组件，移除点击事件
+function TimelineItem({ year, content }: TimelineItemProps) {
     return (
         <motion.div 
             className="flex flex-col items-center group cursor-pointer relative"
-            onClick={onClick}
             whileHover={{ y: -5 }} 
             transition={{ type: 'spring', stiffness: 300 }}
         >
@@ -45,13 +43,6 @@ function TimelineItem({ year, content, onClick }: TimelineItemProps) {
 
 export function Timeline() {
     const t = useTranslations('AboutPage.Timeline');
-    // 移除 canvasRef
-    // const canvasRef = useRef<HTMLCanvasElement>(null); 
-    const [selectedMilestone, setSelectedMilestone] = useState<{
-        year: string;
-        content: string;
-        description: string;
-    } | null>(null);
     
     // 获取里程碑数据
     const milestones = t.raw('milestones') as Array<{
@@ -59,7 +50,7 @@ export function Timeline() {
         content: string;
         description: string;
     }>;
-    // 弹窗部分优化为玻璃质感效果
+
     return (
         <div className="flex flex-col items-center max-w-7xl mx-auto px-4 py-20">
             {/* 优化标题样式 */}
@@ -125,7 +116,6 @@ export function Timeline() {
                                 key={index}
                                 year={milestone.year}
                                 content={milestone.content}
-                                onClick={() => setSelectedMilestone(milestone)}
                             />
                         ))}
                     </div>
@@ -176,46 +166,6 @@ export function Timeline() {
                     {t('introduction')}
                 </p>
             </motion.div>
-            
-            {/* 详细介绍弹窗 - 保持原有设计 */}
-            {selectedMilestone && (
-                <motion.div 
-                    className="fixed inset-0 flex items-center justify-center z-50 p-4"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                >
-                    <motion.div 
-                        className="bg-white rounded-xl max-w-2xl w-full shadow-lg border border-blue-100"
-                        initial={{ scale: 0.9, y: 20 }}
-                        animate={{ scale: 1, y: 0 }}
-                        transition={{ type: "spring", damping: 25 }}
-                    >
-                        <div className="p-6">
-                            <h3 className="text-xl font-bold text-[#36D1DC] mb-4">
-                                {selectedMilestone.year} - {selectedMilestone.content}
-                            </h3>
-                            <div className="prose max-w-none">
-                                <p className="text-gray-700 text-base leading-relaxed whitespace-pre-line">
-                                    {selectedMilestone.description}
-                                </p>
-                            </div>
-                        </div>
-                        
-                        {/* 底部按钮 - 蓝色按钮样式 */}
-                        <div className="p-4 flex justify-end">
-                            <motion.button 
-                                onClick={() => setSelectedMilestone(null)}
-                                className="px-4 py-2 bg-[#5B86E5] text-white rounded-lg hover:bg-[#4B76D5] transition-colors"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                {t('returnButton')}
-                            </motion.button>
-                        </div>
-                    </motion.div>
-                </motion.div>
-            )}
         </div>
     );
 }
