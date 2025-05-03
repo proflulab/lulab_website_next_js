@@ -12,13 +12,13 @@
 
 import React from "react";
 import { Hero } from "@/components/sections/Hero";
+import CozeChat from "@/components/CozeChat";
 
 const Home: React.FC = () => {
-
-
   return (
     <>
       <Hero />
+      <CozeChat />
     </>
   );
 };
