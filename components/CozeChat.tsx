@@ -2,7 +2,7 @@
  * @Author: 杨仕明 shiming.y@qq.com
  * @Date: 2025-05-03 10:18:36
  * @LastEditors: 杨仕明 shiming.y@qq.com
- * @LastEditTime: 2025-05-03 11:46:13
+ * @LastEditTime: 2025-05-04 12:10:38
  * @FilePath: /lulab_website_next_js/components/CozeChat.tsx
  * @Description: 
  * 
@@ -79,19 +79,23 @@ export default function CozeChat() {
                 // 先添加样式
                 addChatStyles();
 
+                // 从环境变量获取配置信息
+                const botId = process.env.COZE_BOT_ID || '';
+                const token = process.env.COZE_TOKEN || '';
+
                 // 然后初始化聊天客户端
                 new window.CozeWebSDK.WebChatClient({
                     config: {
-                        bot_id: '7423012433846861859',
+                        bot_id: botId,
                     },
                     componentProps: {
                         title: 'Coze',
                     },
                     auth: {
                         type: 'token',
-                        token: 'pat_z3Ym2JXaJdlWvBo417XDcGGOALqJKCcDtvAxcykwTaKvSDQfaIPFlxojOs8rMr7j',
+                        token: token,
                         onRefreshToken: function () {
-                            return 'pat_z3Ym2JXaJdlWvBo417XDcGGOALqJKCcDtvAxcykwTaKvSDQfaIPFlxojOs8rMr7j'
+                            return token;
                         }
                     }
                 });
