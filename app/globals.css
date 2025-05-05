@@ -1,0 +1,189 @@
+/* ... existing global styles ... */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  /* 强制移除底部可能的边距 */
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+body > div:first-child {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* 强制移除底部可能的边距 */
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+main {
+  flex-grow: 1;
+  /* 确保主内容区域没有底部边距 */
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* 针对 Coze 聊天窗口的容器样式 */
+.ai-customer-service-container {
+  /* 确保容器不会添加额外空间 */
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important; /* 关键：让容器本身不占用空间 */
+  overflow: visible !important; /* 允许内容溢出 */
+}
+
+/* 针对 Coze 可能渲染的 iframe 或容器 */
+[id*="coze-"],
+[class*="coze-"],
+iframe[src*="coze"] {
+  /* 确保这些元素不会添加额外空间 */
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* ---- 尝试覆盖 Coze SDK 可能引入的空白 ---- */
+
+/* 针对 Coze 可能渲染的 iframe */
+iframe[id^="coze-"], /* Coze iframe 通常有以 coze- 开头的 ID */
+iframe[src*="coze.com"], /* 或者 src 包含 coze.com */
+iframe[class*="coze-"] /* 或者 class 包含 coze- */
+{
+  /* 确保 iframe 本身没有奇怪的边距 */
+  margin: 0 !important;
+  padding: 0 !important;
+  /* 尝试强制设置 display block，防止 inline 元素引入的空白 */
+  display: block !important;
+  /* 如果 iframe 是导致高度增加的原因，可以尝试限制其最大高度 */
+  /* max-height: 0 !important; */ /* 谨慎使用，可能会隐藏 iframe */
+}
+
+/* 针对 Coze 可能的外部容器 */
+/* !!! 请使用开发者工具检查实际的类名或 ID 并替换 !!! */
+div[class*="coze-container"], /* 示例类名 */
+div[id*="coze-root"] /* 示例 ID */
+{
+  /* 确保容器没有奇怪的边距或填充 */
+  margin: 0 !important;
+  padding: 0 !important;
+  /* 尝试强制设置高度或最大高度为0，如果它不该占据空间 */
+  /* height: 0 !important; */
+  /* max-height: 0 !important; */
+  /* 或者确保它不影响布局 */
+  /* position: absolute !important; */ /* 谨慎使用 */
+}
+
+/* 移除之前在 AICustomerService.tsx 中可能添加的全局样式 */
+/* 如果 AICustomerService.tsx 还在动态添加 <style> 标签，需要去那里修改 */
+/* 例如，移除下面这些可能导致问题的规则 */
+/*
+div[style*="display: block; width: 460px"] { ... }
+iframe[class*="b47a01a7e24cbec6131b"] { ... }
+*/
+
+/* 假设你的主要内容区域有一个特定的 ID 或类名 */
+/* 或者它是 body 的直接子元素中的 main 标签 */
+/* 你需要根据 layout.tsx 的结构调整选择器 */
+main { /* 或者 #main-content, .content-wrapper 等 */
+  flex-grow: 1; /* 让这个元素填充剩余的垂直空间 */
+  /* display: flex; */ /* 如果内部还需要 flex 布局 */
+  /* flex-direction: column; */
+}
+
+/* 强制主容器撑满屏幕 */
+body > div:first-child {
+  min-height: 100vh !important;
+}
+
+/* 重写客服容器样式 */
+.ai-customer-service-container {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  width: auto !important;
+  height: auto !important;
+  z-index: 1000 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 核武器级隐藏所有 SDK 生成元素 */
+div[class*="coze-"], 
+div[id*="coze-"],
+iframe[src*="coze"] {
+  height: 0 !important;
+  width: 0 !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  pointer-events: none !important;
+}
+
+/* 修复根元素高度计算 */
+html {
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+
+/* 强制主体容器精确控制 */
+body > div:first-child {
+  height: 100vh !important;
+  overflow-y: auto !important;
+}
+
+/* 彻底隐藏所有 SDK 生成元素 */
+div[class*="coze-"], 
+div[id*="coze-"],
+iframe[src*="coze"] {
+  display: none !important;
+  visibility: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* 优化客服容器定位 */
+.ai-customer-service-container {
+  position: fixed !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  transform: translate(-10px, -10px) !important;
+  contain: strict !important;
+}
+
+/* 终极解决方案 */
+html, body, #__next {
+  height: 100% !important;
+  width: 100% !important;
+  overflow: clip !important;
+  overscroll-behavior: none !important;
+}
+
+.ai-customer-service-container {
+  all: initial !important;
+  contain: content !important;
+  isolation: isolate !important;
+}
+
+/* 核武器级隐藏 */
+div:has(> [id*="coze"]),
+div:has(> [class*="coze"]) {
+  display: none !important;
+  visibility: collapse !important;
+  position: fixed !important;
+  inset: -999px !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
+}

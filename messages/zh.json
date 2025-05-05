@@ -266,7 +266,7 @@
     },
     "orderId": "订单编号：",
     "customerSupport": {
-      "title": "如有任何问题，请联系我们的客服团队：",
+      "title": "AI客服",
       "email": "orders@lulabs.org"
     },
     "buttons": {
