@@ -10,10 +10,6 @@ export async function POST() {
         return NextResponse.json({ error: 'Coze token not configured' }, { status: 500 });
     }
 
-    // 返回 token。注意：虽然通过API返回，但仍然需要确保只有授权的客户端可以访问此API，
-    // 或者接受 token 暴露给任何可以访问此API的客户端。
-    // 对于大多数客户端集成的聊天机器人SDK，token需要在客户端使用，
-    // 因此通过API提供是常见的做法，但请了解其安全含义。
     return NextResponse.json({ token: cozeToken });
 }
 

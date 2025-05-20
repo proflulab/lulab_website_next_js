@@ -33,24 +33,23 @@ declare global {
                         icon: string;
                         layout: string;
                         zIndex: number;
-                    },
+                    };
                     footer: {
                         isShow: boolean;
-                    },
+                    };
                     header: {
                         icon: string;
-                    },
+                    };
                     chatBot: {
                         title: string;
                         el?: HTMLElement;
-
-                    },
+                    };
                     userInfo: {
-                        id: '12345',
-                        url: 'https://lf-coze-web-cdn.coze.cn/obj/coze-web-cn/obric/coze/favicon.1970.png',
-                        nickname: 'UserA',
-                      },
-                  } // 添加 el 属性到类型定义
+                        id: '12345';
+                        url: string;
+                        nickname: string;
+                    };
+                }; // 添加 el 属性到类型定义
             }) => void;
             // 如果SDK提供销毁方法，可以在这里添加类型
             // destroy?: () => void;
@@ -73,34 +72,7 @@ export default function CozeChat() {
             return;
         }
 
-
-        // 尝试找到并移除 Coze SDK 可能创建的聊天窗口 DOM 元素
-        // 注意：这些选择器是基于您之前的CSS和通用模式，可能需要根据 Coze SDK 实际生成的 HTML 结构进行调整
-        // 使用 el 属性后，SDK 不会创建这些默认元素，所以这里的清理可能不再需要，
-        // 但保留它们以防万一或兼容旧行为。
-        const removeExistingChatWidget = () => {
-            console.log('[CozeChat] Attempting to remove existing chat widget UI...');
-            // Coze SDK 通常会将其 UI 附加到 body 或特定的容器中
-            // 查找可能的 Coze 根元素或 iframe
-            const cozeIframes = document.querySelectorAll('iframe[src*="coze.cn"], iframe[id*="coze"], iframe[class*="coze"]');
-            cozeIframes.forEach(iframe => {
-                console.log('[CozeChat] Removing Coze iframe:', iframe);
-                iframe.parentElement?.remove(); // 尝试移除 iframe 的父容器，或者 iframe 本身
-                iframe.remove();
-            });
-
-            // 查找可能的 Coze 容器 div
-            // 您之前的 CSS 针对 `div[style*="display: block; width: 460px"]`
-            const cozeDivs = document.querySelectorAll('div[style*="display: block; width: 460px"]');
-            cozeDivs.forEach(div => {
-                console.log('[CozeChat] Removing Coze div:', div);
-                div.remove();
-            });
-
-            // 如果 Coze SDK 有一个已知的顶级 wrapper ID 或 class，也应该在这里移除
-            // 例如：const cozeWrapper = document.getElementById('coze-chat-wrapper'); if (cozeWrapper) cozeWrapper.remove();
-        };
-
+        
         // 清理函数
         const cleanup = () => {
             console.log('[CozeChat] Cleanup function called.');
@@ -121,7 +93,7 @@ export default function CozeChat() {
             }
 
             // 使用 el 后，SDK 不会创建默认的聊天窗口元素，所以这里可能不需要清理
-            // removeExistingChatWidget();
+            // removeExistingChatWidget(); // 此处调用也被注释掉了
 
             // 可选：如果 Coze SDK 在 window 对象上暴露了销毁方法，应该调用它
             // if (window.CozeWebSDK && typeof window.CozeWebSDK.destroy === 'function') {
@@ -143,8 +115,8 @@ export default function CozeChat() {
                 console.log('[CozeChat] SDK script already exists, skipping load.');
                 // 如果脚本已存在，并且 SDK 尚未初始化，尝试手动初始化
                 if (window.CozeWebSDK && !isInitialized.current) {
-                     console.log('[CozeChat] SDK script exists, SDK available, but not initialized. Attempting manual init.');
-                     initCozeChat(); // 尝试初始化
+                    console.log('[CozeChat] SDK script exists, SDK available, but not initialized. Attempting manual init.');
+                    initCozeChat(); // 尝试初始化
                 }
                 return; // 脚本已存在，不再重复添加
             }
@@ -199,8 +171,8 @@ export default function CozeChat() {
                     return;
                 }
                 if (!token) {
-                     console.error("[CozeChat] Critical: Coze token is undefined. Cannot initialize.");
-                     return;
+                    console.error("[CozeChat] Critical: Coze token is undefined. Cannot initialize.");
+                    return;
                 }
 
                 try {
@@ -229,11 +201,11 @@ export default function CozeChat() {
                             },
                             footer: {
                                 isShow: false
-                              },
-                              header: {
+                            },
+                            header: {
                                 icon: 'https://tse3.mm.bing.net/th/id/OIP.CNkRqfGq0B6ONJkYDbCWmwAAAA?rs=1&pid=ImgDetMain',
-                              },
-                              chatBot: {
+                            },
+                            chatBot: {
                                 title: t('botchat'),
                                 el: cozeChatContainerRef.current // 修改这里
                                 // 移除 height 属性，高度由容器 div 的 style 控制
@@ -243,8 +215,8 @@ export default function CozeChat() {
                                 id: '12345',
                                 url: 'https://lf-coze-web-cdn.coze.cn/obj/coze-web-cn/obric/coze/favicon.1970.png',
                                 nickname: 'UserA',
-                              }
-                          },
+                            }
+                        },
                         // 将容器元素传递给 SDK
                         // 可以根据需要添加 onShow 和 onHide 回调来控制容器的显示/隐藏
                         // onShow: () => { if (cozeChatContainerRef.current) cozeChatContainerRef.current.style.display = 'block'; },
@@ -256,9 +228,9 @@ export default function CozeChat() {
                     console.error('[CozeChat] Error during Coze WebChatClient initialization:', error);
                 }
             } else if (isInitialized.current) {
-                 console.log('[CozeChat] initCozeChat called but already initialized.');
+                console.log('[CozeChat] initCozeChat called but already initialized.');
             } else {
-                 console.warn('[CozeChat] initCozeChat called but CozeWebSDK not found or container ref is not available.');
+                console.warn('[CozeChat] initCozeChat called but CozeWebSDK not found or container ref is not available.');
             }
         };
 
