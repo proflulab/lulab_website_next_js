@@ -72,7 +72,7 @@ export default function CozeChat() {
             return;
         }
 
-        
+
         // 清理函数
         const cleanup = () => {
             console.log('[CozeChat] Cleanup function called.');
