@@ -65,8 +65,7 @@ export default function CozeChat() {
     useEffect(() => {
         console.log('[CozeChat] useEffect triggered. Current locale/translation key for cozeid:', t('cozeid'));
 
-        // 如果已经初始化过，则直接返回，避免重复加载和初始化
-        // 这里的检查仍然保留，作为双重保险
+        
         if (isInitialized.current) {
             console.log('[CozeChat] SDK already initialized, skipping useEffect run.');
             return;
@@ -76,9 +75,7 @@ export default function CozeChat() {
         // 清理函数
         const cleanup = () => {
             console.log('[CozeChat] Cleanup function called.');
-            // 移除SDK脚本
-            // 注意：如果组件频繁挂载/卸载，移除脚本可能不是最佳策略，
-            // 更好的方法是确保脚本只加载一次。但保留此清理以防万一。
+            
             const scriptElement = document.querySelector('script[src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"]');
             if (scriptElement) {
                 console.log('[CozeChat] Removing SDK script.');
