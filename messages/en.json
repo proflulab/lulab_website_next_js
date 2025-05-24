@@ -187,6 +187,11 @@
       ]
     }
   },
+  "CozeChat": {
+    "cozeid": "7502974207534858252",
+    "botchat":"AI Custumor service"
+    
+  },
   "BootcampPage": {
     "Hero": {
       "title": "In Lulab Bootcamp",
